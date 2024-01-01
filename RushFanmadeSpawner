@@ -45,7 +45,7 @@ local entityTable = Spawner.createEntity({
                 Color3.fromRGB(125, 127, 255), -- Color
             },
             Tease = {
-                true, -- Enabled/Disabled
+                false, -- Enabled/Disabled
                 Min = 1,
                 Max = 3,
             },
