@@ -6,5 +6,4 @@ Achievements.Get({
     Title = "Rushing Glitch",
     Desc = "What happened to Rush..?",
     Reason = 'Encounter Rush but glitched out',
-    Image = "Your Image Link With Https://",
-})
+    Image = "(https://create.roblox.com/marketplace/asset/15838374185/RushDes%3Fkeyword=&pageNumber=&pagePosition=)",
