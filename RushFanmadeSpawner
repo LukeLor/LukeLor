@@ -6,7 +6,7 @@ local entityTable = Spawner.createEntity({
     CustomName = "RushFloor2", -- Custom name of your entity
     Model = "rbxassetid://15838020117", -- Can be GitHub file or rbxassetid
     Speed = 200, -- Percentage, 100 = default Rush speed
-    DelayTime = 2, -- Time before starting cycles (seconds)
+    DelayTime = 5, -- Time before starting cycles (seconds)
     HeightOffset = 0,
     CanKill = true,
     KillRange = 50,
@@ -14,12 +14,12 @@ local entityTable = Spawner.createEntity({
     BreakLights = true,
     FlickerLights = {
         true, -- Enabled/Disabled
-        1, -- Time (seconds)
+        2, -- Time (seconds)
     },
     Cycles = {
         Min = 1,
         Max = 1,
-        WaitTime = 2,
+        WaitTime = 5,
     },
     CamShake = {
         true, -- Enabled/Disabled
