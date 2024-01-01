@@ -18,7 +18,7 @@ local entityTable = Spawner.createEntity({
     },
     Cycles = {
         Min = 1,
-        Max = 4,
+        Max = 1,
         WaitTime = 2,
     },
     CamShake = {
@@ -51,7 +51,7 @@ local entityTable = Spawner.createEntity({
             },
         },
     },
-    CustomDialog = {"You died to Rush...", "This is quite an unexpected death.", "It's an alternative version.", "He is way much faster!"}, -- Custom death message
+    CustomDialog = {"You died to Rush.", "This is quite an unexpected death.", "It's an alternative version.", "He is way much faster!"}, -- Custom death message
 })
 
 
@@ -76,9 +76,9 @@ entityTable.Debug.OnEntityEnteredRoom = function(room)
     print("Entity:", entityTable, "has entered room:", room)
 end
 
-entityTable.Debug.OnLookAtEntity = function()
-    print("Player has looked at entity:", entityTable)
-end
+--entityTable.Debug.OnLookAtEntity = function()
+    --print("Player has looked at entity:", entityTable)
+--end
 
 entityTable.Debug.OnDeath = function()
     warn("Player has died.")
