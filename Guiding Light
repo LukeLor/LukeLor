@@ -5,10 +5,10 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entityTable = Spawner.createEntity({
     CustomName = "Guiding Light", -- Custom name of your entity
     Model = "rbxassetid://15850841983", -- Can be GitHub file or rbxassetid
-    Speed = 12.5, -- Percentage, 100 = default Rush speed
-    DelayTime = 0, -- Time before starting cycles (seconds)
+    Speed = 200, -- Percentage, 100 = default Rush speed
+    DelayTime = 6.4, -- Time before starting cycles (seconds)
     HeightOffset = 0,
-    CanKill = false,
+    CanKill = true,
     KillRange = 50,
     BackwardsMovement = false,
     BreakLights = true,
@@ -29,8 +29,8 @@ local entityTable = Spawner.createEntity({
     Jumpscare = {
         true, -- Enabled/Disabled
         {
-            Image1 = "rbxassetid://12875044447", -- Image1 url
-            Image2 = "rbxassetid://12875044447", -- Image2 url
+            Image1 = "rbxassetid://1463256958", -- Image1 url
+            Image2 = "rbxassetid://1463256958", -- Image2 url
             Shake = true,
             Sound1 = {
                 12875044447, -- SoundId
@@ -110,6 +110,6 @@ end
 
 game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
 wait(1.2)
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to MadGuy2187...", "MadGuy2187 is not meant to be looked at.", "Treat Him as if He were Eyes..."}, "Blue") end)
+firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Guiding Light...", "H-How can this be?", "Isn't Guiding Light meant to help you?"}, "Yellow") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
