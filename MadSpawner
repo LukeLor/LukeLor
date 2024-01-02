@@ -59,12 +59,6 @@ local entityTable = Spawner.createEntity({
 -----[[  Debug -=- Advanced  ]]-----
 entityTable.Debug.OnEntitySpawned = function()
     print("Entity has spawned:", entityTable)
-local SS = Instance.new("Sound")
-SS.SoundId = 2674547670
-SS.Parent = Workspace
-SS:Play()
-SS.PlaybackSpeed = 0.3
-
 end
 
 entityTable.Debug.OnEntityDespawned = function()
