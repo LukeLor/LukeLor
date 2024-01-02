@@ -62,6 +62,8 @@ local SS = Instance.new("Sound")
 SS.SoundId = 2674547670
 SS.Parent = game.Workspace
 SS:Play()
+SS.Volume = 1
+SM.PlaybackSpeed = 0.2
 end
 
 entityTable.Debug.OnEntityDespawned = function()
@@ -70,10 +72,14 @@ local SD = Instance.new("Sound")
 SD.SoundId = 3908308607
 SD.Parent = entityTable
 SD:Play()
+SD.PlaybackSpeed = 0.444
+SD.Volume = 1
 local SD2 = Instance.new("Sound")
 SD2.SoundId = 6675104318
 SD2.Parent = entityTable
 SD2:Play()
+SD2.Volume = 1
+SD2.PlaybackSpeed = 0.4
 -- Achievement
 local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
@@ -94,6 +100,8 @@ SM.SoundId = 6467894576
 SM.Parent = entityTable
 SM:Play()
 SM.Looped = true
+SM.Volume = 1
+SM.PlaybackSpeed = 0.1
 end
 
 entityTable.Debug.OnEntityFinishedRebound = function()
@@ -106,6 +114,8 @@ local SP = Instance.new("Sound")
 SP.SoundId = 5546573724
 SP.Parent = entityTable
 SP:Play()
+SP.Volume = 1
+SP.PlaybackSpeed = 0.6
 end
 
 --entityTable.Debug.OnLookAtEntity = function()
