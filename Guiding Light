@@ -1,0 +1,115 @@
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+
+-- Create entity
+local entityTable = Spawner.createEntity({
+    CustomName = "Guiding Light", -- Custom name of your entity
+    Model = "rbxassetid://15850841983", -- Can be GitHub file or rbxassetid
+    Speed = 12.5, -- Percentage, 100 = default Rush speed
+    DelayTime = 0, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = false,
+    KillRange = 50,
+    BackwardsMovement = false,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        4, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        WaitTime = 0,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
+        100, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://12875044447", -- Image1 url
+            Image2 = "rbxassetid://12875044447", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                12875044447, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                5546573724, -- SoundId
+                { Volume = 0.5 },
+                { PlaybackSpeed = 0.3 },-- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(220, 110, 110), -- Color
+            },
+            Tease = {
+                false, -- Enabled/Disabled
+                Min = 1,
+                Max = 6,
+            },
+        },
+    },
+    CustomDialog = {"You died to Rush.", "This is quite an unexpected death.", "It's an alternative version.", "He is way much faster!"}, -- Custom death message
+})
+
+
+-----[[  Debug -=- Advanced  ]]-----
+entityTable.Debug.OnEntitySpawned = function()
+    print("Entity has spawned:", entityTable)
+local SS = Instance.new("Sound")
+SS.SoundId = 2674547670
+SS.Parent = Workspace
+SS:Play()
+SS.PlaybackSpeed = 0.3
+
+end
+
+entityTable.Debug.OnEntityDespawned = function()
+    print("Entity has despawned:", entityTable)
+local SD = Instance.new("Sound")
+SD.SoundId = 3908308607
+SD.Parent = entityTable
+SD:Play()
+SD.PlaybackSpeed = 0.3
+-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Traitor!",
+    Desc = "Why is Guiding Light trying to kill me?",
+    Reason = 'Encounter Guiding Light's killer side',
+    Image = "(data:image/jpeg;base64,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",
+})
+
+end
+
+entityTable.Debug.OnEntityStartMoving = function()
+    print("Entity has started moving:", entityTable)
+end
+
+entityTable.Debug.OnEntityFinishedRebound = function()
+    print("Entity has finished rebound:", entityTable)
+end
+
+entityTable.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity:", entityTable, "has entered room:", room)
+end
+
+--entityTable.Debug.OnLookAtEntity = function()
+    --print("Player has looked at entity:", entityTable)
+--end
+
+entityTable.Debug.OnDeath = function()
+    warn("Player has died.")
+end
+------------------------------------
+
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+wait(1.2)
+firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to MadGuy2187...", "MadGuy2187 is not meant to be looked at.", "Treat Him as if He were Eyes..."}, "Blue") end)
+-- Run the created entity
+Spawner.runEntity(entityTable)
