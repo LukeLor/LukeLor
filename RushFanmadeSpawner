@@ -58,6 +58,7 @@ local entityTable = Spawner.createEntity({
 -----[[  Debug -=- Advanced  ]]-----
 entityTable.Debug.OnEntitySpawned = function()
     print("Entity has spawned:", entityTable)
+
 end
 
 entityTable.Debug.OnEntityDespawned = function()
@@ -85,6 +86,8 @@ entityTable.Debug.OnDeath = function()
 end
 ------------------------------------
 
-
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+wait(1.2)
+firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Rush's Distorted Side...", "This is a rare death.", "Beware, Rush's Distorted Side is faster than normal Rush!", "Hope this is helpful in the future."}, "Blue") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
