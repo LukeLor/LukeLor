@@ -37,13 +37,13 @@ local entityTable = Spawner.createEntity({
                 { Volume = 0.5 }, -- Sound properties
             },
             Sound2 = {
-                12875044447, -- SoundId
+                325574531, -- SoundId
                 { Volume = 0.5 },
-                { PlaybackSpeed = 0.3 },-- Sound properties
+                { PlaybackSpeed = 0.2 },-- Sound properties
             },
             Flashing = {
                 true, -- Enabled/Disabled
-                Color3.fromRGB(220, 110, 110), -- Color
+                Color3.fromRGB(119, 232, 255), -- Color
             },
             Tease = {
                 false, -- Enabled/Disabled
