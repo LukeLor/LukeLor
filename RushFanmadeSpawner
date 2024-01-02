@@ -3,10 +3,10 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 
 -- Create entity
 local entityTable = Spawner.createEntity({
-    CustomName = "RushFloor2", -- Custom name of your entity
-    Model = "rbxassetid://15838020117", -- Can be GitHub file or rbxassetid
-    Speed = 200, -- Percentage, 100 = default Rush speed
-    DelayTime = 5, -- Time before starting cycles (seconds)
+    CustomName = "Rush's Distorted Side", -- Custom name of your entity
+    Model = "rbxassetid://15839769315", -- Can be GitHub file or rbxassetid
+    Speed = 400, -- Percentage, 100 = default Rush speed
+    DelayTime = 6.5, -- Time before starting cycles (seconds)
     HeightOffset = 0,
     CanKill = true,
     KillRange = 50,
@@ -19,7 +19,7 @@ local entityTable = Spawner.createEntity({
     Cycles = {
         Min = 1,
         Max = 1,
-        WaitTime = 5,
+        WaitTime = 6.5,
     },
     CamShake = {
         true, -- Enabled/Disabled
@@ -58,15 +58,31 @@ local entityTable = Spawner.createEntity({
 -----[[  Debug -=- Advanced  ]]-----
 entityTable.Debug.OnEntitySpawned = function()
     print("Entity has spawned:", entityTable)
-
+local SS = Instance.new("Sound")
+SS.SoundId = 2674547670
+SS.Parent = entityTable
+SS:Play
 end
 
 entityTable.Debug.OnEntityDespawned = function()
     print("Entity has despawned:", entityTable)
+local SD = Instance.new("Sound")
+SD.SoundId = 3908308607
+SD.Parent = entityTable
+SD:Play
+local SD2 = Instance.new("Sound")
+SD2.SoundId = 6675104318
+SD2.Parent = entityTable
+SD2:Play
 end
 
 entityTable.Debug.OnEntityStartMoving = function()
     print("Entity has started moving:", entityTable)
+local SM = Instance.new("Sound")
+SM.SoundId = 6467894576
+SM.Parent = entityTable
+SM:Play
+SM.Looped = true
 end
 
 entityTable.Debug.OnEntityFinishedRebound = function()
@@ -75,6 +91,10 @@ end
 
 entityTable.Debug.OnEntityEnteredRoom = function(room)
     print("Entity:", entityTable, "has entered room:", room)
+local SP = Instance.new("Sound")
+SP.SoundId = 5546573724
+SP.Parent = entityTable
+SP:Play
 end
 
 --entityTable.Debug.OnLookAtEntity = function()
