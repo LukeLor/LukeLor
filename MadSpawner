@@ -74,11 +74,6 @@ SD.SoundId = 3908308607
 SD.Parent = entityTable
 SD:Play()
 SD.PlaybackSpeed = 0.3
-local SD2 = Instance.new("Sound")
-SD2.SoundId = 6675104318
-SD2.Parent = entityTable
-SD2:Play()
-SD2.PlaybackSpeed = 0.3
 -- Achievement
 local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
