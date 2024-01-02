@@ -60,7 +60,7 @@ entityTable.Debug.OnEntitySpawned = function()
     print("Entity has spawned:", entityTable)
 local SS = Instance.new("Sound")
 SS.SoundId = 2674547670
-SS.Parent = entityTable
+SS.Parent = game.Workspace
 SS:Play
 end
 
