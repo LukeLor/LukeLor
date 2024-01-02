@@ -74,6 +74,17 @@ local SD2 = Instance.new("Sound")
 SD2.SoundId = 6675104318
 SD2.Parent = entityTable
 SD2:Play
+-- Achievement
+local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+-- Creates and displays your custom achievement
+Achievements.Get({
+    Title = "Rushing Glitch",
+    Desc = "What happened to Rush..?",
+    Reason = 'Encounter Rush but glitched out',
+    Image = "(https://th.bing.com/th/id/OIP.ohjSwUIGprhZUdKzAzRL8wHaFL?w=266&h=185&c=7&r=0&o=5&pid=1.7",
+})
+
 end
 
 entityTable.Debug.OnEntityStartMoving = function()
