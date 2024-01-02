@@ -11,7 +11,7 @@ local entityTable = Spawner.createEntity({
     CanKill = true,
     KillRange = 50,
     BackwardsMovement = false,
-    BreakLights = true,
+    BreakLights = false,
     FlickerLights = {
         true, -- Enabled/Disabled
         2, -- Time (seconds)
@@ -19,7 +19,7 @@ local entityTable = Spawner.createEntity({
     Cycles = {
         Min = 1,
         Max = 1,
-        WaitTime = 0,
+        WaitTime = 6.4,
     },
     CamShake = {
         true, -- Enabled/Disabled
@@ -110,6 +110,6 @@ end
 
 game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
 wait(1.2)
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Guiding Light...", "H-How can this be?", "Isn't Guiding Light meant to help you?"}, "Yellow") end)
+firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Guiding Light...", "H-How can this be?", "Isn't Guiding Light meant to help you?", "I'll lets you be the judge of that.", "Anyways, See you next time.", "Right?"}, "Yellow") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
