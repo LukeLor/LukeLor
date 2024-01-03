@@ -110,7 +110,7 @@ end
 
 entityTable.Debug.OnDeath = function()
     warn("Player has died.")
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Dasher...", "Take note, Dasher is faster than Ambush!", "Remember to Hop in and out if needed."}, "Blue") end)
+--firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Dasher...", "Take note, Dasher is faster than Ambush!", "Remember to Hop in and out if needed."}, "Blue") end)
 end
 ------------------------------------
 -- Run the created entity
