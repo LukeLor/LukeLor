@@ -92,9 +92,5 @@ entityTable.Debug.OnDeath = function()
     warn("Player has died.")
 end
 ------------------------------------
-
-game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-wait(1.2)
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to MadGuy2187...", "MadGuy2187 is not meant to be looked at.", "Treat Him as if He were Eyes..."}, "Blue") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
