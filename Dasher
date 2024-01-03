@@ -79,17 +79,6 @@ SD2.SoundId = 6675104318
 SD2.Parent = entityTable
 SD2:Play()
 SD2.PlaybackSpeed = 0.3
--- Achievement
-local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
-
--- Creates and displays your custom achievement
-Achievements.Get({
-    Title = "Dashing Through Da Hotel",
-    Desc = "...",
-    Reason = 'Encounter Dasher',
-    Image = "(https://static.wikia.nocookie.net/doors-game/images/f/f2/Ambush_Original.png/revision/latest?cb=20220808010446",
-})
-
 end
 
 entityTable.Debug.OnEntityStartMoving = function()
