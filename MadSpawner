@@ -80,12 +80,12 @@ entityTable.Debug.OnEntityEnteredRoom = function(room)
     print("Entity:", entityTable, "has entered room:", room)
 end
 
---entityTable.Debug.OnLookAtEntity = function()
-    --print("Player has looked at entity:", entityTable)
+entityTable.Debug.OnLookAtEntity = function()
+    print("Player has looked at entity:", entityTable)
       local plrname = game.Players.LocalPlayer.Name
     local plrmodel = workspace:FindFirstChild(plrname)
     plrmodel.Humanoid.Health -= 5
---end
+end
 
 entityTable.Debug.OnDeath = function()
     warn("Player has died.")
