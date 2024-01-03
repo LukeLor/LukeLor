@@ -110,11 +110,8 @@ end
 
 entityTable.Debug.OnDeath = function()
     warn("Player has died.")
+firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Dasher...", "Take note, Dasher is faster than Ambush!", "Remember to Hop in and out if needed."}, "Blue") end)
 end
 ------------------------------------
-
-game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-wait(1.2)
-firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Dasher...", "Take note, Dasher is faster than Ambush!", "Remember to Hop in and out if needed."}, "Blue") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
