@@ -76,7 +76,7 @@ SD:Play()
 SD.PlaybackSpeed = 0.3
 local SD2 = Instance.new("Sound")
 SD2.SoundId = 6675104318
-SD2.Parent = entityTable
+SD2.Parent = Model
 SD2:Play()
 SD2.PlaybackSpeed = 0.3
 end
@@ -85,7 +85,7 @@ entityTable.Debug.OnEntityStartMoving = function()
     print("Entity has started moving:", entityTable)
 local SM = Instance.new("Sound")
 SM.SoundId = 8880765497
-SM.Parent = entityTable
+SM.Parent = Model
 SM:Play()
 SM.Looped = true
 SM.PlaybackSpeed = 0.25
