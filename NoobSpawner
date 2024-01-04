@@ -86,8 +86,12 @@ entityTable.Debug.OnLookAtEntity = function()
       local plrname = game.Players.LocalPlayer.Name
     local plrmodel = workspace:FindFirstChild(plrname)
 local amt = Vector3.new(0,0,1.129)
+local stop = Vector3.new(1.581, 2.009, 23)
     plrmodel.UpperTorso.Size += amt
 plrmodel.Humanoid.Health -= 0.0000001
+if plrmodel.UpperTorso.Size >= stop then
+    plrmodel.UpperTorso.Size -= amt
+plrmodel.Humanoid.Health += 0.0000001
 end
 
 entityTable.Debug.OnDeath = function()
