@@ -1,0 +1,117 @@
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+
+-- Create entity
+local entityTable = Spawner.createEntity({
+    CustomName = "Dasher", -- Custom name of your entity
+    Model = "rbxassetid://15849998720", -- Can be GitHub file or rbxassetid
+    Speed = 1000, -- Percentage, 100 = default Rush speed
+    DelayTime = 9.9, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = true,
+    KillRange = 50,
+    BackwardsMovement = false,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        2, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        WaitTime = 9.9,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
+        400, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://12875044447", -- Image1 url
+            Image2 = "rbxassetid://12875044447", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                12875044447, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                5546573724, -- SoundId
+                { Volume = 0.5 },
+                { PlaybackSpeed = 0.3 },-- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(220, 110, 110), -- Color
+            },
+            Tease = {
+                true, -- Enabled/Disabled
+                Min = 1,
+                Max = 6,
+            },
+        },
+    },
+    CustomDialog = {"You died to Rush.", "This is quite an unexpected death.", "It's an alternative version.", "He is way much faster!"}, -- Custom death message
+})
+
+
+-----[[  Debug -=- Advanced  ]]-----
+entityTable.Debug.OnEntitySpawned = function()
+    print("Entity has spawned:", entityTable)
+local SS = Instance.new("Sound")
+SS.SoundId = 2674547670
+SS.Parent = Workspace
+SS:Play()
+SS.PlaybackSpeed = 0.3
+
+end
+
+entityTable.Debug.OnEntityDespawned = function()
+    print("Entity has despawned:", entityTable)
+local SD = Instance.new("Sound")
+SD.SoundId = 3908308607
+SD.Parent = entityTable
+SD:Play()
+SD.PlaybackSpeed = 0.3
+local SD2 = Instance.new("Sound")
+SD2.SoundId = 6675104318
+SD2.Parent = Model
+SD2:Play()
+SD2.PlaybackSpeed = 0.3
+end
+
+entityTable.Debug.OnEntityStartMoving = function()
+    print("Entity has started moving:", entityTable)
+local SM = Instance.new("Sound")
+SM.SoundId = 8880765497
+SM.Parent = Model
+SM:Play()
+SM.Looped = true
+SM.PlaybackSpeed = 0.25
+end
+
+entityTable.Debug.OnEntityFinishedRebound = function()
+    print("Entity has finished rebound:", entityTable)
+end
+
+entityTable.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity:", entityTable, "has entered room:", room)
+local SP = Instance.new("Sound")
+SP.SoundId = 5546573724
+SP.Parent = entityTable
+SP:Play()
+SP.PlaybackSpeed = 0.3
+end
+
+--entityTable.Debug.OnLookAtEntity = function()
+    --print("Player has looked at entity:", entityTable)
+--end
+
+entityTable.Debug.OnDeath = function()
+    warn("Player has died.")
+--firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Dasher...", "Take note, Dasher is faster than Ambush!", "Remember to Hop in and out if needed."}, "Blue") end)
+end
+------------------------------------
+-- Run the created entity
+Spawner.runEntity(entityTable)
