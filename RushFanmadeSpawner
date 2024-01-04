@@ -70,34 +70,23 @@ entityTable.Debug.OnEntityDespawned = function()
     print("Entity has despawned:", entityTable)
 local SD = Instance.new("Sound")
 SD.SoundId = 3908308607
-SD.Parent = entityTable
+SD.Parent = Model
 SD:Play()
 SD.PlaybackSpeed = 0.444
 SD.Volume = 1
 local SD2 = Instance.new("Sound")
 SD2.SoundId = 6675104318
-SD2.Parent = entityTable
+SD2.Parent = Model
 SD2:Play()
 SD2.Volume = 2
 SD2.PlaybackSpeed = 0.4
--- Achievement
-local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
-
--- Creates and displays your custom achievement
-Achievements.Get({
-    Title = "Rushing Glitch",
-    Desc = "What happened to Rush..?",
-    Reason = 'Encounter Rush but glitched out',
-    Image = "(https://th.bing.com/th/id/OIP.ohjSwUIGprhZUdKzAzRL8wHaFL?w=266&h=185&c=7&r=0&o=5&pid=1.7",
-})
-
 end
 
 entityTable.Debug.OnEntityStartMoving = function()
     print("Entity has started moving:", entityTable)
 local SM = Instance.new("Sound")
 SM.SoundId = 6467894576
-SM.Parent = entityTable
+SM.Parent = Model
 SM:Play()
 SM.Looped = true
 SM.Volume = 1
@@ -112,7 +101,7 @@ entityTable.Debug.OnEntityEnteredRoom = function(room)
     print("Entity:", entityTable, "has entered room:", room)
 local SP = Instance.new("Sound")
 SP.SoundId = 5546573724
-SP.Parent = entityTable
+SP.Parent = Model
 SP:Play()
 SP.Volume = 1
 SP.PlaybackSpeed = 0.6
