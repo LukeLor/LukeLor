@@ -1,5 +1,9 @@
+while true do
+wait(0.1)
 local Mik_eFig = game:GetObjects("rbxassetid://15772509040")[1]
 Mik_eFig.Parent = workspace
+if workspace:FindFirstChild("FigureLib").FigureRagdoll.Hat then
+print("Found it!")
 local Figure = workspace.CurrentRooms["50"].FigureSetup.FigureRagdoll
 local hat = workspace.FigureLib.FigureRagdoll.Hat
 local addon = Vector3.new(0.017, 0.872, -0.196)
@@ -14,3 +18,5 @@ local LegColorWant = Color3.new(0.968627, 0.917647, 0.917647)
 Figure.LeftUpperLeg.Color = LegColorWant
 local LegColorWant2 = Color3.new(0.968627, 0.917647, 0.917647)
 Figure.RightUpperLeg.Color = LegColorWant2
+end
+end
