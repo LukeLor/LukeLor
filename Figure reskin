@@ -1,3 +1,5 @@
+local Mik_eFig = game:GetObjects("rbxassetid://15772509040")[1]
+Mik_eFig.Parent = workspace
 local Figure = workspace.CurrentRooms["50"].FigureSetup.FigureRagdoll
 local hat = workspace.FigureLib.FigureRagdoll.Hat
 local addon = Vector3.new(0.017, 0.872, -0.196)
