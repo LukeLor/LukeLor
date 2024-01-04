@@ -16,7 +16,7 @@ end
 local Equipped = false
 
 -- Edit this --
-getgenv().spawnKey = Enum.KeyCode.F4
+getgenv().spawnKey = Enum.KeyCode.F12
 ---------------
 
 -- Services
@@ -97,11 +97,11 @@ CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
 -- game.UserInputService.InputBegan:Connect(function(input, proc)
 --     if proc then return end
 
---     if input.KeyCode == input.KeyCode[getgenv().spawnKey] then
---         local CrucifixTool = game:GetObjects("rbxassetid://15863226220")[1]
---         CrucifixTool.Name = "Crucifix"
---         CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
---     end
+     if input.KeyCode == input.KeyCode[getgenv().spawnKey] then
+         local CrucifixTool = game:GetObjects("rbxassetid://15863226220")[1]
+         CrucifixTool.Name = "Crucifix"
+        CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
+     end
 -- end)
 -- Input handler
 
@@ -323,7 +323,7 @@ for _, thing in pairs(workspace:GetChildren()) do
     func(thing)
 end
 dupeCrucifix.Event:Connect(function(time, entityRoot)
-    local Cross = game:GetObjects("rbxassetid://11840790614")[1]
+    local Cross = game:GetObjects("rbxassetid://15864208478")[1]
     --cross, aka the crucifix that floats in the air when you end a entity
     --you can get a model from a toolbox or make your own
     Cross.Parent = workspace
