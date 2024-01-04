@@ -71,7 +71,7 @@ entityTable.Debug.OnEntityDespawned = function()
     print("Entity has despawned:", entityTable)
 local SD = Instance.new("Sound")
 SD.SoundId = 3908308607
-SD.Parent = entityTable
+SD.Parent = Model
 SD:Play()
 SD.PlaybackSpeed = 0.3
 end
