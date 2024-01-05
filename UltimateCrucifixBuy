@@ -17,7 +17,7 @@ exampleTool.TextureId = rbxassetid://15875523650
 CustomShop.CreateItem(exampleTool, {
     Title = "Ultimate Crucifix",
     Desc = "Crucify those fanmade Entities back where they can from",
-    Image = "https://static.wikia.nocookie.net/doors-game/images/8/88/Icon_crucifix2.png/revision/latest?cb=20220728033038",
+    Image = "https://create.roblox.com/dashboard/creations/marketplace/15875523650/configure",
     Price = 0,
     Stack = 100000,
 })
