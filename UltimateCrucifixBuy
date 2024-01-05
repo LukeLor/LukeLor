@@ -7,7 +7,6 @@
 local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Shop%20Items/Source.lua"))()
 
-
 -- Create your tool here
 local exampleTool = LoadCustomInstance("rbxassetid://15863226220")
 exampleTool.TextureId = rbxassetid://15875523650
