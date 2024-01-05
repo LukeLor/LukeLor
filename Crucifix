@@ -97,11 +97,11 @@ CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
 -- game.UserInputService.InputBegan:Connect(function(input, proc)
 --     if proc then return end
 
-     if input.KeyCode == input.KeyCode[getgenv().spawnKey] then
-         local CrucifixTool = game:GetObjects("rbxassetid://15863226220")[1]
-         CrucifixTool.Name = "Crucifix"
-        CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
-     end
+    -- if input.KeyCode == input.KeyCode[getgenv().spawnKey] then
+       --  local CrucifixTool = game:GetObjects("rbxassetid://15863226220")[1]
+     --    CrucifixTool.Name = "Crucifix"
+     --   CrucifixTool.Parent = game.Players.LocalPlayer.Backpack
+  --   end
 -- end)
 -- Input handler
 
