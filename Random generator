@@ -816,7 +816,7 @@ local entityTable = Spawner.createEntity({
 -----[[  Debug -=- Advanced  ]]-----
 entityTable.Debug.OnEntitySpawned = function()
     print("Entity has spawned:", entityTable)
-Model.Rush.Attachment.RushNormal.
+Model.Rush.Attachment.RushNormal.TextureID = rbxassetid://15864208478
 end
 
 entityTable.Debug.OnEntityDespawned = function()
