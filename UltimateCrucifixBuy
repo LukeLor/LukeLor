@@ -17,7 +17,7 @@ exampleTool.TextureId = rbxassetid://15875523650
 CustomShop.CreateItem(exampleTool, {
     Title = "Ultimate Crucifix",
     Desc = "Crucify those fanmade Entities back where they can from",
-    Image = "https://create.roblox.com/dashboard/creations/marketplace/15875523650/configure",
+    Image = "https://tr.rbxcdn.com/b4b52ba92404af735a6c9f3502c2d78b/150/150/Decal/Png",
     Price = 0,
     Stack = 100000,
 })
