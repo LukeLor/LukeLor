@@ -1,6 +1,6 @@
 while true do
 wait(35)
-local randomentity = math.random(1,7)
+local randomentity = math.random(1,69)
 if randomentity == 1 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 
@@ -744,6 +744,109 @@ end
     local plrmodel = workspace:FindFirstChild(plrname)
     plrmodel.Humanoid.MaxHealth = 700
  plrmodel.Humanoid.Health += 10
+--end
+
+entityTable.Debug.OnDeath = function()
+    warn("Player has died.")
+--firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Dasher...", "Take note, Dasher is faster than Ambush!", "Remember to Hop in and out if needed."}, "Blue") end)
+end
+------------------------------------
+-- Run the created entity
+		end	
+end
+elseif randomentity == 8 then
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+
+-- Create entity
+local entityTable = Spawner.createEntity({
+    CustomName = "Solar Eclipse", -- Custom name of your entity
+    Model = "rbxassetid://15839769315", -- Can be GitHub file or rbxassetid
+    Speed = 50, -- Percentage, 100 = default Rush speed
+    DelayTime = 2, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = false,
+    KillRange = 50,
+    BackwardsMovement = true,
+    BreakLights = true,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        0.1, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        WaitTime = 2,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
+        100, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://12875044447", -- Image1 url
+            Image2 = "rbxassetid://12875044447", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                12875044447, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                5546573724, -- SoundId
+                { Volume = 0.5 },
+                { PlaybackSpeed = 0.3 },-- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(220, 110, 110), -- Color
+            },
+            Tease = {
+                true, -- Enabled/Disabled
+                Min = 1,
+                Max = 6,
+            },
+        },
+    },
+    CustomDialog = {"You died to Rush.", "This is quite an unexpected death.", "It's an alternative version.", "He is way much faster!"}, -- Custom death message
+})
+
+
+-----[[  Debug -=- Advanced  ]]-----
+entityTable.Debug.OnEntitySpawned = function()
+    print("Entity has spawned:", entityTable)
+Model.Rush.Attachment.RushNormal.
+end
+
+entityTable.Debug.OnEntityDespawned = function()
+    print("Entity has despawned:", entityTable)
+local SD = Instance.new("Sound")
+SD.SoundId = 3908308607
+SD.Parent = entityTable
+SD:Play()
+SD.PlaybackSpeed = 0.3
+end
+
+entityTable.Debug.OnEntityStartMoving = function()
+    print("Entity has started moving:", entityTable)
+end
+
+entityTable.Debug.OnEntityFinishedRebound = function()
+    print("Entity has finished rebound:", entityTable)
+end
+
+entityTable.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity:", entityTable, "has entered room:", room)
+end
+
+--entityTable.Debug.OnLookAtEntity = function()
+    --print("Player has looked at entity:", entityTable)
+      local plrname = game.Players.LocalPlayer.Name
+    local plrmodel = workspace:FindFirstChild(plrname)
+    plrmodel.Humanoid.Health -= 0.01
+if plrmodel:FindFirstChild("SolarGlasses") then
+plrmodel.Humanoid.Health += 0.01
 --end
 
 entityTable.Debug.OnDeath = function()
