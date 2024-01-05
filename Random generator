@@ -1,7 +1,7 @@
 while true do
 wait(35)
 local randomentity = math.random(1,7)
-if randomnum == 1 then
+if randomentity == 1 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 
 
@@ -98,7 +98,7 @@ end
 ------------------------------------
 -- Run the created entity
 Spawner.runEntity(entityTable)
-		elseif randomnum == 2 then
+		elseif randomentity == 2 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 
 
@@ -202,7 +202,7 @@ wait(1.2)
 firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Guiding Light...", "H-How can this be?", "Isn't Guiding Light meant to help you?", "I'll lets you be the judge of that.", "Anyways, See you next time.", "Right?"}, "Yellow") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
-		elseif randomnum == 3 then
+		elseif randomentity == 3 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 
 
@@ -326,7 +326,7 @@ end
 --firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Rush's Distorted Side...", "This is a rare death.", "Beware, Rush's Distorted Side is faster than normal Rush!", "Hope this is helpful in the future."}, "Blue") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
-		elseif randomnum == 4 then
+		elseif randomentity == 4 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 
 
@@ -444,7 +444,7 @@ end
 ------------------------------------
 -- Run the created entity
 Spawner.runEntity(entityTable)
-	elseif randomnum == 5 then
+	elseif randomentity == 5 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 
 
@@ -551,7 +551,7 @@ wait(1.2)
 firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Noob...", "H-How can this be?", "Isn't The Value turned to false?"}, "Yellow") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
-	elseif randomnum == 6 then
+	elseif randomentity == 6 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 
 
@@ -653,7 +653,7 @@ wait(1.2)
 firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Noob...", "H-How can this be?", "Isn't The Value turned to false?"}, "Yellow") end)
 -- Run the created entity
 Spawner.runEntity(entityTable)
-	elseif randomnum == 7 then
+	elseif randomentity == 7 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 
 
