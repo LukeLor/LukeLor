@@ -10,6 +10,7 @@ local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/Re
 
 -- Create your tool here
 local exampleTool = LoadCustomInstance("rbxassetid://11712848097")
+exampleTool.TextureId = rbxassetid://15875523650
 
 
 -- Create custom shop item
