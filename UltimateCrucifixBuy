@@ -17,7 +17,7 @@ CustomShop.CreateItem(exampleTool, {
     Title = "Ultimate Crucifix",
     Desc = "Crucify those fanmade Entities back where they can from",
     Image = "https://tr.rbxcdn.com/b4b52ba92404af735a6c9f3502c2d78b/150/150/Decal/Png",
-    Price = 0,
+    Price = 1,
     Stack = 100000,
 })
 
