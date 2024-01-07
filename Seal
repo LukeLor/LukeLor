@@ -1,0 +1,3 @@
+local Seal = game:GetObjects("rbxassetid://15910860997")[1]
+
+Seal.Parent  =  game.ReplicatedStorage
