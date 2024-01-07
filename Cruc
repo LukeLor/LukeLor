@@ -1,0 +1,7 @@
+Print("Pls work")
+local Tool = game:GetObjects("rbxassetid://15910860997")[1]
+local Humanoid = 
+game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+
+Tool.Parent  =  game.Players.LocalPlayer.Backpack
+Print("Done!")
