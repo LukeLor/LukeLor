@@ -15,7 +15,7 @@ local exampleTool = LoadCustomInstance("rbxassetid://15863226220")
 -- Create custom shop item
 CustomShop.CreateItem(exampleTool, {
     Title = "Ultimate Crucifix",
-    Desc = "Crucify those fanmade Entities back where they can from",
+    Desc = "Crucify those fanmade Entities back where they came from",
     Image = "https://tr.rbxcdn.com/b4b52ba92404af735a6c9f3502c2d78b/150/150/Decal/Png",
     Price = 1,
     Stack = 100000,
