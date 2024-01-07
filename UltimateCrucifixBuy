@@ -12,6 +12,12 @@ local exampleTool = LoadCustomInstance("rbxassetid://15908676168")
   local Seal = game:GetObjects("rbxassetid://15901310731")[1]
   local Remotes = game:GetObjects("rbxassetid://15908704093")[1]
 local CamShake = game:GetObjects("rbxassetid://15908736214")[1]
+Seal.Name = "Seal"
+Remotes.Name = "Crucifix_Remotes"
+CamShake.Name = "CameraShaker"
+Seal.Parent = game.ReplicatedStorage
+Remotes.Parent = game.ReplicatedStorage
+CamShake.Parent = game.ReplicatedStorage
 
 
 -- Create custom shop item
