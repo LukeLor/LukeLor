@@ -9,6 +9,7 @@ local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/Re
 
 -- Create your tool here
 local exampleTool = LoadCustomInstance("rbxassetid://15908676168")
+local exampleTool2 = LoadCustomInstance("rbxassetid://15909003099")
   local Seal = game:GetObjects("rbxassetid://15901310731")[1]
   local Remotes = game:GetObjects("rbxassetid://15908704093")[1]
 local CamShake = game:GetObjects("rbxassetid://15908736214")[1]
@@ -25,8 +26,15 @@ CustomShop.CreateItem(exampleTool, {
     Title = "Ultimate Crucifix",
     Desc = "Crucify those fanmade Entities back where they came from",
     Image = "https://tr.rbxcdn.com/b4b52ba92404af735a6c9f3502c2d78b/150/150/Decal/Png",
-    Price = 1,
+    Price = 10,
     Stack = 100,
+})
+CustomShop.CreateItem(exampleTool2, {
+    Title = "Glowstick",
+    Desc = "Light your path all way 'round.",
+    Image = "https://tr.rbxcdn.com/a80e407b20df414d3c797fef233b0c62/150/150/Decal/Png",
+    Price = 1,
+    Stack = 1,
 })
 
 -- enjoy. credits to vynixu and totally alex. and some random guy for the model. cya
