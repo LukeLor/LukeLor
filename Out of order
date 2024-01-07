@@ -1,5 +1,5 @@
 while true do
-wait(35)
+wait(10)
 local randomentity = math.random(1,8)
 if randomentity == 1 then
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
