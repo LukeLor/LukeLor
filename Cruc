@@ -1,5 +1,5 @@
 
-local Tool = game:GetObjects("rbxassetid://15913364010")[1]
+local Tool = game:GetObjects("rbxassetid://15913911653")[1]
 local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
 
 Tool.Parent  =  game.Players.LocalPlayer.Backpack
