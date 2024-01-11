@@ -15,6 +15,10 @@ Tool.Unequipped:Connect(function()
         anim:Stop()
     end
 end)
+local CR = game:GetObjects("rbxassetid://15948584312")[1]
+local CS = game:GetObjects("rbxassetid://15948588385")[1]
+CR.Parent = game.ReplicatedStorage
+CS.Parent = game.ReplicatedStorage
 local DEBOUNCE = false
 local TOOL_CRUCIFIX = Tool
 local SEALED = TOOL_CRUCIFIX.Sealed
