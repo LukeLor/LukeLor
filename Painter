@@ -108,6 +108,7 @@ end
     --print("Player has looked at entity:", entityTable)
   local plrname = game.Players.LocalPlayer
 local plr = workspace:FindFirstChild(plrname)
+local g = Color3.FromRGB(0,225,0)
 --end
 
 entityTable.Debug.OnDeath = function()
