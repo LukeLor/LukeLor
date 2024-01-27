@@ -109,6 +109,10 @@ end
   local plrname = game.Players.LocalPlayer
 local plr = workspace:FindFirstChild(plrname)
 local g = Color3.FromRGB(0,225,0)
+local b = Color3.FromRGB(0,0,255)
+local r = Color3.FromRGB(255,0,0)
+local t = Color3.FromRGB(0,127.5,127.5)
+local p = Color3.FromRGB(127.5,0,127.5)
 --end
 
 entityTable.Debug.OnDeath = function()
