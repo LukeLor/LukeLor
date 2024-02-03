@@ -13,7 +13,7 @@ local entityTable = Spawner.createEntity({
     BackwardsMovement = false,
     BreakLights = false,
     FlickerLights = {
-        true, -- Enabled/Disabled
+        false, -- Enabled/Disabled
         2, -- Time (seconds)
     },
     Cycles = {
