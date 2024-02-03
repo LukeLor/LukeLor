@@ -107,7 +107,16 @@ plr.UpperRightArm.Color = p
 plr.UpperLeftArm.Color = t
 plr.UpperRightLeg.Color = b
 plr.UpperLeftLeg.Color = r
-plr.LowerRightArm.Color = p
+plr.LowerRightArm.Color = y
+plr.LowerRightLeg.Color = g
+plr.LowerLeftArm.Color = p
+plr.LowerLeftLeg.Color = y
+plr.UpperTorso.Color = b
+plr.LowerTorso.Color = r
+plr.RightHand.Color = t
+plr.LeftHand.Color = p
+plr.LeftFoot.Color = y
+plr.RightHand.Color = b
 --end
 
 entityTable.Debug.OnDeath = function()
