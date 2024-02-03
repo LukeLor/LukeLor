@@ -6,15 +6,15 @@ local entityTable = Spawner.createEntity({
     CustomName = "Painter", -- Custom name of your entity
     Model = "rbxassetid://15849998720", -- Can be GitHub file or rbxassetid
     Speed = 100, -- Percentage, 100 = default Rush speed
-    DelayTime = 9.9, -- Time before starting cycles (seconds)
+    DelayTime = 1, -- Time before starting cycles (seconds)
     HeightOffset = 0,
     CanKill = false,
     KillRange = 50,
-    BackwardsMovement = false,
-    BreakLights = true,
+    BackwardsMovement = true,
+    BreakLights = false,
     FlickerLights = {
         true, -- Enabled/Disabled
-        2, -- Time (seconds)
+        1, -- Time (seconds)
     },
     Cycles = {
         Min = 1,
@@ -24,7 +24,7 @@ local entityTable = Spawner.createEntity({
     CamShake = {
         true, -- Enabled/Disabled
         {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
-        400, -- Shake start distance (from Entity to you)
+        100, -- Shake start distance (from Entity to you)
     },
     Jumpscare = {
         true, -- Enabled/Disabled
@@ -69,22 +69,11 @@ end
 
 entityTable.Debug.OnEntityDespawned = function()
     print("Entity has despawned:", entityTable)
-local SD = Instance.new("Sound")
-SD.SoundId = 3908308607
-SD.Parent = entityTable
-SD:Play()
-SD.PlaybackSpeed = 0.3
-local SD2 = Instance.new("Sound")
-SD2.SoundId = 6675104318
-SD2.Parent = Model
-SD2:Play()
-SD2.PlaybackSpeed = 0.3
 end
 
 entityTable.Debug.OnEntityStartMoving = function()
     print("Entity has started moving:", entityTable)
 local SM = Instance.new("Sound")
-SM.SoundId = 8880765497
 SM.Parent = Model
 SM:Play()
 SM.Looped = true
@@ -100,7 +89,6 @@ entityTable.Debug.OnEntityEnteredRoom = function(room)
 local SP = Instance.new("Sound")
 SP.SoundId = 5546573724
 SP.Parent = entityTable
-SP:Play()
 SP.PlaybackSpeed = 0.3
 end
 
@@ -114,7 +102,12 @@ local r = Color3.FromRGB(255,0,0)
 local t = Color3.FromRGB(0,127.5,127.5)
 local p = Color3.FromRGB(127.5,0,127.5)
 local y = Color3.FromRBG(100,100,0)
-
+plr.Head.Color = y
+plr.UpperRightArm.Color = p
+plr.UpperLeftArm.Color = t
+plr.UpperRightLeg.Color = b
+plr.UpperLeftLeg.Color = r
+plr.LowerRightArm.Color = p
 --end
 
 entityTable.Debug.OnDeath = function()
