@@ -113,6 +113,8 @@ local b = Color3.FromRGB(0,0,255)
 local r = Color3.FromRGB(255,0,0)
 local t = Color3.FromRGB(0,127.5,127.5)
 local p = Color3.FromRGB(127.5,0,127.5)
+local y = Color3.FromRBG(100,100,0)
+
 --end
 
 entityTable.Debug.OnDeath = function()
