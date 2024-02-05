@@ -1,0 +1,24 @@
+local BadgeUI = game:GetService("ReplicatedStorage").Badge:Clone()
+
+BadgeUI.Parent = game.Players.LocalPlayer.PlayerGui
+
+
+BadgeUI.Frame.Title.Text = "Colorful Experience"
+BadgeUI.Frame.Description.Text = "I'm so vibrant."
+BadgeUI.Frame.Reason.Text = "Encounter Painter."
+BadgeUI.Frame.Icon.Image = "rbxassetid://16249944693"
+local ts = game:GetService("TweenService")
+BadgeUI.AwardedBadge:Play()
+local info = TweenInfo.new(2, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+local item = BadgeUI.Frame
+local dest1 = BadgeUI.Dest1.Position
+local dest2 = BadgeUI.Dest2.Position
+local glow = BadgeUI.Frame.Glow
+local info2 = TweenInfo.new(4, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut)
+ts:Create(item, info,{Position = dest1}):Play()
+wait(4)
+ts:Create(glow, info2,{ImageTransparency = 1}):Play()
+wait(10)
+ts:Create(item, info,{Position = dest2}):Play()
+wait(3)
+BadgeUI:Destroy()
