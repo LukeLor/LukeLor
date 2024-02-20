@@ -9,10 +9,7 @@ Sound.SoundId = "rbxassetid://9118823101"
 Sound.Parent = Tool
  
 Tool.Activated:Connect(function()
-    local Use = Tool.Animations.use
-    local UseTrack = Humanoid:LoadAnimation(Use)
  
-    UseTrack:Play()
     Sound:Play()
     wait(0.25)
     Sound:Play()
@@ -22,5 +19,5 @@ Tool.Activated:Connect(function()
   local Hand = Humanoid.Parent.RightHand
   local Ts = game:GetService("TweenService")
   local info = TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-  Ts:Create(ObjectToPull, info,{Position = Hand.Position)
+  Ts:Create(ObjectToPull, info,{Position = Hand.Position}):Play()
 end)
