@@ -1,0 +1,133 @@
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+
+
+-- Create entity
+local entityTable = Spawner.createEntity({
+    CustomName = "Overkill", -- Custom name of your entity
+    Model = "rbxassetid://16251075751", -- Can be GitHub file or rbxassetid
+    Speed = 150, -- Percentage, 100 = default Rush speed
+    DelayTime = 6.5, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = true,
+    KillRange = 50,
+    BackwardsMovement = true,
+    BreakLights = false,
+    FlickerLights = {
+        true, -- Enabled/Disabled
+        2, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        WaitTime = 6.5,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
+        100, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://12745093639", -- Image1 url
+            Image2 = "rbxassetid://12576439358", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                10483790459, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Sound2 = {
+                10483837590, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(125, 127, 255), -- Color
+            },
+            Tease = {
+                false, -- Enabled/Disabled
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"You died to Rush.", "This is quite an unexpected death.", "It's an alternative version.", "He is way much faster!"}, -- Custom death message
+})
+
+
+-----[[  Debug -=- Advanced  ]]-----
+entityTable.Debug.OnEntitySpawned = function()
+    print("Entity has spawned:", entityTable)
+end
+
+entityTable.Debug.OnEntityDespawned = function()
+    print("Entity has despawned:", entityTable)
+local SD = Instance.new("Sound")
+SD.SoundId = 3908308607
+SD.Parent = game.Workspace
+SD:Play()
+SD.PlaybackSpeed = 0.444
+SD.Volume = 1
+local SD2 = Instance.new("Sound")
+SD2.SoundId = 6675104318
+SD2.Parent = game.Workspace
+SD2:Play()
+SD2.Volume = 2
+SD2.PlaybackSpeed = 0.4
+end
+
+entityTable.Debug.OnEntityStartMoving = function()
+    print("Entity has started moving:", entityTable)
+end
+
+entityTable.Debug.OnEntityFinishedRebound = function()
+    print("Entity has finished rebound:", entityTable)
+end
+
+entityTable.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity:", entityTable, "has entered room:", room)
+local SP = Instance.new("Sound")
+SP.SoundId = 5546573724
+SP.Parent = game.Workspace
+SP:Play()
+SP.Volume = 1
+SP.PlaybackSpeed = 0.6
+end
+
+--entityTable.Debug.OnLookAtEntity = function()
+    --print("Player has looked at entity:", entityTable)
+local HRP = game.Players.LocalPlayer:WaitForChild("Character").HumanoidRootPart
+local FP = 100
+local FT = 0.3750
+local MiR = 5
+local MaR = 10
+
+HRP.Parent.Humanoid.PlatformStand = true
+
+local F = Instance.new("BodyVelocity", HRP)
+F.MaxForce = Vector3.new(1,1,1)*math.huge
+local D = (HRP.CFrame.Position - HRP.CFrame.Position).Unit
+F.Velocity = (D + Vector3.new(0,1,0)).Unit*FP
+
+local R = Instance.new("BodyAngularVelocity", HRP)
+R.AngularVelocity = Vector3.new(1,1,1)*math.pi*math.random(MiR,MaR)
+R.MaxTorque = Vector3.new(1,1,1)*math.huge
+R.P = 250
+
+wait(FT)
+FDestroy()
+R:Destroy()
+
+HRP.Parent.Humanoid.PlatformStand = false
+--end
+
+entityTable.Debug.OnDeath = function()
+    warn("Player has died.")
+end
+------------------------------------
+
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+wait(1.2)
+firesignal(game.ReplicatedStorage.EntityInfo.DeathHint.OnClientEvent, {"You died to Rush's Distorted Side...", "This is a rare death.", "Beware, Rush's Distorted Side is faster than normal Rush!", "Hope this is helpful in the future."}, "Blue") end)
+-- Run the created entity
+Spawner.runEntity(entityTable)
