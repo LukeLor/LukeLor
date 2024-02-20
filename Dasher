@@ -27,7 +27,7 @@ local entityTable = Spawner.createEntity({
         400, -- Shake start distance (from Entity to you)
     },
     Jumpscare = {
-        true, -- Enabled/Disabled
+        false, -- Enabled/Disabled
         {
             Image1 = "rbxassetid://12875044447", -- Image1 url
             Image2 = "rbxassetid://12875044447", -- Image2 url
