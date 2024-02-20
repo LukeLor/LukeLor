@@ -21,5 +21,5 @@ Tool.Activated:Connect(function()
   local ObjectToPull = game:GetService("Players").LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Model")
   local Hand = Humanoid.Parent.RightHand
   local Ts = game:GetService("TweenService")
-  local info = TweenInfo.new(
+  local info = TweenInfo.new(5, Enum.
 end)
