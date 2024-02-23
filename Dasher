@@ -7,8 +7,8 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = Spawner.createEntity({
     CustomName = "Dasher",
     Model = "rbxassetid://15849998720", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
-    Speed = 100,
-    MoveDelay = 2,
+    Speed = 1000,
+    MoveDelay = 9.9,
     HeightOffset = 0,
     CanKill = true,
     KillRange = 50,
@@ -19,18 +19,18 @@ local entity = Spawner.createEntity({
         Duration = 1
     },
     Cycles = {
-        Min = 1,
-        Max = 1,
-        Delay = 2
+        Min = 3,
+        Max = 9,
+        Delay = 9.9
     },
     CamShake = {
         Enabled = true,
         Values = {1.5, 20, 0.1, 1},
-        Range = 100
+        Range = 400
     },
     ResistCrucifix = false,
     BreakCrucifix = true,
-    DeathMessage = {"Custom", "death", "message", "goes", "here."},
+    DeathMessage = {"You died to Dasher...", "Dasher is faster than Ambush!", "Hope to see you try again.", "Good Luck!"},
     IsCuriousLight = false
 })
 
@@ -64,13 +64,11 @@ entity.Debug.OnDeath = function()
     print("Player has died")
 end
 
---[[
-    NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
+   -- NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
 
     entity.Debug.OnUseCrucifix = function()
         print("Custom crucifixion script here")
     end
-]]--
 
 ---====== Run entity ======---
 
