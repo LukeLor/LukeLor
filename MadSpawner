@@ -1,96 +1,79 @@
-local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
+---====== Define spawner ======---
 
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/Source.lua"))()
 
--- Create entity
-local entityTable = Spawner.createEntity({
-    CustomName = "MadGuy", -- Custom name of your entity
-    Model = "rbxassetid://15850594174", -- Can be GitHub file or rbxassetid
-    Speed = 12.5, -- Percentage, 100 = default Rush speed
-    DelayTime = 0, -- Time before starting cycles (seconds)
+---====== Create entity ======---
+
+local entity = Spawner.createEntity({
+    CustomName = "Madguy",
+    Model = "rbxassetid://15850594174", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
+    Speed = 12.5,
+    MoveDelay = 0,
     HeightOffset = 0,
-    CanKill = false,
+    CanKill = true,
     KillRange = 50,
-    BackwardsMovement = false,
-    BreakLights = false,
+    SpawnInFront = false,
+    ShatterLights = false,
     FlickerLights = {
-        true, -- Enabled/Disabled
-        4, -- Time (seconds)
+        Enabled = true,
+        Duration = 1
     },
     Cycles = {
         Min = 1,
         Max = 1,
-        WaitTime = 0,
+        Delay = 0
     },
     CamShake = {
-        true, -- Enabled/Disabled
-        {3.5, 20, 0.1, 1}, -- Shake values (don't change if you don't know)
-        50, -- Shake start distance (from Entity to you)
+        Enabled = true,
+        Values = {1.5, 20, 0.1, 1},
+        Range = 50
     },
-    Jumpscare = {
-        true, -- Enabled/Disabled
-        {
-            Image1 = "rbxassetid://12875044447", -- Image1 url
-            Image2 = "rbxassetid://12875044447", -- Image2 url
-            Shake = true,
-            Sound1 = {
-                12875044447, -- SoundId
-                { Volume = 0.5 }, -- Sound properties
-            },
-            Sound2 = {
-                5546573724, -- SoundId
-                { Volume = 0.5 },
-                { PlaybackSpeed = 0.3 },-- Sound properties
-            },
-            Flashing = {
-                true, -- Enabled/Disabled
-                Color3.fromRGB(220, 110, 110), -- Color
-            },
-            Tease = {
-                false, -- Enabled/Disabled
-                Min = 1,
-                Max = 6,
-            },
-        },
-    },
-    CustomDialog = {"You died to Rush.", "This is quite an unexpected death.", "It's an alternative version.", "He is way much faster!"}, -- Custom death message
+    ResistCrucifix = false,
+    BreakCrucifix = true,
+    DeathMessage = {"You died to Madguy...", "Look away from him at all times!", "Good Luck!"},
+    IsCuriousLight = false
 })
 
+---====== Debug ======---
 
------[[  Debug -=- Advanced  ]]-----
-entityTable.Debug.OnEntitySpawned = function()
-    print("Entity has spawned:", entityTable)
+entity.Debug.OnEntitySpawned = function()
+    print("Entity has spawned")
+
 end
 
-entityTable.Debug.OnEntityDespawned = function()
-    print("Entity has despawned:", entityTable)
-local SD = Instance.new("Sound")
-SD.SoundId = 3908308607
-SD.Parent = Model
-SD:Play()
-SD.PlaybackSpeed = 0.3
-end
-entityTable.Debug.OnEntityStartMoving = function()
-    print("Entity has started moving:", entityTable)
+entity.Debug.OnEntityDespawned = function()
+    print("Entity has despawned")
 end
 
-entityTable.Debug.OnEntityFinishedRebound = function()
-    print("Entity has finished rebound:", entityTable)
+entity.Debug.OnEntityStartMoving = function()
+    print("Entity started moving")
 end
 
-entityTable.Debug.OnEntityEnteredRoom = function(room)
-    print("Entity:", entityTable, "has entered room:", room)
+entity.Debug.OnEntityFinishedRebound = function()
+    print("Entity finished rebound")
 end
 
-entityTable.Debug.OnLookAtEntity = function()
-    print("Player has looked at entity:", entityTable)
-      local plrname = game.Players.LocalPlayer.Name
+entity.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity entered room:", room)
+end
+
+entity.Debug.OnLookAtEntity = function()
+    print("Player looking at entity")
+  local plrname = game.Players.LocalPlayer.Name
     local plrmodel = workspace:FindFirstChild(plrname)
     plrmodel.Humanoid.Health -= 5
 end
 
-entityTable.Debug.OnDeath = function()
-    warn("Player has died.")
+entity.Debug.OnDeath = function()
+    print("Player has died")
 end
-------------------------------------
--- Run the created entity
-Spawner.runEntity(entityTable)
+
+   -- NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
+
+    entity.Debug.OnUseCrucifix = function()
+        print("Custom crucifixion script here")
+    end
+
+---====== Run entity ======---
+
+Spawner.runEntity(entity)
