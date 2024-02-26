@@ -3,9 +3,9 @@ local BadgeUI = game:GetObjects("rbxassetid://16250334465")[1]
 BadgeUI.Parent = game.Players.LocalPlayer.PlayerGui
 
 
-BadgeUI.Frame.Title.Text = "Colorful Experience"
-BadgeUI.Frame.Description.Text = "I'm so vibrant."
-BadgeUI.Frame.Reason.Text = "Encounter Painter."
+BadgeUI.Frame.Title.Text = "The Old Times"
+BadgeUI.Frame.Description.Text = "Howdy I'm a cowboy!"
+BadgeUI.Frame.Reason.Text = "Get the Lasso."
 BadgeUI.Frame.Icon.Image = "rbxassetid://16249944693"
 local ts = game:GetService("TweenService")
 BadgeUI.AwardedBadge:Play()
