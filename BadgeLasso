@@ -4,7 +4,7 @@ BadgeUI.Parent = game.Players.LocalPlayer.PlayerGui
 
 
 BadgeUI.Frame.Title.Text = "The Old Times"
-BadgeUI.Frame.Description.Text = "Howdy I'm a cowboy!"
+BadgeUI.Frame.Description.Text = "Howdy, I'm a cowboy!"
 BadgeUI.Frame.Reason.Text = "Get the Lasso."
 BadgeUI.Frame.Icon.Image = "rbxassetid://16249944693"
 local ts = game:GetService("TweenService")
