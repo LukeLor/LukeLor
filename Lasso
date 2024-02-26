@@ -1,3 +1,4 @@
+-- Note: I know it looks like the shears but trust me. they dont work like them
 local Tool = game:GetObjects("rbxassetid://12685165702")[1]
 local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
 local Sound = Instance.new("Sound")
