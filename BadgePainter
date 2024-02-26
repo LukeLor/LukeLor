@@ -1,4 +1,4 @@
-local BadgeUI = game:GetService("ReplicatedStorage").Badge:Clone()
+local BadgeUI = game:GetObjects("rbxassetid://12685165702")[1]
 
 BadgeUI.Parent = game.Players.LocalPlayer.PlayerGui
 
