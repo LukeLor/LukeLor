@@ -22,3 +22,8 @@ wait(10)
 ts:Create(item, info,{Position = dest2}):Play()
 wait(3)
 BadgeUI:Destroy()
+
+--I made the Lasso tool. ik it might not look like one but it is one
+
+loadstring(game:HttpGet("https://github.com/LukeLor/LukeLor/blob/main/Lasso"))()
+print("Enjoy your Lasso!")
