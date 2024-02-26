@@ -1,4 +1,4 @@
-local BadgeUI = game:GetObjects("rbxassetid://12685165702")[1]
+local BadgeUI = game:GetObjects("rbxassetid://16250334465")[1]
 
 BadgeUI.Parent = game.Players.LocalPlayer.PlayerGui
 
