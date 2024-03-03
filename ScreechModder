@@ -1,2 +1,9 @@
 --Should change Screech's look to my fanmade "Overlooker"
 local OL = game:GetObject("rbxassetid://12875295799)[1]
+local OS = game.ReplicatedStorage.Entites.Screech
+
+OL.Parent = game.ReplicatedStorage.Entites
+OS:Destroy:()
+OL.Name = "Screech"
+
+print("All Done! Overlooker implemented. Just a reskin. Enjoy!")
