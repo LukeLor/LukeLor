@@ -1,3 +1,4 @@
 loadstring(game:HttpGet("https://github.com/LukeLor/LukeLor/blob/main/HaltModder"))()
 loadstring(game:HttpGet("https://github.com/LukeLor/LukeLor/blob/main/ScreechModder"))()
+loadstring(game:HttpGet("https://github.com/LukeLor/LukeLor/blob/main/Figure%20reskin"))()
 print("Success!")
