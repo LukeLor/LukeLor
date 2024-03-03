@@ -1,0 +1,3 @@
+--Changes Halts Color.
+local Halt = game.ReplicatedStorage.Entites.Shade
+Halt.Color = Color3.FromRBG(0,
