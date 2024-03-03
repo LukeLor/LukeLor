@@ -1,0 +1,2 @@
+--Should change Screech's look to my fanmade "Overlooker"
+local OL = game:GetObject("rbxassetid://12875295799)[1]
