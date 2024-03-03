@@ -1,5 +1,6 @@
 while true do
 wait(0.1)
+if game.ReplicatedStorage.GameData.LatestRoom.Value == 49 then
 local Mik_eFig = game:GetObjects("rbxassetid://15772509040")[1]
 Mik_eFig.Parent = workspace
 if workspace:FindFirstChild("FigureLib").FigureRagdoll.Hat then
