@@ -15,7 +15,7 @@ local item = spawner.createItem({
     Locations = {
         Drawers = false;
         Tables = true;
-        Chests = true;
+        Chests = false;
         Floor = true;
     };
     Prompt = {
