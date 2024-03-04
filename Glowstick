@@ -41,6 +41,8 @@ item.Debug.OnEquipped = function()
 while true do
 wait(1)
 timer.Value -=1
+if timer.Value == -1 then
+local ts = game:GetService("TweenService
 end
 end;
 
