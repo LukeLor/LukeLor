@@ -31,6 +31,9 @@ end;
 
 item.Debug.OnPickedUp = function()
     print("Item picked up:", item);
+    local timer = Instance.new("NumberValue")
+timer.Parent = item
+timer.Value = 30
 end;
 
 item.Debug.OnEquipped = function()
