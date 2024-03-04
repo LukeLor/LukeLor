@@ -42,7 +42,11 @@ while true do
 wait(1)
 timer.Value -=1
 if timer.Value == -1 then
-local ts = game:GetService("TweenService
+local ts = game:GetService("TweenService")
+local color = Color3.FromRGB(0,0,0)
+local mat = Enum.Material.Mud
+local info = TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
 end
 end;
 
