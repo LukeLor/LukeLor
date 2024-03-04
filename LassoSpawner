@@ -31,33 +31,19 @@ end;
 
 item.Debug.OnPickedUp = function()
     print("Item picked up:", item);
-    local timer = Instance.new("NumberValue")
-timer.Parent = item
-timer.Value = 30
 end;
 
 item.Debug.OnEquipped = function()
     print("Item equipped:", item);
-while true do
-wait(1)
-timer.Value -=1
-if timer.Value == -1 then
-local ts = game:GetService("TweenService")
-local color = Color3.FromRGB(0,0,0)
-local mat = Enum.Material.Mud
-local info = TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-local light = item.Light
-ts:create(info, light,{Color = color}):Play()
-ts:create(info, light,{Material = mat}):Play()
-wait(5)
-item.Bottom.CanColide = true
-item.Parent = game.Workspace
-light:Destroy()
-end
 end;
 
 item.Debug.OnActivated = function()
     print("Item activated:", item);
+  local ObjectToPull = game:GetService("Players").LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Model")
+  local Hand = Humanoid.Parent.HumanoidRootPart
+  local Ts = game:GetService("TweenService")
+  local info = TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+  Ts:Create(ObjectToPull, info,{Position = Hand.Position}):Play()
 end;
 
 item.Debug.OnUnequipped = function()
