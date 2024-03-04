@@ -46,7 +46,13 @@ local ts = game:GetService("TweenService")
 local color = Color3.FromRGB(0,0,0)
 local mat = Enum.Material.Mud
 local info = TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-
+local light = item.Light
+ts:create(info, light,{Color = color}):Play()
+ts:create(info, light,{Material = mat}):Play()
+wait(5)
+item.Bottom.CanColide = true
+item.Parent = game.Workspace
+light:Destroy()
 end
 end;
 
