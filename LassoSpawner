@@ -20,7 +20,7 @@ local item = spawner.createItem({
     };
     Prompt = {
         Range = 7;
-        Duration = 0;
+        Duration = 2;
     };
 });
 
