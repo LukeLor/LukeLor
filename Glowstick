@@ -38,6 +38,10 @@ end;
 
 item.Debug.OnEquipped = function()
     print("Item equipped:", item);
+while true do
+wait(1)
+timer.Value -=1
+end
 end;
 
 item.Debug.OnActivated = function()
