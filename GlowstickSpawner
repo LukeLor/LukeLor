@@ -10,7 +10,7 @@ local item = spawner.createItem({
         Offset = CFrame.new();
         MinRoom = currentRoomIndex; -- Set min room index to current room's index
         MaxRoom = currentRoomIndex; -- Set max room index to current room's index
-        Chance = 25;
+        Chance = 100;
     };
     Locations = {
         Drawers = false;
