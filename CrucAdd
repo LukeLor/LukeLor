@@ -4,17 +4,6 @@ local Humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
 
 Tool.Parent  =  game.Players.LocalPlayer.Backpack
 
-Tool.Equipped:Connect(function()
-    local Idle = Tool.Animations.idle
-    local IdleTrack = Humanoid:LoadAnimation(Idle)
-
-    IdleTrack:Play()
-end)
-Tool.Unequipped:Connect(function()
-    for _,anim in pairs(Humanoid.Animator:GetPlayingAnimationTracks()) do
-        anim:Stop()
-    end
-end)
 local CR = game:GetObjects("rbxassetid://15948584312")[1]
 local CS = game:GetObjects("rbxassetid://15948588385")[1]
 CR.Parent = game.ReplicatedStorage
