@@ -1,5 +1,5 @@
 --Changes Halts Color.
 local Halt = game.ReplicatedStorage.Entites.Shade
-Halt.Color = Color3.FromRBG(0,114.25,140.75)
+Halt.Color = Color3.FromRGB(0,140.75,114.25)
 --HAHAHA HALT'S TEAL NOT TURQUOISE! Ok sorry for being like this.
 print("Halt ate some greens 😭")
