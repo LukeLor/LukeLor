@@ -13,10 +13,31 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection:NewButton("Rush's Distorted Side", "Rush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner'))()
 
-MainSection:NewButton("MadGuy", "A Youtuber", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Mad%20Spawner'))()
+MainSection:NewButton("MadGuy", "A Youtuber.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner'))()
 
-MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
+MainSection:NewButton("Painter", "A vibrant experience.!", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Painter'))()
+
+MainSection:NewButton("Overkill", "A Slap Battles glove", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Overkill'))()
+
+MainSection:NewButton("Default", "A Slap Battles glove. ", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Default'))()
+
+MainSection:NewButton("Noob", "Got them Beeeeeeeaaaannnsss what the f-", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/NoobSpawner'))()
+
+MainSection:NewButton("Puncher", "GOTTA PUNCH PUNCH PUNCH!", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/PuncherSpawner'))()
+
+MainSection:NewButton("A-360", "Also Known as Skopos.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+
+MainSection:NewButton("A-29", "There is no known information about this entity.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+
+MainSection:NewButton("A-12", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
 
 MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
@@ -24,10 +45,6 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 
 MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
-
-MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
-
 
 MainSection2:NewButton("Lasso", "Bring stuff to you. ", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Lasso'))()
