@@ -1,12 +1,11 @@
+local UILL = game:GetObjects("rbxassetid://16691638969)[1]
 
-local UI = game:GetObjects("rbxassetid://16691638969)[1]
+UILL.Parent = game.Players.LocalPlayer.PlayerGui
 
-UI.Parent = game.Players.LocalPlayer.PlayerGui
-
-UI.Enabed = true
+UILL.Enabed = true
 
 
-		local Needed = 	UI.Bg
+		local Needed = 	UILL.Bg
 	local Bg = 0.67
 	local Pat = 0.76
 		local Star = 0.48
