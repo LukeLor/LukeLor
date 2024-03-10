@@ -2,8 +2,8 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 function Script()
 end
     local Window = Library.CreateLib("Out Of Order Entity Spawner", "Synapse")
-    local Main = Window:NewTab("Entities")
-    local MainSection = Main:NewSection("Type here")
+    local Main = Window:NewTab(":)")
+    local MainSection = Main:NewSection("Entities")
     -- Script
     MainSection:NewButton("Type here", "Type here.", function()
 Put script here
