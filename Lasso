@@ -5,15 +5,7 @@ local Sound = Instance.new("Sound")
  
 Tool.Parent = game.Players.LocalPlayer.Backpack
  
-Sound.PlaybackSpeed = 1.25
-Sound.SoundId = "rbxassetid://9118823101"
-Sound.Parent = Tool
- 
 Tool.Activated:Connect(function()
- 
-    Sound:Play()
-    wait(0.25)
-    Sound:Play()
 
 
   local ObjectToPull = game:GetService("Players").LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Model")
