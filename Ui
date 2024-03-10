@@ -9,6 +9,26 @@ end
     -- Script
     MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
-MainSection2:NewButton("Lasso", "Bring", function()
+
+MainSection:NewButton("Rush's Distorted Side", "Rush's Alternative.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner'))()
+
+MainSection:NewButton("MadGuy", "A Youtuber", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Mad%20Spawner'))()
+
+MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+
+MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+
+MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+
+MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+
+
+MainSection2:NewButton("Lasso", "Bring stuff to you. ", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Lasso'))()
     end)
