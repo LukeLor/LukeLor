@@ -1,11 +1,13 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 function Script()
 end
-    local Window = Library.CreateLib("Out Of Order Entity Spawner", "Synapse")
+    local Window = Library.CreateLib("Out Of Order", "Synapse")
     local Main = Window:NewTab("Spawner")
-    local Main2 = Window:NewTab("Scripts")
+    local Main2 = Window:NewTab("(Extra) Scripts")
+    local Main3 = Window:NewTab("(Extra) Modders")
     local MainSection = Main:NewSection("Entities")
     local MainSection2 = Main:NewSection("Lucas' Scripts")
+    local MainSection3 = Main:NewSection("Entity Moddifications")
     -- Script
     MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
@@ -40,12 +42,12 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection:NewButton("A-12", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
 
-MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
-
-MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
-
 MainSection2:NewButton("Lasso", "Bring stuff to you. ", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Lasso'))()
+
+MainSection3:NewButton("Overlooker", "Screech's Alternative.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/ScreechModder'))()
+
+MainSection:NewButton("Teal Halt", "Halt Ate Greens Bro.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/HaltModder'))()
     end)
