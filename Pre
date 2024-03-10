@@ -1,14 +1,14 @@
 local Functions = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local CustomShop = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Shop%20Items/Source.lua"))()
 local UIS = game:GetService("UserInputService")
-local exampleTool = LoadCustomInstance("rbxassetid://12848567274") -- wand model
+local exampleTool = LoadCustomInstance("rbxassetid://15913364010") -- wand model
 
 if game:GetService("Players").LocalPlayer.PlayerGui.MainUI.ItemShop.Visible == true then
     -- Create custom shop item
     CustomShop.CreateItem(exampleTool, {
         Title = "Ultimate Crucifix",
-        Desc = "Every Entity goes down to the place they came.",
-        Image = "https://cdn.discordapp.com/attachments/1049016956231102465/1078727375631679688/image_2023-02-24_121721211-removebg-preview.png",
+        Desc = "Every Entity goes down to the place they came. The Void...",
+        Image = "rbxassetid://15875523650",
         Price = "100",
         Stack = 1,
     })
@@ -18,7 +18,7 @@ else
 end
 local tool = exampleTool
 local function Shoot()
-    local bullet = game:GetObjects("rbxassetid://12848374097")[1]
+    local bullet = game:GetObjects("rbxassetid://15913364010")[1]
     task.wait()
     bullet.Anchored = false
     bullet.Massless = false
