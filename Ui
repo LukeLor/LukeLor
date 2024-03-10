@@ -50,4 +50,7 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 
 MainSection:NewButton("Teal Halt", "Halt Ate Greens Bro.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/HaltModder'))()
+
+MainSection:NewButton("Mil_eHak Figure", "Figure's Reskin.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Figure%20reskin'))()
     end)
