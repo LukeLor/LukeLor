@@ -1,3 +1,4 @@
-script.Parent:WaitForChild("Humanoid").Died:Connect(function()
-	game.ReplicatedStorage.Bricks.DeathHint:FireClient(game.Players:WaitForChild(script.Parent.Name), {"bruh", "bruh", "bro how the hell did you died to reset", "ur trash bro", "imagine dying from reset", "get better"})
+Game.Players.LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").Died:Connect(function()
+	game.ReplicatedStorage.Bricks.DeathHint:FireClient(game.Players:WaitForChild(Game.Players.LocalPlayer.Name), {"bruh", "bruh", "bro how the hell did you died to reset", "ur trash bro", "imagine dying from reset", "get better"})
+Game.Players.LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").Health = 0
 end)
