@@ -1,5 +1,4 @@
-local name = script.Parent.Name
-	local pui = game.Players:FindFirstChild(name).PlayerGui
+local pui = game.Players.LocalPlayer.PlayerGui
 local UI = game:GetObject("rbxassetid://16691638969)[1]
 UI.Parent = pui
 		local Needed = 	UI.Bg
