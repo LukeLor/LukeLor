@@ -5,9 +5,11 @@ end
     local Main = Window:NewTab("Spawner")
     local Main2 = Window:NewTab("(Extra) Scripts")
     local Main3 = Window:NewTab("(Extra) Modders")
+    local Main4 = Window:NewTab("(Extra) Little Light")
     local MainSection = Main:NewSection("Entities")
     local MainSection2 = Main:NewSection("Lucas' Scripts")
     local MainSection3 = Main:NewSection("Entity Moddifications")
+    local MainSection4 = Main:NewSection("Light")
     -- Script
     MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
@@ -48,9 +50,13 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection3:NewButton("Overlooker", "Screech's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/ScreechModder'))()
 
-MainSection:NewButton("Teal Halt", "Halt Ate Greens Bro.", function()
+MainSection3:NewButton("Teal Halt", "Halt Ate Greens Bro.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/HaltModder'))()
 
-MainSection:NewButton("Mil_eHak Figure", "Figure's Reskin.", function()
+MainSection3:NewButton("Mil_eHak Figure", "Figure's Reskin.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Figure%20reskin'))()
-    end)
+
+MainSection4:NewButton("Start", "Triggers Little Light.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+   
+end)
