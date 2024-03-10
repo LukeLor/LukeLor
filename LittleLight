@@ -1,4 +1,4 @@
-local UILL = game:GetObjects("rbxassetid://16691638969)[1]
+local UILL = game:GetObjects("rbxassetid://16691638969")[1]
 
 UILL.Parent = game.Players.LocalPlayer.PlayerGui
 
