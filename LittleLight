@@ -40,7 +40,7 @@ UILL.Enabed = true
 		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "Visit:  https://github.com/LukeLor/LukeLor/edit/main/Little%20Light"
+		Needed.Note.Text = "Cya Next Time, Right"
 		wait(15)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
 -- copy ending here
