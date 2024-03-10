@@ -29,7 +29,7 @@ UILL.Enabed = true
 		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "If you want this script..."
+		Needed.Note.Text = "Don't Worry; You're not dead!"
 		wait(4)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
 		wait(5)
