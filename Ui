@@ -1,0 +1,10 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+function Script()
+end
+    local Window = Library.CreateLib("Type here", "Synapse")
+    local Main = Window:NewTab("Type here")
+    local MainSection = Main:NewSection("Type here")
+    -- Script
+    MainSection:NewButton("Type here", "Type here.", function()
+Put script here
+    end)
