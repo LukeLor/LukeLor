@@ -1,6 +1,7 @@
 local pui = game.Players.LocalPlayer.PlayerGui
-local UI = game:GetObject("rbxassetid://16691638969)[1]
+local UI = game:GetObjects("rbxassetid://16691638969)[1]
 UI.Parent = pui
+UI.Enabed = true
 		local Needed = 	UI.Bg
 	local Bg = 0.67
 	local Pat = 0.76
