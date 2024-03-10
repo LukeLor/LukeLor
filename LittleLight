@@ -18,7 +18,7 @@ UILL.Enabed = true
                 ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "Thought i'd fill these for you?"
+		Needed.Note.Text = "This is from the ui."
 		wait(1)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
                 wait(5)
@@ -29,7 +29,7 @@ UILL.Enabed = true
 		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "nope, not at all!"
+		Needed.Note.Text = "If you want this script..."
 		wait(4)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
 		wait(5)
@@ -40,8 +40,8 @@ UILL.Enabed = true
 		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "This is yours!"
-		wait(4)
+		Needed.Note.Text = "Visit:  https://github.com/LukeLor/LukeLor/edit/main/Little%20Light"
+		wait(15)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
 -- copy ending here
 		wait(5)
