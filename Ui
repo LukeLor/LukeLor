@@ -2,9 +2,13 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 function Script()
 end
     local Window = Library.CreateLib("Out Of Order Entity Spawner", "Synapse")
-    local Main = Window:NewTab(":)")
+    local Main = Window:NewTab("Spawner")
+    local Main2 = Window:NewTab("Scripts")
     local MainSection = Main:NewSection("Entities")
+    local MainSection2 = Main:NewSection("Lucas' Scripts")
     -- Script
     MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
-loadstring(game:HttpsGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher))()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+MainSection2:NewButton("Lasso", "Bring", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Lasso'))()
     end)
