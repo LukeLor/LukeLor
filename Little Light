@@ -1,7 +1,7 @@
 local name = script.Parent.Name
 	local ui = game.Players:FindFirstChild(name).PlayerGui
-	ui.Little_Light.Enabled = true
-		local Needed = 	ui.Little_Light.Bg
+local UI = game:GetObject("rbxassetid://16691638969)[1]
+		local Needed = 	UI.Bg
 	local Bg = 0.67
 	local Pat = 0.76
 		local Star = 0.48
@@ -40,5 +40,4 @@ wait(5)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = 1}):Play()
-		script:Destroy()
 		
