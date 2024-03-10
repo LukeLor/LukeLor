@@ -11,34 +11,40 @@ UI.Parent = pui
 		local info = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 		ts:Create(Needed, info, {ImageTransparency = 0}):Play()
 		ts:Create(Needed.Pattern, info, {ImageTransparency = Pat}):Play()
-		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
+-- copy starting here	 
+                ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "It seems you reseted..."
+		Needed.Note.Text = "Thought i'd fill these for you?"
 		wait(1)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
-wait(5)
+                wait(5)
 		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
 		wait(1)
+-- copy ending here
+-- copy starting here
 		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "This was for testing anyway."
+		Needed.Note.Text = "nope, not at all!"
 		wait(4)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
 		wait(5)
 		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
 		wait(1)
+-- copy ending here
+-- copy starting here
 		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "Cya Next Time Right?"
+		Needed.Note.Text = "This is yours!"
 		wait(4)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
+-- copy ending here
 		wait(5)
 		ts:Create(Needed, info, {ImageTransparency = 1}):Play()
 		ts:Create(Needed.Pattern, info, {ImageTransparency = 1}):Play()
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = 1}):Play()
-		
+		-- to modify this follow the copy lines
