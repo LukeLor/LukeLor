@@ -5,6 +5,6 @@ end
     local Main = Window:NewTab(":)")
     local MainSection = Main:NewSection("Entities")
     -- Script
-    MainSection:NewButton("Type here", "Type here.", function()
-Put script here
+    MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
+
     end)
