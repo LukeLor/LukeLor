@@ -36,7 +36,7 @@ MainSection:NewButton("Puncher", "GOTTA PUNCH PUNCH PUNCH!", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/PuncherSpawner'))()
 
 MainSection:NewButton("A-360", "Also Known as Skopos.", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/A-360'))()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Skopos'))()
 
 MainSection:NewButton("A-29", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/A-29'))()
