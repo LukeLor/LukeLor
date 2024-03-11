@@ -122,8 +122,8 @@ UILL.Enabed = true
 		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
 		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
 		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "Hope this was informational!"
-		wait(15)
+		Needed.Note.Text = "See you next time. Right..?"
+		wait(5)
 		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
 -- copy ending here
 		wait(5)
