@@ -1,15 +1,15 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 function Script()
 end
-    local Window = Library.CreateLib("Out Of Order", "Synapse")
+    local Window = Library.CreateLib("Out Of Order+", "Synapse")
     local Main = Window:NewTab("Spawner")
     local Main2 = Window:NewTab("(Extra) Scripts")
     local Main3 = Window:NewTab("(Extra) Modders")
     local Main4 = Window:NewTab("(Extra) Little Light")
     local MainSection = Main:NewSection("Entities")
-    local MainSection2 = Main:NewSection("Lucas' Scripts")
-    local MainSection3 = Main:NewSection("Entity Moddifications")
-    local MainSection4 = Main:NewSection("Light")
+    local MainSection2 = Main2:NewSection("Lucas' Scripts")
+    local MainSection3 = Main3:NewSection("Entity Moddifications")
+    local MainSection4 = Main4:NewSection("Light")
     -- Script
     MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
@@ -58,5 +58,9 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 
 MainSection4:NewButton("Start", "Triggers Little Light.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/LittleLight'))()
+
+MainSection4:NewButton("Link:", "https://raw.githubusercontent.com/LukeLor/LukeLor/main/LittleLight (you can copy the script and change the message. I left some guides if you wanna add more lines.)"
+   ", function()
+print("Nothing Lol")
    
 end)
