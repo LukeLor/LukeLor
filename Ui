@@ -53,7 +53,7 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection3:NewButton("Teal Halt", "Halt Ate Greens Bro.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/HaltModder'))()
 
-MainSection3:NewButton("Mil_eHak Figure (MUST BE AT DOOR 49!)", "Figure's Reskin.", function()
+MainSection3:NewButton("Mil_eHak Figure", "Figure's Reskin.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Figure%20reskin'))()
 
 MainSection4:NewButton("Start", "Triggers Little Light.", function()
