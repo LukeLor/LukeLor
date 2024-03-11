@@ -94,8 +94,8 @@ SP.Volume = 1
 SP.PlaybackSpeed = 0.6
 end
 
---entityTable.Debug.OnLookAtEntity = function()
-    --print("Player has looked at entity:", entityTable)
+entityTable.Debug.OnLookAtEntity = function()
+print("Player has looked at entity:", entityTable)
 local HRP = game.Players.LocalPlayer:WaitForChild("Character").HumanoidRootPart
 local FP = 100
 local FT = 0.3750
@@ -119,7 +119,7 @@ FDestroy()
 R:Destroy()
 
 HRP.Parent.Humanoid.PlatformStand = false
---end
+end
 
 entityTable.Debug.OnDeath = function()
     warn("Player has died.")
