@@ -1,4 +1,4 @@
-local rr = game:GetObjects(rbxassetid://16706400070)[1]
+local rr = game:GetObjects(rbxassetid://16707791437)[1]
 local ss = game.ServerStorage
-ss.Rooms.SantaRoom:Destroy()
+ss.Rooms.WelcomeRoom:Destroy()
 rr.Parent = ss.Rooms
