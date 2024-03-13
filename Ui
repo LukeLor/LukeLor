@@ -14,17 +14,30 @@ end
     MainSection:NewButton("Dasher[KILLABLE]", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
 
+MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/SafeDash'))()
+
 MainSection:NewButton("Rush's Distorted Side[KILLABLE]", "Rush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner'))()
 
+MainSection:NewButton("Rush's Distorted Side", "Rush's Alternative.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/SafeRush'))()
+
 MainSection:NewButton("MadGuy[KILLABLE]", "A Youtuber.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner'))()
+
+MainSection:NewButton("MadGuy", "A Youtuber.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/SafeMad'))()
 
 MainSection:NewButton("Painter", "A vibrant experience.!", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Painter'))()
 
 MainSection:NewButton("Overkill[KILLABLE]", "A Slap Battles glove", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Overkill'))()
+
+MainSection:NewButton("Overkill", "A Slap Battles glove.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/SafeOver'))()
+
 
 MainSection:NewButton("Default", "A Slap Battles glove. ", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Default'))()
@@ -38,11 +51,22 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection:NewButton("A-360[KILLABLE]", "Also Known as Skopos.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Skopos'))()
 
+MainSection:NewButton("A-360", "Also known as Skopos.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Safe360'))()
+
+
 MainSection:NewButton("A-29[KILLABLE]", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/A-29'))()
 
+MainSection:NewButton("A-29", "There is no known information about this entity.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Safe29'))()
+
+
 MainSection:NewButton("A-12[KILLABLE]", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/A-12'))()
+
+MainSection:NewButton("A-12", "There is no known information about this entity.", function()
+loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Safe12'))()
 
 MainSection2:NewButton("Lasso", "Bring stuff to you. ", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Lasso'))()
