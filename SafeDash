@@ -1,0 +1,147 @@
+---====== Define spawner ======---
+
+local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/Source.lua"))()
+
+---====== Create entity ======---
+
+local entity = Spawner.createEntity({
+    CustomName = "Dasher",
+    Model = "rbxassetid://15849998720", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
+    Speed = 1000,
+    MoveDelay = 9.9,
+    HeightOffset = 0,
+    CanKill = false,
+    KillRange = 50,
+    SpawnInFront = false,
+    ShatterLights = true,
+    FlickerLights = {
+        Enabled = true,
+        Duration = 1
+    },
+    Cycles = {
+        Min = 6,
+        Max = 12,
+        Delay = 9.9
+    },
+    CamShake = {
+        Enabled = true,
+        Values = {1.5, 20, 0.1, 1},
+        Range = 400
+    },
+    ResistCrucifix = false,
+    BreakCrucifix = true,
+    DeathMessage = {"You died to Dasher...", "Dasher is faster than Ambush!", "Hope to see you try again.", "Good Luck!"},
+    IsCuriousLight = false
+})
+
+---====== Debug ======---
+
+entity.Debug.OnEntitySpawned = function()
+    print("Entity has spawned")
+local SS = Instance.new("Sound")
+SS.SoundId = 2674547670
+SS.Parent = Workspace
+SS:Play()
+SS.PlaybackSpeed = 0.3
+end
+
+entity.Debug.OnEntityDespawned = function()
+    print("Entity has despawned")local SD = Instance.new("Sound")
+SD.SoundId = 3908308607
+SD.Parent = game.workspace
+SD:Play()
+SD.PlaybackSpeed = 0.3
+local SD2 = Instance.new("Sound")
+SD2.SoundId = 6675104318
+SD2.Parent = game.workspace
+SD2:Play()
+SD2.PlaybackSpeed = 0.3
+end
+
+entity.Debug.OnEntityStartMoving = function()
+    print("Entity started moving")
+end
+
+entity.Debug.OnEntityFinishedRebound = function()
+    print("Entity finished rebound")
+end
+
+entity.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity entered room:", room)
+local SP = Instance.new("Sound")
+SP.SoundId = 5546573724
+SP.Parent = entityTable
+SP:Play()
+SP.PlaybackSpeed = 0.3
+end
+
+entity.Debug.OnLookAtEntity = function()
+    print("Player looking at entity")
+end
+
+entity.Debug.OnDeath = function()
+local UILL = game:GetObjects("rbxassetid://16691638969")[1]
+
+UILL.Parent = game.Players.LocalPlayer.PlayerGui
+
+UILL.Enabed = true
+
+
+		local Needed = 	UILL.Bg
+	local Bg = 0.67
+	local Pat = 0.76
+		local Star = 0.48
+		local TextStroke = 0.37
+		local ts = game:GetService("TweenService")
+		local info = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+		ts:Create(Needed, info, {ImageTransparency = 0}):Play()
+		ts:Create(Needed.Pattern, info, {ImageTransparency = Pat}):Play()
+-- copy starting here	 
+                ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
+		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
+		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
+		Needed.Note.Text = "You died to Dasher..."
+		wait(1)
+		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
+                wait(5)
+		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
+		wait(1)
+-- copy ending here
+-- copy starting here
+		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
+		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
+		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
+		Needed.Note.Text = "Use what you learned from Ambush!"
+		wait(4)
+		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
+		wait(5)
+		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
+		wait(1)
+-- copy ending here
+-- copy starting here
+		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
+		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
+		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
+		Needed.Note.Text = "See you next time. Right..?"
+		wait(5)
+		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
+-- copy ending here
+		wait(5)
+		ts:Create(Needed, info, {ImageTransparency = 1}):Play()
+		ts:Create(Needed.Pattern, info, {ImageTransparency = 1}):Play()
+		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
+		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
+		ts:Create(Needed.Note, info, {TextStrokeTransparency = 1}):Play()
+		-- to modify this follow the copy lines
+    print("Player has died")
+end
+
+   -- NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
+
+    entity.Debug.OnUseCrucifix = function()
+        print("Custom crucifixion script here")
+    end
+
+---====== Run entity ======---
+
+Spawner.runEntity(entity)
