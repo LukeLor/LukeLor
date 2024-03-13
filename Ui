@@ -11,19 +11,19 @@ end
     local MainSection3 = Main3:NewSection("Entity Moddifications")
     local MainSection4 = Main4:NewSection("Light")
     -- Script
-    MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
+    MainSection:NewButton("Dasher[KILLABLE]", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
 
-MainSection:NewButton("Rush's Distorted Side", "Rush's Alternative.", function()
+MainSection:NewButton("Rush's Distorted Side[KILLABLE]", "Rush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner'))()
 
-MainSection:NewButton("MadGuy", "A Youtuber.", function()
+MainSection:NewButton("MadGuy[KILLABLE]", "A Youtuber.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner'))()
 
 MainSection:NewButton("Painter", "A vibrant experience.!", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Painter'))()
 
-MainSection:NewButton("Overkill", "A Slap Battles glove", function()
+MainSection:NewButton("Overkill[KILLABLE]", "A Slap Battles glove", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Overkill'))()
 
 MainSection:NewButton("Default", "A Slap Battles glove. ", function()
@@ -35,13 +35,13 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection:NewButton("Puncher", "GOTTA PUNCH PUNCH PUNCH!", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/PuncherSpawner'))()
 
-MainSection:NewButton("A-360", "Also Known as Skopos.", function()
+MainSection:NewButton("A-360[KILLABLE]", "Also Known as Skopos.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Skopos'))()
 
-MainSection:NewButton("A-29", "There is no known information about this entity.", function()
+MainSection:NewButton("A-29[KILLABLE]", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/A-29'))()
 
-MainSection:NewButton("A-12", "There is no known information about this entity.", function()
+MainSection:NewButton("A-12[KILLABLE]", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/A-12'))()
 
 MainSection2:NewButton("Lasso", "Bring stuff to you. ", function()
