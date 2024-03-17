@@ -49,11 +49,15 @@ entity.Debug.OnEntityDespawned = function()
     print("Entity has despawned")local SD = Instance.new("Sound")
 SD.SoundId = 3908308607
 SD.Parent = game.workspace
+SD.PlaybackSpeed = 0.3
+SD.Volume = 0.5
 SD:Play()
 SD.PlaybackSpeed = 0.3
 local SD2 = Instance.new("Sound")
 SD2.SoundId = 6675104318
 SD2.Parent = game.workspace
+SD2.PlaybackSpeed = 0.3
+SD2.Volume = 0.5
 SD2:Play()
 SD2.PlaybackSpeed = 0.3
 end
