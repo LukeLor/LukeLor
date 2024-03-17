@@ -1,0 +1,7 @@
+firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "Erm")
+wait(2)
+firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "Idk")
+wait(2)
+firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "..Here's 500,000 Coins!")
+wait(2)
+game.Players.LocalPlayer.Gold.Value = 500000
