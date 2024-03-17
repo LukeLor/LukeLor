@@ -7,82 +7,83 @@ end
     -- Script
     MainSection:NewButton("Dasher[KILLABLE]", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
+end)
 
 MainSection:NewButton("Dasher", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/SafeDash'))()
-
+end)
 MainSection:NewButton("Rush's Distorted Side[KILLABLE]", "Rush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner'))()
-
+end)
 MainSection:NewButton("Rush's Distorted Side", "Rush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/SafeRush'))()
-
+end)
 MainSection:NewButton("MadGuy[KILLABLE]", "A Youtuber.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner'))()
-
+end)
 MainSection:NewButton("MadGuy", "A Youtuber.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/SafeMad'))()
-
+end)
 MainSection:NewButton("Painter", "A vibrant experience.!", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Painter'))()
-
+end)
 MainSection:NewButton("Overkill[KILLABLE]", "A Slap Battles glove", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Overkill'))()
-
+end)
 MainSection:NewButton("Overkill", "A Slap Battles glove.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/SafeOver'))()
-
+end)
 
 MainSection:NewButton("Default", "A Slap Battles glove. ", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Default'))()
-
+end)
 MainSection:NewButton("Noob", "Got them Beeeeeeeaaaannnsss what the f-", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/NoobSpawner'))()
-
+end)
 MainSection:NewButton("Puncher", "GOTTA PUNCH PUNCH PUNCH!", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/PuncherSpawner'))()
-
+end)
 MainSection:NewButton("A-360[KILLABLE]", "Also Known as Skopos.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Skopos'))()
-
+end)
 MainSection:NewButton("A-360", "Also known as Skopos.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Safe360'))()
-
+end)
 
 MainSection:NewButton("A-29[KILLABLE]", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/A-29'))()
-
+end)
 MainSection:NewButton("A-29", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Safe29'))()
-
+end)
 
 MainSection:NewButton("A-12[KILLABLE]", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/A-12'))()
-
+end)
 MainSection:NewButton("A-12", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Safe12'))()
-
+end)
 local Main = Window:NewTab("(Extra) Scripts")
 local MainSection = Main:NewSection("Lucas' Scripts")
 MainSection2:NewButton("Lasso", "Bring stuff to you. ", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Lasso'))()
-
+end)
  local Main = Window:NewTab("(Extra) Modders")
  local MainSection = Main:NewSection("Entity Moddifications")
 MainSection:NewButton("Overlooker", "Screech's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/ScreechModder'))()
-
+end)
 MainSection:NewButton("Teal Halt", "Halt Ate Greens Bro.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/HaltModder'))()
-
+end)
 MainSection:NewButton("Mil_eHak Figure", "Figure's Reskin.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Figure%20reskin'))()
-
+end)
  local Main = Window:NewTab("(Extra) Little Light")
 local MainSection = Main:NewSection("Light")
 MainSection:NewButton("Start", "Triggers Little Light.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/LittleLight'))()
-
+end)
 MainSection:NewButton("Link:", "https://raw.githubusercontent.com/LukeLor/LukeLor/main/LittleLight (you can copy the script and change the message. I left some guides if you wanna add more lines.)", function()
 print("Nothing Lol")
 end)
