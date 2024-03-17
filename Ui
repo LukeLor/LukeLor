@@ -3,13 +3,13 @@ function Script()
 end
     local Window = Library.CreateLib("Out Of Order+", "Synapse")
     local Main = Window:NewTab("Spawner")
-    local Main2 = Window:NewTab("(Extra) Scripts")
-    local Main3 = Window:NewTab("(Extra) Modders")
-    local Main4 = Window:NewTab("(Extra) Little Light")
+  --  local Main2 = Window:NewTab("(Extra) Scripts")
+  --  local Main3 = Window:NewTab("(Extra) Modders")
+  --  local Main4 = Window:NewTab("(Extra) Little Light")
     local MainSection = Main:NewSection("Entities")
-    local MainSection2 = Main2:NewSection("Lucas' Scripts")
-    local MainSection3 = Main3:NewSection("Entity Moddifications")
-    local MainSection4 = Main4:NewSection("Light")
+   -- local MainSection2 = Main2:NewSection("Lucas' Scripts")
+  --  local MainSection3 = Main3:NewSection("Entity Moddifications")
+   -- local MainSection4 = Main4:NewSection("Light")
     -- Script
     MainSection:NewButton("Dasher[KILLABLE]", "Ambush's Alternative.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
@@ -68,23 +68,23 @@ loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main
 MainSection:NewButton("A-12", "There is no known information about this entity.", function()
 loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Safe12'))()
 
-MainSection2:NewButton("Lasso", "Bring stuff to you. ", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Lasso'))()
+--MainSection2:NewButton("Lasso", "Bring stuff to you. ", function()
+--loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Lasso'))()
 
-MainSection3:NewButton("Overlooker", "Screech's Alternative.", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/ScreechModder'))()
+--MainSection3:NewButton("Overlooker", "Screech's Alternative.", function()
+--loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/ScreechModder'))()
 
-MainSection3:NewButton("Teal Halt", "Halt Ate Greens Bro.", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/HaltModder'))()
+--MainSection3:NewButton("Teal Halt", "Halt Ate Greens Bro.", function()
+--loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/HaltModder'))()
 
-MainSection3:NewButton("Mil_eHak Figure", "Figure's Reskin.", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Figure%20reskin'))()
+--MainSection3:NewButton("Mil_eHak Figure", "Figure's Reskin.", function()
+--loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Figure%20reskin'))()
 
-MainSection4:NewButton("Start", "Triggers Little Light.", function()
-loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/LittleLight'))()
+--MainSection4:NewButton("Start", "Triggers Little Light.", function()
+--loadstring(game:HttpsGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/LittleLight'))()
 
-MainSection4:NewButton("Link:", "https://raw.githubusercontent.com/LukeLor/LukeLor/main/LittleLight (you can copy the script and change the message. I left some guides if you wanna add more lines.)"
-   ", function()
-print("Nothing Lol")
+--MainSection4:NewButton("Link:", "https://raw.githubusercontent.com/LukeLor/LukeLor/main/LittleLight (you can copy the script and change the message. I left some guides if you wanna add more lines.)"
+ --  ", function()
+--print("Nothing Lol")
    
 end)
