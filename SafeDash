@@ -73,6 +73,13 @@ end
 entity.Debug.OnEntityEnteredRoom = function(room)
     print("Entity entered room:", room)
 local SP = Instance.new("Sound")
+local SPP = Instance.new("PitchShiftSounEffect")
+local SPE = Instance.new("EchoSoundEffect")
+local SPR = Instance.new("ReverbSoundEffect")
+SPP.Parent = SP
+SPE.Parent = SP
+SPR.Parent = SP
+SPP.Octave = 0.5
 SP.SoundId = 5546573724
 SP.Parent = entityTable
 SP:Play()
