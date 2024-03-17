@@ -1,5 +1,5 @@
 --Should change Screech's look to my fanmade "Overlooker"
-local OL = game:GetObject("rbxassetid://16745751833")[1]
+local OL = game:GetObject("rbxassetid://16772136172")[1]
 local OS = game.ReplicatedStorage.Entites.Screech
 
 OL.Parent = game.ReplicatedStorage.Entites
