@@ -43,6 +43,9 @@ end
 
 entity.Debug.OnEntityDespawned = function()
     print("Entity has despawned")
+local D = Instance.new("Sound")
+D.SoundId = "rbxassetid://6049670667"
+D.Parent = Workspace
 end
 
 entity.Debug.OnEntityStartMoving = function()
