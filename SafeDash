@@ -43,6 +43,7 @@ SS.SoundId = 2674547670
 SS.Parent = Workspace
 SS:Play()
 SS.PlaybackSpeed = 0.3
+SS.Volume = 0.5
 end
 
 entity.Debug.OnEntityDespawned = function()
