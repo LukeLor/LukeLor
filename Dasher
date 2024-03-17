@@ -40,7 +40,9 @@ entity.Debug.OnEntitySpawned = function()
     print("Entity has spawned")
 local SS = Instance.new("Sound")
 SS.SoundId = 2674547670
-SS.Parent = Workspace
+SS.Parent = game.Workspace
+SS.PlaybackSpeed = 0.3
+SS.Volume = 0.5
 SS:Play()
 SS.PlaybackSpeed = 0.3
 end
@@ -49,11 +51,15 @@ entity.Debug.OnEntityDespawned = function()
     print("Entity has despawned")local SD = Instance.new("Sound")
 SD.SoundId = 3908308607
 SD.Parent = game.workspace
+SD.PlaybackSpeed = 0.3
+SD.Volume = 0.5
 SD:Play()
 SD.PlaybackSpeed = 0.3
 local SD2 = Instance.new("Sound")
 SD2.SoundId = 6675104318
 SD2.Parent = game.workspace
+SD2.PlaybackSpeed = 0.3
+SD2.Volume = 0.5
 SD2:Play()
 SD2.PlaybackSpeed = 0.3
 end
@@ -69,6 +75,13 @@ end
 entity.Debug.OnEntityEnteredRoom = function(room)
     print("Entity entered room:", room)
 local SP = Instance.new("Sound")
+local SPP = Instance.new("PitchShiftSounEffect")
+local SPE = Instance.new("EchoSoundEffect")
+local SPR = Instance.new("ReverbSoundEffect")
+SPP.Parent = SP
+SPE.Parent = SP
+SPR.Parent = SP
+SPP.Octave = 0.5
 SP.SoundId = 5546573724
 SP.Parent = entityTable
 SP:Play()
@@ -80,59 +93,6 @@ entity.Debug.OnLookAtEntity = function()
 end
 
 entity.Debug.OnDeath = function()
-local UILL = game:GetObjects("rbxassetid://16691638969")[1]
-
-UILL.Parent = game.Players.LocalPlayer.PlayerGui
-
-UILL.Enabed = true
-
-
-		local Needed = 	UILL.Bg
-	local Bg = 0.67
-	local Pat = 0.76
-		local Star = 0.48
-		local TextStroke = 0.37
-		local ts = game:GetService("TweenService")
-		local info = TweenInfo.new(1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-		ts:Create(Needed, info, {ImageTransparency = 0}):Play()
-		ts:Create(Needed.Pattern, info, {ImageTransparency = Pat}):Play()
--- copy starting here	 
-                ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
-		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
-		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "You died to Dasher..."
-		wait(1)
-		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
-                wait(5)
-		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
-		wait(1)
--- copy ending here
--- copy starting here
-		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
-		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
-		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "Use what you learned from Ambush!"
-		wait(4)
-		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
-		wait(5)
-		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
-		wait(1)
--- copy ending here
--- copy starting here
-		ts:Create(Needed.Star, info, {ImageTransparency = Star}):Play()
-		ts:Create(Needed.Note, info, {TextTransparency = 0}):Play()
-		ts:Create(Needed.Note, info, {TextStrokeTransparency = TextStroke}):Play()
-		Needed.Note.Text = "See you next time. Right..?"
-		wait(5)
-		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
--- copy ending here
-		wait(5)
-		ts:Create(Needed, info, {ImageTransparency = 1}):Play()
-		ts:Create(Needed.Pattern, info, {ImageTransparency = 1}):Play()
-		ts:Create(Needed.Star, info, {ImageTransparency = 1}):Play()
-		ts:Create(Needed.Note, info, {TextTransparency = 1}):Play()
-		ts:Create(Needed.Note, info, {TextStrokeTransparency = 1}):Play()
-		-- to modify this follow the copy lines
     print("Player has died")
 end
 
