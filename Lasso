@@ -12,5 +12,6 @@ Tool.Activated:Connect(function()
   local Hand = Humanoid.Parent.HumanoidRootPart
   local Ts = game:GetService("TweenService")
   local info = TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-  Ts:Create(ObjectToPull, info,{Position = Hand.Position}):Play()
+ObjectToPull:Destoy()
+ --Ts:Create(ObjectToPull, info,{Position = Hand.Position}):Play()
 end)
