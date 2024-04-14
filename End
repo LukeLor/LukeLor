@@ -1,2 +1,3 @@
-MainUI.Initiator.Main_Game.Cutscenes.Elevator1.EndMusic
+local Echo = Instance.new("EchoSoundEffect")
+Echo.Parent = MainUI.Initiator.Main_Game.Cutscenes.Elevator1.EndMusic
 MainUI.Initiator.Main_Game.EndMusic
