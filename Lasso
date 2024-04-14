@@ -8,7 +8,7 @@ Tool.Parent = game.Players.LocalPlayer.Backpack
 Tool.Activated:Connect(function()
 
 
-  local ObjectToPull = game:GetService("Players").LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Model")
+  local ObjectToPull = game:GetService("Players").LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("Part") or game:GetService("Players").LocalPlayer:GetMouse().Target:FindFirstAncestorOfClass("MeshPart")
   local Hand = Humanoid.Parent.HumanoidRootPart
   local Ts = game:GetService("TweenService")
   local info = TweenInfo.new(5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
