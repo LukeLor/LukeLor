@@ -2,3 +2,4 @@ local rr = game:GetObjects("rbxassetid://16716463095")[1]
 local ss = game:GetService("ServerStorage")
 ss.Rooms.WelcomeRoom:Destroy()
 rr.Parent = ss.Rooms
+--17248774114
