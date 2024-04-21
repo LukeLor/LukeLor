@@ -1,0 +1,4 @@
+local rr = game:GetObjects("rbxassetid://17248774114")[1]
+local ss = game:GetService("ServerStorage")
+ss.Rooms.AFunnyRoom:Destroy()
+rr.Parent = ss.Rooms
