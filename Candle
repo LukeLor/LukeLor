@@ -3,7 +3,7 @@ local Uc = game:GetObject("rbxassetid://17363284096")[1]
 
 while true do 
 	wait(0.1)
-	if workspace:FindFirstChild("Dasher") then
+	if workspace:FindFirstChild("A-12") then
 Uc.Handle.Attachment.FireParticles.Enabled = false
 Uc.Handle.Attachment.Smoke.Enabled = false
 Uc.Handle.Attachment.SparkParticles.Enabled = false
@@ -12,7 +12,7 @@ Uc.Handle.Attachment.Out1.Enabled = true
 		wait(2)
 Uc.Handle.Attachment.Out1.Enabled = false
 	end
-	if not workspace:FindFirstChild("Dasher") then
+	if not workspace:FindFirstChild("A-12") then
 Uc.Handle.Attachment.FireParticles.Enabled = true
 Uc.Handle.Attachment.Smoke.Enabled = true
 Uc.Handle.Attachment.SparkParticles.Enabled = true
