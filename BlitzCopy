@@ -85,10 +85,22 @@ end)
 
 entity:SetCallback("OnRebounding", function(startOfRebound)
     if startOfRebound == true then
-        print("Entity has started rebounding")
-	else
-        print("Entity has finished rebounding")
+	-- Variables for the entity
+	local entityModel = entity.Model
+	local main = entityModel:WaitForChild("A-29")
+	local attachment = main:WaitForChild("Attachment")
+	local AttachmentSwitch = main:WaitForChild("RushNormal")
+
+	-- Toggle particle emitters and lights within the entityModel
+	-- To switch between green & red state
+	for _, c in attachment:GetChildren() do
+		c.Enabled = (not startOfRebound)
 	end
+	for _, c in AttachmentSwitch:GetChildren() do
+		c.Enabled = startOfRebound
+	end
+
+	-- Play sounds
 end)
 
 entity:SetCallback("OnDespawning", function()
