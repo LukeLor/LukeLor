@@ -1,5 +1,6 @@
 
 local Uc = game:GetObject("rbxassetid://17363284096")[1]
+Uc.Parent = game.Players.LocalPlayer.Backpack
 
 while true do 
 	wait(0.1)
