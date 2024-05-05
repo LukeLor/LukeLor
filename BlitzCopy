@@ -6,8 +6,8 @@ local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 
 local entity = spawner.Create({
 	Entity = {
-		Name = "???",
-		Asset = "rbxassetid://17374045704",
+		Name = "Break",
+		Asset = "rbxassetid://17399026592",
 		HeightOffset = 0
 	},
 	Lights = {
@@ -26,13 +26,13 @@ local entity = spawner.Create({
 	Movement = {
 		Speed = 250,
 		Delay = 2,
-		Reversed = false
+		Reversed = true
 	},
 	Rebounding = {
 		Enabled = true,
 		Type = "Blitz", -- "Ambush"
-		Min = 1,
-		Max = 1,
+		Min = 2,
+		Max = 5,
 		Delay = 2
 	},
 	Damage = {
@@ -89,7 +89,7 @@ entity:SetCallback("OnRebounding", function(startOfRebound)
 	local entityModel = entity.Model
 	local main = entityModel:WaitForChild("A-29")
 	local attachment = main:WaitForChild("Attachment")
-	local AttachmentSwitch = main:WaitForChild("RushNormal")
+	local AttachmentSwitch = main:WaitForChild("AttachmentSwitch")
 
 	-- Toggle particle emitters and lights within the entityModel
 	-- To switch between green & red state
