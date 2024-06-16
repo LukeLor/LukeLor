@@ -16,7 +16,7 @@ elseif randomentity == 4 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner"))()
 end
 elseif randomentity == 5 then
-loadstring(game:HttpGet(""))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/NoobSpawner"))()
 end
 elseif randomentity == 6 then
 loadstring(game:HttpGet(""))()
