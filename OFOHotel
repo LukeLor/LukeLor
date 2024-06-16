@@ -1,0 +1,4 @@
+while true do
+if game.ReplicatedStorage.GameData.LatestRoom.Value == 2 then
+loadstring(HttpGet:("https://raw.githubusercontent.com/LukeLor/LukeLor/main/OFOHotelHandler"))()
+end
