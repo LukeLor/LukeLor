@@ -1,107 +1,157 @@
----====== Define spawner ======---
+---====== Load spawner ======---
 
-local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/Source.lua"))()
+local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"))()
 
 ---====== Create entity ======---
 
-local entity = Spawner.createEntity({
-    CustomName = "Dasher",
-    Model = "rbxassetid://15849998720", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
-    Speed = 1000,
-    MoveDelay = 9.9,
-    HeightOffset = 0,
-    CanKill = true,
-    KillRange = 50,
-    SpawnInFront = false,
-    ShatterLights = true,
-    FlickerLights = {
-        Enabled = true,
-        Duration = 1
-    },
-    Cycles = {
-        Min = 6,
-        Max = 12,
-        Delay = 9.9
-    },
-    CamShake = {
-        Enabled = true,
-        Values = {1.5, 20, 0.1, 1},
-        Range = 400
-    },
-    ResistCrucifix = false,
-    BreakCrucifix = true,
-    DeathMessage = {"You died to Dasher...", "Dasher is faster than Ambush!", "Hope to see you try again.", "Good Luck!"},
-    IsCuriousLight = false
+local entity = spawner.Create({
+	Entity = {
+		Name = "Dasher",
+		Asset = "rbxassetid://15849998720",
+		HeightOffset = 0
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 5
+		},
+		Shatter = true,
+		Repair = false
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 100,
+		Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+	},
+	Movement = {
+		Speed = 1000,
+		Delay = 9,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush", -- "Blitz"
+		Min = 6,
+		Max = 12,
+		Delay = 2
+	},
+	Damage = {
+		Enabled = true,
+		Range = 40,
+		Amount = 125
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Guiding", -- "Curious"
+		Hints = {"You died to Dasher..", "Use what you learned from Ambush!", "Keep not that Dasher is Faster than Ambush."},
+		Cause = ""
+	}
 })
 
----====== Debug ======---
+---====== Debug entity ======---
 
-entity.Debug.OnEntitySpawned = function()
+entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
-local SS = Instance.new("Sound")
-SS.SoundId = 2674547670
-SS.Parent = game.Workspace
-SS.PlaybackSpeed = 0.3
-SS.Volume = 0.5
-SS:Play()
-SS.PlaybackSpeed = 0.3
-end
+end)
 
-entity.Debug.OnEntityDespawned = function()
-    print("Entity has despawned")local SD = Instance.new("Sound")
+entity:SetCallback("OnStartMoving", function()
+    print("Entity has started moving")
+end)
+
+entity:SetCallback("OnReachNode", function(node)
+	print("Entity has reached node:", node)
+end)
+
+entity:SetCallback("OnEnterRoom", function(room, firstTime)
+    if firstTime == true then
+        print("Entity has entered room: ".. room.Name.. " for the first time")
+    else
+        print("Entity has entered room: ".. room.Name.. " again")
+    end
+end)
+
+entity:SetCallback("OnLookAt", function(lineOfSight)
+	if lineOfSight == true then
+		print("Player is looking at entity")
+	else
+		print("Player view is obstructed by something")
+	end
+end)
+
+entity:SetCallback("OnRebounding", function(startOfRebound)
+    if startOfRebound == true then
+        print("Entity has started rebounding")
+	else
+        print("Entity has finished rebounding")
+	end
+end)
+
+entity:SetCallback("OnDespawning", function()
+    print("Entity is despawning")
+local SD = Instance.new("Sound")
 SD.SoundId = 3908308607
-SD.Parent = game.workspace
-SD.PlaybackSpeed = 0.3
-SD.Volume = 0.5
+SD.Parent = game.Workspace
 SD:Play()
-SD.PlaybackSpeed = 0.3
+SD.PlaybackSpeed = 0.444
+SD.Volume = 1
 local SD2 = Instance.new("Sound")
 SD2.SoundId = 6675104318
-SD2.Parent = game.workspace
-SD2.PlaybackSpeed = 0.3
-SD2.Volume = 0.5
+SD2.Parent = game.Workspace
 SD2:Play()
-SD2.PlaybackSpeed = 0.3
+SD2.Volume = 2
+SD2.PlaybackSpeed = 0.4
 end
 
-entity.Debug.OnEntityStartMoving = function()
-    print("Entity started moving")
+entityTable.Debug.OnEntityStartMoving = function()
+    print("Entity has started moving:", entityTable)
 end
 
-entity.Debug.OnEntityFinishedRebound = function()
-    print("Entity finished rebound")
+entityTable.Debug.OnEntityFinishedRebound = function()
+    print("Entity has finished rebound:", entityTable)
 end
 
-entity.Debug.OnEntityEnteredRoom = function(room)
-    print("Entity entered room:", room)
+entityTable.Debug.OnEntityEnteredRoom = function(room)
+    print("Entity:", entityTable, "has entered room:", room)
 local SP = Instance.new("Sound")
-local SPP = Instance.new("PitchShiftSounEffect")
-local SPE = Instance.new("EchoSoundEffect")
-local SPR = Instance.new("ReverbSoundEffect")
-SPP.Parent = SP
-SPE.Parent = SP
-SPR.Parent = SP
-SPP.Octave = 0.5
 SP.SoundId = 5546573724
-SP.Parent = entityTable
+SP.Parent = game.Workspace
 SP:Play()
-SP.PlaybackSpeed = 0.3
-end
+SP.Volume = 1
+SP.PlaybackSpeed = 0.6
+end)
 
-entity.Debug.OnLookAtEntity = function()
-    print("Player looking at entity")
-end
+entity:SetCallback("OnDespawned", function()
+    print("Entity has despawned")
+end)
 
-entity.Debug.OnDeath = function()
-    print("Player has died")
-end
+entity:SetCallback("OnDamagePlayer", function(newHealth)
+	if newHealth == 0 then
+		print("Entity has killed the player")
+	else
+		print("Entity has damaged the player")
+	end
+end)
 
-   -- NOTE: By overwriting 'OnUseCrucifix', the default crucifixion will be ignored and this function will be called instead
+--[[
 
-    entity.Debug.OnUseCrucifix = function()
-        print("Custom crucifixion script here")
-    end
+DEVELOPER NOTE:
+By overwriting 'CrucifixionOverwrite' the default crucifixion callback will be replaced with your custom callback.
+
+entity:SetCallback("CrucifixionOverwrite", function()
+    print("Custom crucifixion callback")
+end)
+
+]]--
 
 ---====== Run entity ======---
 
-Spawner.runEntity(entity)
+entity:Run()
+-- entity:Pause()
+-- entity:Resume()
+-- entity:IsPaused()
+-- entity:Despawn()
