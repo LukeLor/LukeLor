@@ -6,7 +6,7 @@ if randomentity == 1 then
 HttpGet:(https://raw.githubusercontent.com/LukeLor/LukeLor/main/Painter)
 end
 elseif randomentity == 2 then
-HttpGet:(https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner)
+game:HttpGet(https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner)
 end
 elseif randomentity == 3 then
 elseif randomentity == 4 then
