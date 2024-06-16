@@ -19,7 +19,7 @@ elseif randomentity == 5 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/NoobSpawner"))()
 end
 elseif randomentity == 6 then
-loadstring(game:HttpGet(""))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/PuncherSpawner"))()
 end
 elseif randomentity == 7 then
 loadstring(game:HttpGet(""))()
