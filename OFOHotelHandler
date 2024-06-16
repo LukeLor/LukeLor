@@ -1,5 +1,5 @@
 while true do
-if game.ReplicatedStorage.GameData.LatestRoom < 50 and game. Repl
+if game.ReplicatedStorage.GameData.LatestRoom.Value < 50 and game.ReplicatedStorage.GameData.ChaseInSession == false or game.ReplicatedStorage.GameDate.LatestRoom.Value > 53 or game.ReplicatedStorage.GameData.LatestRoom
 local randomtime = math.random(10,60)
 wait(randomtime)
 local randomentity = math.random(1,8)
