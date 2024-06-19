@@ -1,0 +1,2 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/OFOHotelHandler"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/OFORoomsHandler"))()
