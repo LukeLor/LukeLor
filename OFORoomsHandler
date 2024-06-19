@@ -1,0 +1,33 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/DoorsEntrance"))()
+while true do
+wait(0.1)
+if game.ReplicatedStorage.GameData.LatestRoom.Value > 2 and game.ReplicatedStorage.GameData.LatestRoom.Value < 50 or game.ReplicatedStorage.GameData.ChaseInSession == false or game.ReplicatedStorage.GameData.LatestRoom.Value > 53 and game.ReplicatedStorage.GameData.LatestRoom.Value < 90 then 
+local randomtime = math.random(10,60)
+wait(randomtime)
+local randomentity = math.random(1,8)
+if randomentity == 1 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/Painter"))()
+end
+elseif randomentity == 2 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner"))()
+end
+elseif randomentity == 3 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher"))()
+end
+elseif randomentity == 4 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner"))()
+end
+elseif randomentity == 5 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/NoobSpawner"))()
+end
+elseif randomentity == 6 then
+loadstring(game:HttpGet(""))()
+end
+elseif randomentity == 7 then
+loadstring(game:HttpGet(""))()
+end
+elseif randomentity == 8 then
+loadstring(game:HttpGet(""))()
+end
+end
+end
