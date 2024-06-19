@@ -6,5 +6,5 @@ achievementGiver({
     Title = "Workin' on the double",
     Desc = "This'll be load ton of fun.",
     Reason = "Enable the "Out Of Order" mod for The Hotel.",
-    Image = "rbxassetid://12309073114"
+    Image = "rbxassetid://16249941499"
 })
