@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/DoorsEntrance"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/EntranceRooms"))()
 while true do
 wait(0.1)
 if game.ReplicatedStorage.GameData.LatestRoom.Value > 11 then
