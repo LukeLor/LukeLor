@@ -6,5 +6,5 @@ achievementGiver({
     Title = "It's that time",
     Desc = "It's about to get hard...!",
     Reason = "Execute the 'Out of Order' mod for both DOORS AND ROOMS!",
-    Image = "rbxassetid://12309073114"
+    Image = "rbxassetid://16249943349"
 })
