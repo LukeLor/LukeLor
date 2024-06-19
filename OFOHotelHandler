@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/DoorsEntrance"))()
 while true do
 wait(0.1)
 if game.ReplicatedStorage.GameData.LatestRoom.Value > 2 and game.ReplicatedStorage.GameData.LatestRoom.Value < 50 or game.ReplicatedStorage.GameData.ChaseInSession == false or game.ReplicatedStorage.GameData.LatestRoom.Value > 53 and game.ReplicatedStorage.GameData.LatestRoom.Value < 90 then 
