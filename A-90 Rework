@@ -1,0 +1,167 @@
+--Copied from Carrot (2022)
+wait(5)
+print("A90 started!")
+local player = game.Players.LocalPlayer
+local uip = game:GetService("UserInputService")
+local char = player.Character
+local humanoid = char:WaitForChild("Humanoid")
+local inputDetected = false
+local startInp = false
+local failing = false
+local running = false
+--Define
+local avgRangeDec = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1}
+local sprites = {"rbxassetid://12428556663", "rbxassetid://12453299620"}
+local sizes = {UDim2.new(0, 125, 0, 125), UDim2.new(0, 275, 0, 275)}
+local main = Instance.new("ScreenGui")
+main.Parent = player.PlayerGui
+script.Parent = main
+local bg = Instance.new("Frame")
+local a90 = Instance.new("ImageLabel")
+local sign = Instance.new("ImageLabel")
+local a90Sound1 = Instance.new("Sound")
+local a90Sound1B = Instance.new("Sound")
+local a90Sound2 = Instance.new("Sound")
+local a90Sound3 = Instance.new("Sound")
+local dist1 = Instance.new("DistortionSoundEffect")
+local dist2 = Instance.new("DistortionSoundEffect")
+local dist3 = Instance.new("DistortionSoundEffect")
+a90Sound1.SoundId = "rbxassetid://261227592"
+a90Sound1.PlaybackSpeed = 1
+a90Sound1B.SoundId = "rbxassetid://261227592"
+a90Sound1B.PlaybackSpeed = 0.8
+a90Sound2.SoundId = "rbxassetid://3359047385"
+a90Sound2.PlaybackSpeed = 0.6
+a90Sound3.SoundId = "rbxassetid://6201427049"
+a90Sound3.PlaybackSpeed = 0.4
+--Distort
+dist1.Level = 1
+dist1.Parent = a90Sound1
+dist2.Level = 1
+dist2.Parent = a90Sound2
+dist3.Level = 1
+dist3.Parent = a90Sound3
+--Img
+a90.Image = sprites[1]
+a90.AnchorPoint = Vector2.new(0.5, 0.5)
+a90.BackgroundTransparency = 1
+a90.Size = UDim2.new(0, 125, 0, 125)
+a90.Visible = false
+sign.Image = "rbxassetid://12440673931"
+sign.AnchorPoint = Vector2.new(0.5, 0.5)
+sign.BackgroundTransparency = 1
+sign.Size = UDim2.new(0, 125, 0, 125)
+sign.Visible = false
+bg.AnchorPoint = Vector2.new(0.5, 0.5)
+bg.BackgroundTransparency = 0.4
+bg.Position = UDim2.new(0.5, 0, 0.5, 0)
+bg.BackgroundColor3 = Color3.fromRGB(117, 8, 0)
+bg.Size = UDim2.new(1, 0, 1, 100)
+bg.Visible = false
+bg.ZIndex = -1
+--Parent
+a90.Parent = main
+a90Sound1.Parent = main
+a90Sound1B.Parent = main
+a90Sound2.Parent = main
+a90Sound3.Parent = main
+sign.Parent = main
+bg.Parent = main
+--Functions
+local function failed()
+	if failing == false then
+		local oriFov = game.Workspace.Camera.FieldOfView
+		failing = true
+		bg.Visible = true
+		sign.Visible = false
+		bg.Transparency = 0.2
+		a90.Visible = true
+		a90.Image = sprites[2]
+		a90.Position = UDim2.new(0.5, 0, 0.5, 0)
+		a90:TweenSize(sizes[2], Enum.EasingDirection.In, Enum.EasingStyle.Linear, 0.05)
+		a90Sound2:Play()
+		a90Sound3:Play()
+		for i = 0, 20 do
+			wait(0.05)
+			a90.Rotation = math.random(-10, 10)
+			game.Workspace.Camera.FieldOfView = math.random(65, 70)
+		end
+		game.Workspace.Camera.FieldOfView = oriFov
+		a90.Rotation = 0
+		a90.Visible = false
+		a90Sound1B:Play()
+		bg.Transparency = 0.4
+		bg.Visible = false
+		wait(0.1)
+		a90Sound2:Stop()
+		a90Sound3:Stop()
+		humanoid.Health = 0
+        failing = false
+        startInp = false
+		inputDetected = false
+	end
+end
+local function attack()
+	a90.Size = sizes[1]
+	a90Sound1:Play()
+	sign.Position = UDim2.new(avgRangeDec[math.random(1, #avgRangeDec)], 0, avgRangeDec[math.random(1, #avgRangeDec)], 0)
+	sign.Visible = true
+	bg.Transparency = 0.4
+	bg.Visible = true
+	wait(0.05)
+	a90.Visible = true
+	a90.Image = sprites[1]
+	a90.Position = UDim2.new(avgRangeDec[math.random(3, #avgRangeDec - 3)], 0, avgRangeDec[math.random(4, #avgRangeDec - 4)], 0)
+	sign.Visible = false
+	bg.Visible = false
+	wait(0.1)
+	sign.Visible = true
+	bg.Visible = true
+	wait(0.4)
+	inputDetected = false
+	startInp = true
+	if running then
+		inputDetected = true
+		failed()
+	end
+	wait(0.7)
+	bg.Visible = false
+	wait(0.1)
+	bg.Visible = true
+	wait(0.05)
+	bg.Visible = false
+	wait(0.15)
+	if not inputDetected then
+		startInp = false
+		inputDetected = false
+		a90Sound1B:Play()
+		sign.Visible = false
+		wait(0.05)
+		sign.Visible = true
+		wait(0.05)
+		a90.Visible = false
+		sign.Visible = false
+	end	
+end
+uip.InputBegan:Connect(function(key)
+	if startInp then
+		inputDetected = true
+		failed()
+	end
+end)
+humanoid.Running:Connect(function(speed)
+	if speed > 0 then
+		running = true
+	else
+		running = false
+	end
+end)
+humanoid.Died:Connect(function()
+    main:Destroy()
+end)
+while true do
+	wait(math.random(10, 40))
+    if humanoid.Health ~= 0 then
+	    attack()
+    end
+end
