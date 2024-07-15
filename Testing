@@ -1,16 +1,16 @@
-local randomentity = math.random(1,8)
+local randomentity = math.random(1,5)
 if randomentity == 1 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/Painter"))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Painter'))()
 end
-elseif randomentity == 2 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner"))()
+if randomentity == 2 then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/RushFanmadeSpawner'))()
 end
-elseif randomentity == 3 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher"))()
+if randomentity == 3 then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/Dasher'))()
 end
-elseif randomentity == 4 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner"))()
+if randomentity == 4 then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/MadSpawner'))()
 end
-elseif randomentity == 5 then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/main/NoobSpawner"))()
+if randomentity == 5 then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/LukeLor/LukeLor/main/NoobSpawner'))()
 end
