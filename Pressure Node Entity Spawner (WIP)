@@ -6,6 +6,7 @@ if Rooms:IsA("Model") then
 print("Well Here Is A Room."..Rooms.Name)
 end
 --Variables
+--local IsPandemonium = false --(WORK IN PROGRESS)
 local math = Instance.new("NumberValue")
 math.Value = 1
 local LastRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH
