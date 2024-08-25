@@ -43,7 +43,7 @@ end
 Entity.PrimaryPart.Position = LastRoom.Entrances
 if normal == true then
 while true do
-Tween:Create(Entity.PrimaryPart, normaltween,{Position = [currentnode].Position}):Play()
+Tween:Create(Entity.PrimaryPart, normaltween,{Position = currentnode.Position}):Play()
 wait(0.7)
 math.Value += 1
 if not CurrentRoom:FindFirstChild(nextnode) then
@@ -53,17 +53,17 @@ end
 end
 if fast == true then
 while true do
-Tween:Create(Entity.PrimaryPart, fasttween,{Position = nextnode.Position}):Play()
+Tween:Create(Entity.PrimaryPart, fasttween,{Position = currentnode.Position}):Play()
 end
 end
 if slow == true then
 while true do
-Tween:Create(Entity.PrimaryPart, slowtween,{Position = nextnode.Position}):Play()
+Tween:Create(Entity.PrimaryPart, slowtween,{Position = currentnode.Position}):Play()
 end
 end
 if IsPandemonium = true then
  while true do
-Tween:Create(Entity.PrimaryPart, normaltween,{Position = [currentnode].Position}):Play()
+Tween:Create(Entity.PrimaryPart, normaltween,{Position = currentnode.Position}):Play()
 wait(0.7)
 math.Value += 1
 if not CurrentRoom:FindFirstChild(nextnode) then
