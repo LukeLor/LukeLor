@@ -18,7 +18,8 @@ local Tween = game:GetService("TweenService")--DONT TOUCH
 local slow = false --Speed
 local fast = false --Speed
 local normal = true --Speed
-local Range = 50
+local KillRange = 50 --I cant raycast so it is a sphere :(
+local sphere = Instance.New("Part")
 -- Slow, Fast, Normal is the speed of the entity.
 local fasttween = TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 local slowtween = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
