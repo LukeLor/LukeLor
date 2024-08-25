@@ -1,16 +1,15 @@
-local RoomHolder = workspace:GetDecendants()--DONT TOUCH LINE
+local RoomHolder = workspace.Rooms:GetDecendants()--DONT TOUCH LINE
 local LastRoom --DONT TOUCH LINE
 local StartRoom --DONT TOUCH LINE
 for _, Rooms in pairs(RoomHolder) do
 if Rooms:IsA("Model") then
-LastRoom = Rooms..Value > Rooms..Value
+print("Well Here Is The Room."..Rooms.Name)
 end
 --Variables
 local Entity = game:GetObjects("rbxassetid://")[1] -- Asset ID goes after "rbxassetid://"
-local CurrentRoom = Rooms --DONT TOUCH LINE
+local CurrentRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH LINE
 local nextnode = -- DONT TOUCH LINE
 local prevnode = -- DONT TOUCH LINE
-local currentnode = -- DONT TOUCH LINE
 local Tween = game:GetService("TweenService")--DONT TOUCH
 local slow = false --Speed
 local fast = false --Speed
