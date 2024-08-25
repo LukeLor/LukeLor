@@ -1,6 +1,7 @@
+local Rooms = workspace:GetDecendants()--DONT TOUCH LINE
+in i, AllRooms inpair 
 --Variables
 local Entity = game:GetObjects("rbxassetid://")[1] -- Asset ID goes after "rbxassetid://"
-local Rooms = workspace. --DONT TOUCH LINE
 local LastRoom = Rooms --DONT TOUCH LINE
 local StartRoom = Rooms --DONT TOUCH LINE
 local CurrentRoom = Rooms --DONT TOUCH LINE
