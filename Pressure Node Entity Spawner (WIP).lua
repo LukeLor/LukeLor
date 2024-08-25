@@ -29,6 +29,8 @@ local slowtween = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection
 local normaltween = TweenInfo.new(0.7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)--DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 
 -- Real code (DONT TOUCH)
+Entity.Parent = workspace
+        sphere.Parent = Entity
 while true do
 sphere.Position = Entity.PrimaryPart.Position
 sphere.Touched:Connect(function(hit)
