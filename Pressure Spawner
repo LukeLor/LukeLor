@@ -11,7 +11,7 @@ local normal = true
 -- Slow, Fast, Normal is the speed of the entity.
 local fasttween = TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 local slowtween = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
-local normaltween = TweenInfo.new(speed/0.7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)--DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
+local normaltween = TweenInfo.new(0.7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)--DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 
 -- Real code (DONT TOUCH)
 if normal == true then
