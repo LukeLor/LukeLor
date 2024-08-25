@@ -5,6 +5,7 @@ local EntityIcon = "rbxassetid://" -- edit after "rbxassetid://"
 local Rooms = --DONT TOUCH LINE
 local LastRoom = --DONT TOUCH LINE
 local FirstRoom = --DONT TOUCH LINE
+local CurrentRoom = -DONT TOUCH LINE
 local nextnode = -- DONT TOUCH LINE
 local prevnode = -- DONT TOUCH LINE
 local currentnode = -- DONT TOUCH LINE
