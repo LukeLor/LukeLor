@@ -3,12 +3,13 @@ local LastRoom --DONT TOUCH LINE
 local StartRoom --DONT TOUCH LINE
 for _, Rooms in pairs(RoomHolder) do
 if Rooms:IsA("Model") then
-print("Well Here Is The Room."..Rooms.Name)
+print("Well Here Is A Room."..Rooms.Name)
 end
 --Variables
 local Entity = game:GetObjects("rbxassetid://")[1] -- Asset ID goes after "rbxassetid://"
 local CurrentRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH LINE
-local nextnode = -- DONT TOUCH LINE
+local Nodes = Rooms.EntityNodes
+local nextnode =  -- DONT TOUCH LINE
 local prevnode = -- DONT TOUCH LINE
 local Tween = game:GetService("TweenService")--DONT TOUCH
 local slow = false --Speed
