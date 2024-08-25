@@ -1,6 +1,9 @@
-local Entity = game:GetObjects("rbxassetid://") -- Asset ID goes after "rbxassetid://"
-local Rooms = --DONT TOUCH THIS LINE
-local Tween = game:GetService("TweenService")--DONT TOUCH THIS LINE
+local Entity = game:GetObjects("rbxassetid://")[1] -- Asset ID goes after "rbxassetid://"
+local EntityName =  "Name" -- edit inside quotations.
+local EntityIcon = "rbxassetid://" -- edit after "rbxassetid://"
+local Rooms = --DONT TOUCH LINE
+local nextnode = -- DONT TOUCH LINE
+local Tween = game:GetService("TweenService")
 local slow = false
 local fast = false
 local normal = true
@@ -8,3 +11,13 @@ local normal = true
 local fasttween = TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 local slowtween = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 local normaltween = TweenInfo.new(speed/0.7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)--DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
+
+if normal == true then
+Tween:Create(Entity.PrimaryPart, normaltween,{Position = nextnode.Position}):Play()
+end
+if fast == true then
+Tween:Create(Entity.PrimaryPart, fasttween,{Position = nextnode.Position}):Play()
+end
+if slow == true then
+Tween:Create(Entity.PrimaryPart, slowtween,{Position = nextnode.Position}):Play()
+end
