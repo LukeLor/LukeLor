@@ -1,4 +1,4 @@
-Setup?
+--Setup?
 local RoomHolder = workspace.Rooms:GetDecendants()--DONT TOUCH LINE
 
 for _, Rooms in pairs(RoomHolder) do
