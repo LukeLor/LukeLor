@@ -14,6 +14,7 @@ local slowtween = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection
 local normaltween = TweenInfo.new(0.7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)--DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 
 -- Real code (DONT TOUCH)
+Entity.PrimaryPart.Position =
 if normal == true then
 while true do
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = nextnode.Position}):Play()
