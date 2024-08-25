@@ -1,6 +1,9 @@
 local Entity = game:GetObjects("rbxassetid://") -- Asset ID goes after "rbxassetid://"
 local Rooms = --DONT TOUCH THIS LINE
 local Tween = game:GetService("TweenService")--DONT TOUCH THIS LINE
-local speed = 100 
-local infogreat = TweenInfo.new(speed/100, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+local slow = false
+local fast = false
+local normal = true
+-- Slow, Fast, Normal are how fast they are.
+local fast = TweenInfo.new(speed/100, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
 local infoless = TweenInfo.new(speed/100, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
