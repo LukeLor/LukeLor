@@ -31,8 +31,11 @@ local normaltween = TweenInfo.new(0.7, Enum.EasingStyle.Linear, Enum.EasingDirec
 -- Real code (DONT TOUCH)
 while true do
 sphere.Position = Entity.PrimaryPart.Position
-
-
+sphere.Touched:Connect(function(hit)
+        if hit.Parent:FindFirstChild("Humanoid") then
+          hit.Parent.Humanoid.Health = 0
+        end
+      end)
 end
 Entity.PrimaryPart.Position = LastRoom.Entrances
 if normal == true then
