@@ -44,7 +44,7 @@ if normal == true then
 while true do
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = [currentnode].Position}):Play()
 wait(0.7)
-math
+math.Value += 1
 if not CurrentRoom:FindFirstChild(nextnode) then
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = CurrentRoom.Exits..Position}):Play()
 end
