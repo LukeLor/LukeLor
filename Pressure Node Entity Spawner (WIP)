@@ -1,11 +1,12 @@
+--Setup?
 local RoomHolder = workspace.Rooms:GetDecendants()--DONT TOUCH LINE
-local LastRoom --DONT TOUCH LINE
-local StartRoom --DONT TOUCH LINE
+
 for _, Rooms in pairs(RoomHolder) do
 if Rooms:IsA("Model") then
 print("Well Here Is A Room."..Rooms.Name)
 end
 --Variables
+local LastRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH
 local Entity = game:GetObjects("rbxassetid://")[1] -- Asset ID goes after "rbxassetid://"
 local CurrentRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH LINE
 local Nodes = Rooms.EntityNodes
@@ -21,7 +22,7 @@ local slowtween = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection
 local normaltween = TweenInfo.new(0.7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)--DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 
 -- Real code (DONT TOUCH)
-Entity.PrimaryPart.Position =
+Entity.PrimaryPart.Position = LastRoom.Entrances
 if normal == true then
 while true do
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = nextnode.Position}):Play()
