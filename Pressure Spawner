@@ -4,10 +4,12 @@ local EntityName =  "Name" -- edit inside quotations.
 local EntityIcon = "rbxassetid://" -- edit after "rbxassetid://"
 local Rooms = --DONT TOUCH LINE
 local nextnode = -- DONT TOUCH LINE
+local prevnode = -- DONT TOUCH LINE
+local
 local Tween = game:GetService("TweenService")--DONT TOUCH
-local slow = false
-local fast = false
-local normal = true
+local slow = false --Speed
+local fast = false --Speed
+local normal = true --Speed
 -- Slow, Fast, Normal is the speed of the entity.
 local fasttween = TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 local slowtween = TweenInfo.new(2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
