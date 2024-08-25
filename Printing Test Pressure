@@ -1,0 +1,10 @@
+local RoomHolder = workspace.Rooms:GetDecendants()--DONT TOUCH LINE
+
+for _, Rooms in pairs(RoomHolder) do
+if Rooms:IsA("Model") then
+print("Well Here Is A Room."..Rooms.Name)
+end
+print(Rooms.EntityNodes:GetChildren())
+print(Game.ReplicatedStorage:GetChildren())
+print(Game.ServerStorage:GetChildren())
+print(LocalPlayer.PlayerGui:GetDecendants())
