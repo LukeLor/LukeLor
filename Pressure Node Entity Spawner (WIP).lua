@@ -62,6 +62,22 @@ Tween:Create(Entity.PrimaryPart, slowtween,{Position = nextnode.Position}):Play(
 end
 end
 if IsPandemonium = true then
+ while true do
+Tween:Create(Entity.PrimaryPart, normaltween,{Position = [currentnode].Position}):Play()
+wait(0.7)
+math.Value += 1
+if not CurrentRoom:FindFirstChild(nextnode) then
+Tween:Create(Entity.PrimaryPart, normaltween,{Position = CurrentRoom.Exits..Position}):Play()
+end
+ end
 local finder = sphere:Clone()
-finder.Size = 
+finder.Size = PandemoniumRange, PandemoniumRange, PandemoniumRange
+while true do
+finder.Position = Entity.PrimaryPart.Position
+finder.Touched:Connect(function(hit)
+ if hit.Parent:FindFirstChild("Humanoid") then
+Tween:Create(Entity.PrimaryPart, normaltween,{Position = hit.Parent.HumanoidRootPart.Position}):Play()
+        end
+      end)
+ end
 end
