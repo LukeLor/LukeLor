@@ -18,6 +18,7 @@ local Tween = game:GetService("TweenService")--DONT TOUCH
 local slow = false --Speed
 local fast = false --Speed
 local normal = true --Speed
+--local PandemoniumRange = 100 -- ONLY CHANGE IF YOU HAVE PANDEMONIUM 
 local KillRange = 50 --I cant raycast so it is a sphere :(
 local sphere = Instance.New("Part")
 sphere = Enum.PartType.Ball
@@ -59,4 +60,8 @@ if slow == true then
 while true do
 Tween:Create(Entity.PrimaryPart, slowtween,{Position = nextnode.Position}):Play()
 end
+end
+if IsPandemonium = true then
+local finder = sphere:Clone()
+finder.Size = 
 end
