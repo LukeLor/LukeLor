@@ -21,10 +21,7 @@ local slow = false --Speed
 local fast = false --Speed
 local normal = true --Speed
 --local PandemoniumRange = 100 -- ONLY CHANGE IF YOU HAVE PANDEMONIUM 
-local KillRange = 50 --I cant raycast so it is a sphere :(
-local sphere = Instance.New("Part")
-sphere = Enum.PartType.Ball
-sphere.Size = KillRange,KillRange,KillRange
+local KillRange = 50 --Raycasting Soon
 
 -- Slow, Fast, Normal is the speed of the entity.
 local fasttween = TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.Out) --DONT TOUCH THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -41,7 +38,7 @@ Tween:Create(Entity.PrimaryPart, normaltween,{Position = currentnode.Position}):
 wait(0.7)
 math.Value += 1
 if not CurrentRoom:FindFirstChild(nextnode) then
-Tween:Create(Entity.PrimaryPart, normaltween,{Position = CurrentRoom.Exits..Position}):Play()
+Tween:Create(Entity.PrimaryPart, normaltween,{Position = currentnode.Parent.Parent.Exits..Position}):Play()
 math.Value = 1
 end
 end
@@ -61,13 +58,5 @@ end
 
 --Pandemonium
 if IsPandemonium = true then
-local finder = sphere:Clone()
-finder.Size = PandemoniumRange, PandemoniumRange, PandemoniumRange
-while true do
-finder.Position = Entity.PrimaryPart.Position
-finder.Touched:Connect(function(hit)
- if hit.Parent:FindFirstChild("Humanoid") then
-Tween:Create(Entity.PrimaryPart, normaltween,{Position = hit.Parent.HumanoidRootPart.Position}):Play()
-        end
-      end)
+
  end
