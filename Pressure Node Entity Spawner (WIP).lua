@@ -41,6 +41,7 @@ sphere.Touched:Connect(function(hit)
       end)
 end
 Entity.PrimaryPart.Position = LastRoom.Entrances
+-- Angler speed
 if normal == true then
 while true do
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = currentnode.Position}):Play()
@@ -50,26 +51,22 @@ if not CurrentRoom:FindFirstChild(nextnode) then
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = CurrentRoom.Exits..Position}):Play()
 end
 end
-end
+ end
+        --Blitz Speed
 if fast == true then
 while true do
 Tween:Create(Entity.PrimaryPart, fasttween,{Position = currentnode.Position}):Play()
 end
 end
+        --Chainsmoker Speed
 if slow == true then
 while true do
 Tween:Create(Entity.PrimaryPart, slowtween,{Position = currentnode.Position}):Play()
 end
 end
+
+--Pandemonium
 if IsPandemonium = true then
- while true do
-Tween:Create(Entity.PrimaryPart, normaltween,{Position = currentnode.Position}):Play()
-wait(0.7)
-math.Value += 1
-if not CurrentRoom:FindFirstChild(nextnode) then
-Tween:Create(Entity.PrimaryPart, normaltween,{Position = CurrentRoom.Exits..Position}):Play()
-end
- end
 local finder = sphere:Clone()
 finder.Size = PandemoniumRange, PandemoniumRange, PandemoniumRange
 while true do
@@ -80,4 +77,3 @@ Tween:Create(Entity.PrimaryPart, normaltween,{Position = hit.Parent.HumanoidRoot
         end
       end)
  end
-end
