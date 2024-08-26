@@ -9,11 +9,13 @@ end
 --local IsPandemonium = false --(WORK IN PROGRESS)
 local math = Instance.new("NumberValue")
 math.Value = 1
+math.Parent = workspace
+math.Name = "CustomEntityNodeNum"
 local LastRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH
 local Entity = game:GetObjects("rbxassetid://")[1] -- Asset ID goes after "rbxassetid://"
 local CurrentRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH LINE
 local Nodes = Rooms.EntityNodes
-local currentnode = Node[math.Value]
+local currentnode = Nodes[math.Value]
 local Tween = game:GetService("TweenService")--DONT TOUCH
 local slow = false --Speed
 local fast = false --Speed
@@ -31,15 +33,6 @@ local normaltween = TweenInfo.new(0.7, Enum.EasingStyle.Linear, Enum.EasingDirec
 
 -- Real code (DONT TOUCH)
 Entity.Parent = workspace
-        sphere.Parent = Entity
-while true do
-sphere.Position = Entity.PrimaryPart.Position
-sphere.Touched:Connect(function(hit)
-        if hit.Parent:FindFirstChild("Humanoid") then
-          hit.Parent.Humanoid.Health = 0
-        end
-      end)
-end
 Entity.PrimaryPart.Position = LastRoom.Entrances
 -- Angler speed
 if normal == true then
@@ -49,6 +42,7 @@ wait(0.7)
 math.Value += 1
 if not CurrentRoom:FindFirstChild(nextnode) then
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = CurrentRoom.Exits..Position}):Play()
+math.Value = 1
 end
 end
  end
