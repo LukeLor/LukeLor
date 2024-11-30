@@ -1,0 +1,19 @@
+local Mik_eFig = game:GetObjects("rbxassetid://15772509040")[1]
+Mik_eFig.Parent = workspace
+if workspace:FindFirstChild("FigureLib").FigureRagdoll.Hat then
+print("Found it!")
+local Figure = workspace.CurrentRooms["50"].FigureSetup.FigureRagdoll
+local hat = workspace.FigureLib.FigureRagdoll.Hat
+local addon = Vector3.new(0.017, 0.872, -0.196)
+hat.Parent = Figure
+hat.Position = Figure.Head.Position + addon
+hat.WeldConstraint.Part0 = Figure.Head
+hat.WeldConstraint.Part1 = hat
+hat.Rotation = Figure.Head.Rotation
+local TorsoColorWant = Color3.new(0.478431, 0.513725, 0.678431)
+Figure.Torso.Color = TorsoColorWant
+local LegColorWant = Color3.new(0.968627, 0.917647, 0.917647)
+Figure.LeftUpperLeg.Color = LegColorWant
+local LegColorWant2 = Color3.new(0.968627, 0.917647, 0.917647)
+Figure.RightUpperLeg.Color = LegColorWant2
+script.Enabled = false
