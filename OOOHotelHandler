@@ -4,7 +4,7 @@ wait(0.1)
 if game.ReplicatedStorage.GameData.LatestRoom.Value > 2 and game.ReplicatedStorage.GameData.LatestRoom.Value < 50 and game.ReplicatedStorage.GameData.ChaseInSession == false and game.ReplicatedStorage.GameData.LatestRoom.Value > 53 and game.ReplicatedStorage.GameData.LatestRoom.Value < 90 then 
 local randomtime = math.random(20,80)
 wait(randomtime)
-local randomentity = math.random(1,5)
+local randomentity = math.random(1,6)
 if randomentity == 1 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Painter"))()
 elseif randomentity == 2 then
@@ -13,6 +13,8 @@ elseif randomentity == 3 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Dasher"))()
 elseif randomentity == 4 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/GuidingLightEntity"))()
+elseif randomentity == 5 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Skopos"))()
 end
 end
 end
