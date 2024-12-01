@@ -77,6 +77,8 @@ end)
 
 entity:SetCallback("OnLookAt", function(lineOfSight)
 	if lineOfSight == true then
+game.Players.LocalPlayer.Character.Humanoid.Health -= 15
+wait(1)
 		print("Player is looking at entity")
 	else
 		print("Player view is obstructed by something")
