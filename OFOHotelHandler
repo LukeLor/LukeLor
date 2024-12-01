@@ -11,6 +11,8 @@ elseif randomentity == 2 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/RushFanmadeSpawner"))()
 elseif randomentity == 3 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Dasher"))()
+elseif randomentity == 4 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/GuidingLightEntity"))()
 end
 end
 end
