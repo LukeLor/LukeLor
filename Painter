@@ -48,7 +48,7 @@ local entity = spawner.Create({
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
-		Hints = {"Death", "Hints", "Go", "Here"},
+		Hints = {"You died to Painter.", "If you've ever encountered "Skopos" then, treat it like that.", "Try not looking at it.", "Looking at it will blur your vision."},
 		Cause = ""
 	}
 })
@@ -78,7 +78,7 @@ end)
 entity:SetCallback("OnLookAt", function(lineOfSight)
 	if lineOfSight == true then
 		print("Player is looking at entity")
-local plrname = game.Players.LocalPlayer
+local plrname = game.Players.LocalPlayer.Name
 local plr = workspace:FindFirstChild(plrname)
 local g = Color3.FromRGB(0,225,0)
 local b = Color3.FromRGB(0,0,255)
@@ -101,6 +101,7 @@ plr.RightHand.Color = t
 plr.LeftHand.Color = p
 plr.LeftFoot.Color = y
 plr.RightHand.Color = b
+plr.Humanoid.Health -= 5
 	else
 		print("Player view is obstructed by something")
 	end
