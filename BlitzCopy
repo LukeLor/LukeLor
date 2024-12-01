@@ -6,7 +6,7 @@ local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 
 local entity = spawner.Create({
 	Entity = {
-		Name = "Break",
+		Name = "Emote-Shifter",
 		Asset = "rbxassetid://17399026592",
 		HeightOffset = 0
 	},
@@ -43,12 +43,12 @@ local entity = spawner.Create({
 	Crucifixion = {
 		Enabled = true,
 		Range = 40,
-		Resist = false,
+		Resist = true,
 		Break = true
 	},
 	Death = {
 		Type = "Curious", -- "Curious"
-		Hints = {"...It seems like you died to...", "I don't know what this one even is!", "I suppose the only thin i can say is that it's like Blitz.", "Hope you understand this one soon!"},
+		Hints = {"...It seems like you died to...", "I don't know what this one even is!", "I suppose the only thin I can say is that it's like Blitz.", "Hope you understand this one soon!"},
 		Cause = ""
 	}
 })
