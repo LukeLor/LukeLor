@@ -15,8 +15,11 @@ local entity = spawner.Create({
 			Enabled = true,
 			Duration = 3
 		},
-		Shatter = true,
+		Shatter = false,
 		Repair = false
+	},
+Earthquake = {
+		Enabled = true
 	},
 	CameraShake = {
 		Enabled = true,
