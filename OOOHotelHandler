@@ -2,7 +2,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/
 
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
 if game.ReplicatedStorage.GameData.LatestRoom.Value > 2 and game.ReplicatedStorage.GameData.LatestRoom.Value < 50 and game.ReplicatedStorage.GameData.ChaseInSession.Value == false and game.ReplicatedStorage.GameData.LatestRoom.Value > 53 and game.ReplicatedStorage.GameData.LatestRoom.Value < 89 then 
-local randomentity = math.random(1,8)
+local randomentity = math.random(1,9)
 if randomentity == 1 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Painter"))()
 elseif randomentity == 2 then
@@ -15,6 +15,8 @@ elseif randomentity == 5 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Skopos"))()
 elseif randomentity == 6 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Voidmaker"))()
+elseif randomentity == 7 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Drainer"))()
 end
 end
 end)
