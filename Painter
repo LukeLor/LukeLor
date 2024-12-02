@@ -13,13 +13,13 @@ local entity = spawner.Create({
 	Lights = {
 		Flicker = {
 			Enabled = false,
-			Duration = 1
+			Duration = 0.1
 		},
 		Shatter = false,
 		Repair = true
 	},
 Earthquake = {
-		Enabled = true
+		Enabled = false
 	},
 	CameraShake = {
 		Enabled = false,
@@ -105,6 +105,10 @@ plr.LeftHand.Color = p
 plr.LeftFoot.Color = y
 plr.RightHand.Color = b
 plr.Humanoid.Health -= 5
+local blur = Instance.new("BlurEffect")
+blur.Parent = Lighting 
+blur.Size = 24
+game:GetService("TweenService"):Create(blur, TweenInfo.new(6), {Size = 0}:Play()
 	else
 		print("Player view is obstructed by something")
 	end
