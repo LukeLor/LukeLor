@@ -4,7 +4,7 @@ local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.
 ---====== Display achievement ======---
 achievementGiver({
     Title = "Workin' on the double",
-    Desc = "This'll be load ton of fun.",
+    Desc = "This will be load ton of fun.",
     Reason = "Execute the 'Out Of Order' mod for The Hotel.",
     Image = "rbxassetid://16249941499"
 })
