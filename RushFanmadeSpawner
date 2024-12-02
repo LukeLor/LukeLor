@@ -18,6 +18,9 @@ local entity = spawner.Create({
 		Shatter = true,
 		Repair = false
 	},
+Earthquake = {
+		Enabled = true
+	},
 	CameraShake = {
 		Enabled = true,
 		Range = 100,
@@ -48,7 +51,7 @@ local entity = spawner.Create({
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
-		Hints = {"Oh, it seems you died to Rush...", "Well... not really Rush.", "I call it, "Rush's Distorted Side"", "It faster than its base form, Rush!", "Beware it can also try to trick you.","Use what you learned from Blitz!},
+		Hints = {"Oh, it seems you died to Rush...", "Well... not really Rush.", "I call it, "Rush's Distorted Side"", "It faster than its base form, Rush!", "Beware it can also try to trick you.","Use what you learned from Blitz!"},
 		Cause = ""
 	}
 })
