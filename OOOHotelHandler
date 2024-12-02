@@ -1,7 +1,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsEntrance"))()
-
+local firsttimespawn = true
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
-if game.ReplicatedStorage.GameData.LatestRoom.Value > 2 and game.ReplicatedStorage.GameData.LatestRoom.Value < 50 and game.ReplicatedStorage.GameData.ChaseInSession.Value == false and game.ReplicatedStorage.GameData.LatestRoom.Value > 53 and game.ReplicatedStorage.GameData.LatestRoom.Value < 89 then 
+if game.ReplicatedStorage.GameData.LatestRoom.Value > 2 and game.ReplicatedStorage.GameData.LatestRoom.Value < 50 and game.ReplicatedStorage.GameData.ChaseInSession.Value == false and game.ReplicatedStorage.GameData.LatestRoom.Value > 53 and game.ReplicatedStorage.GameData.LatestRoom.Value < 89 then
 local randomentity = math.random(1,9)
 if randomentity == 1 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Painter"))()
@@ -17,6 +17,9 @@ elseif randomentity == 6 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Voidmaker"))()
 elseif randomentity == 7 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Drainer"))()
+end
+if firsttimespawn == true then
+firsttimespawn = false
 end
 end
 end)
