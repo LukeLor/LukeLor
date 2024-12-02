@@ -32,13 +32,13 @@ local entity = spawner.Create({
 		Enabled = true,
 		Type = "Ambush", -- "Blitz"
 		Min = 1,
-		Max = 4,
+		Max = 3,
 		Delay = 2
 	},
 	Damage = {
 		Enabled = true,
 		Range = 40,
-		Amount = 100000
+		Amount = 40
 	},
 	Crucifixion = {
 		Enabled = true,
@@ -48,7 +48,7 @@ local entity = spawner.Create({
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
-		Hints = {"You died to Drainer...","Now, Drainer truly drains you of your patience right?", "Don't you feel that this is going on forever and it needs to stop?", "That's what I mean.", "Treat it like any other entity that travel through rooms!"},
+		Hints = {"You died to Drainer...","Now, Drainer truly drains you of your patience right?", "Don't you feel that this is going on forever and it needs to stop?", "That's what I mean.", "Treat it like any other entity that can travel through rooms!"},
 		Cause = ""
 	}
 })
