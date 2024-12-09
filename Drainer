@@ -1,4 +1,4 @@
- ---====== Load spawner ======---
+---====== Load spawner ======---
 
 local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"))()
 
@@ -7,18 +7,18 @@ local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = spawner.Create({
 	Entity = {
 		Name = "Drainer",
-		Asset = "rbxassetid://91325248267707"
-        HeightOffset = 0
+		Asset = "rbxassetid://91325248267707",
+		HeightOffset = 0
 	},
 	Lights = {
 		Flicker = {
 			Enabled = true,
-			Duration = 3
+			Duration = 2.5
 		},
-		Shatter = false,
+		Shatter = true,
 		Repair = false
 	},
-Earthquake = {
+	Earthquake = {
 		Enabled = true
 	},
 	CameraShake = {
@@ -29,19 +29,19 @@ Earthquake = {
 	Movement = {
 		Speed = 100,
 		Delay = 2,
-		Reversed = true
+		Reversed = false
 	},
 	Rebounding = {
 		Enabled = true,
-		Type = "Ambush", -- "Blitz"
-		Min = 1,
-		Max = 3,
-		Delay = 2
+		Type = "Blitz", -- "Blitz"
+		Min = 3,
+		Max = 6,
+		Delay = 0.5
 	},
 	Damage = {
 		Enabled = true,
 		Range = 40,
-		Amount = 40
+		Amount = 20
 	},
 	Crucifixion = {
 		Enabled = true,
@@ -64,10 +64,6 @@ end)
 
 entity:SetCallback("OnStartMoving", function()
     print("Entity has started moving")
-end)
-
-entity:SetCallback("OnReachNode", function(node)
-	print("Entity has reached node:", node)
 end)
 
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
@@ -99,7 +95,6 @@ entity:SetCallback("OnDespawning", function()
 end)
 
 entity:SetCallback("OnDespawned", function()
-
     print("Entity has despawned")
 end)
 
@@ -125,7 +120,3 @@ end)
 ---====== Run entity ======---
 
 entity:Run()
--- entity:Pause()
--- entity:Resume()
--- entity:IsPaused()
--- entity:Despawn()
