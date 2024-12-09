@@ -12,22 +12,22 @@ local entity = spawner.Create({
 	},
 	Lights = {
 		Flicker = {
-			Enabled = false,
-			Duration = 0.1
+			Enabled = true,
+			Duration = 2
 		},
 		Shatter = false,
 		Repair = true
 	},
-Earthquake = {
+	Earthquake = {
 		Enabled = false
 	},
 	CameraShake = {
-		Enabled = false,
+		Enabled = true,
 		Range = 100,
 		Values = {1.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
 	},
 	Movement = {
-		Speed = 200,
+		Speed = 100,
 		Delay = 2,
 		Reversed = true
 	},
@@ -51,7 +51,7 @@ Earthquake = {
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
-		Hints = {"You died to Painter.", "If you've ever encountered "Skopos" then, treat it like that.", "Try not looking at it.", "Looking at it will blur your vision."},
+		Hints = {"You died to Painter..", "Don't look at it. ", "Just as if you encountered Sloops..."},
 		Cause = ""
 	}
 })
@@ -64,10 +64,6 @@ end)
 
 entity:SetCallback("OnStartMoving", function()
     print("Entity has started moving")
-end)
-
-entity:SetCallback("OnReachNode", function(node)
-	print("Entity has reached node:", node)
 end)
 
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
@@ -152,7 +148,3 @@ end)
 ---====== Run entity ======---
 
 entity:Run()
--- entity:Pause()
--- entity:Resume()
--- entity:IsPaused()
--- entity:Despawn()
