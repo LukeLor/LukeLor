@@ -7,18 +7,18 @@ local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = spawner.Create({
 	Entity = {
 		Name = "Rush's Distorted Side",
-		Asset = "rbxassetid://16251075751"
-        HeightOffset = 0
+		Asset = "rbxassetid://16251075751",
+		HeightOffset = 0
 	},
 	Lights = {
 		Flicker = {
 			Enabled = true,
-			Duration = 3
+			Duration = 1
 		},
 		Shatter = true,
 		Repair = false
 	},
-Earthquake = {
+	Earthquake = {
 		Enabled = true
 	},
 	CameraShake = {
@@ -28,20 +28,20 @@ Earthquake = {
 	},
 	Movement = {
 		Speed = 400,
-		Delay = 2,
+		Delay = 3,
 		Reversed = false
 	},
 	Rebounding = {
 		Enabled = true,
 		Type = "Blitz", -- "Blitz"
 		Min = 1,
-		Max = 4,
+		Max = 2,
 		Delay = 2
 	},
 	Damage = {
 		Enabled = true,
 		Range = 40,
-		Amount = 100000
+		Amount = 125
 	},
 	Crucifixion = {
 		Enabled = true,
@@ -64,10 +64,6 @@ end)
 
 entity:SetCallback("OnStartMoving", function()
     print("Entity has started moving")
-end)
-
-entity:SetCallback("OnReachNode", function(node)
-	print("Entity has reached node:", node)
 end)
 
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
@@ -99,36 +95,6 @@ entity:SetCallback("OnDespawning", function()
 end)
 
 entity:SetCallback("OnDespawned", function()
-local SD = Instance.new("Sound")
-SD.SoundId = 3908308607
-SD.Parent = game.Workspace
-SD:Play()
-SD.PlaybackSpeed = 0.444
-SD.Volume = 1
-local SD2 = Instance.new("Sound")
-SD2.SoundId = 6675104318
-SD2.Parent = game.Workspace
-SD2:Play()
-SD2.Volume = 2
-SD2.PlaybackSpeed = 0.4
-end
-
-entityTable.Debug.OnEntityStartMoving = function()
-    print("Entity has started moving:", entityTable)
-end
-
-entityTable.Debug.OnEntityFinishedRebound = function()
-    print("Entity has finished rebound:", entityTable)
-end
-
-entityTable.Debug.OnEntityEnteredRoom = function(room)
-    print("Entity:", entityTable, "has entered room:", room)
-local SP = Instance.new("Sound")
-SP.SoundId = 5546573724
-SP.Parent = game.Workspace
-SP:Play()
-SP.Volume = 1
-SP.PlaybackSpeed = 0.6
     print("Entity has despawned")
 end)
 
@@ -154,7 +120,3 @@ end)
 ---====== Run entity ======---
 
 entity:Run()
--- entity:Pause()
--- entity:Resume()
--- entity:IsPaused()
--- entity:Despawn()
