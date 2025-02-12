@@ -28,7 +28,7 @@ local entity = spawner.Create({
 	},
 	Movement = {
 		Speed = 300,
-		Delay = 2,
+		Delay = 6,
 		Reversed = false
 	},
 	Rebounding = {
@@ -64,9 +64,14 @@ local text = Instance.new("TextLabel")
 local ui = Instance.new("ScreenGui")
 text.Parent = ui
 text.TextColor3 = Color3.FromRGB(150, 0, 15)
-text.Text = "Give me a moment."
+text.Text = "Hey, "
 ui.Parent = game.Player.LocalPlayer.PlayerGui
 text.Size = Udim2.new(20,5)
+text.Position = Vector2.new(0,-10)
+task.wait(2)
+game:GetService("TweenService"):Create(text, TweenInfo.new(1), {TextTransparency = 1}:Play()
+task.wait(1)
+ui:Destroy()
 end)
 
 entity:SetCallback("OnStartMoving", function()
