@@ -1,0 +1,13 @@
+local text = Instance.new("TextLabel")
+local ui = Instance.new("ScreenGui")
+text.Parent = ui
+text.TextColor3 = Color3.fromRGB(150, 0, 15)
+text.Text = "Hey, "
+text.BackgroundTransparency = 1
+ui.Parent = game.Player.LocalPlayer.PlayerGui
+text.Size = UDim2.new(0, 75, 0, 37.5)  -- 300 pixels wide; full height of parent
+text.Position = UDim2.new(0, 0, 0, -50)  -- 50 pixels from the left
+task.wait(5)
+game:GetService("TweenService"):Create(text, TweenInfo.new(1), {TextTransparency = 1}:Play()
+task.wait(1.2)
+ui:Destroy()
