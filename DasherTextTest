@@ -3,6 +3,7 @@ local ui = Instance.new("ScreenGui")
 text.Parent = ui
 text.TextColor3 = Color3.fromRGB(150, 0, 15)
 text.Text = "Hey, "
+text.Font = Enum.Font.Fondamento
 text.BackgroundTransparency = 1
 ui.Parent = game.Player.LocalPlayer.PlayerGui
 text.Size = UDim2.new(0, 75, 0, 37.5)  -- 300 pixels wide; full height of parent
