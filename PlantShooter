@@ -1,0 +1,23 @@
+local potholder = Instance.new("Part")
+potholder.Position = Workspace:FindFirstChild(game.Players.LocalPlayer.Name).HumanoidRootPart.Position
+local pot = game:GetObjects("rbxassetid://121218933252054")[1]
+potholder.Parent = workspace
+pot.Parent = workspace
+potholder.Size = pot.PrimaryPart.Size
+pot:PivotTo(potholder.CFrame)
+for _, parts in pairs(pot:GetDecendants()) do
+if parts:IsA("Part") or parts:IsA("MeshPart") or parts:IsA("BasePart") then
+parts.Anchored = false
+local weld = Instance.new("WeldConstraint")
+weld.Part0 = potholder
+weld.Part1 = parts
+weld.Parent = potholder
+parts.CanColide = false
+end
+if parts:IsA("WeldConstraint") or parts:IsA("Weld")then
+parts:Destroy()
+end
+end
+
+potholder.CanColide = true
+potholder.Transparency = 1
