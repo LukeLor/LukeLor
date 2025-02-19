@@ -21,3 +21,29 @@ end
 
 potholder.CanColide = true
 potholder.Transparency = 1
+
+
+
+local initialHeight = 0 -- the initial height of the part
+local velocitySpread = 10 -- the amount of spread for the initial velocity
+local upwardForce = 40 -- the upward force to apply to the part
+
+-- generate a random initial velocity for the part
+local velocity = Vector3.new(
+    math.random(-velocitySpread, velocitySpread),
+    upwardForce,
+    math.random(-velocitySpread, velocitySpread)
+)
+
+-- apply the initial velocity to the part
+local bodyVelocity = Instance.new("BodyVelocity")
+bodyVelocity.Velocity = velocity
+bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge) -- set max force to allow full control of velocity
+bodyVelocity.P = 5000 -- set P to control how fast the part reaches the desired velocity
+bodyVelocity.Parent = potholder
+
+-- add a wait to allow the part to gain some height before disabling the BodyVelocity
+wait(0.5)
+
+-- disable the BodyVelocity to let gravity take over
+bodyVelocity:Destroy()
