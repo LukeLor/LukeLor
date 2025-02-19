@@ -62,7 +62,8 @@ local entity = spawner.Create({
 entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
 local entityModel = entity.Model
-
+for i = 0, math.random(4,8), 1 do -- go from 0 to 100 in steps of 2
+    print(i.."th plant pot thrown.") -- print the number
 local potholder = Instance.new("Part")
 potholder.Position = entitymodel.Dasher
 local pot = game:GetObjects("rbxassetid://121218933252054")[1]
@@ -112,7 +113,7 @@ wait(0.5)
 
 -- disable the BodyVelocity to let gravity take over
 bodyVelocity:Destroy()
- 
+end
 end)
 
 entity:SetCallback("OnStartMoving", function()
