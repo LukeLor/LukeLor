@@ -5,3 +5,5 @@ imprint.Parent = holder
 imprint.Color = Color3.fromRGB(0,0,0)
 imprint.Transparency = 0.75
 imprint.TextureId = "rbxassetid://12875044491"
+imprint.Parent = holder
+imprint.Face = Enum.NormalId.Back
