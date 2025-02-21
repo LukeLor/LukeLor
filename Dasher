@@ -51,7 +51,7 @@ local entity = spawner.Create({
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
-		Hints = {"You died to Dasher..", "Use what you learned from Ambush!", "Keep note that Dasher is Faster than Ambush."},
+		Hints = {"You died to Dasher..", "Use what you learned from Ambush!", "Keep note that Dasher is faster than Ambush."},
 		Cause = ""
 	}
 })
