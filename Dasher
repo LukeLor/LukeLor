@@ -80,21 +80,20 @@ potholder.Parent = workspace
 pot.Parent = workspace
 potholder.Size = pot.PrimaryPart.Size
 pot:PivotTo(potholder.CFrame)
-for _, parts in pairs(pot:GetDecendants()) do
+for _, parts in pairs(pot:GetDescendants()) do
 if parts:IsA("Part") or parts:IsA("MeshPart") or parts:IsA("BasePart") then
 parts.Anchored = false
 local weld = Instance.new("WeldConstraint")
 weld.Part0 = potholder
 weld.Part1 = parts
 weld.Parent = potholder
-parts.CanColide = false
 end
 if parts:IsA("WeldConstraint") or parts:IsA("Weld")then
 parts:Destroy()
 end
 end
 
-potholder.CanColide = true
+potholder.CanCollide = true
 potholder.Transparency = 1
 
 
@@ -118,7 +117,7 @@ bodyVelocity.P = 5000 -- set P to control how fast the part reaches the desired 
 bodyVelocity.Parent = potholder
 
 -- add a wait to allow the part to gain some height before disabling the BodyVelocity
-wait(0.5)
+wait(0.1)
 
 -- disable the BodyVelocity to let gravity take over
 bodyVelocity:Destroy()
