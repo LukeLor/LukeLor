@@ -1,4 +1,5 @@
-local latestroom = game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
+local latestnum = game.ReplicatedStorage.GameData.LatestRoom.Value
+local latestroom = game.Workspace.CurrentRooms[latestnum]
 local imprint = Instance.new("Decal")
 local holder = latestroom.RoomExit
 imprint.Parent = holder 
@@ -7,3 +8,11 @@ imprint.Transparency = 0.75
 imprint.TextureId = "rbxassetid://12875044491"
 imprint.Parent = holder
 imprint.Face = Enum.NormalId.Back
+while true do
+wait()
+if game.ReplicatedStorage.GameData.LatestRoom.Value > latestnum then
+imprint:Destroy()
+print("Room has changed from, "..latestroom.Name.." to,"..game.Workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].."!")
+break
+end
+end
