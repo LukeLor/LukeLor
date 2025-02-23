@@ -5,7 +5,7 @@ potholder.Parent = workspace
 pot.Parent = workspace
 potholder.Size = pot.PrimaryPart.Size
 pot:PivotTo(potholder.CFrame)
-for _, parts in pairs(pot:GetDecendants()) do
+for _, parts in pairs(pot:GetDescendants()) do
 if parts:IsA("Part") or parts:IsA("MeshPart") or parts:IsA("BasePart") then
 parts.Anchored = false
 local weld = Instance.new("WeldConstraint")
