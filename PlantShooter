@@ -12,14 +12,14 @@ local weld = Instance.new("WeldConstraint")
 weld.Part0 = potholder
 weld.Part1 = parts
 weld.Parent = potholder
-parts.CanColide = false
+parts.CanCollide = false
 end
 if parts:IsA("WeldConstraint") or parts:IsA("Weld")then
 parts:Destroy()
 end
 end
 
-potholder.CanColide = true
+potholder.CanCollide = true
 potholder.Transparency = 1
 
 
