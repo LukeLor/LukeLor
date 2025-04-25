@@ -13,13 +13,13 @@ local entity = spawner.Create({
 	Lights = {
 		Flicker = {
 			Enabled = true,
-			Duration = 1
+			Duration = math.random(10, 20)/10
 		},
 		Shatter = true,
 		Repair = false
 	},
 	Earthquake = {
-		Enabled = true
+		Enabled = false
 	},
 	CameraShake = {
 		Enabled = true,
@@ -51,7 +51,7 @@ local entity = spawner.Create({
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
-		Hints = {"Oh, it seems you died to Rush...", "Well... not really Rush.", "I call it, "Rush's Distorted Side"", "It faster than its base form, Rush!", "Beware it can also try to trick you.","Use what you learned from Blitz!"},
+		Hints = {"Oh, it seems you died to Rush...", "Well... not really Rush.", "I call it, "Rush's Distorted Side."", "It's faster than Rush!", "Beware it can also try to trick you.","Use what you learned from Blitz!"},
 		Cause = ""
 	}
 })
