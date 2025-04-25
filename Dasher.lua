@@ -60,68 +60,14 @@ local entity = spawner.Create({
 
 entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
-
 end)
 
 entity:SetCallback("OnStartMoving", function()
     print("Entity has started moving")
-
 end)
 
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
     if firstTime == true then
-local entityModel = entity.Model
-for i = 0, math.random(4,8), 1 do -- go from 0 to 100 in steps of 2
-    print(i.."th plant pot thrown.") -- print the number
-local potholder = Instance.new("Part")
-potholder.Position = entitymodel.PrimaryPart.Position
-local pot = game:GetObjects("rbxassetid://121218933252054")[1]
-potholder.Parent = workspace
-pot.Parent = workspace
-potholder.Size = pot.PrimaryPart.Size
-pot:PivotTo(potholder.CFrame)
-for _, parts in pairs(pot:GetDescendants()) do
-if parts:IsA("Part") or parts:IsA("MeshPart") or parts:IsA("BasePart") then
-parts.Anchored = false
-local weld = Instance.new("WeldConstraint")
-weld.Part0 = potholder
-weld.Part1 = parts
-weld.Parent = potholder
-end
-if parts:IsA("WeldConstraint") or parts:IsA("Weld")then
-parts:Destroy()
-end
-end
-
-potholder.CanCollide = true
-potholder.Transparency = 1
-
-
-
-local initialHeight = 0 -- the initial height of the part
-local velocitySpread = 10 -- the amount of spread for the initial velocity
-local upwardForce = 40 -- the upward force to apply to the part
-
--- generate a random initial velocity for the part
-local velocity = Vector3.new(
-    math.random(-velocitySpread, velocitySpread),
-    upwardForce,
-    math.random(-velocitySpread, velocitySpread)
-)
-
--- apply the initial velocity to the part
-local bodyVelocity = Instance.new("BodyVelocity")
-bodyVelocity.Velocity = velocity
-bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge) -- set max force to allow full control of velocity
-bodyVelocity.P = 5000 -- set P to control how fast the part reaches the desired velocity
-bodyVelocity.Parent = potholder
-
--- add a wait to allow the part to gain some height before disabling the BodyVelocity
-wait(0.1)
-
--- disable the BodyVelocity to let gravity take over
-bodyVelocity:Destroy()
-end
         print("Entity has entered room: ".. room.Name.. " for the first time")
     else
         print("Entity has entered room: ".. room.Name.. " again")
