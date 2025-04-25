@@ -1,5 +1,5 @@
-repeat until game.ReplicatedStorage.GameData.LatestRoom.Value == 49
-wait(0.1)
+while true do
+wait()
 if game.ReplicatedStorage.GameData.LatestRoom.Value == 49 then
 local Mik_eFig = game:GetObjects("rbxassetid://15772509040")[1]
 Mik_eFig.Parent = workspace
@@ -19,7 +19,8 @@ local LegColorWant = Color3.new(0.968627, 0.917647, 0.917647)
 Figure.LeftUpperLeg.Color = LegColorWant
 local LegColorWant2 = Color3.new(0.968627, 0.917647, 0.917647)
 Figure.RightUpperLeg.Color = LegColorWant2
-script.Enabled = false
+break
 end
 end
 
+end
