@@ -1,17 +1,18 @@
 --Setup?
-local RoomHolder = workspace.Rooms:GetDecendants()--DONT TOUCH LINE
+local RoomHolder = workspace.Rooms:GetChildren()--DONT TOUCH LINE
 
 for _, Rooms in pairs(RoomHolder) do
 if Rooms:IsA("Model") then
-print("Well Here Is A Room."..Rooms.Name)
-end
+print("Well Here's a Room:"..Rooms.Name)
+ end
+ local EntityName = "Test_Entity609" --Change
 --Variables
 --local IsPandemonium = false --(WORK IN PROGRESS)
 local math = Instance.new("NumberValue")
 math.Value = 1
 math.Parent = workspace
 math.Name = "CustomEntityNodeNum"
-local LastRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH
+local LastRoom = workspace.Rooms[game.ReplicatedStorage.]--DONT TOUCH
 local Entity = game:GetObjects("rbxassetid://")[1] -- Asset ID goes after "rbxassetid://"
 local CurrentRoom = workspace.Rooms[Game.ReplicatedStorage.]--DONT TOUCH LINE
 local Nodes = Rooms.EntityNodes
@@ -32,10 +33,11 @@ local normaltween = TweenInfo.new(0.7, Enum.EasingStyle.Linear, Enum.EasingDirec
 Entity.Parent = workspace
 Entity.PrimaryPart.Position = LastRoom.Entrances
 -- Angler speed
+ 
 if normal == true then
-while true do
+  while true do
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = currentnode.Position}):Play()
-wait(0.7)
+wait(0.5)
 math.Value += 1
 if not CurrentRoom:FindFirstChild(nextnode) then
 Tween:Create(Entity.PrimaryPart, normaltween,{Position = currentnode.Parent.Parent.Exits..Position}):Play()
@@ -60,3 +62,4 @@ end
 if IsPandemonium = true then
 
  end
+ 
