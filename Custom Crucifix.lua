@@ -4,8 +4,16 @@ local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/
 local seal = LoadCustomInstance("")-- Seal link
 local config = {Resist = false, IgnoreEntities = {}, Uses = 1}
 local SealIcon = "rbxassetid://123535107502536" --Custom
+local usesv = Instance.new("NumberValue")
+usesv.Value = config.Uses
 
-function CrucifixActivation()
+
+function CrucifixActivation(model, config, plrtool)
+	usesv.Value -= 1
+	task.wait(0.1)
+	if usesv.Value == 0 then
+		plrtool:Destroy()
+	end
 	local localchar = game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name)
 	local localroot = localchar.HumanoidRootPart
 local tool = crucifix:Clone()
@@ -17,7 +25,7 @@ local tool = crucifix:Clone()
 
 	local params = RaycastParams.new()
 	params.FilterType = Enum.RaycastFilterType.Exclude
-	params.FilterDescendantsInstances = {localCharacter, model}
+	params.FilterDescendantsInstances = {localchar, model}
 	local result = workspace:Raycast(entityPivot.Position, Vector3.new(0, -1000, 0), params)
 	
     if not result then
