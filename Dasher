@@ -119,6 +119,7 @@ wait(0.1)
 
 -- disable the BodyVelocity to let gravity take over
 bodyVelocity:Destroy()
+end
         print("Entity has entered room: ".. room.Name.. " for the first time")
     else
         print("Entity has entered room: ".. room.Name.. " again")
