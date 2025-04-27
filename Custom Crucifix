@@ -1,1 +1,2 @@
 --Currently getting info rn
+local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/blob/main/Doors/Entity%20Spawner/Assets/Repentance.rbxm?raw=true"),
