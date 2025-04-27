@@ -5,8 +5,11 @@ local seal = LoadCustomInstance("")-- Seal link
 local config = {Resist = false, IgnoreEntities = {}, Uses = 1}
 local SealIcon = "rbxassetid://123535107502536" --Custom
 
+function CrucifixActivation()
+	local localchar = game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name)
+	local localroot = localchar.HumanoidRootPart
 local tool = crucifix:Clone()
-    tool:PivotTo(game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name).CFrame)
+    tool:PivotTo(CFrame)
     tool.Parent = workspace
 
 	local toolPivot = tool:GetPivot()
@@ -50,4 +53,4 @@ local tool = crucifix:Clone()
             model:Destroy()
         end
 	end)
-
+end
