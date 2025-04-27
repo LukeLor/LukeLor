@@ -6,7 +6,7 @@ local config = {Resist = false, IgnoreEntities = {}, Uses = 1}
 local SealIcon = "rbxassetid://123535107502536" --Custom
 
 local tool = crucifix:Clone()
-    tool:PivotTo(localRoot.CFrame)
+    tool:PivotTo(game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name).CFrame)
     tool.Parent = workspace
 
 	local toolPivot = tool:GetPivot()
