@@ -1,3 +1,4 @@
 local Echo = Instance.new("EchoSoundEffect")
 Echo.Parent = MainUI.Initiator.Main_Game.Cutscenes.Elevator1.EndMusic
 MainUI.Initiator.Main_Game.Cutscenes.Elevator1.EndMusic.PlaybackSpeed = 0.75
+MainUI.Initiator.Main_Game.Cutscenes.Elevator1.EndMusic:Play()
