@@ -122,7 +122,10 @@ local pentagram = repentance.CrucSeal
 		
         TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = repentance.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
 		
-        WaitUntil(sound, 6.75)
+        WaitUntil(sound, 3.375)
+		seal.CrucSeal.Pulse.Ring.Enabled = true
+		wait(3.375)
+		seal.CrucSeal.Pulse.Ring.Enabled = false
 	else
 		WaitUntil(sound, 4)
 
