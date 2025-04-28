@@ -175,16 +175,17 @@ end
 local UserInputService = game:GetService("UserInputService")
 
 
-local localPlayer = Players.LocalPlayer
+local localPlayer = game.Players.LocalPlayer
 local localMouse = localPlayer:GetMouse()
  UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if not gameProcessed and input.UserInputType == Enum.UserInputType.MouseButton1 and localCharacter:FindFirstChild("Crucifix") then
+			 local playerTool = localCharacter.Crucifix
    local target = localMouse.Target
         if target then
             local model = target.Parent
             
             -- Validate target
-            if model:IsA("Model") and not model:GetAttribute("BeingBanished") and not table.find(config.IgnoreList, model) then
+            if model:IsA("Model") and not model:GetAttribute("BeingBanished") and not table.find(config.IgnoreEntities, model) then
                 local isCustomEntity = model:GetAttribute("CustomEntity")
 
                
