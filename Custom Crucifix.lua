@@ -2,12 +2,24 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/raw/refs/heads/main/Doors/Item%20Spawner/Assets/Crucifix.rbxm")
 local seal = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CrucifixSeal.rbxm")
-local config = {Resist = false, IgnoreEntities = {}, Uses = 1}
+local config = {Resist = false, IgnoreEntities = {}, Uses = 1} -- -1 for infinite
+
 local SealIcon = "rbxassetid://123535107502536" --Custom
 local usesv = Instance.new("NumberValue")
 usesv.Value = config.Uses
-local color = Color3.fromRGB(137, 207, 255)
-
+local sealcolor = Color3.fromRGB(137, 207, 255)
+local failcolor = Color3.fromRGB(255, 116, 130)
+seal.CrucSeal.Sigil.SigilReal.Texture = SealIcon
+seal.CrucSeal.Sigil.SigilBG.Texture = SealIcon
+for _, effects in pairs(seal:GetDescendants()) do
+	if effects:IsA("Beam") or effects:IsA("ParticleEmitter") then
+		effects.Color = ColorSequence.new(sealcolor)
+	end
+	if effects:IsA("PointLight")  then
+		effects.Color = sealcolor
+	end
+end
+crucifix.Parent = game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name)
 function CrucifixActivation(model, config, plrtool)
 	usesv.Value -= 1
 	task.wait(0.1)
@@ -62,14 +74,14 @@ local pentagram = repentance.CrucSeal
         end
 	end)
 -- Pentagram animation
-	TweenService:Create(pentagram.Circle, TweenInfo.new(2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), { CFrame = pentagram.Circle.CFrame - Vector3.new(0, 25, 0) }):Play()
+--	TweenService:Create(pentagram.Circle, TweenInfo.new(2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), { CFrame = pentagram.Circle.CFrame - Vector3.new(0, 25, 0) }):Play()
 	TweenService:Create(crucifixr.BodyAngularVelocity, TweenInfo.new(4, Enum.EasingStyle.Sine, Enum.EasingDirection.In), { AngularVelocity = Vector3.new(0, 40, 0) }):Play()
-	task.delay(2, pentagram.Circle.Destroy, pentagram.Circle)
+	--task.delay(2, pentagram.Circle.Destroy, pentagram.Circle)
 
 	task.spawn(function()
         WaitUntil(sound, 2.625)
 		
-        TweenService:Create(pentagram.Base.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
+        TweenService:Create(pentagram.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
 			Brightness = 5,
 			Range = 40
 		}):Play()
@@ -81,7 +93,7 @@ local pentagram = repentance.CrucSeal
 		
         task.wait(1.5)
 		
-        TweenService:Create(pentagram.Base.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
+        TweenService:Create(pentagram.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
 			Brightness = 0,
 			Range = 0
 		}):Play()
@@ -110,14 +122,14 @@ local pentagram = repentance.CrucSeal
 		WaitUntil(sound, 4)
 
 		TweenService:Create(crucifixr.BodyAngularVelocity, TweenInfo.new(3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), { AngularVelocity = Vector3.new() }):Play()
-		TweenService:Create(pentagram.Base.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), { Brightness = 0, Range = 0, Color = Color3.fromRGB(255, 116, 130) }):Play()
+		TweenService:Create(pentagram.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), { Brightness = 0, Range = 0, Color = Color3.fromRGB(255, 116, 130) }):Play()
 		TweenService:Create(crucifixr.Light, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), { Brightness = 0, Range = 0, Color = Color3.fromRGB(255, 116, 130) }):Play()
 		shaker:StartFadeOut(3)
 		task.spawn(function()
 			local color = Instance.new("Color3Value")
-			color.Value = 
+			color.Value = sealcolor
 
-			local tween = TweenService:Create(color, TweenInfo.new(0.5, Enum.EasingStyle.Sine), { Value = Color3.fromRGB(255, 116, 130) })
+			local tween = TweenService:Create(color, TweenInfo.new(0.5, Enum.EasingStyle.Sine), { Value = failcolor })
 			tween:Play()
 
 			while tween.PlaybackState == Enum.PlaybackState.Playing do
@@ -138,7 +150,7 @@ local pentagram = repentance.CrucSeal
 
 	-- Crucifix explode
 	TweenService:Create(repentance.Crucifixr, TweenInfo.new(1), { Size = repentance.Crucifix.Size * 3, Transparency = 1 }):Play()
-	TweenService:Create(repentance.Pentagram.Base.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
+	TweenService:Create(repentance.SealCruc.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(repentance.Crucifixr.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 
 	if not config.Resist then
