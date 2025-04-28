@@ -147,7 +147,7 @@ local pentagram = repentance.CrucSeal
 	else
 		model:SetAttribute("BeingBanished", false)
 		model:SetAttribute("Paused", false)
-		FadeOut(pentagram)
+		
 	end
 
 	task.delay(5, repentance.Destroy, repentance)
