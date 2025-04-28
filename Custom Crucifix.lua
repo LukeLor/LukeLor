@@ -7,7 +7,7 @@ local config = {Resist = false, IgnoreEntities = {}, Uses = -1} -- -1 for infini
 local SealIcon = "rbxassetid://123535107502536" --Custom
 local usesv = Instance.new("NumberValue")
 usesv.Value = config.Uses
-local sealcolor = Color3.fromRGB(137, 207, 255)
+local sealcolor = Color3.fromRGB(89, 255, 114)
 local failcolor = Color3.fromRGB(255, 116, 130)
 seal.CrucSeal.Sigil.SigilReal.Texture = SealIcon
 seal.CrucSeal.Sigil.SigilBG.Texture = SealIcon
