@@ -11,7 +11,9 @@ local localCharacter = localPlayer.Character or localPlayer.CharacterAdded:Wait(
 local localRoot = localCharacter:WaitForChild("HumanoidRootPart")
 local localPlayerGui = localPlayer:WaitForChild("PlayerGui")
 local localMouse = localPlayer:GetMouse()
-
+local moduleScripts = {
+	Main_Game = require(localPlayerGui.MainUI.Initiator.Main_Game),
+}
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/raw/refs/heads/main/Doors/Item%20Spawner/Assets/Crucifix.rbxm")
