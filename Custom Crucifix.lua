@@ -79,7 +79,7 @@ local pentagram = repentance.CrucSeal
 	repentance:PivotTo(CFrame.new(result.Position))
 	crucifixr.CFrame = toolPivot
 	repentance.CrucSeal.Entity.CFrame = entityPivot
-    crucifirx.BodyPosition.Position = (localCharacter:GetPivot() * CFrame.new(0.5, 3, -6)).Position
+    crucifixr.BodyPosition.Position = (localCharacter:GetPivot() * CFrame.new(0.5, 3, -6)).Position
 	repentance.Parent = workspace
 	sound:Play()
 
