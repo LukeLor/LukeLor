@@ -1,12 +1,12 @@
 --Currently getting info rn. HEAVILY BASED ON REGULAR VYNIXU'S SCRIPT
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/raw/refs/heads/main/Doors/Item%20Spawner/Assets/Crucifix.rbxm")
-local seal = LoadCustomInstance("")-- Seal link
+local seal = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CrucifixSeal.rbxm")
 local config = {Resist = false, IgnoreEntities = {}, Uses = 1}
 local SealIcon = "rbxassetid://123535107502536" --Custom
 local usesv = Instance.new("NumberValue")
 usesv.Value = config.Uses
-
+local color = Color3.fromRGB(137, 207, 255)
 
 function CrucifixActivation(model, config, plrtool)
 	usesv.Value -= 1
@@ -35,18 +35,18 @@ local tool = crucifix:Clone()
     model:SetAttribute("BeingBanished", true)
 
     -- Variables
-	local repentance = assets.Repentance:Clone()
-	local crucifixr = repentance.Crucifix
-	local pentagram = repentance.Pentagram
-	local entityPart = repentance.Entity
-	local sound = (config.Resist and crucifix.SoundFail or crucifix.Sound)
+	local repentance = seal:Clone()
+	local crucifixr = seal.CrucSeal.Crucifix
+local pentagram = repentance.CrucSeal
+	local entityPart = seal.CrucSeal.Entity
+	local sound = (config.Resist and crucifixr.SoundFail or crucifixr.Sound)
 	local shaker = moduleScripts.Main_Game.camShaker:StartShake(5, 20, 2, Vector3.new())
 
     -- Repentance setup
 	repentance:PivotTo(CFrame.new(result.Position))
 	crucifixr.CFrame = toolPivot
-	repentance.Entity.CFrame = entityPivot
-    crucifixr.BodyPosition.Position = (localCharacter:GetPivot() * CFrame.new(0.5, 3, -6)).Position
+	repentance.CrucSeal.Entity.CFrame = entityPivot
+    crucifirx.BodyPosition.Position = (localCharacter:GetPivot() * CFrame.new(0.5, 3, -6)).Position
 	repentance.Parent = workspace
 	sound:Play()
 
@@ -61,4 +61,94 @@ local tool = crucifix:Clone()
             model:Destroy()
         end
 	end)
+-- Pentagram animation
+	TweenService:Create(pentagram.Circle, TweenInfo.new(2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), { CFrame = pentagram.Circle.CFrame - Vector3.new(0, 25, 0) }):Play()
+	TweenService:Create(crucifixr.BodyAngularVelocity, TweenInfo.new(4, Enum.EasingStyle.Sine, Enum.EasingDirection.In), { AngularVelocity = Vector3.new(0, 40, 0) }):Play()
+	task.delay(2, pentagram.Circle.Destroy, pentagram.Circle)
+
+	task.spawn(function()
+        WaitUntil(sound, 2.625)
+		
+        TweenService:Create(pentagram.Base.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
+			Brightness = 5,
+			Range = 40
+		}):Play()
+		
+        TweenService:Create(crucifixr.Light, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
+			Brightness = 11.25,
+			Range = 30
+		}):Play()
+		
+        task.wait(1.5)
+		
+        TweenService:Create(pentagram.Base.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
+			Brightness = 0,
+			Range = 0
+		}):Play()
+		
+        TweenService:Create(crucifixr.Light, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
+			Brightness = 0,
+			Range = 0
+		}):Play()
+
+		if config.Resist == false then
+            TweenService:Create(crucifixr.Light, TweenInfo.new(1, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), { Brightness = 15, Range = 40 }):Play()
+            shaker:StartFadeOut(3)
+            FadeOut(pentagram)
+            TweenService:Create(crucifixr.BodyAngularVelocity, TweenInfo.new(3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), { AngularVelocity = Vector3.new() }):Play()
+        end
+	end)
+
+	-- Actions
+	if config.Resist == false then
+		WaitUntil(sound, 2)
+		
+        TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = repentance.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
+		
+        WaitUntil(sound, 6.75)
+	else
+		WaitUntil(sound, 4)
+
+		TweenService:Create(crucifixr.BodyAngularVelocity, TweenInfo.new(3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), { AngularVelocity = Vector3.new() }):Play()
+		TweenService:Create(pentagram.Base.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), { Brightness = 0, Range = 0, Color = Color3.fromRGB(255, 116, 130) }):Play()
+		TweenService:Create(crucifixr.Light, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), { Brightness = 0, Range = 0, Color = Color3.fromRGB(255, 116, 130) }):Play()
+		shaker:StartFadeOut(3)
+		task.spawn(function()
+			local color = Instance.new("Color3Value")
+			color.Value = 
+
+			local tween = TweenService:Create(color, TweenInfo.new(0.5, Enum.EasingStyle.Sine), { Value = Color3.fromRGB(255, 116, 130) })
+			tween:Play()
+
+			while tween.PlaybackState == Enum.PlaybackState.Playing do
+				for _, d in repentance:GetDescendants() do
+					if d.ClassName == "Beam" then
+						d.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, color.Value), ColorSequenceKeypoint.new(1, color.Value)}
+
+					elseif d.Name == "Crucifix" then
+						d.Color = color.Value
+					end
+				end
+				task.wait()
+			end
+		end)
+
+		WaitUntil(sound, 9.625)
+	end
+
+	-- Crucifix explode
+	TweenService:Create(repentance.Crucifixr, TweenInfo.new(1), { Size = repentance.Crucifix.Size * 3, Transparency = 1 }):Play()
+	TweenService:Create(repentance.Pentagram.Base.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
+	TweenService:Create(repentance.Crucifixr.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
+
+	if not config.Resist then
+		repentance.Crucifix.ExplodeParticle:Emit(math.random(20, 30))
+		moduleScripts.Main_Game.camShaker:ShakeOnce(7.5, 7.5, 0.25, 1.5)
+	else
+		model:SetAttribute("BeingBanished", false)
+		model:SetAttribute("Paused", false)
+		FadeOut(pentagram)
+	end
+
+	task.delay(5, repentance.Destroy, repentance)
 end
