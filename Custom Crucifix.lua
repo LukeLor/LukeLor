@@ -11,6 +11,11 @@ local sealcolor = Color3.fromRGB(137, 207, 255)
 local failcolor = Color3.fromRGB(255, 116, 130)
 seal.CrucSeal.Sigil.SigilReal.Texture = SealIcon
 seal.CrucSeal.Sigil.SigilBG.Texture = SealIcon
+
+function WaitUntil(sound, t)
+    repeat RunService.RenderStepped:Wait() until sound.TimePosition >= t
+end
+
 for _, effects in pairs(seal:GetDescendants()) do
 	if effects:IsA("Beam") or effects:IsA("ParticleEmitter") then
 		effects.Color = ColorSequence.new(sealcolor)
