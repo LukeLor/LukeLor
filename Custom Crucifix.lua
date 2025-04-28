@@ -2,7 +2,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/raw/refs/heads/main/Doors/Item%20Spawner/Assets/Crucifix.rbxm")
 local seal = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/NewerSeal.rbxm")
-local config = {Resist = false, IgnoreEntities = {}, Uses = 1} -- -1 for infinite
+local config = {Resist = false, IgnoreEntities = {}, Uses = -1} -- -1 for infinite
 
 local SealIcon = "rbxassetid://123535107502536" --Custom
 local usesv = Instance.new("NumberValue")
@@ -172,3 +172,25 @@ local pentagram = repentance.CrucSeal
 
 	task.delay(5, repentance.Destroy, repentance)
 end
+local UserInputService = game:GetService("UserInputService")
+
+
+local localPlayer = Players.LocalPlayer
+local localMouse = localPlayer:GetMouse()
+ UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and input.UserInputType == Enum.UserInputType.MouseButton1 and localCharacter:FindFirstChild("Crucifix") then
+   local target = localMouse.Target
+        if target then
+            local model = target.Parent
+            
+            -- Validate target
+            if model:IsA("Model") and not model:GetAttribute("BeingBanished") and not table.find(config.IgnoreList, model) then
+                local isCustomEntity = model:GetAttribute("CustomEntity")
+
+               
+                -- Banish whatever
+                CrucifixActivation(model, playerTool, config)
+            end
+        end
+		end
+	end)
