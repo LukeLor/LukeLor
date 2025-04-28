@@ -94,7 +94,7 @@ local pentagram = repentance.CrucSeal
 		if config.Resist == false then
             TweenService:Create(crucifixr.Light, TweenInfo.new(1, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), { Brightness = 15, Range = 40 }):Play()
             shaker:StartFadeOut(3)
-            FadeOut(pentagram)
+
             TweenService:Create(crucifixr.BodyAngularVelocity, TweenInfo.new(3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), { AngularVelocity = Vector3.new() }):Play()
         end
 	end)
