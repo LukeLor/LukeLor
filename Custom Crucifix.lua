@@ -1,4 +1,18 @@
 --Currently getting info rn. HEAVILY BASED ON REGULAR VYNIXU'S SCRIPT
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+
+-- Variables
+local localPlayer = Players.LocalPlayer
+local localCharacter = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local localRoot = localCharacter:WaitForChild("HumanoidRootPart")
+local localPlayerGui = localPlayer:WaitForChild("PlayerGui")
+local localMouse = localPlayer:GetMouse()
+
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/raw/refs/heads/main/Doors/Item%20Spawner/Assets/Crucifix.rbxm")
 local seal = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/NewestSeal.rbxm")
