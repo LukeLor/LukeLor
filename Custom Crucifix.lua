@@ -138,8 +138,10 @@ local pentagram = repentance.CrucSeal
 		WaitUntil(sound, 2)
 		
         TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = repentance.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
-		
-        WaitUntil(sound, 3.375)
+		 TweenService:Create(seal.CrucSeal.Bottom, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.Entity.CFrame - Vector3.new(0, 10, 0) }):Play()
+         TweenService:Create(seal.CrucSeal.Top, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.Entity.CFrame - Vector3.new(0, 10, 0) }):Play()
+
+		WaitUntil(sound, 3.375)
 		seal.CrucSeal.Pulse.Ring.Enabled = true
 		wait(3.375)
 		seal.CrucSeal.Pulse.Ring.Enabled = false
@@ -177,7 +179,8 @@ local pentagram = repentance.CrucSeal
 	TweenService:Create(repentance.Crucifixr, TweenInfo.new(1), { Size = repentance.Crucifix.Size * 3, Transparency = 1 }):Play()
 	TweenService:Create(repentance.SealCruc.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(repentance.Crucifixr.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
-
+	TweenService:Create(repentance.CrucSeal.Sigil.SigilReal, TweenInfo.new(2), {Rate = 0 }):Play()
+	TweenService:Create(repentance.CrucSeal.Sigil.SigilBG, TweenInfo.new(2), {Rate = 0 }):Play()
 	if not config.Resist then
 		repentance.Crucifix.ExplodeParticle:Emit(math.random(20, 30))
 		moduleScripts.Main_Game.camShaker:ShakeOnce(7.5, 7.5, 0.25, 1.5)
