@@ -136,14 +136,14 @@ local pentagram = repentance.CrucSeal
 	if config.Resist == false then
 		WaitUntil(sound, 2)
 		
-        TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = repentance.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
-		 TweenService:Create(seal.CrucSeal.Bottom, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.Entity.CFrame - Vector3.new(0, 10, 0) }):Play()
-         TweenService:Create(seal.CrucSeal.Top, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.Entity.CFrame - Vector3.new(0, 10, 0) }):Play()
+        TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = pentagram.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
+		 TweenService:Create(repentance.CrucSeal.Bottom, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = pentagram.Entity.CFrame - Vector3.new(0, 10, 0) }):Play()
+         TweenService:Create(repentance.CrucSeal.Top, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = pentagram.Entity.CFrame - Vector3.new(0, 10, 0) }):Play()
 
 		WaitUntil(sound, 3.375)
-		seal.CrucSeal.Pulse.Ring.Enabled = true
+		repentance.CrucSeal.Pulse.Ring.Enabled = true
 		wait(3.375)
-		seal.CrucSeal.Pulse.Ring.Enabled = false
+		repentance.CrucSeal.Pulse.Ring.Enabled = false
 	else
 		WaitUntil(sound, 4)
 
