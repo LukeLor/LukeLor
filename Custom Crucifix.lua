@@ -31,15 +31,10 @@ seal.CrucSeal.Sigil.SigilBG.Texture = SealIcon
 function WaitUntil(sound, t)
     repeat RunService.RenderStepped:Wait() until sound.TimePosition >= t
 end
-
+	seal.CrucSeal.Pulse.Ring.Rate = 0.5
 for _, effects in pairs(seal:GetDescendants()) do
 	if effects:IsA("Beam") or effects:IsA("ParticleEmitter") then
 		effects.Color = ColorSequence.new(sealcolor)
-		if effects:IsA("ParticleEmitter") then
-		if effect.Name == "Ring" then
-				effect.Rate = 0.5
-			end
-			end
 	end
 	if effects:IsA("PointLight")  then
 		effects.Color = sealcolor
