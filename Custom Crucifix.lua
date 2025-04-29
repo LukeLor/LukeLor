@@ -27,6 +27,7 @@ local sealcolor = Color3.fromRGB(89, 255, 114)
 local failcolor = Color3.fromRGB(255, 116, 130)
 seal.CrucSeal.Sigil.SigilReal.Texture = SealIcon
 seal.CrucSeal.Sigil.SigilBG.Texture = SealIcon
+seal.CrucSeal.Position = seal.Root.Position + Vector3.new(0, 0.125, 0)
 
 function WaitUntil(sound, t)
     repeat RunService.RenderStepped:Wait() until sound.TimePosition >= t
