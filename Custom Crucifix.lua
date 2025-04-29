@@ -69,9 +69,9 @@ local tool = crucifix:Clone()
 
     -- Variables
 	local repentance = seal:Clone()
-	local crucifixr = seal.CrucSeal.Crucifix
+	local crucifixr = repentance.CrucSeal.Crucifix
 local pentagram = repentance.CrucSeal
-	local entityPart = seal.CrucSeal.Entity
+	local entityPart = repentance.CrucSeal.Entity
 	local sound = (config.Resist and crucifixr.SoundFail or crucifixr.Sound)
 	local shaker = moduleScripts.Main_Game.camShaker:StartShake(5, 20, 2, Vector3.new())
 
