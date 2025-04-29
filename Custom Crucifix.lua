@@ -4,7 +4,7 @@ local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
-
+SealCruc
 -- Variables
 local localPlayer = Players.LocalPlayer
 local localCharacter = localPlayer.Character or localPlayer.CharacterAdded:Wait()
