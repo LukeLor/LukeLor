@@ -175,13 +175,15 @@ local pentagram = repentance.CrucSeal
 	end
 
 	-- Crucifix explode
-	TweenService:Create(pentagram.Crucifix, TweenInfo.new(1), { Size = repentance.Crucifix.Size * 3, Transparency = 1 }):Play()
+	TweenService:Create(pentagram.Crucifix, TweenInfo.new(1), { Size = pentagram.Crucifix.Size * 3, Transparency = 1 }):Play()
 	TweenService:Create(repentance.CrucSeal.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(pentagram.Crucifix.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(repentance.CrucSeal.Sigil.SigilReal, TweenInfo.new(2), {Rate = 0 }):Play()
 	TweenService:Create(repentance.CrucSeal.Sigil.SigilBG, TweenInfo.new(2), {Rate = 0 }):Play()
 	TweenService:Create(repentance.CrucSeal.Mark.Assist, TweenInfo.new(2), {Rate = 0 }):Play()
 TweenService:Create(repentance.CrucSeal.Mark.Inner, TweenInfo.new(2), {Rate = 0 }):Play()
+	TweenService:Create(repentance.CrucSeal.Spark, TweenInfo.new(2), {Rate = 0 }):Play()
+		TweenService:Create(repentance.CrucSeal.Lines, TweenInfo.new(2), {Rate = 0 }):Play()
 	if not config.Resist then
 		repentance.Crucifix.ExplodeParticle:Emit(math.random(20, 30))
 		moduleScripts.Main_Game.camShaker:ShakeOnce(7.5, 7.5, 0.25, 1.5)
