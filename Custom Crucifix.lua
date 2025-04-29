@@ -4,7 +4,6 @@ local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
-SealCruc
 -- Variables
 local localPlayer = Players.LocalPlayer
 local localCharacter = localPlayer.Character or localPlayer.CharacterAdded:Wait()
@@ -177,7 +176,7 @@ local pentagram = repentance.CrucSeal
 
 	-- Crucifix explode
 	TweenService:Create(repentance.Crucifixr, TweenInfo.new(1), { Size = repentance.Crucifix.Size * 3, Transparency = 1 }):Play()
-	TweenService:Create(repentance.SealCruc.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
+	TweenService:Create(repentance.CrucSeal.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(repentance.Crucifixr.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(repentance.CrucSeal.Sigil.SigilReal, TweenInfo.new(2), {Rate = 0 }):Play()
 	TweenService:Create(repentance.CrucSeal.Sigil.SigilBG, TweenInfo.new(2), {Rate = 0 }):Play()
