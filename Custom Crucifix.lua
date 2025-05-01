@@ -213,7 +213,7 @@ crucifix.Activated:Connect(function()
             local model = target.Parent
             
             -- Validate target
-           if model:IsA("Model") then --and not model:GetAttribute("BeingBanished") and not table.find(config.IgnoreEntities, model) then
+           if model:IsA("Model") and not model:GetAttribute("BeingBanished") and not table.find(config.IgnoreEntities, model) then
 					
 --  local isCustomEntity = model:GetAttribute("CustomEntity")
 
