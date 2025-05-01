@@ -137,11 +137,11 @@ local pentagram = repentance.CrucSeal
 		WaitUntil(sound, 2)
 		
         TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = pentagram.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
-		 TweenService:Create(repentance.CrucSeal.Bottom, TweenInfo.new(2, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Bottom.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
-         TweenService:Create(repentance.CrucSeal.Top, TweenInfo.new(2, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Top.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
-
 		WaitUntil(sound, 3.375)
+		 TweenService:Create(repentance.CrucSeal.Bottom, TweenInfo.new(4, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Bottom.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
+         TweenService:Create(repentance.CrucSeal.Top, TweenInfo.new(4, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Top.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
 		repentance.CrucSeal.Pulse.Ring.Enabled = true
+			repentance.CrucSeal.Pulse.Ring.Rate = 1
 		wait(3.375)
 		repentance.CrucSeal.Pulse.Ring.Enabled = false
 	else
@@ -187,6 +187,11 @@ TweenService:Create(repentance.CrucSeal.Mark.Inner, TweenInfo.new(2), {Rate = 0 
 	if not config.Resist then
 		repentance.Crucifix.ExplodeParticle:Emit(math.random(20, 30))
 		moduleScripts.Main_Game.camShaker:ShakeOnce(7.5, 7.5, 0.25, 1.5)
+		for _, sound in pairs(model:GetDescendants()) do
+	if sound:IsA("Sound") then
+		TweenService:Create(sound, TweenInfo.new(2), {Volume = 0}):Play()
+	end
+end
 	else
 		model:SetAttribute("BeingBanished", false)
 		model:SetAttribute("Paused", false)
