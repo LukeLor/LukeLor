@@ -200,8 +200,8 @@ local UserInputService = game:GetService("UserInputService")
 
 local localPlayer = game.Players.LocalPlayer
 local localMouse = localPlayer:GetMouse()
- UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if not gameProcessed and input.UserInputType == Enum.UserInputType.MouseButton1 and localCharacter:FindFirstChild("Crucifix") then
+crucifix.Activated:Connect(function()
+    if localCharacter:FindFirstChild("Crucifix") then
 			 local playerTool = localCharacter.Crucifix
    local target = localMouse.Target
         if target then
