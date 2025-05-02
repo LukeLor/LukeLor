@@ -100,8 +100,22 @@ local pentagram = repentance.CrucSeal
 	--task.delay(2, pentagram.Circle.Destroy, pentagram.Circle)
 
 	task.spawn(function()
-        WaitUntil(sound, 2.625)
-		
+        WaitUntil(sound, 2.500)
+		repentance.CrucSeal.Crucifix.Model.RandomShards1.Transparency = 0
+repentance.CrucSeal.Crucifix.Model.RandomShards2.Transparency = 0
+repentance.CrucSeal.Crucifix.Model.RandomShards3.Transparency = 0
+repentance.CrucSeal.Crucifix.Model.RandomShards4.Transparency = 0
+repentance.CrucSeal.Crucifix.Model.RandomShards5.Transparency = 0
+repentance.CrucSeal.Crucifix.Model.RandomShards6.Transparency = 0
+				task.wait(.25)
+repentance.CrucSeal.Crucifix.Welds:Destroy()
+wait(.1)
+repentance.CrucSeal.Crucifix.Model.RandomShards1.CanCollide = true
+repentance.CrucSeal.Crucifix.Model.RandomShards2.CanCollide = true
+repentance.CrucSeal.Crucifix.Model.RandomShards3.CanCollide = true
+repentance.CrucSeal.Crucifix.Model.RandomShards4.CanCollide = true
+repentance.CrucSeal.Crucifix.Model.RandomShards5.CanCollide = true
+repentance.CrucSeal.Crucifix.Model.RandomShards6.CanCollide = true
         TweenService:Create(pentagram.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
 			Brightness = 5,
 			Range = 40
@@ -135,7 +149,10 @@ local pentagram = repentance.CrucSeal
 	-- Actions
 	if config.Resist == false then
 		WaitUntil(sound, 2)
-		
+		TweenService:Create(crucifixr, TweenInfo.new(.25, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+	Material =  288,
+	Color = sealcolor
+}):Play()
         TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = pentagram.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
 		WaitUntil(sound, 3.375)
 		 TweenService:Create(repentance.CrucSeal.Bottom, TweenInfo.new(4, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Bottom.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
