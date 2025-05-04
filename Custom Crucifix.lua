@@ -1,4 +1,5 @@
 --Currently getting info rn. HEAVILY BASED ON REGULAR VYNIXU'S SCRIPT
+local config = {Resist = false, IgnoreEntities = {}, Uses = -1, ResistEntities = {}} -- -1 for infinite
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -17,7 +18,7 @@ local moduleScripts = {
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/raw/refs/heads/main/Doors/Item%20Spawner/Assets/Crucifix.rbxm")
 local seal = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/RankedBasedSeal.rbxm")
-local config = {Resist = false, IgnoreEntities = {}, Uses = -1} -- -1 for infinite
+
 
 local SealIcon = "rbxassetid://123535107502536" --Custom
 local usesv = Instance.new("NumberValue")
@@ -85,7 +86,7 @@ local pentagram = repentance.CrucSeal
 
     -- Teleport model to repentance entity part
 	task.spawn(function()
-        if not config.Resist then
+        if not config.Resist or not table.find(config.ResistEntities, model)then
             while model.Parent and repentance.Parent do
                 model:PivotTo(entityPart.CFrame)
                 task.wait()
@@ -138,7 +139,7 @@ repentance.CrucSeal.Crucifix.Model.RandomShards6.CanCollide = true
 			Range = 0
 		}):Play()
 
-		if config.Resist == false then
+		if config.Resist == false or not table.find(config.ResistEntities, model) then
             TweenService:Create(crucifixr.Light, TweenInfo.new(1, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), { Brightness = 15, Range = 40 }):Play()
             shaker:StartFadeOut(3)
 
@@ -147,7 +148,7 @@ repentance.CrucSeal.Crucifix.Model.RandomShards6.CanCollide = true
 	end)
 
 	-- Actions
-	if config.Resist == false then
+	if config.Resist == false or not table.find(config.ResistEntities, model) then
 		WaitUntil(sound, 2)
 		TweenService:Create(crucifixr, TweenInfo.new(.25, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
 	Material =  288,
@@ -204,7 +205,7 @@ end
 TweenService:Create(repentance.CrucSeal.Mark.Inner, TweenInfo.new(2), {Rate = 0 }):Play()
 	TweenService:Create(repentance.CrucSeal.Spark, TweenInfo.new(2), {Rate = 0 }):Play()
 		TweenService:Create(repentance.CrucSeal.Lines, TweenInfo.new(2), {Rate = 0 }):Play()
-	if not config.Resist then
+	if not config.Resist or not table.find(config.ResistEntities, model) then
 		repentance.Crucifix.ExplodeParticle:Emit(math.random(20, 30))
 		moduleScripts.Main_Game.camShaker:ShakeOnce(7.5, 7.5, 0.25, 1.5)
 		for _, sound in pairs(model:GetDescendants()) do
@@ -233,7 +234,7 @@ crucifix.Activated:Connect(function()
             local model = target.Parent
             
             -- Validate target
-           if model:IsA("Model") and not model:GetAttribute("BeingBanished") and not table.find(config.IgnoreEntities, model) then
+           if model:IsA("Model") and not model:GetAttribute("BeingBanished") and not table.find(config.IgnoreEntities, model)  then
 					
 --  local isCustomEntity = model:GetAttribute("CustomEntity")
 
