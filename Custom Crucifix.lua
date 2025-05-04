@@ -192,6 +192,9 @@ repentance.CrucSeal.Crucifix.Model.RandomShards6.CanCollide = true
 	end
 
 	-- Crucifix explode
+	for _, shard in crucifixr.Model:GetChildren() do
+shard.Parent = workspace
+end
 	TweenService:Create(pentagram.Crucifix, TweenInfo.new(1), { Size = pentagram.Crucifix.Size * 3, Transparency = 1 }):Play()
 	TweenService:Create(repentance.CrucSeal.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(pentagram.Crucifix.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
