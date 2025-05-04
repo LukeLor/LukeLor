@@ -1,4 +1,18 @@
 --Currently getting info rn. HEAVILY BASED ON REGULAR VYNIXU'S SCRIPT
+--[[function PlayerInLineOfSight(model, config)
+	local origin = model:GetPivot().Position
+	local charOrigin = localCollision.Position
+
+	if (charOrigin - origin).Magnitude <= config.Damage.Range then
+		local params = RaycastParams.new()
+		params.FilterType = Enum.RaycastFilterType.Exclude
+		params.FilterDescendantsInstances = {localChar, model}
+
+		local result = workspace:Raycast(origin, charOrigin - origin, params)
+		return (result == nil), result
+	end
+	return false
+end]]
 local config = {Resist = false, IgnoreEntities = {}, Uses = -1, ResistEntities = {}} -- -1 for infinite
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
