@@ -190,6 +190,9 @@ repentance.CrucSeal.Crucifix.Model.RandomShards6.CanCollide = true
 		end)
 
 		WaitUntil(sound, 9.625)
+			 TweenService:Create(repentance.CrucSeal.Bottom, TweenInfo.new(4, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Bottom.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
+         TweenService:Create(repentance.CrucSeal.Top, TweenInfo.new(4, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Top.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
+	
 	end
 
 	-- Crucifix explode
