@@ -1,4 +1,10 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+
+local moduleScripts = {
+	Module_Events = require(ReplicatedStorage.ClientModules.Module_Events),
+	Main_Game = require(playerGui.MainUI.Initiator.Main_Game),
+	Earthquake = require(remotesFolder.RequestAsset:InvokeServer("Earthquake"))
+}
 local plr = game.Players.LocalPlayer
 local char = workspace:FindFirstChild(plr.Name)
 local roof_finder = Instance.new("Part")
@@ -11,6 +17,18 @@ roof_finder.Parent = workspace
 roof_finder.Name = "Roof_Finder"
 roof_finder.Transparency = 1
 
+function GetCurrentRoom(latest)
+    if latest then
+        return workspace.CurrentRooms:GetChildren()[#workspace.CurrentRooms:GetChildren()]
+    end
+    return workspace.CurrentRooms:FindFirstChild(localPlayer:GetAttribute("CurrentRoom"))
+end
+
+function EQ(currentRoom)
+task.spawn(function()
+task.defer(moduleScripts.Earthquake, moduleScripts.Main_Game, currentRoom)
+end)
+end
 function Stomper(pos:CFrame)
 
 	local newvel = Instance.new("VectorForce")
@@ -31,6 +49,7 @@ function Stomper(pos:CFrame)
 	stompermodel:PivotTo(stompermodel.Root.CFrame + Vector3.new(0,100,0))
 	soundpart.Spawn:Play()
 	task.wait(1.3)
+EQ(GetCurrentRoom(false))
 	soundpart.Spawn:Play()
 	wait(1.5)
 	stompermodel:PivotTo(pos)
