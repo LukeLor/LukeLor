@@ -102,45 +102,9 @@ EQ(GetCurrentRoom(false))
 	end
 	stompermodel.Leg.Teeth.Slam:Play()
 	for i = 0, 15, 1 do
-		stompermodel.CamDeath.Touched:Connect(function(TouchedParts)
-			if TouchedParts.Parent:FindFirstChild("Humanoid") then
-
-
-
-
-
-				if char.Humanoid.Health <= 25 and takedmg then
-					local cc = workspace.CurrentCamera
-					TouchedParts.Parent.Humanoid.WalkSpeed = 0
-					TouchedParts.Parent.HumanoidRootPart.Anchored = true
-					cc.CameraType = Enum.CameraType.Scriptable
-					game:GetService("TweenService"):Create(cc, TweenInfo.new(1), {CFrame = CFrame.new(cc.CFrame.Position, stompermodel.Leg.MouthBlack.Position)}):Play()
-wait(1)
-					TouchedParts.Parent:FindFirstChild("Humanoid"):TakeDamage(25)
-	if firesignal then
-					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to The Stomper...", "It'll make banging noises to indicate its there.", "Make sure to move out of its way when it tries crushing you!"}, "Blue")
-				else
-					warn("firesignal not supported, ignore death hints.")
-				end
-			end
-				end
-			end
-		end)
 		stompermodel:PivotTo(stompermodel.Root.CFrame - Vector3.new(0,0.1,0))
 		wait()
-		stompermodel.Hitbox.Touched:Connect(function(TouchedParts)
-			if TouchedParts.Parent:FindFirstChild("Humanoid") and takedmg then
-				TouchedParts.Parent:FindFirstChild("Humanoid"):TakeDamage(25)
-				newvel.Parent = TouchedParts.Parent.HumanoidRootPart
-				newvel.Enabled = true
-				TouchedParts.Parent.Humanoid.Sit = true
-				newvel.Attachment0 = TouchedParts.Parent.HumanoidRootPart.RootAttachment
-				takedmg = false
-				wait(0.5)
-				TouchedParts.Parent.Humanoid.Sit = false
-		newvel:Destroy()
-			end				
-		end)
+		
 	end
 	char.HumanoidRootPart.Anchored = false
 takedmg = false
