@@ -31,7 +31,7 @@ local moduleScripts = {
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local crucifix = LoadCustomInstance("https://github.com/RegularVynixu/Utilities/raw/refs/heads/main/Doors/Item%20Spawner/Assets/Crucifix.rbxm")
-local seal = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/RankedBasedSeal.rbxm")
+local seal = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/SealWithGuardNew.rbxm")
 
 
 local SealIcon = "rbxassetid://123535107502536" --Custom
@@ -48,7 +48,7 @@ function WaitUntil(sound, t)
 end
 	seal.CrucSeal.Pulse.Ring.Rate = 0.5
 for _, effects in pairs(seal:GetDescendants()) do
-	if effects:IsA("Beam") or effects:IsA("ParticleEmitter") then
+	if effects:IsA("ParticleEmitter") then
 		effects.Color = ColorSequence.new(sealcolor)
 	end
 	if effects:IsA("PointLight")  then
@@ -63,9 +63,9 @@ function CrucifixActivation(model, config, plrtool)
 		plrtool:Destroy()
 	end
 	local localchar = game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name)
-	local localroot = localchar.HumanoidRootPart
+	local localroot = localchar:WaitForChild("HumanoidRootPart")
 local tool = crucifix:Clone()
-    tool:PivotTo(CFrame)
+    tool:PivotTo(localroot.CFrame)
     tool.Parent = workspace
 
 	local toolPivot = tool:GetPivot()
@@ -88,15 +88,20 @@ local tool = crucifix:Clone()
 local pentagram = repentance.CrucSeal
 	local entityPart = repentance.CrucSeal.Entity
 	local sound = (config.Resist and crucifixr.SoundFail or crucifixr.Sound)
+	local animtoplay = (config.Resist and repentance.Sealer.Animation.Fail or repentance.Sealer.Animation.Success)
+	local anim = repentance.Sealer.AnimationController:LoadAnimation(animtoplay)
 	local shaker = moduleScripts.Main_Game.camShaker:StartShake(5, 20, 2, Vector3.new())
 
     -- Repentance setup
 	repentance:PivotTo(CFrame.new(result.Position))
 	crucifixr.CFrame = toolPivot
 	repentance.CrucSeal.Entity.CFrame = entityPivot
-    crucifixr.BodyPosition.Position = (localCharacter:GetPivot() * CFrame.new(0.5, 3, -6)).Position
+    --crucifixr.BodyPosition.Position = (localCharacter:GetPivot() * CFrame.new(0.5, 3, -6)).Position
 	repentance.Parent = workspace
 	sound:Play()
+	anim:Play()
+	
+	
 
     -- Teleport model to repentance entity part
 	task.spawn(function()
@@ -109,28 +114,17 @@ local pentagram = repentance.CrucSeal
             model:Destroy()
         end
 	end)
+	wait(0.3)
 -- Pentagram animation
 --	TweenService:Create(pentagram.Circle, TweenInfo.new(2, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), { CFrame = pentagram.Circle.CFrame - Vector3.new(0, 25, 0) }):Play()
 	TweenService:Create(crucifixr.BodyAngularVelocity, TweenInfo.new(4, Enum.EasingStyle.Sine, Enum.EasingDirection.In), { AngularVelocity = Vector3.new(0, 40, 0) }):Play()
 	--task.delay(2, pentagram.Circle.Destroy, pentagram.Circle)
 
 	task.spawn(function()
-        WaitUntil(sound, 2.500)
-		repentance.CrucSeal.Crucifix.Model.RandomShards1.Transparency = 0
-repentance.CrucSeal.Crucifix.Model.RandomShards2.Transparency = 0
-repentance.CrucSeal.Crucifix.Model.RandomShards3.Transparency = 0
-repentance.CrucSeal.Crucifix.Model.RandomShards4.Transparency = 0
-repentance.CrucSeal.Crucifix.Model.RandomShards5.Transparency = 0
-repentance.CrucSeal.Crucifix.Model.RandomShards6.Transparency = 0
-				task.wait(.25)
-repentance.CrucSeal.Crucifix.Welds:Destroy()
-wait(.1)
-repentance.CrucSeal.Crucifix.Model.RandomShards1.CanCollide = true
-repentance.CrucSeal.Crucifix.Model.RandomShards2.CanCollide = true
-repentance.CrucSeal.Crucifix.Model.RandomShards3.CanCollide = true
-repentance.CrucSeal.Crucifix.Model.RandomShards4.CanCollide = true
-repentance.CrucSeal.Crucifix.Model.RandomShards5.CanCollide = true
-repentance.CrucSeal.Crucifix.Model.RandomShards6.CanCollide = true
+        WaitUntil(sound, 2.625)
+		
+		
+
         TweenService:Create(pentagram.LightAttach.LightBright, TweenInfo.new(1.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut), {
 			Brightness = 5,
 			Range = 40
@@ -169,13 +163,8 @@ repentance.CrucSeal.Crucifix.Model.RandomShards6.CanCollide = true
 	Color = sealcolor
 }):Play()
         TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = pentagram.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
-		WaitUntil(sound, 3.375)
-		 TweenService:Create(repentance.CrucSeal.Bottom, TweenInfo.new(4, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Bottom.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
-         TweenService:Create(repentance.CrucSeal.Top, TweenInfo.new(4, Enum.EasingStyle.Back, Enum.EasingDirection.In), { WorldCFrame = repentance.CrucSeal.Top.WorldCFrame - Vector3.new(0, 10, 0) }):Play()
-		repentance.CrucSeal.Pulse.Ring.Enabled = true
-			repentance.CrucSeal.Pulse.Ring.Rate = 1
-		wait(3.375)
-		repentance.CrucSeal.Pulse.Ring.Enabled = false
+		WaitUntil(sound, 6.75)
+		
 	else
 		WaitUntil(sound, 4)
 
@@ -210,9 +199,7 @@ repentance.CrucSeal.Crucifix.Model.RandomShards6.CanCollide = true
 	end
 
 	-- Crucifix explode
-	for _, shard in crucifixr.Model:GetChildren() do
-shard.Parent = workspace
-end
+	
 	TweenService:Create(pentagram.Crucifix, TweenInfo.new(1), { Size = pentagram.Crucifix.Size * 3, Transparency = 1 }):Play()
 	TweenService:Create(repentance.CrucSeal.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(pentagram.Crucifix.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
