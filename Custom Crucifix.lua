@@ -51,6 +51,9 @@ for _, effects in pairs(seal:GetDescendants()) do
 	if effects:IsA("ParticleEmitter") then
 		effects.Color = ColorSequence.new(sealcolor)
 	end
+	if effects:IsA("Decal") then
+effects.Texture = SealIcon
+	end
 	if effects:IsA("PointLight")  then
 		effects.Color = sealcolor
 	end
