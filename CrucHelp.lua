@@ -1,12 +1,5 @@
-module.FireCrucifixSealer = function(model, tool, resist)
-
-end
-module.SendOutCruc = function()
-local ready = false
-  if ready == true then
-continue
-  else
-    return
+module.InSight = function(insight)
+repeat wait(0.1) until insight == true
+    insight = false
   end
-
 end
