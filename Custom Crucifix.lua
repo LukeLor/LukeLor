@@ -70,6 +70,7 @@ function CrucifixActivation(model, config, plrtool)
 local tool = crucifix:Clone()
     tool:PivotTo(localroot.CFrame)
     tool.Parent = workspace
+	tool.Handle.Transparency = 1
 
 	local toolPivot = tool:GetPivot()
 	local entityPivot = model:GetPivot()
