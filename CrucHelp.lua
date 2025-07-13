@@ -1,1 +1,1 @@
-module
+module.FireCrucifixSealer = function(tool, plr)
