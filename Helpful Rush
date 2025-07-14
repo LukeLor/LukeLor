@@ -35,7 +35,19 @@ local text = entitytablelines[1][math.random(1,4)]
 		end
 end
 end)
-
+workspace.CurrentCamera.ChildAdded:Connect(function(child)
+    if child.Name == "Screech" then
+        local text = entitytablelines[6][math.random(1,2)]
+		print(text)
+		for i = 1, #text do
+			wait(0.02)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+			wait(0.02)
+		end
+    end
+end)
 --[[local newatt = Instance.new("Attachment")
 newatt.Parent =script.Parent.UpperTorso
 local char = script.Parent
@@ -45,6 +57,8 @@ newatt.Name = "RushAtt"
 local rushhelper = game.ServerStorage.RushHelper:Clone()
 rushhelper.Parent = workspace
 rushhelper.Root.AlignPosition.Attachment1 = newatt
+
+
 
 
 
