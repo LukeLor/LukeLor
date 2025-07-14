@@ -1,16 +1,9 @@
---RushMoving, AmbushMoving (getting entities) 18637567424  (talk)
-local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
-local talk = Instance.new("Sound")
-talk.SoundId = "rbxassetid://18637567424"
-talk.Parent = rushhelper.Main
-talk.Name = "Talk"
-local entitytablelines = {{ "Something is here...","It seems like I'm... aproaching.?","Hide!", "Something's on its way!"-- Rush
-	},{"Something is here... be ready.","Seems like an annoying entity is coming.","Hide!", "It will come back."-- Ambush
-	},{"GO GO GO!","RUN FOR YOUR LIFE!","Run." -- Seek
+
 	},{"Follow its rules. Turn around when it tells you." -- Halt
 	},{"Stay quiet.", "Crouch!", "Don't be loud."--Figure
 	},{"Psst.", "Around you!"--Screech
-	},{"Don't look!", "Avoid eye contact."}--Eyes
+	},{"Don't look!", "Avoid eye contact."--Eyes
+}, {"Something's wrong...","The doors...","Pay attention. The doors look odd..."}
 }
 game.Workspace.ChildAdded:Connect(function(child)
 if child.Name == "AmbushMoving" then
@@ -32,7 +25,7 @@ local text = entitytablelines[1][math.random(1,4)]
 			rushhelper.Main.Talk:Play()
 			print(string.sub(text, 1, i))
 			wait(0.02)
-		elseif child.Name == "Eyes" then
+		elseif child.Name == "Eyes" or child.Name == "BackdoorLookman" then
 local text = entitytablelines[1][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
@@ -57,6 +50,13 @@ workspace.CurrentCamera.ChildAdded:Connect(function(child)
 		end
     end
 end)
+for _, room in pairs(workspace.CurrentRooms:GetChildren()) do
+        for _, dupeRoom in pairs(room:GetChildren()) do
+            if dupeRoom:GetAttribute("LoadModule") == "DupeRoom"  then
+                
+            end
+        end
+    end
 --[[local newatt = Instance.new("Attachment")
 newatt.Parent =script.Parent.UpperTorso
 local char = script.Parent
@@ -66,6 +66,8 @@ newatt.Name = "RushAtt"
 local rushhelper = game.ServerStorage.RushHelper:Clone()
 rushhelper.Parent = workspace
 rushhelper.Root.AlignPosition.Attachment1 = newatt
+
+
 
 
 
