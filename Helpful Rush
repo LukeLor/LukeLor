@@ -74,6 +74,7 @@ print(text)
 			print(string.sub(text, 1, i))
 			wait(0.02)
 		end
+break
             end
         end
 end)
