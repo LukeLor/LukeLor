@@ -14,11 +14,11 @@ elseif child.Name == "RushMoving" then
 local text = entitytablelines[1][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
-			wait(0.025)
+			wait(0.05)
 			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
 			rushhelper.Main.Talk:Play()
 			print(string.sub(text, 1, i))
-			wait(0.025)
+			wait(0.02)
 		end
 end
 end)
