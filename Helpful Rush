@@ -1,1 +1,8 @@
 --RushMoving, AmbushMoving (getting entities)
+game.Workspace.ChildAdded:Connect(function(child)
+if child.Name == "AmbushMoving" then
+--say lines for ambush
+elseif child.Name == "RushMoving" then
+--say lines for rush
+end
+end)
