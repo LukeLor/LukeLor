@@ -11,11 +11,10 @@ local entitytablelines = {{ "Something is here...","It seems like I'm... aproach
 	},{"Psst.", "Around you!"--Screech
 	},{"Don't look!", "Avoid eye contact."}--Eyes
 }
-game.Workspace.ChildAdded:Connect(function(child)
+
+game.Workspace.ChildAdded:Connect(child)
 if child.Name == "AmbushMoving" then
---say lines for ambush
-elseif child.Name == "RushMoving" then
-local text = entitytablelines[1][math.random(1,4)]
+local text = entitytablelines[2][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
 			wait(0.02)
@@ -24,11 +23,7 @@ local text = entitytablelines[1][math.random(1,4)]
 			print(string.sub(text, 1, i))
 			wait(0.02)
 		end
-end
-end)
-
-game.Workspace.ChildAdded:Connect(child)
-if child.Name == "RushMoving" then
+elseif child.Name == "RushMoving" then
 local text = entitytablelines[1][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
