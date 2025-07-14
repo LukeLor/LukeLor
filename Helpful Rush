@@ -34,7 +34,7 @@ local text = entitytablelines[1][math.random(1,4)]
 			wait(0.02)
 end
 		elseif child.Name == "Eyes" or child.Name == "BackdoorLookman" then
-local text = entitytablelines[1][math.random(1,4)]
+local text = entitytablelines[7][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
 			wait(0.02)
@@ -60,8 +60,8 @@ workspace.CurrentCamera.ChildAdded:Connect(function(child)
 end)
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
 
-local croom = room[game.ReplicatedStorage.GameData.LatestRoom.Value]
-        for _, dupeRoom in pairs(room:GetChildren()) do
+local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
+        for _, dupeRoom in pairs(croom:GetChildren()) do
             if dupeRoom:GetAttribute("LoadModule") == "DupeRoom"  or dupeRoom:GetAttribute("LoadModule") == "SpaceSideroom"  then
                 
             end
