@@ -1,4 +1,20 @@
-
+local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
+local talk = Instance.new("Sound")
+talk.SoundId = "rbxassetid://18637567424"
+talk.Parent = rushhelper.Main
+talk.Name = "Talk"
+local entitytablelines = {{ "Something is here...","It seems like I'm... aproaching.?","Hide!", "Something's on its way!"-- Rush
+	},{"Something is here... be ready.","Seems like an annoying entity is coming.","Hide!", "It will come back."-- Ambush
+	},{"GO GO GO!","RUN FOR YOUR LIFE!","Run." -- Seek
+	},{"Follow its rules. Turn around when it tells you." -- Halt
+	},{"Stay quiet.", "Crouch!", "Don't be loud."--Figure
+	},{"Psst.", "Around you!"--Screech
+	},{"Don't look!", "Avoid eye contact."}--Eyes
+}
+game.Workspace.ChildAdded:Connect(function(child)
+if child.Name == "AmbushMoving" then
+--say lines for ambush
+elseif child.Name == "RushMoving" then
 local text = entitytablelines[1][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
@@ -7,6 +23,21 @@ local text = entitytablelines[1][math.random(1,4)]
 			rushhelper.Main.Talk:Play()
 			print(string.sub(text, 1, i))
 			wait(0.02)
+		end
+end
+end)
+
+game.Workspace.ChildAdded:Connect(child)
+if child.Name == "RushMoving" then
+local text = entitytablelines[1][math.random(1,4)]
+		print(text)
+		for i = 1, #text do
+			wait(0.02)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+			wait(0.02)
+end
 		elseif child.Name == "Eyes" or child.Name == "BackdoorLookman" then
 local text = entitytablelines[1][math.random(1,4)]
 		print(text)
@@ -50,16 +81,4 @@ newatt.Name = "RushAtt"
 local rushhelper = game.ServerStorage.RushHelper:Clone()
 rushhelper.Parent = workspace
 rushhelper.Root.AlignPosition.Attachment1 = newatt
-
-
-
-
-
-
-
-
-
-
-
-
 
