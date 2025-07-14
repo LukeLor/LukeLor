@@ -1,6 +1,9 @@
 --RushMoving, AmbushMoving (getting entities) 18637567424  (talk)
 local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
-local
+local talk = Instance.new("Sound")
+talk.SoundId = "rbxassetid://18637567424"
+talk.Parent = rushhelper.Main
+talk.Name = "Talk"
 local entitytablelines = {{ "Something is here...","It seems like I'm... aproaching.?","Hide!", "Something's on its way!"-- Rush
 	},{"Something is here... be ready.","Seems like an annoying entity is coming.","Hide!", "It will come back."-- Ambush
 	},{"GO GO GO!","RUN FOR YOUR LIFE!","Run." -- Seek
@@ -16,7 +19,7 @@ elseif child.Name == "RushMoving" then
 local text = entitytablelines[1][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
-			wait(0.05)
+			wait(0.02)
 			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
 			rushhelper.Main.Talk:Play()
 			print(string.sub(text, 1, i))
@@ -34,6 +37,7 @@ newatt.Name = "RushAtt"
 local rushhelper = game.ServerStorage.RushHelper:Clone()
 rushhelper.Parent = workspace
 rushhelper.Root.AlignPosition.Attachment1 = newatt
+
 
 
 
