@@ -10,7 +10,7 @@ local entitytablelines = {{ "Something is here...","It seems like I'm... aproach
 	},{"Stay quiet.", "Crouch!", "Don't be loud."--Figure
 	},{"Psst.", "Around you!"--Screech
 	},{"Don't look!", "Avoid eye contact."}--Eyes
-},{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The room number is "..game.ReplicatedStorage.GameData.LatestRoom.Value.."."}
+},{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The room number is "..game.ReplicatedStorage.GameData.LatestRoom.Value.."."}--Dupe      
 
 }
 
