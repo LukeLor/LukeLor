@@ -3,9 +3,9 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(t
 end
 
 
-module.TypeCaption = function(text) 
+module.TypeCaption = function(text, typewait) 
 for i = 1, #text do
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(string.sub(text,1,i) ,true)
-task.wait(0.2)
+task.wait(typewait)
 end
 end
