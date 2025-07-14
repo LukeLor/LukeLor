@@ -1,4 +1,4 @@
---RushMoving, AmbushMoving (getting entities)
+--RushMoving, AmbushMoving (getting entities) 18637567424  (talk)
 local entitytablelines = {{ "Something is here...","It seems like I'm... aproaching.?","Hide!", "Something's on its way!"-- Rush
 	},{"Something is here... be ready.","Seems like an annoying entity is coming.","Hide!", "It will come back."-- Ambush
 	},{"GO GO GO!","RUN FOR YOUR LIFE!","Run." -- Seek
@@ -34,10 +34,3 @@ rushhelper.Parent = workspace
 rushhelper.Root.AlignPosition.Attachment1 = newatt
 
 
-
-
-game.Workspace.ChildAdded:Connect(function(child)
-	if child.Name == "Rush" then
-		
-	end
-end)]]
