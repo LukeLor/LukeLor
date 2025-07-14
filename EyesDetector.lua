@@ -8,4 +8,3 @@ mt.__namecall = newcclosure(function(remote,...)
 
       end
 end)
-setreadonly(mt,true)
