@@ -1,4 +1,6 @@
 --RushMoving, AmbushMoving (getting entities) 18637567424  (talk)
+local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
+local
 local entitytablelines = {{ "Something is here...","It seems like I'm... aproaching.?","Hide!", "Something's on its way!"-- Rush
 	},{"Something is here... be ready.","Seems like an annoying entity is coming.","Hide!", "It will come back."-- Ambush
 	},{"GO GO GO!","RUN FOR YOUR LIFE!","Run." -- Seek
@@ -32,5 +34,8 @@ newatt.Name = "RushAtt"
 local rushhelper = game.ServerStorage.RushHelper:Clone()
 rushhelper.Parent = workspace
 rushhelper.Root.AlignPosition.Attachment1 = newatt
+
+
+
 
 
