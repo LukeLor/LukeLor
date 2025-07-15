@@ -1,8 +1,10 @@
 local module = {}
 
 local taken = false
-local item
-module.MakeRift = function handleRift(rift, color)
+local item = ""
+local wasmade = false
+
+module.MakeRift = function(rift, color)
     local riftcopy = rift:Clone()
 riftcopy.Parent = workspace
 riftcopy:PivotTo(riftcopy.PrimaryPart.CFrame + Vector.new(0,15,0))
@@ -10,13 +12,19 @@ riftcopy:PivotTo(riftcopy.PrimaryPart.CFrame + Vector.new(0,15,0))
     riftcopy.Rift.Center.ItemHolder.PointLight.Color = color
     riftcopy.Rift.Center.Rift.Color = color
 riftcopy.Rift.RiftPrompt.Triggered:Connect(function()
+wasmade = true
   if taken == true then
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+game.ReplicatedStorage[item].Parent = char
+taken = false
   end
       if taken == false then
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 local tool =   char:FindFirstChildOfClass("Tool")
 item = tool.Name
+tool.Parent = game.ReplicatedStorage
+
+taken = true
    end
   end)
 end
@@ -27,7 +35,7 @@ task.spawn(function()
         if Room0 then
             local Rift0 = Room0:FindFirstChild("RiftSpawn")
             if Rift0 then
-                handleRift(Rift0)
+            module.MakeRift.MakeRift(Rift0)
                 break
             end
         end
