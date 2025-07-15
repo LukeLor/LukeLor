@@ -6,5 +6,3 @@ TypeCaption("This is default type")
 wait(4)
 TypeCaption("This is type at one second", 1)
 
-NonexistentFunction()
-
