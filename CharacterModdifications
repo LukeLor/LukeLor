@@ -1,0 +1,22 @@
+local module = {}
+
+module.PopEffect = function(color)
+local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+
+for _,  bparts in pairs(char:GetDescendants()) do
+if bpart:IsA("Part") or bpart:IsA("BasePart") or bpart:IsA("MeshPart") then
+Local ts = game:GetService("TweenService")
+local clonedbp = bparts
+clonedbp.Color = color
+ts:Create(clonedbp, TweenInfo.new(3), {Transparency = 1}):Play()
+ts:Create(clonedbp, TweenInfo.new(3), {Size = clonedbp.Size*3}):Play()
+ts:Create(clonedbp, TweenInfo.new(3), {Material = 288}):Play()
+
+
+end
+
+end
+
+end
+
+return module
