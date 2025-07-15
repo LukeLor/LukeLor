@@ -1,0 +1,46 @@
+Camera.ChildAdded:Connect(function(Child)
+    if Child.Name ~= DeathName then return end
+    
+
+    for _, Asset in Music:GetChildren() do
+        if Asset:IsA("Sound") then
+            --nil
+        end
+    end
+
+    local Lights = Child:WaitForChild("Lights")
+    local Fog = Child:WaitForChild("FogAndSmaller")
+    local Water = Child:WaitForChild("Water")
+
+    for _, Light in Lights:GetDescendants() do
+        if Light:IsA("SpotLight") then
+            Light.Color = Color3.fromRGB(150, 255, 150)
+        end
+        if Light:IsA("ParticleEmitter") then
+            Light.Color = backgroundColor
+        end
+    end
+
+    for _, FogL in Fog:GetChildren() do
+        FogL.Color = backgroundColor
+    end
+
+    for _, WaterL in Water:GetChildren() do
+        WaterL.Color = backgroundColor
+    end
+
+    local BigLight = Lights:FindFirstChild("BigLight")
+    if BigLight then
+        local Attachment = BigLight:FindFirstChild("Attachment")
+        if Attachment then
+            local Moon = Attachment:FindFirstChild("Moon")
+            if Moon then
+                Moon.Texture = "rbxassetid://123535107502536"
+            end
+        end
+    end
+
+    HelpfulDialogue.TextColor3 = Color3.fromRGB(200, 150, 255)
+
+end)
+
