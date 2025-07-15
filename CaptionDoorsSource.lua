@@ -19,7 +19,7 @@ end
 module.SpeakerIcon = function(IconId)
     local icon = "rbxassetid://"..IconId
     local captiontext = nil --Will find where later
-hhhjjjjjjii
+local iconholder = Instance.new("ImageLabel")
     
 
 end
