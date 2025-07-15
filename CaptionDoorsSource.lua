@@ -16,4 +16,9 @@ task.wait(typewait)
 end
 end
 
+module.SpeakerIcon = function(IconId)
+    local icon = "rbxassetid://"..IconId
+    
+
+end
 return module
