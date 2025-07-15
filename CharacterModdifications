@@ -11,8 +11,11 @@ clonedbp.Anchored = true
 clonedbp.Parent = Workspace
 clonedbp.Color = color
 ts:Create(clonedbp, TweenInfo.new(3), {Transparency = 1}):Play()
-ts:Create(clonedbp, TweenInfo.new(3), {Size = clonedbp.Size*3}):Play()
+ts:Create(clonedbp, TweenInfo.new(3), {Size = clonedbp.Size*1.5}):Play()
 ts:Create(clonedbp, TweenInfo.new(3), {Material = 288}):Play()
+if bparts:FindFirstChildOfClass("Decal") then
+bparts:FindFirstChildOfClass("Decal"):Destroy()
+end
 
 
 end
