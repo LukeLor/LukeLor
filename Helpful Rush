@@ -7,6 +7,7 @@ local pitch = Instance.new("PitchShiftSoundEffect")
 pitch.Octave = 0.5
 local talk = Instance.new("Sound")
 talk.SoundId = "rbxassetid://18637567424"
+talk.RollOffMaxDistance = 100
 talk.Parent = rushhelper.Main
 talk.Name = "Talk"
 pitch.Parent = talk
