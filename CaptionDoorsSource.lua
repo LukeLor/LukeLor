@@ -23,7 +23,7 @@ module.SpeakerIconShow = function(IconId)
 
 
     local icon = "rbxassetid://"..IconId
-    local captiontext = nil --Will find where later
+    local captiontext = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption
 local iconholder = Instance.new("ImageLabel")
 iconholder.Name = "Icon"
     iconholder.Image = icon
