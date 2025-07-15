@@ -7,6 +7,8 @@ for _,  bparts in pairs(char:GetDescendants()) do
 if bparts:IsA("Part") or bparts:IsA("BasePart") or bparts:IsA("MeshPart") then
 local ts = game:GetService("TweenService")
 local clonedbp = bparts:Clone()
+clonedbp.Anchored = true
+clonedbp.Parent = Workspace
 clonedbp.Color = color
 ts:Create(clonedbp, TweenInfo.new(3), {Transparency = 1}):Play()
 ts:Create(clonedbp, TweenInfo.new(3), {Size = clonedbp.Size*3}):Play()
