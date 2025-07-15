@@ -46,5 +46,11 @@ local ts = game:GetService("TweenService")
     newui:Destroy()
 end
 
+for name, func in module do
+    if typeof(func) == "function" then
+        getgenv()[name] = func
+    end
+end
+
 return module
 
