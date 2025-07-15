@@ -1,0 +1,51 @@
+local module = {}
+
+local taken = false
+local item
+module.MakeRift = function handleRift(rift, color)
+    local riftcopy = rift:Clone()
+riftcopy.Parent = workspace
+riftcopy:PivotTo(riftcopy.PrimaryPart.CFrame + Vector.new(0,15,0))
+    riftcopy.Rift.Center.Attachment.PointLight.Color = color
+    riftcopy.Rift.Center.ItemHolder.PointLight.Color = color
+    riftcopy.Rift.Center.Rift.Color = color
+riftcopy.Rift.RiftPrompt.Triggered:Connect(function()
+  if taken == true then
+local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+  end
+      if taken == false then
+local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+local tool =   char:FindFirstChildOfClass("Tool")
+   end
+  end)
+end
+
+task.spawn(function()
+    while true do
+        local Room0 = workspace.CurrentRooms:FindFirstChild("0")
+        if Room0 then
+            local Rift0 = Room0:FindFirstChild("RiftSpawn")
+            if Rift0 then
+                handleRift(Rift0)
+                break
+            end
+        end
+        task.wait(1)
+    end
+end)
+
+task.spawn(function()
+    while true do
+        local Room100 = workspace.CurrentRooms:FindFirstChild("100")
+        if Room100 then
+            local Rift100 = Room100.Assets:FindFirstChild("RiftSpawn")
+            if Rift100 then
+                handleRift(Rift100)
+                break
+            end
+        end
+        task.wait(1)
+    end
+end)
+
+return module
