@@ -129,7 +129,17 @@ print(text)
 			wait(0.02)
 		end
 break
-elseif dupeRoom.Name == "GiggleCeiling" then
+
+end
+        end
+end)
+game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
+
+local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
+
+
+        for _, dupeRoom in pairs(croom:GetChildren()) do
+            if dupeRoom.Name == "GiggleCeiling" then
 local text = entitytablelines[12][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
@@ -144,6 +154,8 @@ end
             end
         end
 end)
+
+
 local newatt = Instance.new("Attachment")
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 newatt.Parent = char.UpperTorso
