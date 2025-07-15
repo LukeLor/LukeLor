@@ -40,7 +40,7 @@ Camera.ChildAdded:Connect(function(Child)
         end
     end
 
-    HelpfulDialogue.TextColor3 = Color3.fromRGB(200, 150, 255)
+    HelpfulDialogue.TextColor3 = Color3.fromRGB(150,255,150)
 
 end)
 
