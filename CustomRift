@@ -16,6 +16,7 @@ local char = game.Players.LocalPlayer.CharacterAdded:Wait()
       if taken == false then
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 local tool =   char:FindFirstChildOfClass("Tool")
+item = tool.Name
    end
   end)
 end
