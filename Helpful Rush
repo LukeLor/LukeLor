@@ -17,19 +17,6 @@ local entitytablelines = {{ "Something is here...","It seems like I'm... aproach
 }
 
 game.Workspace.ChildAdded:Connect(child)
-if child:IsDescendantOf(workspace.CurrentRooms) then
-if child.Name == "GiggleCeiling" then
-local text = entitytablelines[12][math.random(1,4)]
-		print(text)
-		for i = 1, #text do
-			wait(0.02)
-			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
-			rushhelper.Main.Talk:Play()
-			print(string.sub(text, 1, i))
-			wait(0.02)
-end
-end
-end
 if child.Name == "AmbushMoving" then
 local text = entitytablelines[2][math.random(1,4)]
 		print(text)
