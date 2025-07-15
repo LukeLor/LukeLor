@@ -1,3 +1,25 @@
+local Players = game:GetService("Players")
+local SoundService = game:GetService("SoundService")
+
+local Camera = workspace.CurrentCamera
+local DeathName = "DeathBackgroundBlue"
+
+local backgroundColor = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(170, 0, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(170, 0, 255))
+})
+
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+local MainUI = PlayerGui:WaitForChild("MainUI")
+local Death = MainUI:WaitForChild("Death")
+local HelpfulDialogue = Death:WaitForChild("HelpfulDialogue")
+local MainGame = MainUI:WaitForChild("Initiator"):WaitForChild("Main_Game")
+local Health = MainGame:WaitForChild("Health")
+local Music = Health:WaitForChild("Music")
+
+
+
 Camera.ChildAdded:Connect(function(Child)
     if Child.Name ~= DeathName then return end
     
