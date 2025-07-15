@@ -132,7 +132,7 @@ break
             end
         end
 end)
---[[local newatt = Instance.new("Attachment")
+local newatt = Instance.new("Attachment")
 newatt.Parent =script.Parent.UpperTorso
 local char = script.Parent
 newatt.WorldCFrame = char.Head.CFrame
