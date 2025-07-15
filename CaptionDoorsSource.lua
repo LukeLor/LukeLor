@@ -17,12 +17,34 @@ end
 end
 
 module.SpeakerIconShow = function(IconId)
+    local newui = Instance.new("ScreenGui")
+    newui.Parent = game.Players.LocalPlayer.PlayerGui
+    newui.Name = "SpeakerIcon"
+
+
     local icon = "rbxassetid://"..IconId
     local captiontext = nil --Will find where later
 local iconholder = Instance.new("ImageLabel")
+iconholder.Name = "Icon"
     iconholder.Image = icon
-  local pos =  caption
+    iconholder.Parent = newui
+
+  local pos =  captiontext.Position + Vector2.new(0,15)
+iconholder.Size = UDim.new(7,7)
+
 
 end
+module.SpeakerIconHide = function()
+    local newui = game.LocalPlayer.PlayerGui.SpeakerIcon
+    
+local iconholder = newui.Icon
+
+local ts = game:GetService("TweenService")
+    ts:Create(iconholder, TweenInfo.new(1.5), {ImageTransparency = 1}):Play()
+
+    wait(2)
+    newui:Destroy()
+end
+
 return module
 
