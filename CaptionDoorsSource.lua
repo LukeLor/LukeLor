@@ -16,11 +16,13 @@ task.wait(typewait)
 end
 end
 
-module.SpeakerIcon = function(IconId)
+module.SpeakerIconShow = function(IconId)
     local icon = "rbxassetid://"..IconId
     local captiontext = nil --Will find where later
 local iconholder = Instance.new("ImageLabel")
-    
+    iconholder.Image = icon
+  local pos =  caption
 
 end
 return module
+
