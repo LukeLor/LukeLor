@@ -1,3 +1,5 @@
+local module = {}
+
 module.Caption = function(text)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text,true)
 end
@@ -13,3 +15,5 @@ task.wait(typewait)
     end
 end
 end
+
+return module
