@@ -80,6 +80,6 @@ Camera.ChildAdded:Connect(function(Child)
 
     HelpfulDialogue.TextColor3 = Color3.fromRGB(150,255,150)
 
-CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LL.mp3", 1, "Void_DeathHint")
+CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LL.mp3", 1, "Little_DeathHint")
 
 end)
