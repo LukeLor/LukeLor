@@ -78,13 +78,13 @@ for _,  bparts in pairs(char:GetDescendants()) do
 		end
 
 game.Debris:AddItem(clonedbp, 5)
-wait(1.5)
+wait(0.75)
 ts:Create(clonedbp, TweenInfo.new(1.5), {Size = bparts.Size}):Play()
 ts:Create(clonedbp, TweenInfo.new(1.5), {Transparency = 0}):Play()
 		--ts:Create(clonedbp, TweenInfo.new(0), {Size = clonedbp.Size*2.2}):Play()
 		ts:Create(clonedbp, TweenInfo.new(1.5), {Material = 272}):Play()
 
-wait(0.2)
+wait(0.4)
 ts:Create(clonedbp, TweenInfo.new(0), {Size = clonedbp.Size*2.2}):Play()
 	
 	end
