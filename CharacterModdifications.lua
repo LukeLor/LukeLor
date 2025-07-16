@@ -85,8 +85,8 @@ ts:Create(clonedbp, TweenInfo.new(1.5), {Transparency = 0}):Play()
 		ts:Create(clonedbp, TweenInfo.new(1.5), {Material = 272}):Play()
 
 wait(0.4)
-ts:Create(clonedbp, TweenInfo.new(0), {Size = clonedbp.Size*2.2}):Play()
-	
+ts:Create(clonedbp, TweenInfo.new(0.75), {Size = clonedbp.Size*2.2}):Play()
+	ts:Create(clonedbp, TweenInfo.new(0.75), {Transparency = 1}):Play()
 	end
 
 end
