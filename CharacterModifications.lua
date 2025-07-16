@@ -1,35 +1,49 @@
 local module = {}
 
-module.Vaporize = function(color)
+module.Vaporize = function(color,shape)
+	local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 	for i = 1, math.random(10,30) do
-local model = Instance.new("Model")
-		local ts = game:GetService("TweenService")
-local part = Instance.new("Part")
-model.Parent = workspace
+	local model = Instance.new("Model")
+	local ts = game:GetService("TweenService")
+	local part = Instance.new("Part")
+	model.Name = "VaporizationCube"
+	model.Parent = workspace
 	part.Parent = model
 	part.Anchored = true
 	part.CanCollide = false
 	model.PrimaryPart = part
-	part.Color = color
-		ts:Create(part, TweenInfo.new(0), {Material = 288}):Play()
-local sizerandom = Vector3.new(math.random(1,5), math.random(1,5),math.random(1,5))
+	if shape ~= nil then
+	part.Shape = Enum.PartType[shape]
+	else
+			part.Shape = Enum.PartType.Block
+	end
+	part.Color = Color3.fromRGB(135, 255, 126)
+	ts:Create(part, TweenInfo.new(0), {Material = 288}):Play()
+	local sizerandom = Vector3.new(math.random(1,5), math.random(1,5),math.random(1,5))
 	part.Size = sizerandom
-local randpos = Vector3.new(math.random(0,5),math.random(0,5),math.random(0,5))
+	local randpos = Vector3.new(math.random(-5,5),math.random(-5,5),math.random(-5,5))
 	local mainranpos = part.Position + randpos
 
-Model:SetPrimaryPartCFrame(CFrame.lookat(part.Position,mainranpos))
+model:PivotTo(char:WaitForChild("HumanoidRootPart").CFrame)
+
+model:SetPrimaryPartCFrame(CFrame.new(part.Position,mainranpos))
 
 
- local rotation = CFrame.Angles(math.rad(math.random(0,90)), math.rad(math.random(0,90)), math.rad(math.random(0,90)))
+	local rotation = CFrame.Angles(math.rad(math.random(0,90)), math.rad(math.random(0,90)), math.rad(math.random(0,90)))
 
-local modelCFrame = model:GetPrimaryPartCFrame()
+	local modelCFrame = model:GetPrimaryPartCFrame()
 
+
+	local ranpostosource = randpos/10
 	for i=1, 20 do
-model:SetPrimaryPartCFrame( modelCFrame * rotation )
-		part.Transparency += 0.05
-		wait(0.1)
+		local dest= CFrame.new(part.Position +randpos*2)
+		
+		local nexttans = part.Transparency + 0.05 
+		game:GetService("TweenService"):Create(part, TweenInfo.new(4.5),{Transparency = 1}):Play() 
+		game:GetService("TweenService"):Create(part, TweenInfo.new(5),{CFrame = dest}):Play() 
+		game.Debris:AddItem(model, 5)
 	end
-	end
+end
 end
 
 
