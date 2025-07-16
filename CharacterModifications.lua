@@ -1,5 +1,35 @@
 local module = {}
 
+module.Vaporize = function(color)
+	for i = 1, math.random(10,30) do
+local model = Instance.new("Model")
+local part = Instance.new("Part")
+model.Parent = workspace
+	part.Parent = model
+	part.Anchored = true
+	part.CanCollide = false
+	model.PrimaryPart = part
+	part.Color = color
+local sizerandom = Vector3.new(math.random(1,5), math.random(1,5),math.random(1,5))
+	part.Size = sizerandom
+local randpos = Vector3.new(math.random(0,5),math.random(0,5),math.random(0,5))
+	local mainranpos = part.Position + randpos
+
+Model:SetPrimaryPartCFrame(CFrame.lookat(part.Position,mainranpos))
+
+
+ local rotation = CFrame.Angles(math.rad(math.random(0,90)), math.rad(math.random(0,90)), math.rad(math.random(0,90)))
+
+local modelCFrame = model:GetPrimaryPartCFrame()
+
+	for i=1, 20 do
+model:SetPrimaryPartCFrame( modelCFrame * rotation )
+		part.Transparency += 0.05
+		wait(0.1)
+	end
+	end
+end
+
 
 module.PopEffect = function(color)
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
