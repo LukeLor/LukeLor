@@ -79,7 +79,7 @@ module.InPopEffect = function(color)
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
 for _,  bparts in pairs(char:GetDescendants()) do
-	
+
 	if bparts:IsA("Part") or bparts:IsA("BasePart") or bparts:IsA("MeshPart") then
 		local ts = game:GetService("TweenService")
 		local clonedbp = bparts:Clone()
@@ -94,37 +94,40 @@ for _,  bparts in pairs(char:GetDescendants()) do
 				clonedbp.Transparency = 1
 			end
 		end
-	if clonedbp:IsA("MeshPart") then
-		clonedbp.TextureID = ""
-	end
+		if clonedbp:IsA("MeshPart") then
+			clonedbp.TextureID = ""
+		end
 		clonedbp.Parent = workspace
-		clonedbp.Color = color
+		clonedbp.Color = Color3.fromRGB(135, 255, 126)
 		ts:Create(clonedbp, TweenInfo.new(0), {Transparency = 1}):Play()
 		ts:Create(clonedbp, TweenInfo.new(0), {Size = clonedbp.Size*2.2}):Play()
 		ts:Create(clonedbp, TweenInfo.new(0), {Material = 288}):Play()
 		clonedbp.CanCollide = false
 		clonedbp.Name = clonedbp.Name.."_Clone"
-	
+
 		if clonedbp:FindFirstChildOfClass("Decal") then
-			
+
 			clonedbp:FindFirstChildOfClass("Decal"):Destroy()
 		end
 
-game.Debris:AddItem(clonedbp, 5)
-wait(0.75)
-ts:Create(clonedbp, TweenInfo.new(1.5), {Size = bparts.Size}):Play()
-ts:Create(clonedbp, TweenInfo.new(1.5), {Transparency = 0}):Play()
+		game.Debris:AddItem(clonedbp, 5)
+		
+		ts:Create(clonedbp, TweenInfo.new(0.1), {Size = bparts.Size}):Play()
+		ts:Create(clonedbp, TweenInfo.new(0.1), {Transparency = 0}):Play()
 		--ts:Create(clonedbp, TweenInfo.new(0), {Size = clonedbp.Size*2.2}):Play()
-		ts:Create(clonedbp, TweenInfo.new(1.5), {Material = 272}):Play()
+		ts:Create(clonedbp, TweenInfo.new(0.1), {Material = 272}):Play()
 
-wait(0.4)
-ts:Create(clonedbp, TweenInfo.new(0.75), {Size = clonedbp.Size*2.2}):Play()
-	ts:Create(clonedbp, TweenInfo.new(0.75), {Transparency = 1}):Play()
+	
+		ts:Create(clonedbp, TweenInfo.new(4.5, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = clonedbp.Size*2.2}):Play()
+		ts:Create(clonedbp, TweenInfo.new(2.25), {Transparency = 1}):Play()
+		ts:Create(clonedbp, TweenInfo.new(0), {Material = 288}):Play()
+	end
 	end
 
-end
 
-end for name, func in module do
+end 
+
+for name, func in module do
     if typeof(func) == "function" then
         getgenv()[name] = func
     end
