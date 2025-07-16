@@ -1,5 +1,6 @@
 local module = {}
 
+
 module.PopEffect = function(color)
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
@@ -91,6 +92,10 @@ ts:Create(clonedbp, TweenInfo.new(0.75), {Size = clonedbp.Size*2.2}):Play()
 
 end
 
+end for name, func in module do
+    if typeof(func) == "function" then
+        getgenv()[name] = func
+    end
 end
 
 return module
