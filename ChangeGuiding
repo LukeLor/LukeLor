@@ -46,7 +46,7 @@ Camera.ChildAdded:Connect(function(Child)
 
     for _, Asset in Music:GetChildren() do
         if Asset:IsA("Sound") then
-            --nil
+            Asset:Destroy()
         end
     end
 
