@@ -23,7 +23,7 @@ for _,  bparts in pairs(char:GetDescendants()) do
 		clonedbp.TextureID = ""
 	end
 		clonedbp.Parent = workspace
-		clonedbp.Color = Color3.fromRGB(135, 255, 126)
+		clonedbp.Color = color
 		ts:Create(clonedbp, TweenInfo.new(3), {Transparency = 1}):Play()
 		ts:Create(clonedbp, TweenInfo.new(3), {Size = clonedbp.Size*2.2}):Play()
 		ts:Create(clonedbp, TweenInfo.new(0), {Material = 288}):Play()
@@ -65,7 +65,7 @@ for _,  bparts in pairs(char:GetDescendants()) do
 		clonedbp.TextureID = ""
 	end
 		clonedbp.Parent = workspace
-		clonedbp.Color = Color3.fromRGB(135, 255, 126)
+		clonedbp.Color = color
 		ts:Create(clonedbp, TweenInfo.new(0), {Transparency = 1}):Play()
 		ts:Create(clonedbp, TweenInfo.new(0), {Size = clonedbp.Size*2.2}):Play()
 		ts:Create(clonedbp, TweenInfo.new(0), {Material = 288}):Play()
