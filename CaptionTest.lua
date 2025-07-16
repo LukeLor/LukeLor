@@ -5,7 +5,7 @@ SpeakerIconShow("123535107502536")
 wait(4)
 TypeCaption("This is default type")
 wait(4)
-TypeCaption("This is type at one second", 1)
+TypeCaption("This is type at five tenths of a second.", 0.5)
 SpeakerIconHide()
 
 
