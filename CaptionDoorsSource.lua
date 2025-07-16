@@ -17,21 +17,27 @@ end
 end
 
 module.SpeakerIconShow = function(IconId)
-    local newui = Instance.new("ScreenGui")
-    newui.Parent = game.Players.LocalPlayer.PlayerGui
-    newui.Name = "SpeakerIcon"
+   local newui = Instance.new("ScreenGui")
+	newui.Parent = game.Players.LocalPlayer.PlayerGui
+	newui.Name = "SpeakerIcon"
 
 
-    local icon = "rbxassetid://"..IconId
-    local captiontext = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption
-local iconholder = Instance.new("ImageLabel")
-iconholder.Name = "Icon"
-    iconholder.Image = icon
-    iconholder.Parent = newui
+	local icon = "rbxassetid://"..IconId
+	local captiontext = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption
+	local iconholder = Instance.new("ImageLabel")
+	iconholder.Name = "Icon"
+	iconholder.Image = icon
+	iconholder.Parent = newui
+local aspect = Instance.new("UIAspectRatioConstraint")
+aspect.Parent = iconholder
+	local pos =  captiontext.Position + UDim2.new(-.05,-0.031,0,-118)
+	iconholder.Size = UDim2.new(0.1, 0,0.18, 0)
+	iconholder.BackgroundTransparency = 1
+	
+	iconholder.Position = pos
 
-  local pos =  captiontext.Position + Vector2.new(0,15)
-iconholder.Size = UDim.new(7,7)
 
+	
 
 end
 module.SpeakerIconHide = function()
