@@ -1,6 +1,6 @@
 local Players = game:GetService("Players")
 local SoundService = game:GetService("SoundService")
---CharAttach.CFrame = 0.521, -39.777, -11.733 og pos: 0, -45.458, -14.153
+--MainPart.CharAttach.WorldCFrame = 0.521, -39.777, -11.733 og pos: 0, -45.458, -14.153 dif: 0.521, 5.681, 2.420
 local Camera = workspace.CurrentCamera
 local DeathName = "DeathBackgroundBlue"
 
@@ -45,6 +45,7 @@ Camera.ChildAdded:Connect(function(Child)
             Asset:Destroy()
         end
     end
+Child.MainPart.CharAttach.Position = Child.MainPart.CharAttach.Position + Vector3.new(0.521, 5.681, 2.420)
 local d_anim = "rbxassetid://107897966884951"
 Camera.DeathBackgroundBlue.CharAnim.AnimationId = d_anim
     local Lights = Child:WaitForChild("Lights")
