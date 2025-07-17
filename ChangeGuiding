@@ -45,7 +45,9 @@ Camera.ChildAdded:Connect(function(Child)
             Asset:Destroy()
         end
     end
-Child.MainPart.CharAttach.Position = Child.MainPart.CharAttach.Position + Vector3.new(0.521, 5.681, 2.420)
+local Main = Child:WaitForChild("MainPart")
+local CharAtt = Main:WaitForChild("CharAttach")
+CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
 local d_anim = "rbxassetid://107897966884951"
 Camera.DeathBackgroundBlue.CharAnim.AnimationId = d_anim
     local Lights = Child:WaitForChild("Lights")
