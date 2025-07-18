@@ -36,7 +36,7 @@ function CustomSound(soundLink, vol, sndName)
     sound.SoundId = GetGitSound(soundLink, sndName)
     sound.Parent = Music
     sound.Name = "DeathHint_Sound"
-    sound.Volume = vol or 1
+    sound.Volume = vol or 0.5
     sound:Play()
 end
 
