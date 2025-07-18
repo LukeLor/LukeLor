@@ -1,5 +1,7 @@
 local Players = game:GetService("Players")
 local SoundService = game:GetService("SoundService")
+--MainPart.CamAttach.WorldCFrame = 14.064, -40.234, 0 og rot: 28.586, 0, 0 dif: 14.522, 40.234 ,0
+--MainPart.CamAttach.WorldCFrame = -13.938, -40.933, -6.555 og pos: 0, -46.861, -5.927 dif: 13.938, 5.928, 0.628
 --MainPart.CharAttach.WorldCFrame = 0.521, -39.777, -11.733 og pos: 0, -45.458, -14.153 dif: 0.521, 5.681, 2.420
 local Camera = workspace.CurrentCamera
 local DeathName = "DeathBackgroundBlue"
