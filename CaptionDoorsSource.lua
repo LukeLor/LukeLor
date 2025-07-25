@@ -42,14 +42,14 @@ aspect.Parent = iconholder
 end
 module.SpeakerIconHide = function()
     local newui = game.LocalPlayer.PlayerGui.SpeakerIcon
+	newui = "BeingRemoved"
     
 local iconholder = newui.Icon
 
 local ts = game:GetService("TweenService")
     ts:Create(iconholder, TweenInfo.new(1.5), {ImageTransparency = 1}):Play()
 
-    wait(2)
-    newui:Destroy()
+       game.Debris:AddItem(newui, 2)
 end
 
 for name, func in module do
