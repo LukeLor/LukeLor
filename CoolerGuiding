@@ -4,6 +4,10 @@ local Camera = workspace.CurrentCamera
 local DeathName = "DeathBackgroundBlue"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local remotesfolder = ReplicatedStorage:WaitForChild("RemotesFolder")
+
+
+local gicon = LoadCustomAsset("https://github.com/LukeLor/LukeLor/raw/refs/heads/main/GuidingIcon.png")
+local cicon = LoadCustomAsset("https://github.com/LukeLor/LukeLor/raw/refs/heads/main/CuriousIcon.png")
 local bridge = LoadCustomInstance("https://github.com/LukeLor/LukeLor/raw/refs/heads/main/CustomDeathBridge.rbxm")
 
 local backgroundColor = ColorSequence.new({
@@ -39,13 +43,56 @@ function CustomSound(soundLink, vol, sndName)
     sound:Play()
 end
 
---DeathHandler
+--Death Handler
+
+local Skipped = false
 remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
+UserInputService.InputBegan:Connect(function(i,proc)
+	if proc then return end
+
+if Ended = false then
+
+	if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch or i.UserInputType == Enum.UserInputType.ButtonR2 then
+		Skipped = true
+	end
+end
+end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 for i, Hint in ipairs(DeathHints) do
 		DeathImage.HelpfulDialogue.TextTransparency = 1
+SpeakerIconShow(gicon)
 Caption(Hint)
+if Skipped then
+	Caption()	
+		else
+		Caption()	
 end
+		local Tick = tick() + 5 + utf8.len(DeathImage.HelpfulDialogue.ContentText) / 30
+		if i == 1 or not Skipped then
+			task.wait(0.5)
+		else
+			task.wait(0.1)
+		end
+		Skipped = false
+		for i2 = 1, 10000000000000 do
+			task.wait()
+			if Tick <= tick() then
+				break
+			end
+			if Skipped then
+				break
+			end
+		end
+		local Time = 0.4
+		if Skipped then
+			Time = 0.25
+		end
+		TweenService:Create(DeathImage.HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
+		task.wait(Time + 0.01)
+	end
+end
+Ended = true
+SpeakerIconHide()
 end)
 
 
@@ -59,6 +106,7 @@ Camera.ChildAdded:Connect(function(Child)
     end
 local Main = Child:WaitForChild("MainPart")
 local CharAtt = Main:WaitForChild("CharAttach")
+CharAttachBelow
 local CamAtt = Main:WaitForChild("CamAttach")
 CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
 CamAtt.Position = CharAtt.Orientation - Vector3.new(14.522, 40.234 ,0)
@@ -105,3 +153,4 @@ bridge:PivotTo(Fog.CFrame)
 CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
 
 end)
+
