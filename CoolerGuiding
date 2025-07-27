@@ -8,7 +8,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 local remotesfolder = ReplicatedStorage:WaitForChild("RemotesFolder")
 
 
-local gicon = LoadCustomAsset("https://github.com/LukeLor/LukeLor/raw/refs/heads/main/GuidingIcon.png")
+local gicon = LoadCustomAsset("126072881343009")
 local cicon = LoadCustomAsset("https://github.com/LukeLor/LukeLor/raw/refs/heads/main/CuriousIcon.png")
 local bridge = LoadCustomInstance("https://github.com/LukeLor/LukeLor/raw/refs/heads/main/CustomDeathBridge.rbxm")
 
