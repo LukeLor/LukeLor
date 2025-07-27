@@ -26,26 +26,11 @@ local Music = Health:WaitForChild("Music")
 
 
 
-function GetGitSound(GithubSnd, SoundName)
-    local url = GithubSnd
-    if not isfile(SoundName..".mp3") then
-	    writefile(SoundName..".mp3", game:HttpGet(url))
-	end
-	return (getcustomasset or getsynasset)(SoundName..".mp3")
-end
-
-function CustomSound(soundLink, vol, sndName)
-    local sound = Instance.new("Sound")
-    sound.SoundId = GetGitSound(soundLink, sndName)
-    sound.Parent = Music
-    sound.Name = "DeathHint_Sound"
-    sound.Volume = vol or 0.5
-    sound:Play()
-end
 
 --Death Handler
 
 local Skipped = false
+local Ended = false
 remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 UserInputService.InputBegan:Connect(function(i,proc)
 	if proc then return end
@@ -59,15 +44,15 @@ end
 end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 for i, Hint in ipairs(DeathHints) do
-		DeathImage.HelpfulDialogue.TextTransparency = 1
+		HelpfulDialogue.TextTransparency = 1
 SpeakerIconShow(gicon)
 Caption(Hint)
 if Skipped then
-	Caption()	
+	Caption("")	
 		else
-		Caption()	
+		Caption("")	
 end
-		local Tick = tick() + 5 + utf8.len(DeathImage.HelpfulDialogue.ContentText) / 30
+		local Tick = tick() + 5 + utf8.len(HelpfulDialogue.ContentText) / 30
 		if i == 1 or not Skipped then
 			task.wait(0.5)
 		else
@@ -87,70 +72,37 @@ end
 		if Skipped then
 			Time = 0.25
 		end
-		TweenService:Create(DeathImage.HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
+		TweenService:Create(HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
 		task.wait(Time + 0.01)
 	end
-end
 Ended = true
 SpeakerIconHide()
+Caption("")
 end)
 
 
 Camera.ChildAdded:Connect(function(Child)
     if Child.Name ~= DeathName then return end
     
-    for _, Asset in Music:GetChildren() do
-        if Asset:IsA("Sound") then
-            Asset:Destroy()
-        end
-    end
 local Main = Child:WaitForChild("MainPart")
 local CharAtt = Main:WaitForChild("CharAttach")
-CharAttachBelow
+local CharAttBelow = Main:WaitForChild("CharAttachBelow")
 local CamAtt = Main:WaitForChild("CamAttach")
 CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
 CamAtt.Position = CharAtt.Orientation - Vector3.new(14.522, 40.234 ,0)
 CamAtt.Position = CharAtt.Position + Vector3.new(13.938, -5.928, 0.628)
+wait(0.1)
+CharAttBelow.Position = CharAtt.Position
+
+
 local d_anim = "rbxassetid://107897966884951"
 Child.CharAnim.AnimationId = d_anim
     local Lights = Child:WaitForChild("Lights")
     local Fog = Child:WaitForChild("FogAndSmaller")
     local Water = Child:WaitForChild("Water")
-
-bridge.Parent = Child
-bridge:PivotTo(Fog.CFrame)
-
-    for _, Light in Lights:GetDescendants() do
-        if Light:IsA("SpotLight") then
-            Light.Color = Color3.fromRGB(150, 255, 150)
-        end
-        if Light:IsA("ParticleEmitter") then
-            Light.Color = backgroundColor
-        end
-    end
-
-    for _, FogL in Fog:GetChildren() do
-        FogL.Color = backgroundColor
-    end
-
-    for _, WaterL in Water:GetChildren() do
-        WaterL.Color = backgroundColor
-    end
-
-    local BigLight = Lights:FindFirstChild("BigLight")
-    if BigLight then
-        local Attachment = BigLight:FindFirstChild("Attachment")
-        if Attachment then
-            local Moon = Attachment:FindFirstChild("Moon")
-            if Moon then
-                Moon.Texture = "rbxassetid://123535107502536"
-            end
-        end
-    end
-
-    HelpfulDialogue.TextColor3 = Color3.fromRGB(150,255,150)
-
-CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
+local bridgeclone = bridge:Clone()
+bridgeclone.Parent = Child
+bridgeclone:PivotTo(Fog.CFrame)
 
 end)
 
