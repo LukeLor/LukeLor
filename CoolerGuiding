@@ -36,7 +36,7 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 UserInputService.InputBegan:Connect(function(i,proc)
 	if proc then return end
 
-if Ended = false then
+if Ended == false then
 
 	if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch or i.UserInputType == Enum.UserInputType.ButtonR2 then
 		Skipped = true
