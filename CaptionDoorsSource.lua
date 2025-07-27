@@ -47,9 +47,9 @@ module.SpeakerIconHide = function()
 local iconholder = newui.Icon
 
 local ts = game:GetService("TweenService")
-    ts:Create(iconholder, TweenInfo.new(1.5), {ImageTransparency = 1}):Play()
+    ts:Create(iconholder, TweenInfo.new(.75), {ImageTransparency = 1}):Play()
 
-       game.Debris:AddItem(newui, 2)
+       game.Debris:AddItem(newui, 1.25)
 end
 
 for name, func in module do
