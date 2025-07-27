@@ -23,7 +23,7 @@ local HelpfulDialogue = Death:WaitForChild("HelpfulDialogue")
 local MainGame = MainUI:WaitForChild("Initiator"):WaitForChild("Main_Game")
 local Health = MainGame:WaitForChild("Health")
 local Music = Health:WaitForChild("Music")
-
+local UserInputService = game:GetService("UserInputService")
 
 
 
