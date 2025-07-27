@@ -39,7 +39,7 @@ UserInputService.InputBegan:Connect(function(i,proc)
 
 if Ended == false then
 
-	if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch or i.UserInputType == Enum.UserInputType.ButtonR2 then
+	if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch or i.UserInputType == Enum.UserInputType.Gamepad1 then
 		Skipped = true
 	end
 end
