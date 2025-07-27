@@ -3,6 +3,7 @@ local SoundService = game:GetService("SoundService")
 local Camera = workspace.CurrentCamera
 local DeathName = "DeathBackgroundBlue"
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local remotesfolder = ReplicatedStorage:WaitForChild("RemotesFolder")
 
