@@ -42,7 +42,7 @@ aspect.Parent = iconholder
 end
 module.SpeakerIconHide = function()
     local newui = game.LocalPlayer.PlayerGui.SpeakerIcon
-	newui = "BeingRemoved"
+	newui.Name = "BeingRemoved"
     
 local iconholder = newui.Icon
 
