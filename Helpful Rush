@@ -18,11 +18,13 @@ local entitytablelines = {{ "Something is here...","It seems like I'm... aproach
 	},{"Stay quiet.", "Crouch!", "Don't be loud."--Figure
 	},{"Psst.", "Around you!"--Screech
 	},{"Don't look!", "Avoid eye contact."}--Eyes
-},{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The room number is "..game.ReplicatedStorage.GameData.LatestRoom.Value.."."}--Dupe
+,{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The room number is "..game.ReplicatedStorage.GameData.LatestRoom.Value.."."}--Dupe
 ,{"A-120."}, {"A-60."},{"It- Blitz..."},
 {"It isn't funny!","Stop laughing.","Giggle up ahead.", "Watch above you."}--Giggle
 
 }
+
+
 
 game.Workspace.ChildAdded:Connect(child)
 if child.Name == "AmbushMoving" then
@@ -138,7 +140,7 @@ Caption(string.sub(text, 1, i))
 		end
 end
         for _, dupeRoom in pairs(croom:GetChildren()) do
-            if dupeRoom:GetAttribute("LoadModule") == "DupeRoom"  or dupeRoom:GetAttribute("LoadModule") == "SpaceSideroom"  then
+            if dupeRoom.Name == "DoorFake"   then
                         local text = entitytablelines[8][math.random(1,3)]
 print(text)
 		for i = 1, #text do
