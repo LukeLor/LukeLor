@@ -45,9 +45,10 @@ if Ended == false then
 end
 end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
+SpeakerIconShow("rbxassetid://83305678419163")
 for i, Hint in ipairs(DeathHints) do
 		HelpfulDialogue.TextTransparency = 1
-SpeakerIconShow(gicon)
+
 Caption(Hint)
 if Skipped then
 	Caption("")	
@@ -91,10 +92,11 @@ local CharAtt = Main:WaitForChild("CharAttach")
 local CharAttBelow = Main:WaitForChild("CharAttachBelow")
 local CamAtt = Main:WaitForChild("CamAttach")
 CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
-CamAtt.Position = CharAtt.Orientation - Vector3.new(14.522, 40.234 ,0)
-CamAtt.Position = CharAtt.Position + Vector3.new(13.938, -5.928, 0.628)
-wait(0.1)
+CamAtt.Orientation = CamAtt.Orientation - Vector3.new(14.522, 40.234 ,0)
+CamAtt.Position = CamAtt.Position + Vector3.new(13.938, -5.928, 0.628)
+CharAtt.Orientation = Vector3.new(0, 0 ,0)
 CharAttBelow.Position = CharAtt.Position
+CharAttBelow.Orientation = Vector3.new(0, 0 ,0)
 
 
 local d_anim = "rbxassetid://107897966884951"
