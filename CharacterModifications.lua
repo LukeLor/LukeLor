@@ -17,7 +17,7 @@ module.Vaporize = function(color,shape)
 	else
 			part.Shape = Enum.PartType.Block
 	end
-	part.Color = Color3.fromRGB(135, 255, 126)
+	part.Color = color
 	ts:Create(part, TweenInfo.new(0), {Material = 288}):Play()
 	local sizerandom = Vector3.new(math.random(1,5), math.random(1,5),math.random(1,5))
 	part.Size = sizerandom
