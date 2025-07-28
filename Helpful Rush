@@ -24,6 +24,82 @@ local entitytablelines = {{ "Something is here...","It seems like I'm... aproach
 
 }
 
+local deathmsgs = {{"Sorry I failed you..."},{"..."},{"Are you there!?"}, {"Please, respond!"}, {"What... happened?"},{"I'll do better, I promise..."}}
+
+local Players = game:GetService("Players")
+local SoundService = game:GetService("SoundService")
+local Camera = workspace.CurrentCamera
+local DeathName = "DeathBackgroundBlue"
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local remotesfolder = ReplicatedStorage:WaitForChild("RemotesFolder")
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+local MainUI = PlayerGui:WaitForChild("MainUI")
+local Death = MainUI:WaitForChild("Death")
+local HelpfulDialogue = Death:WaitForChild("HelpfulDialogue")
+local MainGame = MainUI:WaitForChild("Initiator"):WaitForChild("Main_Game")
+local Health = MainGame:WaitForChild("Health")
+local Music = Health:WaitForChild("Music")
+local UserInputService = game:GetService("UserInputService")
+
+
+
+--Death Handler
+
+local Skipped = false
+local Ended = false
+remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
+UserInputService.InputBegan:Connect(function(i,proc)
+	if proc then return end
+
+if Ended == false then
+
+	if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch or i.UserInputType == Enum.UserInputType.Gamepad1 then
+		Skipped = true
+	end
+end
+end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
+--SpeakerIconShow("rbxassetid://83305678419163")
+for i, Hint in ipairs(DeathHints) do
+		HelpfulDialogue.TextTransparency = 1
+
+--Caption(Hint)
+if Skipped then
+	--Caption("")	
+		else
+		--Caption("")	
+end
+		local Tick = tick() + 5 + utf8.len(HelpfulDialogue.ContentText) / 30
+		if i == 1 or not Skipped then
+			task.wait(0.5)
+		else
+			task.wait(0.1)
+		end
+		Skipped = false
+		for i2 = 1, 10000000000000 do
+			task.wait()
+			if Tick <= tick() then
+				break
+			end
+			if Skipped then
+				break
+			end
+		end
+		local Time = 0.4
+		if Skipped then
+			Time = 0.25
+		end
+		TweenService:Create(HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
+		task.wait(Time + 0.01)
+	end
+Ended = true
+--SpeakerIconHide()
+--Caption("")
+wait(0.5)
+SpeakerIconShow("rbxassetid://99087926706059")
+end)
 
 
 game.Workspace.ChildAdded:Connect(child)
