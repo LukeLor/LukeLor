@@ -1,7 +1,12 @@
 local module = {}
 
-module.Vaporize = function(color,shape)
-	local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+module.Vaporize = function(color,shape, char)
+if char ~= nil then 
+		--Continue
+	else
+ char = game.Players.LocalPlayer.CharacterAdded:Wait()
+	end
+
 	for i = 1, math.random(10,30) do
 	local model = Instance.new("Model")
 	local ts = game:GetService("TweenService")
@@ -47,8 +52,13 @@ end
 end
 
 
-module.PopEffect = function(color)
-local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+module.PopEffect = function(color, char)
+	if char ~= nil then 
+		--Continue
+	else
+ char = game.Players.LocalPlayer.CharacterAdded:Wait()
+	end
+--local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
 for _,  bparts in pairs(char:GetDescendants()) do
 	
@@ -89,8 +99,13 @@ end
 
 end
 
-module.InPopEffect = function(color)
-local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+module.InPopEffect = function(color, char)
+	if char ~= nil then 
+		--Continue
+	else
+ char = game.Players.LocalPlayer.CharacterAdded:Wait()
+	end
+--local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
 for _,  bparts in pairs(char:GetDescendants()) do
 
