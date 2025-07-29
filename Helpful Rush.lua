@@ -215,6 +215,124 @@ Caption(string.sub(text, 1, i))
 		end
     end
 end)
+
+--[[Script to implement:
+LerpTo = function(model, target, path)
+	local alpha = 0
+	local speed = 45
+	local dist = (model.PrimaryPart.Position - target.Position).Magnitude
+	local relativeSpeed = dist / speed
+	local startCFrame = model.PrimaryPart.CFrame
+	local loop = nil
+	local reachedTarget = Instance.new("BindableEvent")
+
+	loop = game:GetService("RunService").Heartbeat:Connect(function(delta)
+		if path ~= nil then
+			path = game:GetService("PathfindingService"):CreatePath()
+		path:ComputeAsync(rushhelper.Root.Position, newatt.WorldPosition)
+		else 
+			--nothing
+end
+
+		local goalCFrame = startCFrame:Lerp(target.CFrame, alpha)
+		model:PivotTo(goalCFrame)
+		alpha += delta / relativeSpeed
+		if alpha >= 1 then
+			loop:Disconnect()
+			reachedTarget:Fire()
+		end
+	end)
+
+	reachedTarget.Event:Wait()
+
+end
+local pfs = game:GetService("PathfindingService")
+local path = pfs:CreatePath()
+
+path:ComputeAsync(rushhelper.Root.Position, Key.Position)
+local clone = Key:Clone()
+for _, wpts in pairs(path:GetWaypoints()) do
+	local part = Instance.new("Part")
+	part.Anchored = true
+	part.Size = Vector3.new(1,1,1)
+	part.Position = wpts.Position + Vector3.new(0,4.456,0)
+	part.Parent = workspace
+	--part.Shape = Enum.PartType.Ball
+	part.Name = "Node"
+	rushhelper.Root.AlignPosition.Enabled = false
+	rushhelper.Root.Anchored = true
+	part.Massless = true
+	part.CanCollide = false
+	part.CanTouch = false
+	part.CanQuery = false
+	LerpTo(rushhelper, part)
+	part:Destroy()
+	
+
+end
+clone.Parent = rushhelper
+clone:PivotTo(rushhelper.Root.CFrame)
+for _, parts in pairs(clone:GetDescendants()) do
+	if parts:IsA("Part") or parts:IsA("MeshPart") or parts:IsA("BasePart") then
+		parts.Anchored = false
+		local weld = Instance.new("WeldConstraint")
+		weld.Parent = rushhelper
+		weld.Part0 = rushhelper.Root
+		weld.Part1 = parts
+		parts.Massless = true
+		parts.CanCollide = false
+		parts.CanTouch = false
+		parts.CanQuery = false
+		for _, proxiesfound in pairs(parts:GetDescendants()) do
+			if proxiesfound:IsA("ProximityPrompt") then
+				proxiesfound:Destroy()
+			end
+		end
+	end
+
+end
+local path2 = pfs:CreatePath()
+
+path2:ComputeAsync(rushhelper.Root.Position, CurrentDoor)
+
+for _, wpts in pairs(path2:GetWaypoints()) do
+	local part = Instance.new("Part")
+	part.Anchored = true
+	part.Size = Vector3.new(1,1,1)
+	part.Position = wpts.Position + Vector3.new(0,4.456,0)
+	part.Parent = workspace
+	part.Massless = true
+	part.CanCollide = false
+	part.CanTouch = false
+	part.CanQuery = false
+	--part.Shape = Enum.PartType.Ball
+	part.Name = "Node"
+	rushhelper.Root.AlignPosition.Enabled = false
+	rushhelper.Root.Anchored = true
+	LerpTo(rushhelper, part)
+	part:Destroy()
+
+
+end
+clone:Destroy()
+LerpTo(rushhelper, CurrentDoor)
+while true do 
+wait()
+
+if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
+	LerpTo(rushhelper, char.Head)
+else
+break
+end
+end
+		
+
+
+rushhelper:PivotTo(newatt.WorldCFrame)
+rushhelper.Root.Anchored = false
+rushhelper.Root.AlignPosition.Enabled = true
+
+]]
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
 local HasKey = false
 local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
