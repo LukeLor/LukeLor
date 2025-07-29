@@ -17,6 +17,30 @@ proxy:InputHoldEnd()
 print("PromptFinished")
 end
 end
+LerpTo = function(model, target, path)
+	local alpha = 0
+	local speed = 45
+	local dist = (model.PrimaryPart.Position - target.Position).Magnitude
+	local relativeSpeed = dist / speed
+	local startCFrame = model.PrimaryPart.CFrame
+	local loop = nil
+	local reachedTarget = Instance.new("BindableEvent")
+
+	loop = game:GetService("RunService").Heartbeat:Connect(function(delta)
+	
+
+		local goalCFrame = startCFrame:Lerp(target.CFrame, alpha)
+		model:PivotTo(goalCFrame)
+		alpha += delta / relativeSpeed
+		if alpha >= 1 then
+			loop:Disconnect()
+			reachedTarget:Fire()
+		end
+	end)
+
+	reachedTarget.Event:Wait()
+
+end
 
 
 --ProxyDoor : CurrentDoor.Lock.UnlockPrompt
@@ -217,35 +241,7 @@ Caption(string.sub(text, 1, i))
 end)
 
 --[[Script to implement:
-LerpTo = function(model, target, path)
-	local alpha = 0
-	local speed = 45
-	local dist = (model.PrimaryPart.Position - target.Position).Magnitude
-	local relativeSpeed = dist / speed
-	local startCFrame = model.PrimaryPart.CFrame
-	local loop = nil
-	local reachedTarget = Instance.new("BindableEvent")
 
-	loop = game:GetService("RunService").Heartbeat:Connect(function(delta)
-		if path ~= nil then
-			path = game:GetService("PathfindingService"):CreatePath()
-		path:ComputeAsync(rushhelper.Root.Position, newatt.WorldPosition)
-		else 
-			--nothing
-end
-
-		local goalCFrame = startCFrame:Lerp(target.CFrame, alpha)
-		model:PivotTo(goalCFrame)
-		alpha += delta / relativeSpeed
-		if alpha >= 1 then
-			loop:Disconnect()
-			reachedTarget:Fire()
-		end
-	end)
-
-	reachedTarget.Event:Wait()
-
-end
 local pfs = game:GetService("PathfindingService")
 local path = pfs:CreatePath()
 
