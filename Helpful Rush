@@ -1,5 +1,9 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 
+
+--Proxy : CurrentDoor.Lock.UnlockPrompt
+--Event : CurrentDoor.ClientOpen:FireServer()
+
 local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
 local pitch = Instance.new("PitchShiftSoundEffect")
 pitch.Octave = 0.5
