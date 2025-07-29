@@ -230,10 +230,11 @@ local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedS
 
 coroutine.wrap(function()
 wait(0.1)
-
+while true do
+						wait()
 if KeyClone ~= nil then
 KeyClone:PivotTo(rushhelper.Root.CFrame)
-
+						end
 end
 end)() 
 
