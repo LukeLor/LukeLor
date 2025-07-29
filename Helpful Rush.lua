@@ -4,9 +4,10 @@ FireProxy = function(proxy)
 local holdtime = proxy.HoldDuration
 local timeheld = 0
 proxy:InputHoldBegin()
-
+holdtime = 0 --Testing + I know what im doing.
+	wait(0.05)
 if holdtime == 0 then
-wait(0.1)
+wait(0.05)
 proxy:InputHoldEnd()
 print("PromptInitiated")
 else
@@ -220,17 +221,46 @@ local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedS
             for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
                 if v.Name == "KeyObtain" then
                     HasKey = v
+			wait(0.1)
+			--Go to key,
+			--Get key;
+			local KeyClone = HasKey:Clone()
+			KeyClone.Parent = rushhelper
+			
+
+coroutine.wrap(function()
+wait(0.1)
+
+if KeyClone ~= nil then
+KeyClone:PivotTo(rushhelper.Root.CFrame)
+
+end
+end)() 
+
 			local ogmad = HasKey.ModulePrompt.MaxActivationDistance
 			local ogrlos = HasKey.ModulePrompt.RequiresLineOfSight
+			local ogmad2 = CurrentDoor.Lock.MaxActivationDistance
+			local ogrlos2 = CurrentDoor.Lock.RequiresLineOfSight
+			--Go to door
 HasKey.ModulePrompt.MaxActivationDistance = 100000
 HasKey.ModulePrompt.RequiresLineOfSight = false
 			wait(0.03)
 FireProxy(HasKey.ModulePrompt)
-wait(0.03)
+			CurrentDoor.Lock.MaxActivationDistance = 100000
+CurrentDoor.Lock.RequiresLineOfSight = false
+
+
+			wait(0.03)
 FireProxy(CurrentDoor.Lock.UnlockPrompt)
 			wait(0.03)
 			CurrentDoor.ClientOpen:FireServer()
-
+			KeyClone:Destroy()
+			wait(0.1)
+If KeyClone then
+			KeyClone = nil
+			end
+			
+--Retreat
                 end
 	end
 
