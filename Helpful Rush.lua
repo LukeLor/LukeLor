@@ -241,7 +241,53 @@ Caption(string.sub(text, 1, i))
 end)
 
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
-local HasKey = false
+
+
+
+	
+local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
+if game.ReplicatedStorage.GameData.ChaseInSession.Value == true then
+local text = entitytablelines[3][math.random(1,3)]
+print(text)
+		for i = 1, #text do 
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+end
+if game.ReplicatedStorage.GameData.LatestRoom.Value  == 50 then
+local text = entitytablelines[5][math.random(1,3)]
+print(text)
+		for i = 1, #text do 
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+end
+        for _, dupeRoom in pairs(croom:GetChildren()) do
+            if dupeRoom.Name == "DoorFake"   then
+                        local text = entitytablelines[8][math.random(1,3)]
+print(text)
+		for i = 1, #text do
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+break
+
+end
+        end
+
+	local HasKey = false
 local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
             for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
                 if v.Name == "KeyObtain" then
@@ -370,52 +416,6 @@ end
 			rushhelper:PivotTo(newatt.WorldCFrame)
 rushhelper.Root.Anchored = false
 rushhelper.Root.AlignPosition.Enabled = true
-
-
-
-
-	
-local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
-if game.ReplicatedStorage.GameData.ChaseInSession.Value == true then
-local text = entitytablelines[3][math.random(1,3)]
-print(text)
-		for i = 1, #text do 
-			wait(0.002)
-			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
-			rushhelper.Main.Talk:Play()
-			print(string.sub(text, 1, i))
-Caption(string.sub(text, 1, i))
-			wait(0.002)
-		end
-end
-if game.ReplicatedStorage.GameData.LatestRoom.Value  == 50 then
-local text = entitytablelines[5][math.random(1,3)]
-print(text)
-		for i = 1, #text do 
-			wait(0.002)
-			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
-			rushhelper.Main.Talk:Play()
-			print(string.sub(text, 1, i))
-Caption(string.sub(text, 1, i))
-			wait(0.002)
-		end
-end
-        for _, dupeRoom in pairs(croom:GetChildren()) do
-            if dupeRoom.Name == "DoorFake"   then
-                        local text = entitytablelines[8][math.random(1,3)]
-print(text)
-		for i = 1, #text do
-			wait(0.002)
-			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
-			rushhelper.Main.Talk:Play()
-			print(string.sub(text, 1, i))
-Caption(string.sub(text, 1, i))
-			wait(0.002)
-		end
-break
-
-end
-        end
 end)
 
 
