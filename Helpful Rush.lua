@@ -245,15 +245,28 @@ end)()
 HasKey.ModulePrompt.MaxActivationDistance = 100000
 HasKey.ModulePrompt.RequiresLineOfSight = false
 			wait(0.03)
+	
 FireProxy(HasKey.ModulePrompt)
+			local Anims = Humanoid.Animator:GetPlayingAnimationTracks()
+			for _,animation in Anims do 
+    animation:Stop() -- stops pickup
+end
 			CurrentDoor.Lock.MaxActivationDistance = 100000
 CurrentDoor.Lock.RequiresLineOfSight = false
 
 
 			wait(0.03)
 FireProxy(CurrentDoor.Lock.UnlockPrompt)
+			local Anims = Humanoid.Animator:GetPlayingAnimationTracks()
+			for _,animation in Anims do 
+    animation:Stop() -- stops unlock
+end
 			wait(0.03)
 			CurrentDoor.ClientOpen:FireServer()
+			local Anims = Humanoid.Animator:GetPlayingAnimationTracks()
+			for _,animation in Anims do 
+    animation:Stop() -- extra safe
+end
 			KeyClone:Destroy()
 			wait(0.1)
 If KeyClone then
