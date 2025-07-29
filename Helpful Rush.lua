@@ -20,6 +20,8 @@ end
 
 --ProxyDoor : CurrentDoor.Lock.UnlockPrompt
 --Event : CurrentDoor.ClientOpen:FireServer()
+--KeyPrompt : HasKey.ModulePrompt
+
 
 local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
 local pitch = Instance.new("PitchShiftSoundEffect")
@@ -84,7 +86,7 @@ end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 --SpeakerIconShow("rbxassetid://83305678419163")
 for i, Hint in ipairs(DeathHints) do
-		HelpfulDialogue.TextTransparency = 1
+	--	HelpfulDialogue.TextTransparency = 1
 
 --Caption(Hint)
 if Skipped then
@@ -112,7 +114,7 @@ end
 		if Skipped then
 			Time = 0.25
 		end
-		TweenService:Create(HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
+	--	TweenService:Create(HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
 		task.wait(Time + 0.01)
 	end
 Ended = true
@@ -213,7 +215,29 @@ Caption(string.sub(text, 1, i))
     end
 end)
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
+local HasKey = false
+local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
+            for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
+                if v.Name == "KeyObtain" then
+                    HasKey = v
+			local ogmad = HasKey.ModulePrompt.MaxActivationDistance
+			local ogrlos = HasKey.ModulePrompt.RequiresLineOfSight
+HasKey.ModulePrompt.MaxActivationDistance = 100000
+HasKey.ModulePrompt.RequiresLineOfSight = false
+			wait(0.03)
+FireProxy(HasKey.ModulePrompt)
+wait(0.03)
+FireProxy(CurrentDoor.Lock.UnlockPrompt)
+			wait(0.03)
+			CurrentDoor.ClientOpen:FireServer()
 
+                end
+	end
+
+
+
+
+	
 local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
 if game.ReplicatedStorage.GameData.ChaseInSession.Value == true then
 local text = entitytablelines[3][math.random(1,3)]
