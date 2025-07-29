@@ -240,13 +240,22 @@ Caption(string.sub(text, 1, i))
     end
 end)
 
---[[Script to implement:
-
-local pfs = game:GetService("PathfindingService")
+game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
+local HasKey = false
+local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
+            for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
+                if v.Name == "KeyObtain" then
+                    HasKey = v
+			wait(0.1)
+		
+			--Get key;
+			local KeyClone = HasKey:Clone()
+			KeyClone.Parent = rushhelper
+			local pfs = game:GetService("PathfindingService")
 local path = pfs:CreatePath()
 
-path:ComputeAsync(rushhelper.Root.Position, Key.Position)
-local clone = Key:Clone()
+path:ComputeAsync(rushhelper.Root.Position, HasKey.PrimaryPart.Position)
+local clone = HasKey:Clone()
 for _, wpts in pairs(path:GetWaypoints()) do
 	local part = Instance.new("Part")
 	part.Anchored = true
@@ -266,6 +275,7 @@ for _, wpts in pairs(path:GetWaypoints()) do
 	
 
 end
+LerpTo(rushhelper, HasKey.PrimaryPart)
 clone.Parent = rushhelper
 clone:PivotTo(rushhelper.Root.CFrame)
 for _, parts in pairs(clone:GetDescendants()) do
@@ -287,9 +297,16 @@ for _, parts in pairs(clone:GetDescendants()) do
 	end
 
 end
-local path2 = pfs:CreatePath()
 
-path2:ComputeAsync(rushhelper.Root.Position, CurrentDoor)
+
+			local ogmad = HasKey.ModulePrompt.MaxActivationDistance
+			local ogrlos = HasKey.ModulePrompt.RequiresLineOfSight
+			local ogmad2 = CurrentDoor.Lock.MaxActivationDistance
+			local ogrlos2 = CurrentDoor.Lock.RequiresLineOfSight
+			--Go to door
+			local path2 = pfs:CreatePath()
+
+path2:ComputeAsync(rushhelper.Root.Position, CurrentDoor.PrimaryPart.Position)
 
 for _, wpts in pairs(path2:GetWaypoints()) do
 	local part = Instance.new("Part")
@@ -311,52 +328,8 @@ for _, wpts in pairs(path2:GetWaypoints()) do
 
 end
 clone:Destroy()
-LerpTo(rushhelper, CurrentDoor)
-while true do 
-wait()
-
-if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
-	LerpTo(rushhelper, char.Head)
-else
-break
-end
-end
-		
-
-
-rushhelper:PivotTo(newatt.WorldCFrame)
-rushhelper.Root.Anchored = false
-rushhelper.Root.AlignPosition.Enabled = true
-
-]]
-game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
-local HasKey = false
-local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
-            for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
-                if v.Name == "KeyObtain" then
-                    HasKey = v
-			wait(0.1)
-			--Go to key,
-			--Get key;
-			local KeyClone = HasKey:Clone()
-			KeyClone.Parent = rushhelper
+LerpTo(rushhelper, CurrentDoor.PrimaryPart)
 			
-
-coroutine.wrap(function()
-wait(0.1)
-while true do
-						wait()
-if KeyClone ~= nil then
-KeyClone:PivotTo(rushhelper.Root.CFrame)
-						end
-end
-end)() 
-
-			local ogmad = HasKey.ModulePrompt.MaxActivationDistance
-			local ogrlos = HasKey.ModulePrompt.RequiresLineOfSight
-			local ogmad2 = CurrentDoor.Lock.MaxActivationDistance
-			local ogrlos2 = CurrentDoor.Lock.RequiresLineOfSight
-			--Go to door
 HasKey.ModulePrompt.MaxActivationDistance = 100000
 HasKey.ModulePrompt.RequiresLineOfSight = false
 			wait(0.03)
@@ -382,15 +355,21 @@ end
 			for _,animation in Anims do 
     animation:Stop() -- extra safe
 end
-			KeyClone:Destroy()
-			wait(0.1)
-If KeyClone then
-			KeyClone = nil
-			end
 			
---Retreat
-                end
-	end
+			wait(0.1)
+			
+while true do 
+wait()
+
+if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
+	LerpTo(rushhelper, char.Head)
+else
+break
+end
+end
+			rushhelper:PivotTo(newatt.WorldCFrame)
+rushhelper.Root.Anchored = false
+rushhelper.Root.AlignPosition.Enabled = true
 
 
 
