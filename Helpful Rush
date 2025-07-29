@@ -1,7 +1,24 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 
+FireProxy = function(proxy)
+local holdtime = proxy.HoldDuration
+local timeheld = 0
+proxy:InputHoldBegin()
 
---Proxy : CurrentDoor.Lock.UnlockPrompt
+if holdtime == 0 then
+wait(0.1)
+proxy:InputHoldEnd()
+print("PromptInitiated")
+else
+repeat wait(1) timeheld = timeheld+1 until timeheld == holdtime
+wait(0.1)
+proxy:InputHoldEnd()
+print("PromptFinished")
+end
+end
+
+
+--ProxyDoor : CurrentDoor.Lock.UnlockPrompt
 --Event : CurrentDoor.ClientOpen:FireServer()
 
 local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
