@@ -702,6 +702,9 @@ Caption(string.sub(text, 1, i))
 				wait(0.002)
 		end
 	end
+			local cokg = coroutine.create(function()
+					while true do
+						wait()
 	local HasKey = false
 local CurrentDoor = croom:WaitForChild("Door")
             for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
@@ -867,8 +870,13 @@ for _, wpts in pairs(path:GetWaypoints()) do
                         end
 				end
 			end
-end)
+							end
+						end)
 
+					coroutine.resume(cokg)	
+end)
+				
+			
 
 
 local newatt = Instance.new("Attachment")
