@@ -4,14 +4,14 @@ FireProxy = function(proxy)
 local holdtime = proxy.HoldDuration
 local timeheld = 0
 proxy:InputHoldBegin()
-holdtime = 0 --Testing + I know what im doing.
+holdtime = 0.1 --Testing + I know what im doing.
 	wait(0.05)
 if holdtime == 0 then
 wait(0.05)
 proxy:InputHoldEnd()
 print("PromptInitiated")
 else
-repeat wait(1) timeheld = timeheld+1 until timeheld == holdtime
+repeat wait(0.1) timeheld = timeheld+0.1 until timeheld == holdtime
 wait(0.1)
 proxy:InputHoldEnd()
 print("PromptFinished")
