@@ -226,6 +226,17 @@ Caption(string.sub(text, 1, i))
 end
 end)
 workspace.CurrentCamera.ChildAdded:Connect(function(child)
+	for _, guidance in pairs(workspace.CurrentCamera:GetChildren()) do
+            if guidance:IsA("BasePart") and guidance.Name == "Guidance" then
+                local weld = Instance.new("WeldConstraint")
+			rushhelper:Pivot(guidance.CFrame)
+			weld.Parent = guidance
+			weld.Part0 = guidance
+			weld.Part1 = rushhelper.Root
+			rushhelper.Root.AlignPosition.Enabled = false
+	rushhelper.Root.Anchored = false
+            end
+        end
     if child.Name == "Screech" then
         local text = entitytablelines[6][math.random(1,2)]
 		print(text)
@@ -239,6 +250,14 @@ Caption(string.sub(text, 1, i))
 		end
     end
 end)
+workspace.CurrentCamera.ChildRemoved:Connect(function() 
+		for _, guidance in pairs(workspace.CurrentCamera:GetChildren()) do
+            if guidance:IsA("BasePart") and guidance.Name == "Guidance" then
+			rushhelper.Root.AlignPosition.Enabled = true
+	rushhelper.Root.Anchored = false
+            end
+        end
+		end)
 
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
 
