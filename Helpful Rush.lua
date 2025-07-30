@@ -46,6 +46,7 @@ end
 --ProxyDoor : CurrentDoor.Lock.UnlockPrompt
 --Event : CurrentDoor.ClientOpen:FireServer()
 --KeyPrompt : HasKey.ModulePrompt
+--ValvePrompt : ValvePrompt
 
 
 local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
