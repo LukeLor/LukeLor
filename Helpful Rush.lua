@@ -383,7 +383,7 @@ if fuses:IsA("Model") and fuses.Name =="FuseHolder" then
 						local pfs = game:GetService("PathfindingService")
 local path = pfs:CreatePath()
 
-path:ComputeAsync(rushhelper.Root.Position, croom.Modular_Bookshelf.LiveHintBook.PrimaryPart.Position)
+path:ComputeAsync(rushhelper.Root.Position, fuses.PrimaryPart.Position)
 for _, wpts in pairs(path:GetWaypoints()) do
 	local part = Instance.new("Part")
 	part.Anchored = true
@@ -406,10 +406,61 @@ for _, wpts in pairs(path:GetWaypoints()) do
 
 end
 						--LerpTo(rushhelper, WaterPump.PrimaryPart)
-						FireProxy(fuses.FuseObtain.ModulePrompt)
-					
-										
 						
+				local pathgen = pfs:CreatePath()
+				local gen
+
+				local hasgen = CheckIf("MinesGenerator", croom)	
+			if hasgen then
+for _, models in croom do
+if models:IsA("Model") and models.Name = "MinesGenerator" then
+gen = models
+					end
+					end
+				end
+pathgen:ComputeAsync(rushhelper.Root.Position, gen.PrimaryPart.Position)
+for _, wpts in pairs(pathgen:GetWaypoints()) do
+	local part = Instance.new("Part")
+	part.Anchored = true
+	part.Size = Vector3.new(1,1,1)
+	part.Position = wpts.Position + Vector3.new(0,4.456,0)
+	part.Parent = workspace
+	--part.Shape = Enum.PartType.Ball
+	part.Name = "Node"
+							part.Transparency = 1
+	rushhelper.Root.AlignPosition.Enabled = false
+	rushhelper.Root.Anchored = true
+	part.Massless = true
+	part.CanCollide = false
+	part.CanTouch = false
+	part.CanQuery = false
+	LerpTo(rushhelper, part)
+			
+	part:Destroy()
+				end
+			fuses.FuseObtain.ModulePrompt.MaxActivationDistance = 100000
+			fuses.FuseObtain.ModulePrompt.RequiresLineOfSight = false
+				wait(0.01
+			FireProxy(fuses.FuseObtain.ModulePrompt)
+			wait(0.01)
+			if hasgen then
+for _, FuseInput in Root.Fuses:GetChildren() do
+                            if FuseInput:FindFirstChild("FusesPrompt") then
+								FuseInput.FusePrompt.MaxActivationDistance = 100000
+			FuseInput.FusesPrompt.RequiresLineOfSight = false
+								wait(0.01)
+                                FireProxy(FuseInput.FusesPrompt)
+						end
+					end
+			end
+
+
+			end
+for _, models in croom do
+if models:IsA("Model") and models.Name = "MinesGenerator" then
+				FireProxy(models.Lever.LeverPrompt)
+					end
+				end
 
 
 						while true do 
@@ -424,10 +475,10 @@ end
 			rushhelper:PivotTo(newatt.WorldCFrame)
 rushhelper.Root.Anchored = false
 rushhelper.Root.AlignPosition.Enabled = true
-						
-					end
-				end
-			end
+		end end			
+					
+				
+			
 			
 	if croom:FindFirstChild("_DamHandler") then
 local cod = coroutine.create(function()
