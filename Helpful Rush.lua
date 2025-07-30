@@ -270,8 +270,9 @@ CheckIf = function(what, where)
 if where:IsAncestorOf(what) then
 return true
 else
-	return false
+return false
 end
+
 end
 
 SolveAnchor = function(v, fully)
