@@ -3,7 +3,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
 
-SolveAnchor = function(item, fully)
+function SolveAnchor(item, fully)
 
 if item:IsA("Model") then
 if item.Name == "_NestHandler" then
