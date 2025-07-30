@@ -52,6 +52,7 @@ return NextAnchor
 
 			end
 	end
+end
 
 
 FireProxy = function(proxy)
