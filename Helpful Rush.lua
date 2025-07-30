@@ -2,6 +2,58 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/
 
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
+
+SolveAnchor = function(v, fully)
+
+if v:IsA("Model") then
+if v.Name == "_NestHandler" then
+local AnchorIdentify = {
+    ["A"] = 1,
+    ["B"] = 2,
+    ["C"] = 3,
+    ["D"] = 4,
+    ["E"] = 5,
+    ["F"] = 6
+			}
+local Anchors = {}
+
+                while not next(Anchors) and task.wait() do
+                    for _, Anchor in v:GetChildren() do
+                        if Anchor.Name == "MinesAnchor" and not Anchor:GetAttribute("Activated") then
+                            table.insert(Anchors, AnchorIdentify[Anchor.Sign.TextLabel.Text], Anchor)
+                        end
+                    end
+
+                    local AnchorsIndex = {}
+                    for Index in Anchors do
+                        table.insert(AnchorsIndex, Index)
+                    end
+
+                    local NumberIndex = math.min( unpack(AnchorsIndex) )
+                    local NextAnchor = Anchors[NumberIndex]
+
+                    if NumberIndex > 1 then
+                        local Code = LocalPlayer.PlayerGui.MainUI.MainFrame.AnchorHintFrame.Code.Text
+                        
+
+                        local Solved = SolveAnchor(Code, Offset)
+
+                        
+                            if  not NextAnchor:GetAttribute("Activated") and fully then
+                          
+                                    NextAnchor.AnchorRemote:InvokeServer( tostring(Code) )
+				else
+return NextAnchor
+                               
+                            end
+                        
+					end
+	end
+
+
+			end
+
+
 FireProxy = function(proxy)
 local holdtime = proxy.HoldDuration
 local timeheld = 0
@@ -54,55 +106,6 @@ LerpTo = function(model, target, path)
 
 end
 
-SolveAnchor = function(v, fully)
-
-if v:IsA("Model") then
-if v.Name == "_NestHandler" then
-local AnchorIdentify = {
-    ["A"] = 1,
-    ["B"] = 2,
-    ["C"] = 3,
-    ["D"] = 4,
-    ["E"] = 5,
-    ["F"] = 6
-			}
-local Anchors = {}
-
-                while not next(Anchors) and task.wait() do
-                    for _, Anchor in v:GetChildren() do
-                        if Anchor.Name == "MinesAnchor" and not Anchor:GetAttribute("Activated") then
-                            table.insert(Anchors, AnchorIdentify[Anchor.Sign.TextLabel.Text], Anchor)
-                        end
-                    end
-
-                    local AnchorsIndex = {}
-                    for Index in Anchors do
-                        table.insert(AnchorsIndex, Index)
-                    end
-
-                    local NumberIndex = math.min( unpack(AnchorsIndex) )
-                    local NextAnchor = Anchors[NumberIndex]
-
-                    if NumberIndex > 1 then
-                        local Code = LocalPlayer.PlayerGui.MainUI.MainFrame.AnchorHintFrame.Code.Text
-                        
-
-                        local Solved = SolveAnchor(Code, Offset)
-
-                        
-                            if  not NextAnchor:GetAttribute("Activated") and fully then
-                          
-                                    NextAnchor.AnchorRemote:InvokeServer( tostring(Code) )
-				else
-return NextAnchor
-                               
-                            end
-                        
-					end
-	end
-
-
-			end
 
 
 --ProxyDoor : CurrentDoor.Lock.UnlockPrompt
