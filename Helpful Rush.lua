@@ -849,7 +849,7 @@ for _, wpts in pairs(path2:GetWaypoints()) do
 
 end
 clone:Destroy()
-LerpTo(rushhelper, CurrentDoor.PrimaryPart)
+--LerpTo(rushhelper, CurrentDoor.PrimaryPart)
 			
 HasKey.ModulePrompt.MaxActivationDistance = 100000
 HasKey.ModulePrompt.RequiresLineOfSight = false
