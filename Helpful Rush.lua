@@ -35,7 +35,7 @@ local Anchors = {}
                         local Code = LocalPlayer.PlayerGui.MainUI.MainFrame.AnchorHintFrame.Code.Text
                         
 
-                        local Solved = SolveAnchor(Code, Offset)
+--                        local Solved = SolveAnchor(Code, Offset)
 
                         
                             if  not NextAnchor:GetAttribute("Activated") and fully then
