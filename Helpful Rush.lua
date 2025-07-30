@@ -62,7 +62,7 @@ talk.Volume = 0.2
 local entitytablelines = {{ "Something is here...","It seems like I'm... aproaching.?","Hide!", "Something's on its way!"-- Rush
 	},{"Something is here... be ready.","Seems like an annoying entity is coming.","Hide!", "It will come back."-- Ambush
 	},{"GO GO GO!","RUN FOR YOUR LIFE!","Run." -- Seek
-	},{"Follow its rules. Turn around when it tells you." -- Halt
+	},{"Follow its rules. Turn around when it tells you.", "Halt is up ahead." -- Halt
 	},{"Stay quiet.", "Crouch!", "Don't be loud."--Figure
 	},{"Psst.", "Around you!"--Screech
 	},{"Don't look!", "Avoid eye contact."}--Eyes
@@ -286,9 +286,38 @@ break
 
 end
         end
+if croom:GetAttribute("RawName") == "HaltHallway" then
+local text = entitytablelines[4][1]
+		print(text)
+		for i = 1, #text do
 
+
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+
+Caption(string.sub(text, 1, i))
+				wait(0.002)
+		end
+	end
+	if workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value + 1]:GetAttribute("RawName") == "HaltHallway" then
+local text = entitytablelines[4][2]
+		print(text)
+		for i = 1, #text do
+
+
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+
+Caption(string.sub(text, 1, i))
+				wait(0.002)
+		end
+	end
 	local HasKey = false
-local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
+local CurrentDoor = croom:WaitForChild("Door")
             for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
                 if v.Name == "KeyObtain" then
                     HasKey = v
