@@ -2,7 +2,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/
 
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
-SolveAnchorNest = function(item, fully)
+SolveAnchor = function(item, fully)
 
 if item:IsA("Model") then
 if item.Name == "_NestHandler" then
@@ -51,6 +51,7 @@ return NextAnchor
 
 
 			end
+	end
 
 
 FireProxy = function(proxy)
