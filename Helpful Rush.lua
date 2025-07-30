@@ -228,6 +228,8 @@ Caption(string.sub(text, 1, i))
 		end
 end
 end)
+
+
 workspace.CurrentCamera.ChildAdded:Connect(function(child)
 	for _, guidance in pairs(workspace.CurrentCamera:GetChildren()) do
             if guidance:IsA("BasePart") and guidance.Name == "Guidance" then
@@ -253,6 +255,8 @@ Caption(string.sub(text, 1, i))
 		end
     end
 end)
+
+
 workspace.CurrentCamera.ChildRemoved:Connect(function() 
 		for _, guidance in pairs(workspace.CurrentCamera:GetChildren()) do
             if guidance:IsA("BasePart") and guidance.Name == "Guidance" then
@@ -262,9 +266,101 @@ workspace.CurrentCamera.ChildRemoved:Connect(function()
         end
 		end)
 
+
+
+SolveAnchor = function(v, fully)
+
+if v:IsA("Model") then
+if v.Name == "_NestHandler" then
+local AnchorIdentify = {
+    ["A"] = 1,
+    ["B"] = 2,
+    ["C"] = 3,
+    ["D"] = 4,
+    ["E"] = 5,
+    ["F"] = 6
+			}
+local Anchors = {}
+
+                while not next(Anchors) and task.wait() do
+                    for _, Anchor in v:GetChildren() do
+                        if Anchor.Name == "MinesAnchor" and not Anchor:GetAttribute("Activated") then
+                            table.insert(Anchors, AnchorIdentify[Anchor.Sign.TextLabel.Text], Anchor)
+                        end
+                    end
+
+                    local AnchorsIndex = {}
+                    for Index in Anchors do
+                        table.insert(AnchorsIndex, Index)
+                    end
+
+                    local NumberIndex = math.min( unpack(AnchorsIndex) )
+                    local NextAnchor = Anchors[NumberIndex]
+
+                    if NumberIndex > 1 then
+                        local Code = LocalPlayer.PlayerGui.MainUI.MainFrame.AnchorHintFrame.Code.Text
+                        
+
+                        local Solved = SolveAnchor(Code, Offset)
+
+                        
+                            if  not NextAnchor:GetAttribute("Activated") and fully then
+                          
+                                    NextAnchor.AnchorRemote:InvokeServer( tostring(Code) )
+				else
+return NextAnchor
+                               
+                            end
+                        
+					end
+	end
+
+
+			end
+
+Rooms.DescendantAdded:Connect(function(v)
+			if v:IsA("Model") then
+if v.Name == "_NestHandler" then
+local anchor = SolveAnchor(v, false)
+local pfs = game:GetService("PathfindingService")
+local path = pfs:CreatePath()
+
+path:ComputeAsync(rushhelper.Root.Position, anchor.PrimaryPart.Position)
+for _, wpts in pairs(path:GetWaypoints()) do
+	local part = Instance.new("Part")
+	part.Anchored = true
+	part.Size = Vector3.new(1,1,1)
+	part.Position = wpts.Position + Vector3.new(0,4.456,0)
+	part.Parent = workspace
+	--part.Shape = Enum.PartType.Ball
+	part.Name = "Node"
+										part.Transparency = 1
+	rushhelper.Root.AlignPosition.Enabled = false
+	rushhelper.Root.Anchored = true
+	part.Massless = true
+	part.CanCollide = false
+	part.CanTouch = false
+	part.CanQuery = false
+	LerpTo(rushhelper, part)
+					end
+			SolveAnchor(v, true)
+			while true do 
+wait()
+					if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
+	LerpTo(rushhelper, char.Head)
+else
+break
+end
+end
+			rushhelper:PivotTo(newatt.WorldCFrame)
+rushhelper.Root.Anchored = false
+rushhelper.Root.AlignPosition.Enabled = true
+				end
+			end
+		end)
+
+
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
-
-
 
 	
 local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
