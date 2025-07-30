@@ -3,10 +3,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
 
-SolveAnchor = function(v, fully)
+SolveAnchor = function(item, fully)
 
-if v:IsA("Model") then
-if v.Name == "_NestHandler" then
+if item:IsA("Model") then
+if item.Name == "_NestHandler" then
 local AnchorIdentify = {
     ["A"] = 1,
     ["B"] = 2,
@@ -18,7 +18,7 @@ local AnchorIdentify = {
 local Anchors = {}
 
                 while not next(Anchors) and task.wait() do
-                    for _, Anchor in v:GetChildren() do
+                    for _, Anchor in item:GetChildren() do
                         if Anchor.Name == "MinesAnchor" and not Anchor:GetAttribute("Activated") then
                             table.insert(Anchors, AnchorIdentify[Anchor.Sign.TextLabel.Text], Anchor)
                         end
