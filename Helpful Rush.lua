@@ -515,7 +515,7 @@ while wait(math.random(30,45)) do
 						local pfs = game:GetService("PathfindingService")
 local path = pfs:CreatePath()
 
-path:ComputeAsync(rushhelper.Root.Position, WaterPump.PrimaryPart.Position)
+path:ComputeAsync(rushhelper.Root.Position, croom.Modular_Bookshelf.LiveHintBook.PrimaryPart.Position)
 for _, wpts in pairs(path:GetWaypoints()) do
 	local part = Instance.new("Part")
 	part.Anchored = true
