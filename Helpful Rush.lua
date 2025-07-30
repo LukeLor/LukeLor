@@ -68,7 +68,7 @@ wait(0.05)
 proxy:InputHoldEnd()
 print("PromptInitiated")
 else
-repeat wait(0.1) timeheld = timeheld+0.1 until timeheld == holdtime
+repeat wait(0.1) timeheld = timeheld+0.1 until timeheld >= holdtime
 wait(0.1)
 proxy:InputHoldEnd()
 print("PromptFinished")
