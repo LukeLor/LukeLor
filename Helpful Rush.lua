@@ -796,7 +796,7 @@ for _, wpts in pairs(path:GetWaypoints()) do
 	
 
 end
-LerpTo(rushhelper, HasKey.PrimaryPart)
+--LerpTo(rushhelper, HasKey.PrimaryPart)
 clone.Parent = rushhelper
 clone:PivotTo(rushhelper.Root.CFrame)
 for _, parts in pairs(clone:GetDescendants()) do
