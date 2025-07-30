@@ -405,7 +405,11 @@ rushhelper.Root.AlignPosition.Enabled = true
 		end
 end)
 	end
-coroutine.resume(cobp)		
+coroutine.resume(cobp)
+
+
+
+
 
 	
 if game.ReplicatedStorage.GameData.ChaseInSession.Value == true then
@@ -607,6 +611,42 @@ end
 			rushhelper:PivotTo(newatt.WorldCFrame)
 rushhelper.Root.Anchored = false
 rushhelper.Root.AlignPosition.Enabled = true
+
+
+
+for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
+                if v.Name == "LeverForGate" then
+                    local pfs = game:GetService("PathfindingService")
+local path = pfs:CreatePath()
+
+path:ComputeAsync(rushhelper.Root.Position, v.PrimaryPart.Position)
+local clone = HasKey:Clone()
+for _, wpts in pairs(path:GetWaypoints()) do
+	local part = Instance.new("Part")
+	part.Anchored = true
+	part.Size = Vector3.new(1,1,1)
+	part.Position = wpts.Position + Vector3.new(0,4.456,0)
+	part.Parent = workspace
+	--part.Shape = Enum.PartType.Ball
+	part.Name = "Node"
+	rushhelper.Root.AlignPosition.Enabled = false
+	rushhelper.Root.Anchored = true
+	part.Massless = true
+	part.CanCollide = false
+	part.CanTouch = false
+	part.CanQuery = false
+	LerpTo(rushhelper, part)
+	part:Destroy()
+	
+
+					end
+					if not v.ActivateEventPrompt:GetAttribute("Interactions") then
+                        
+                                FireProxy(Root.ActivateEventPrompt)
+                        
+                        end
+				end
+			end
 end)
 
 
