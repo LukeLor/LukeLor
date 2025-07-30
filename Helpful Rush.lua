@@ -1,5 +1,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 
+local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+
 FireProxy = function(proxy)
 local holdtime = proxy.HoldDuration
 local timeheld = 0
@@ -266,6 +268,73 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 	
 local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
+	if croom:FindFirstChild("_DamHandler") then
+local co = coroutine.create(function()
+while wait(math.random(15,30)) do
+                for _, Flood in croom._DamHandler:GetChildren() do
+                    if Flood.Name:sub(1, 5) == "Flood" then
+                        for _, WaterPump in Flood.Pumps:GetChildren() do
+                            if WaterPump.Wheel.ValvePrompt.Enabled then
+						local pfs = game:GetService("PathfindingService")
+local path = pfs:CreatePath()
+
+path:ComputeAsync(rushhelper.Root.Position, WaterPump.PrimaryPart.Position)
+for _, wpts in pairs(path:GetWaypoints()) do
+	local part = Instance.new("Part")
+	part.Anchored = true
+	part.Size = Vector3.new(1,1,1)
+	part.Position = wpts.Position + Vector3.new(0,4.456,0)
+	part.Parent = workspace
+	--part.Shape = Enum.PartType.Ball
+	part.Name = "Node"
+	rushhelper.Root.AlignPosition.Enabled = false
+	rushhelper.Root.Anchored = true
+	part.Massless = true
+	part.CanCollide = false
+	part.CanTouch = false
+	part.CanQuery = false
+	LerpTo(rushhelper, part)
+			if WaterPump.Wheel.ValvePrompt.Enabled == false or not WaterPump.Wheel.ValvePrompt then
+break
+							end
+	part:Destroy()
+	
+
+end
+						LerpTo(rushhelper, WaterPump.PrimaryPart)
+						
+						if WaterPump.Wheel.ValvePrompt.Enabled and WaterPump.Wheel.ValvePrompt then
+										WaterPump.Wheel.ValvePrompt.MaxActivationDistance = 100000
+									WaterPump.Wheel.ValvePrompt.RequiresLineOfSight = false
+										wait(0.01)
+						FireProxy(WaterPump.Wheel.ValvePrompt)
+						end
+
+
+						while true do 
+wait()
+
+if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
+	LerpTo(rushhelper, char.Head)
+else
+break
+end
+end
+			rushhelper:PivotTo(newatt.WorldCFrame)
+rushhelper.Root.Anchored = false
+rushhelper.Root.AlignPosition.Enabled = true
+                            end
+                        end
+
+                    end
+                end
+
+            end
+
+		end
+end)
+
+coroutine.resume(co)		
 if game.ReplicatedStorage.GameData.ChaseInSession.Value == true then
 local text = entitytablelines[3][math.random(1,3)]
 print(text)
@@ -470,7 +539,6 @@ end)
 
 
 local newatt = Instance.new("Attachment")
-local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 newatt.Parent = char.UpperTorso
 newatt.WorldCFrame = char.Head.CFrame
 newatt.WorldPosition = char.Head.Position + Vector3.new(1.705, -0.5, -0.558)
