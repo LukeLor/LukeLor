@@ -42,7 +42,9 @@ local Anchors = {}
                           
                                     NextAnchor.AnchorRemote:InvokeServer( tostring(Code) )
 				else
+						if not fully then
 return NextAnchor
+						end
                                
                             end
                         
