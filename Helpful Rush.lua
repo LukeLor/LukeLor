@@ -287,6 +287,7 @@ for _, wpts in pairs(path:GetWaypoints()) do
 	part.Parent = workspace
 	--part.Shape = Enum.PartType.Ball
 	part.Name = "Node"
+										part.Transparency = 1
 	rushhelper.Root.AlignPosition.Enabled = false
 	rushhelper.Root.Anchored = true
 	part.Massless = true
@@ -355,6 +356,7 @@ for _, wpts in pairs(path:GetWaypoints()) do
 	part.Parent = workspace
 	--part.Shape = Enum.PartType.Ball
 	part.Name = "Node"
+								part.Transparency = 1
 	rushhelper.Root.AlignPosition.Enabled = false
 	rushhelper.Root.Anchored = true
 	part.Massless = true
@@ -408,6 +410,69 @@ end)
 coroutine.resume(cobp)
 
 
+if croom:FindFirstChild("Modular_Bookshelf") then
+local cob = coroutine.create(function()
+while wait(math.random(30,45)) do
+                    if croom.Modular_Bookshelf and croom.Modular_Bookshelf:FindFirstChild("LiveHintBook") then
+                     
+                            
+						local pfs = game:GetService("PathfindingService")
+local path = pfs:CreatePath()
+
+path:ComputeAsync(rushhelper.Root.Position, WaterPump.PrimaryPart.Position)
+for _, wpts in pairs(path:GetWaypoints()) do
+	local part = Instance.new("Part")
+	part.Anchored = true
+	part.Size = Vector3.new(1,1,1)
+	part.Position = wpts.Position + Vector3.new(0,4.456,0)
+	part.Parent = workspace
+	--part.Shape = Enum.PartType.Ball
+	part.Name = "Node"
+							part.Transparency = 1
+	rushhelper.Root.AlignPosition.Enabled = false
+	rushhelper.Root.Anchored = true
+	part.Massless = true
+	part.CanCollide = false
+	part.CanTouch = false
+	part.CanQuery = false
+	LerpTo(rushhelper, part)
+			
+	part:Destroy()
+	
+
+end
+						--LerpTo(rushhelper, WaterPump.PrimaryPart)
+						
+					
+										croom.Modular_Bookshelf.LiveHintBook.ActivateEventPrompt.MaxActivationDistance = 100000
+									croom.Modular_Bookshelf.LiveHintBook.ActivateEventPrompt.RequiresLineOfSight = false
+										wait(0.01)
+						FireProxy(croom.Modular_Bookshelf.LiveHintBook.ActivateEventPrompt)
+						
+
+
+						while true do 
+wait()
+
+if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
+	LerpTo(rushhelper, char.Head)
+else
+break
+end
+end
+			rushhelper:PivotTo(newatt.WorldCFrame)
+rushhelper.Root.Anchored = false
+rushhelper.Root.AlignPosition.Enabled = true
+
+                        end
+
+                    end
+		
+
+		
+end)
+	end
+coroutine.resume(cob)		
 
 
 
