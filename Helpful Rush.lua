@@ -268,9 +268,9 @@ workspace.CurrentCamera.ChildRemoved:Connect(function()
 
 CheckIf = function(what, where)
 if where:IsAncestorOf(what) then
-return true
+--return true
 else
-return false
+--return false
 end
 
 end
