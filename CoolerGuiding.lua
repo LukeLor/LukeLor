@@ -34,29 +34,46 @@ local UserInputService = game:GetService("UserInputService")
 local Skipped = false
 local Ended = false
 remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
-UserInputService.InputBegan:Connect(function(i,proc)
-	if proc then return end
+	 PlayerGui = Player:WaitForChild("PlayerGui")
+		 MainUI = PlayerGui:WaitForChild("MainUI")
+		 Death = MainUI:WaitForChild("Death")
+	HelpfulDialogue = Death:WaitForChild("HelpfulDialogue")
+		Ended = false
+	
+	HelpfulDialogue.Visible = false
+	wait(4)
+	HelpfulDialogue.Visible = false
+	UserInputService.InputBegan:Connect(function(i,proc)
+		if proc then return end
 
-if Ended == false then
+		if Ended == false then
 
-	if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch or i.UserInputType == Enum.UserInputType.Gamepad1 then
-		Skipped = true
-	end
-end
-end)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
-SpeakerIconShow("83305678419163")
-for i, Hint in ipairs(DeathHints) do
-		HelpfulDialogue.TextTransparency = 1
-
-Caption(Hint)
-if Skipped then
-	Caption("")	
+			if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch or i.UserInputType == Enum.UserInputType.Gamepad1 then
+				Skipped = true
+				
+			end
+		end
+	end)
+--	loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
+	SpeakerIconShow("83305678419163")
+	for i, Hint in ipairs(DeathHints) do
+		HelpfulDialogue.Visible = false
+		HelpfulDialogue.Interactable = false
+		print(Hint)
+		--Caption(Hint)
+		if Skipped then
+			Caption(Hint)	
+			HelpfulDialogue.Visible = false
+			--HelpfulDialogue.Interactable = false
 		else
-		Caption("")	
-end
+				Caption(Hint)	
+			HelpfulDialogue.Visible = false
+			--HelpfulDialogue.Interactable = false
+		end
 		local Tick = tick() + 5 + utf8.len(HelpfulDialogue.ContentText) / 30
 		if i == 1 or not Skipped then
+			HelpfulDialogue.Visible = false
+		--	HelpfulDialogue.Interactable = false
 			task.wait(0.5)
 		else
 			task.wait(0.1)
@@ -74,13 +91,17 @@ end
 		local Time = 0.4
 		if Skipped then
 			Time = 0.25
+			HelpfulDialogue.Visible = false
 		end
-		TweenService:Create(HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
+--		TweenService:Create(HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
 		task.wait(Time + 0.01)
+		HelpfulDialogue.Visible = false
+--		HelpfulDialogue.Interactable = false
 	end
-Ended = true
-SpeakerIconHide()
-Caption("")
+	Ended = true
+	SpeakerIconHide()
+	Caption("")
+
 end)
 
 
