@@ -707,7 +707,7 @@ for _, wpts in pairs(path:GetWaypoints()) do
 					end
 					if not v.ActivateEventPrompt:GetAttribute("Interactions") then
                         
-                                FireProxy(Root.ActivateEventPrompt)
+                                FireProxy(v.ActivateEventPrompt)
                         
                         end
 				end
