@@ -457,7 +457,7 @@ for _, FuseInput in Root.Fuses:GetChildren() do
 
 			end
 for _, models in croom do
-if models:IsA("Model") and models.Name = "MinesGenerator" then
+if models:IsA("Model") and models.Name = "MinesGenerator" and models.Lever.LeverPrompt.Enabled = true then
 				FireProxy(models.Lever.LeverPrompt)
 					end
 				end
