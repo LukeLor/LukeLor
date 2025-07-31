@@ -1046,3 +1046,5 @@ for i = 1, #text do
 	wait(0.002)
 end
 SpeakerIconHide()
+local endtable = {"Made it,", " set up,", " amazing,"," running.!"}
+				print(endtable)
