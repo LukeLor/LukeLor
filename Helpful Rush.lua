@@ -1045,3 +1045,4 @@ Caption(string.sub(text, 1, i))
 				wait(0.002)
 		end
 SpeakerIconHide()
+local et = {"no"}
