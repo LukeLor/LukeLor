@@ -124,6 +124,7 @@ print("got past func")
 
 
 local rushhelper = game:GetObjects("rbxassetid://94481096227907)[1]
+	rushhelper.Parent = workspace
 local pitch = Instance.new("PitchShiftSoundEffect")
 pitch.Octave = 0.5
 local talk = Instance.new("Sound")
