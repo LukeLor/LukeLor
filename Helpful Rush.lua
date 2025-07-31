@@ -1,6 +1,14 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+local newatt = Instance.new("Attachment")
+newatt.Parent = char.UpperTorso
+newatt.WorldCFrame = char.Head.CFrame
+newatt.WorldPosition = char.Head.Position + Vector3.new(1.705, -0.5, -0.558)
+newatt.Name = "RushAtt"
+rushhelper.Parent = workspace
+rushhelper.Root.AlignPosition.Attachment1 = newatt
+
 
 SolveAnchor = function(item, fully)
 
@@ -936,17 +944,7 @@ for _, wpts in pairs(path:GetWaypoints()) do
 					coroutine.resume(cokg)	
 end)
 				
-			
-
-
-local newatt = Instance.new("Attachment")
-newatt.Parent = char.UpperTorso
-newatt.WorldCFrame = char.Head.CFrame
-newatt.WorldPosition = char.Head.Position + Vector3.new(1.705, -0.5, -0.558)
-newatt.Name = "RushAtt"
-rushhelper.Parent = workspace
-rushhelper.Root.AlignPosition.Attachment1 = newatt
-
+	
 local text = "Hi."
 		print(text)
 		for i = 1, #text do
