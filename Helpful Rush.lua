@@ -457,7 +457,7 @@ game.Workspace.DescendantAdded:Connect(function(v)
 								while true do 
 									wait()
 									if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
-										LerpTo(rushhelper, char.Head)
+										LerpTo(rushhelper, char:WaitForChild("Head"))
 									else
 										break
 									end
@@ -576,7 +576,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 				wait()
 
 				if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
-					LerpTo(rushhelper, char.Head)
+					LerpTo(rushhelper, char:WaitForChild("Head"))
 				else
 					break
 				end
@@ -637,7 +637,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 									wait()
 
 									if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
-										LerpTo(rushhelper, char.Head)
+										LerpTo(rushhelper, char:WaitForChild("Head"))
 									else
 										break
 									end
@@ -712,7 +712,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 							wait()
 
 							if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
-								LerpTo(rushhelper, char.Head)
+								LerpTo(rushhelper, char:WaitForChild("Head"))
 							else
 								break
 							end
@@ -778,7 +778,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 						wait()
 
 						if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
-							LerpTo(rushhelper, char.Head)
+							LerpTo(rushhelper, char:WaitForChild("Head"))
 						else
 							break
 						end
@@ -1000,7 +1000,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 						wait()
 
 						if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
-							LerpTo(rushhelper, char.Head)
+							LerpTo(rushhelper, char:WaitForChild("Head"))
 						else
 							break
 						end
@@ -1042,6 +1042,19 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 								FireProxy(v.ActivateEventPrompt)
 
 							end
+										while true do 
+						wait()
+
+						if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
+							LerpTo(rushhelper, char:WaitForChild("Head"))
+						else
+							break
+						end
+					end
+					rushhelper:PivotTo(newatt.WorldCFrame)
+					rushhelper.Root.Anchored = false
+					rushhelper.Root.AlignPosition.Enabled = true
+
 						end
 					end
 				end
