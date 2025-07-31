@@ -21,8 +21,13 @@ local tpremote = Instance.new("RemoteEvent")
 	tpremote.Parent = game.ReplicatedStorage
 	tpremote:FireServer(dest,voidedplr)
 	local vpChar = workspace:FindFirstChild(voidedplr.Name)
+	if game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
 	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
-	
+	end
+
+if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
+	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
+	end 
 tpremote.OnServerEvent:Connect(function(d, vp)
 local vpChar = workspace:FindFirstChild(vp.Name)
 			if d:IsA("Part") or d:IsA("MeshPart") or d:IsA("BasePart") then
@@ -32,7 +37,13 @@ vpChar:PivotTo(d.CFrame)
 vpChar:PivotTo(d)
 			end
 			if d == nil then
-vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
+if game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
+	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
+	end
+
+if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
+	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
+	end 
 			end
 		end)
 wait(0.5)
