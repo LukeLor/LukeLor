@@ -409,7 +409,7 @@ workspace.CurrentCamera.ChildRemoved:Connect(function()
 	end
 end)
 
-game.Workspace.DescendantAdded:Connect(function(v)
+game.Workspace.CurrentRooms.DescendantAdded:Connect(function(v)
 	if v:IsA("Model") then
 		if v.Name == "_NestHandler" then
 			
