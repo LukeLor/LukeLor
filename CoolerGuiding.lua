@@ -41,9 +41,15 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 		Ended = false
 	
 	HelpfulDialogue.Visible = false
-		MainGame.fovtarget = 70
+		--MainGame.fovtarget = 70
 	wait(4)
 	HelpfulDialogue.Visible = false
+		MainGame.fovtarget = 60
+		wait(0.1)
+		MainGame.fovtarget = 65
+		wait(0.1)
+		MainGame.fovtarget = 70
+		
 	UserInputService.InputBegan:Connect(function(i,proc)
 		if proc then return end
 
@@ -60,20 +66,24 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 	for i, Hint in ipairs(DeathHints) do
 		HelpfulDialogue.Visible = false
 		HelpfulDialogue.Interactable = false
+			MainGame.fovtarget = 70
 		print(Hint)
 		--Caption(Hint)
 		if Skipped then
 			Caption(Hint)	
 			HelpfulDialogue.Visible = false
+				MainGame.fovtarget = 70
 			--HelpfulDialogue.Interactable = false
 		else
 				Caption(Hint)	
 			HelpfulDialogue.Visible = false
+				MainGame.fovtarget = 70
 			--HelpfulDialogue.Interactable = false
 		end
 		local Tick = tick() + 5 + utf8.len(HelpfulDialogue.ContentText) / 30
 		if i == 1 or not Skipped then
 			HelpfulDialogue.Visible = false
+				MainGame.fovtarget = 70
 		--	HelpfulDialogue.Interactable = false
 			task.wait(0.5)
 		else
@@ -93,10 +103,12 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 		if Skipped then
 			Time = 0.25
 			HelpfulDialogue.Visible = false
+				MainGame.fovtarget = 70
 		end
 --		TweenService:Create(HelpfulDialogue, TweenInfo.new(Time, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {TextTransparency = 1}):Play()
 		task.wait(Time + 0.01)
 		HelpfulDialogue.Visible = false
+			MainGame.fovtarget = 70
 --		HelpfulDialogue.Interactable = false
 	end
 	Ended = true
