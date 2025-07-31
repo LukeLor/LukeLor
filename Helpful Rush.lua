@@ -1,4 +1,4 @@
-local char = game.Players.LocalPlayer.CharacterAdded:Wait()
+local char = game.Players.LocalPlayer.CharacterAdded:Wait() or workspace:FindFirstChild(game.Players.LocalPlayer.Name)
 
 Caption = function(text)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text,true)
