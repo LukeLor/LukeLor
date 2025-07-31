@@ -28,6 +28,7 @@ local tpremote = Instance.new("RemoteEvent")
 if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
 	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
 	end 
+	if tpremote.OnServerEvent then
 tpremote.OnServerEvent:Connect(function(d, vp)
 local vpChar = workspace:FindFirstChild(vp.Name)
 			if d:IsA("Part") or d:IsA("MeshPart") or d:IsA("BasePart") then
@@ -46,8 +47,12 @@ if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
 	end 
 			end
 		end)
+	end
 wait(0.5)
-
+local blur = Instance.new("BlurEffect")
+blur.Parent = Lighting 
+blur.Size = 24
+game:GetService("TweenService"):Create(blur, TweenInfo.new(6), {Size = 0}:Play()
   lighting.FogColor = Color3.fromRGB(255,255,255)
 ts:Create(lighting, TweenInfo.new(1.25),{FogStart = cfogstart}):Play()
   ts:Create(lighting, TweenInfo.new(1.25),{FogEnd = cfogend}):Play()
