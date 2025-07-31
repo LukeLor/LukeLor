@@ -29,7 +29,7 @@ vpChar:PivotTo(d.CFrame)
 vpChar:PivotTo(d)
 			end
 			if d == nil then
-vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame
+vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
 			end
 		end)
 wait(0.5)
