@@ -54,7 +54,7 @@ ts:Create(lighting, TweenInfo.new(1.25),{FogStart = cfogstart}):Play()
   wait(0.5)
 	ts:Create(lighting, TweenInfo.new(1.25),{FogColor = cfogcolor}):Play()
 
-
+tpremote:Destroy()
   
 end
 
