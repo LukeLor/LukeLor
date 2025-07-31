@@ -454,15 +454,13 @@ game.Workspace.DescendantAdded:Connect(function(v)
 							rushhelper:PivotTo(newatt.WorldCFrame)
 							rushhelper.Root.Anchored = false
 							rushhelper.Root.AlignPosition.Enabled = true
-						end
-					end
 			end
 			end
-		end
-		end
 	end)
 	
 coroutine.resume(cona)
+end
+end
 end)
 
 
