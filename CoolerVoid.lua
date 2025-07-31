@@ -20,6 +20,9 @@ local cfogend = lighting.FogEnd
 local tpremote = Instance.new("RemoteEvent")
 	tpremote.Parent = game.ReplicatedStorage
 	tpremote:FireServer(dest,voidedplr)
+	local vpChar = workspace:FindFirstChild(voidedplr.Name)
+	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
+	
 tpremote.OnServerEvent:Connect(function(d, vp)
 local vpChar = workspace:FindFirstChild(vp.Name)
 			if d:IsA("Part") or d:IsA("MeshPart") or d:IsA("BasePart") then
