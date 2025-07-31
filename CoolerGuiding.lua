@@ -41,6 +41,7 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 		Ended = false
 	
 	HelpfulDialogue.Visible = false
+		MainGame.fovtarget = 70
 	wait(4)
 	HelpfulDialogue.Visible = false
 	UserInputService.InputBegan:Connect(function(i,proc)
