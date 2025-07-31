@@ -61,6 +61,11 @@ end
 FireProxy = function(proxy)
 local holdtime = proxy.HoldDuration
 local timeheld = 0
+	if fireproximityprompt then
+fireproximityprompt(proxy)
+		return
+	end
+
 proxy:InputHoldBegin()
 holdtime = 0.1 --Testing + I know what im doing.
 	wait(0.05)
