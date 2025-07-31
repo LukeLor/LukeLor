@@ -167,6 +167,7 @@ local UserInputService = game:GetService("UserInputService")
 local Skipped = false
 local Ended = false
 remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
+			Ended = false
 UserInputService.InputBegan:Connect(function(i,proc)
 	if proc then return end
 
