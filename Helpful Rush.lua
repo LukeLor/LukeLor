@@ -1,13 +1,6 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
-local newatt = Instance.new("Attachment")
-newatt.Parent = char.UpperTorso
-newatt.WorldCFrame = char.Head.CFrame
-newatt.WorldPosition = char.Head.Position + Vector3.new(1.705, -0.5, -0.558)
-newatt.Name = "RushAtt"
-rushhelper.Parent = workspace
-rushhelper.Root.AlignPosition.Attachment1 = newatt
 
 
 SolveAnchor = function(item, fully)
@@ -136,6 +129,15 @@ talk.Name = "Talk"
 pitch.Parent = talk
 talk.PlaybackSpeed = 0.75
 talk.Volume = 0.2
+	local newatt = Instance.new("Attachment")
+newatt.Parent = char.UpperTorso
+newatt.WorldCFrame = char.Head.CFrame
+newatt.WorldPosition = char.Head.Position + Vector3.new(1.705, -0.5, -0.558)
+newatt.Name = "RushAtt"
+rushhelper.Parent = workspace
+rushhelper.Root.AlignPosition.Attachment1 = newatt
+
+	
 local entitytablelines = {{ "Something is here...","It seems like I'm... aproaching.?","Hide!", "Something's on its way!"-- Rush
 	},{"Something is here... be ready.","Seems like an annoying entity is coming.","Hide!", "It will come back."-- Ambush
 	},{"GO GO GO!","RUN FOR YOUR LIFE!","Run." -- Seek
