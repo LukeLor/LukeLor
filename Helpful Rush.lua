@@ -1081,3 +1081,4 @@ for i = 1, #text do
 	wait(0.002)
 end
 SpeakerIconHide()
+print("Up and at it.")
