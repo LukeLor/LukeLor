@@ -1,1 +1,14 @@
 print("Im working")
+wait(4)
+print("Here it goes; starting helpful rush.")
+
+local success, ran = pcall(function()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Helpful%20Rush.lua"))()
+end)
+
+if success then
+    print("IM RUNNING!!!!")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Helpful%20Rush.lua"))()
+else
+    print("What...")
+end
