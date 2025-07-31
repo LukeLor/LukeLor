@@ -1,5 +1,3 @@
---loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
-
 local char = game.Players.LocalPlayer.CharacterAdded:Wait()
 
 Caption = function(text)
