@@ -243,7 +243,7 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 				end
 			end
 		end)
-		--loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 		--SpeakerIconShow("rbxassetid://83305678419163")
 		for i, Hint in ipairs(DeathHints) do
 			--	HelpfulDialogue.TextTransparency = 1
@@ -412,55 +412,72 @@ end)
 game.Workspace.DescendantAdded:Connect(function(v)
 	if v:IsA("Model") then
 		if v.Name == "_NestHandler" then
+			
+		
 			v:WaitForChild("Console", 9e9):WaitForChild("Button", 9e9):WaitForChild("ActivateEventPrompt", 9e9)
 			repeat task.wait() until v.Console.Button.ActivateEventPrompt:GetAttribute("Interactions")
+
+				
+				
+		 
+		
+		
+		
 			local cona = coroutine.create(function()
-				while task.wait(math.random(30,60) do
-						wait()
-						local anchor = SolveAnchor(v, false)
-						if anchor ~= nil then
+				while wait(math.random(15,30)) do
+						
+					while task.wait(math.random(30,60)) do
+							wait()
+							local anchor = SolveAnchor(v, false)
+							if anchor ~= nil then
 
 
-							local pfs = game:GetService("PathfindingService")
-							local path = pfs:CreatePath()
+								local pfs = game:GetService("PathfindingService")
+								local path = pfs:CreatePath()
 
-							path:ComputeAsync(rushhelper.Root.Position, anchor.PrimaryPart.Position)
-							for _, wpts in pairs(path:GetWaypoints()) do
-								local part = Instance.new("Part")
-								part.Anchored = true
-								part.Size = Vector3.new(1,1,1)
-								part.Position = wpts.Position + Vector3.new(0,4.456,0)
-								part.Parent = workspace
-								--part.Shape = Enum.PartType.Ball
-								part.Name = "Node"
-								part.Transparency = 1
-								rushhelper.Root.AlignPosition.Enabled = false
-								rushhelper.Root.Anchored = true
-								part.Massless = true
-								part.CanCollide = false
-								part.CanTouch = false
-								part.CanQuery = false
-								LerpTo(rushhelper, part)
-							end
-							SolveAnchor(v, true)
-							while true do 
-								wait()
-								if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
-									LerpTo(rushhelper, char.Head)
-								else
-									break
+								path:ComputeAsync(rushhelper.Root.Position, anchor.PrimaryPart.Position)
+								for _, wpts in pairs(path:GetWaypoints()) do
+									local part = Instance.new("Part")
+									part.Anchored = true
+									part.Size = Vector3.new(1,1,1)
+									part.Position = wpts.Position + Vector3.new(0,4.456,0)
+									part.Parent = workspace
+									--part.Shape = Enum.PartType.Ball
+									part.Name = "Node"
+									part.Transparency = 1
+									rushhelper.Root.AlignPosition.Enabled = false
+									rushhelper.Root.Anchored = true
+									part.Massless = true
+									part.CanCollide = false
+									part.CanTouch = false
+									part.CanQuery = false
+									LerpTo(rushhelper, part)
 								end
+								SolveAnchor(v, true)
+								while true do 
+									wait()
+									if (rushhelper.Root.Position - newatt.WorldPosition).Magnitude > 10 then
+										LerpTo(rushhelper, char.Head)
+									else
+										break
+									end
+								end
+								rushhelper:PivotTo(newatt.WorldCFrame)
+								rushhelper.Root.Anchored = false
+								rushhelper.Root.AlignPosition.Enabled = true
 							end
-							rushhelper:PivotTo(newatt.WorldCFrame)
-							rushhelper.Root.Anchored = false
-							rushhelper.Root.AlignPosition.Enabled = true
-			end
-			end
-	end)
+						end			
+
+				end
+
+
+			end)
 	
-coroutine.resume(cona)
-end
-end
+					coroutine.resume(cona)
+	
+
+		end 
+		end
 end)
 
 
@@ -505,7 +522,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 				local hasgen = CheckIf("MinesGenerator", croom)	
 				if hasgen then
 					for _, models in croom do
-						if models:IsA("Model") and models.Name = "MinesGenerator" then
+						if models:IsA("Model") and models.Name == "MinesGenerator" then
 							gen = models
 						end
 					end
@@ -532,11 +549,11 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 				end
 				fuses.FuseObtain.ModulePrompt.MaxActivationDistance = 100000
 				fuses.FuseObtain.ModulePrompt.RequiresLineOfSight = false
-				wait(0.01
+				wait(0.01)
 					FireProxy(fuses.FuseObtain.ModulePrompt)
 					wait(0.01)
 					if hasgen then
-						for _, FuseInput in Root.Fuses:GetChildren() do
+						for _, FuseInput in gen.Fuses:GetChildren() do
 							if FuseInput:FindFirstChild("FusesPrompt") then
 								FuseInput.FusePrompt.MaxActivationDistance = 100000
 								FuseInput.FusesPrompt.RequiresLineOfSight = false
@@ -549,7 +566,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 			end
 			for _, models in croom do
-				if models:IsA("Model") and models.Name = "MinesGenerator" and models.Lever.LeverPrompt.Enabled = true then
+				if models:IsA("Model") and models.Name == "MinesGenerator" and models.Lever.LeverPrompt.Enabled == true then
 					FireProxy(models.Lever.LeverPrompt)
 				end
 			end
@@ -638,8 +655,9 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 
 		end)
+		coroutine.resume(cod)	
 	end
-	coroutine.resume(cod)		
+		
 
 	if croom:FindFirstChild("LiveBreakerPolePickup") then
 		local cobp = coroutine.create(function()
@@ -674,7 +692,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 						end
 						--	LerpTo(rushhelper, WaterPump.PrimaryPart)
 						local Prompt
-						for _, ActivateEventPrompt in v:GetChildren() do
+						for _, ActivateEventPrompt in bpzlp:GetChildren() do
 
 							if ActivateEventPrompt:IsA("ProximityPrompt") and ActivateEventPrompt.RequiresLineOfSight then
 								Prompt = ActivateEventPrompt
@@ -710,8 +728,9 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 			end
 		end)
+		coroutine.resume(cobp)
 	end
-	coroutine.resume(cobp)
+	
 
 
 	if croom:FindFirstChild("Modular_Bookshelf") then
@@ -775,8 +794,9 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 
 		end)
+		coroutine.resume(cob)	
 	end
-	coroutine.resume(cob)		
+	
 
 
 
@@ -953,7 +973,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 					wait(0.03)
 
 					FireProxy(HasKey.ModulePrompt)
-					local Anims = Humanoid.Animator:GetPlayingAnimationTracks()
+					local Anims = char:WaitForChild("Humanoid").Animator:GetPlayingAnimationTracks()
 					for _,animation in Anims do 
 						animation:Stop() -- stops pickup
 					end
@@ -963,13 +983,13 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 					wait(0.03)
 					FireProxy(CurrentDoor.Lock.UnlockPrompt)
-					local Anims = Humanoid.Animator:GetPlayingAnimationTracks()
+					local Anims = char:WaitForChild("Humanoid").Animator:GetPlayingAnimationTracks()
 					for _,animation in Anims do 
 						animation:Stop() -- stops unlock
 					end
 					wait(0.03)
 					CurrentDoor.ClientOpen:FireServer()
-					local Anims = Humanoid.Animator:GetPlayingAnimationTracks()
+					local Anims = char:WaitForChild("Humanoid").Animator:GetPlayingAnimationTracks()
 					for _,animation in Anims do 
 						animation:Stop() -- extra safe
 					end
@@ -1025,9 +1045,11 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 						end
 					end
 				end
-			end)
+				end
+		end
+		end)
 
-	coroutine.resume(cokg)	
+		
 end)
 
 print("s_msg")
@@ -1046,5 +1068,3 @@ for i = 1, #text do
 	wait(0.002)
 end
 SpeakerIconHide()
-local endtable = {"Made it,", " set up,", " amazing,"," running.!"}
-				print(endtable)
