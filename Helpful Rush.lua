@@ -231,7 +231,7 @@ Ended = true
 --SpeakerIconHide()
 --Caption("")
 wait(0.5)
-SpeakerIconShow("rbxassetid://99087926706059")
+SpeakerIconShow("99087926706059")
 Caption(deathmsgs[math.random(1,6)][1])
 wait(5)
 SpeakerIconHide()
