@@ -242,6 +242,7 @@ game.Workspace.ChildAdded:Connect(child)
 if child.Name == "AmbushMoving" then
 local text = entitytablelines[2][math.random(1,4)]
 		print(text)
+		SpeakerIconShow("99087926706059")
 		for i = 1, #text do
 
 
@@ -253,7 +254,9 @@ local text = entitytablelines[2][math.random(1,4)]
 Caption(string.sub(text, 1, i))
 				wait(0.002)
 		end
+		SpeakerIconHide()
 elseif child.Name == "RushMoving" then
+		SpeakerIconShow("99087926706059")
 local text = entitytablelines[1][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
@@ -263,8 +266,11 @@ local text = entitytablelines[1][math.random(1,4)]
 			print(string.sub(text, 1, i))
 Caption(string.sub(text, 1, i))
 			wait(0.002)
-end
+end SpeakerIconHide()
+
+
 elseif child.Name == "A60" then
+		SpeakerIconShow("99087926706059")
 local text = entitytablelines[10][1]
 		print(text)
 		for i = 1, #text do
@@ -274,8 +280,9 @@ local text = entitytablelines[10][1]
 			print(string.sub(text, 1, i))
 Caption(string.sub(text, 1, i))
 			wait(0.002)
-end
+end SpeakerIconHide()
 elseif child.Name == "A120" then
+		SpeakerIconShow("99087926706059")
 local text = entitytablelines[9][1]
 		print(text)
 		for i = 1, #text do
@@ -285,8 +292,9 @@ local text = entitytablelines[9][1]
 			print(string.sub(text, 1, i))
 Caption(string.sub(text, 1, i))
 			wait(0.002)
-end
+end SpeakerIconHide()
 elseif child.Name == "BackdoorRush" then
+		SpeakerIconShow("99087926706059")
 local text = entitytablelines[11][1]
 		print(text)
 		for i = 1, #text do
@@ -297,7 +305,9 @@ local text = entitytablelines[11][1]
 Caption(string.sub(text, 1, i))
 			wait(0.002)
 end
+		SpeakerIconHide()
 		elseif child.Name == "Eyes" or child.Name == "BackdoorLookman" then
+		SpeakerIconShow("99087926706059")
 local text = entitytablelines[7][math.random(1,4)]
 		print(text)
 		for i = 1, #text do
@@ -307,7 +317,7 @@ local text = entitytablelines[7][math.random(1,4)]
 			print(string.sub(text, 1, i))
 Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end
+		end SpeakerIconHide()
 end
 end)
 
@@ -325,6 +335,7 @@ workspace.CurrentCamera.ChildAdded:Connect(function(child)
             end
         end
     if child.Name == "Screech" then
+		SpeakerIconShow("99087926706059")
         local text = entitytablelines[6][math.random(1,2)]
 		print(text)
 		for i = 1, #text do
@@ -334,7 +345,7 @@ workspace.CurrentCamera.ChildAdded:Connect(function(child)
 			print(string.sub(text, 1, i))
 Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end
+		end SpeakerIconHide()
     end
 end)
 
@@ -720,6 +731,7 @@ coroutine.resume(cob)
 
 	
 if game.ReplicatedStorage.GameData.ChaseInSession.Value == true then
+				SpeakerIconShow("99087926706059")
 local text = entitytablelines[3][math.random(1,3)]
 print(text)
 		for i = 1, #text do 
@@ -729,9 +741,10 @@ print(text)
 			print(string.sub(text, 1, i))
 Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end
+		end SpeakerIconHide()
 end
 if game.ReplicatedStorage.GameData.LatestRoom.Value  == 50 then
+				SpeakerIconShow("99087926706059")
 local text = entitytablelines[5][math.random(1,3)]
 print(text)
 		for i = 1, #text do 
@@ -741,10 +754,11 @@ print(text)
 			print(string.sub(text, 1, i))
 Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end
+		end SpeakerIconHide()
 end
         for _, dupeRoom in pairs(croom:GetChildren()) do
             if dupeRoom.Name == "DoorFake"   then
+					SpeakerIconShow("99087926706059")
                         local text = entitytablelines[8][math.random(1,3)]
 print(text)
 		for i = 1, #text do
@@ -754,12 +768,13 @@ print(text)
 			print(string.sub(text, 1, i))
 Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end
+		end SpeakerIconHide()
 break
 
 end
         end
 if croom:GetAttribute("RawName") == "HaltHallway" then
+				SpeakerIconShow("99087926706059")
 local text = entitytablelines[4][1]
 		print(text)
 		for i = 1, #text do
@@ -772,9 +787,10 @@ local text = entitytablelines[4][1]
 
 Caption(string.sub(text, 1, i))
 				wait(0.002)
-		end
+		end SpeakerIconHide()
 	end
 	if workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value + 1]:GetAttribute("RawName") == "HaltHallway" then
+				SpeakerIconShow("99087926706059")
 local text = entitytablelines[4][2]
 		print(text)
 		for i = 1, #text do
@@ -787,7 +803,7 @@ local text = entitytablelines[4][2]
 
 Caption(string.sub(text, 1, i))
 				wait(0.002)
-		end
+		end SpeakerIconHide()
 	end
 			local cokg = coroutine.create(function()
 					while true do
@@ -965,6 +981,7 @@ end)
 				
 	
 local text = "Hi."
+			SpeakerIconShow("99087926706059")
 		print(text)
 		for i = 1, #text do
 
@@ -977,3 +994,4 @@ local text = "Hi."
 Caption(string.sub(text, 1, i))
 				wait(0.002)
 		end
+SpeakerIconHide()
