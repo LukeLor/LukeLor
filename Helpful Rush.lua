@@ -346,7 +346,15 @@ workspace.CurrentCamera.ChildRemoved:Connect(function()
 Rooms.DescendantAdded:Connect(function(v)
 			if v:IsA("Model") then
 if v.Name == "_NestHandler" then
+			v:WaitForChild("Console", 9e9):WaitForChild("Button", 9e9):WaitForChild("ActivateEventPrompt", 9e9)
+			repeat task.wait() until v.Console.Button.ActivateEventPrompt:GetAttribute("Interactions")
+			local cona = coroutine.create(function()
+					while wait(math.random(30,60) do
+wait()
 local anchor = SolveAnchor(v, false)
+			if anchor ~= nil then
+
+
 local pfs = game:GetService("PathfindingService")
 local path = pfs:CreatePath()
 
@@ -382,6 +390,10 @@ rushhelper.Root.Anchored = false
 rushhelper.Root.AlignPosition.Enabled = true
 				end
 			end
+	end
+				end
+		end)
+			coroutine.resume(cona)	
 		end)
 
 
