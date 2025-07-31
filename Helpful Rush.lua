@@ -115,7 +115,7 @@ LerpTo = function(model, target, path)
 
 end
 
-
+print("got past func")
 
 --ProxyDoor : CurrentDoor.Lock.UnlockPrompt
 --Event : CurrentDoor.ClientOpen:FireServer()
@@ -141,7 +141,7 @@ newatt.WorldPosition = char.Head.Position + Vector3.new(1.705, -0.5, -0.558)
 newatt.Name = "RushAtt"
 rushhelper.Parent = workspace
 rushhelper.Root.AlignPosition.Attachment1 = newatt
-
+print("loaded rush and positioned it")
 	
 local entitytablelines = {{ "Something is here...","It seems like I'm... aproaching.?","Hide!", "Something's on its way!"-- Rush
 	},{"Something is here... be ready.","Seems like an annoying entity is coming.","Hide!", "It will come back."-- Ambush
@@ -236,7 +236,7 @@ Caption(deathmsgs[math.random(1,6)][1])
 wait(5)
 SpeakerIconHide()
 end)
-
+print("Initiate mechanic")
 
 game.Workspace.ChildAdded:Connect(child)
 if child.Name == "AmbushMoving" then
@@ -979,7 +979,7 @@ for _, wpts in pairs(path:GetWaypoints()) do
 					coroutine.resume(cokg)	
 end)
 				
-	
+	print("s_msg")
 local text = "Hi."
 			SpeakerIconShow("99087926706059")
 		print(text)
