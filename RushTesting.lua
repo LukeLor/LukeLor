@@ -243,7 +243,7 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 				end
 			end
 		end)
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
+		--loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 		--SpeakerIconShow("rbxassetid://83305678419163")
 		for i, Hint in ipairs(DeathHints) do
 			--	HelpfulDialogue.TextTransparency = 1
