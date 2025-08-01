@@ -1,5 +1,7 @@
 local char = game.Players.LocalPlayer.CharacterAdded:Wait() or workspace:FindFirstChild(game.Players.LocalPlayer.Name)
 
+
+
 Caption = function(text)
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text,true)
 end
@@ -166,6 +168,21 @@ end
 
 print("got past func")
 
+local coci = coroutine.create(function()
+				while wait() do
+						
+					while task.wait() do
+							wait()
+							
+								char = workspace:FindFirstChild(game.Players.LocalPlayer.Name)
+
+				end
+		end
+
+			end)
+	
+					coroutine.resume(coci)
+print("running ci")
 --ProxyDoor : CurrentDoor.Lock.UnlockPrompt
 --Event : CurrentDoor.ClientOpen:FireServer()
 --KeyPrompt : HasKey.ModulePrompt
@@ -426,7 +443,7 @@ game.Workspace.CurrentRooms.DescendantAdded:Connect(function(v)
 			local cona = coroutine.create(function()
 				while wait(math.random(15,30)) do
 						
-					while task.wait(math.random(30,60)) do
+					while task.wait(math.random(15,30)) do
 							wait()
 							local anchor = SolveAnchor(v, false)
 							if anchor ~= nil then
