@@ -249,7 +249,16 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 	local Skipped = false
 	local Ended = false
 	remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
+		PlayerGui = Player:WaitForChild("PlayerGui")
+		 MainUI = PlayerGui:WaitForChild("MainUI")
+		 Death = MainUI:WaitForChild("Death")
+	HelpfulDialogue = Death:WaitForChild("HelpfulDialogue")
 		Ended = false
+	
+	--HelpfulDialogue.Visible = false
+		--MainGame.fovtarget = 70
+	wait(4)
+		
 		UserInputService.InputBegan:Connect(function(i,proc)
 			if proc then return end
 
