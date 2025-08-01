@@ -1,4 +1,4 @@
-local char = game.Players.LocalPlayer.CharacterAdded:Wait() or workspace:FindFirstChild(game.Players.LocalPlayer.Name)
+local char = game.Players.LocalPlayer.CharacterAdded:Wait() 
 
 
 
@@ -206,7 +206,6 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 	newatt.WorldCFrame = char:WaitForChild("Head").CFrame
 	newatt.WorldPosition = char:WaitForChild("Head").Position + Vector3.new(1.705, -0.5, -0.558)
 	newatt.Name = "RushAtt"
-	rushhelper.Parent = workspace
 	rushhelper.Root.AlignPosition.Attachment1 = newatt
 	print("loaded rush and positioned it")
 
