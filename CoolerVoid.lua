@@ -26,20 +26,8 @@ VoidPlayer = function(dest, plr)
 	vpChar.HumanoidRootPart.Anchored = true
 	wait(0.5)
 	
-	if dest:IsA("Part") or dest:IsA("MeshPart") or dest:IsA("BasePart") or dest:IsA("UnionOperation") then
-		vpChar:PivotTo(dest.CFrame)
-		print("P, Mp, bp, uo")
 	
-	elseif dest:IsA("CFrame") then
-		vpChar:PivotTo(dest)
-		print("CFrame")
-	elseif dest:IsA("Model") then
-		if dest.PrimaryPart then
-		vpChar:PivotTo(dest.PrimaryPart.CFrame)
-		print("PP.CFrame")
-		else
-			vpChar:PivotTo(vpChar.HumanoidRootPart.CFrame)
-			print("Couldn't find primary; Tp-ed to self")
+		
 			if game.ReplicatedStorage:FindFirstChild("GameData") then
 				if game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
 					vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
@@ -49,17 +37,6 @@ VoidPlayer = function(dest, plr)
 					vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
 				end 
 				print("Door")
-			end
-		end
-	elseif dest == nil then
-		if game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
-			vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
-		end
-
-		if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
-			vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
-		end 
-		print("Door")
 	end
 	vpChar.HumanoidRootPart.Anchored = false
 	local blur = Instance.new("BlurEffect")
