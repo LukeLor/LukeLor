@@ -973,6 +973,9 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 					wait(0.03)
 
 					FireProxy(HasKey.ModulePrompt)
+							HasKey.ModulePrompt.MaxActivationDistance = ogmad
+			  HasKey.ModulePrompt.RequiresLineOfSight = ogrlos
+							
 					local Anims = char:WaitForChild("Humanoid").Animator:GetPlayingAnimationTracks()
 					for _,animation in Anims do 
 						animation:Stop() -- stops pickup
@@ -1038,8 +1041,14 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 							end
 							if not v.ActivateEventPrompt:GetAttribute("Interactions") then
-
+local ogmadg = v.ActivateEventPrompt.MaxActivationDistance
+					local ogrlosg = v.ActivateEventPrompt.RequiresLineOfSight
+									v.ActivateEventPrompt.MaxActivationDistance = 100000
+					v.ActivateEventPrompt.RequiresLineOfSight = false
 								FireProxy(v.ActivateEventPrompt)
+										wait(0.1)
+										v.ActivateEventPrompt.MaxActivationDistance = ogmadg
+					v.ActivateEventPrompt.RequiresLineOfSight = ogrlosg
 
 							end
 										while true do 
@@ -1082,3 +1091,5 @@ for i = 1, #text do
 end
 SpeakerIconHide()
 print("Up and at it.")
+char = workspace:FindFirstChild(game.Players.LocalPlayer.Name)
+
