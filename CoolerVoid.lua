@@ -1,68 +1,85 @@
 VoidPlayer = function(dest, plr)
-  local lighting = game:GetService("Lighting")
-local ts = game:GetService("TweenService")
+	local lighting = game:GetService("Lighting")
+	local ts = game:GetService("TweenService")
 
-local voidedplr = nil
+	local voidedplr = nil
 
-if plr ~= nil then
-voidedplr = plr
-  else
-    voidedplr = game.Players.LocalPlayer
-  end
-local cfogcolor = lighting.FogColor
-local cfogstart = lighting.FogStart
-local cfogend = lighting.FogEnd
-  wait()
-  lighting.FogColor = Color3.fromRGB(0,0,0)
-  ts:Create(lighting, TweenInfo.new(0.75),{FogStart = 0}):Play()
-  ts:Create(lighting, TweenInfo.new(0.75),{FogEnd = 0}):Play()
-  wait(0.75)
-local tpremote = Instance.new("RemoteEvent")
+	if plr ~= nil then
+		voidedplr = plr
+	else
+		voidedplr = game.Players.LocalPlayer
+	end
+	local cfogcolor = lighting.FogColor
+	local cfogstart = lighting.FogStart
+	local cfogend = lighting.FogEnd
+	
+	print("{"..tostring(cfogcolor).."}, ", tostring(cfogstart)..", ", tostring(cfogend))
+	wait(0.5)
+	lighting.FogColor = Color3.fromRGB(0,0,0)
+	ts:Create(lighting, TweenInfo.new(0.75),{FogStart = 0}):Play()
+	ts:Create(lighting, TweenInfo.new(0.75),{FogEnd = 0}):Play()
+	wait(0.75)
+	local tpremote = Instance.new("RemoteEvent")
 	tpremote.Parent = game.ReplicatedStorage
 	tpremote:FireServer(dest,voidedplr)
 	local vpChar = workspace:FindFirstChild(voidedplr.Name)
-	if game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
-	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
-	end
+	vpChar.HumanoidRootPart.Anchored = true
+	wait(0.5)
+	
+	if dest:IsA("Part") or dest:IsA("MeshPart") or dest:IsA("BasePart") or dest:IsA("UnionOperation") then
+		vpChar:PivotTo(dest.CFrame)
+		print("P, Mp, bp, uo")
+	
+	elseif dest:IsA("CFrame") then
+		vpChar:PivotTo(dest)
+		print("CFrame")
+	elseif dest:IsA("Model") then
+		if dest.PrimaryPart then
+		vpChar:PivotTo(dest.PrimaryPart.CFrame)
+		print("PP.CFrame")
+		else
+			vpChar:PivotTo(vpChar.HumanoidRootPart.CFrame)
+			print("Couldn't find primary; Tp-ed to self")
+			if game.ReplicatedStorage:FindFirstChild("GameData") then
+				if game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
+					vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
+				end
 
-if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
-	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
-	end 
-	if tpremote.OnServerEvent then
-tpremote.OnServerEvent:Connect(function(d, vp)
-local vpChar = workspace:FindFirstChild(vp.Name)
-			if d:IsA("Part") or d:IsA("MeshPart") or d:IsA("BasePart") then
-vpChar:PivotTo(d.CFrame)
+				if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
+					vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
+				end 
+				print("Door")
 			end
-		if d:IsA("CFrame") then
-vpChar:PivotTo(d)
-			end
-			if d == nil then
-if game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
-	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
-	end
+		end
+	elseif dest == nil then
+		if game.ReplicatedStorage.GameData.Floor.Value == "Hotel" then
+			vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Door").PrimaryPart.CFrame)
+		end
 
-if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
-	vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
-	end 
-			end
-		end)
+		if game.ReplicatedStorage.GameData.Floor.Value == "Mines" then
+			vpChar:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value-1]:WaitForChild("Parts"):WaitForChild("DoorNormal").PrimaryPart.CFrame)
+		end 
+		print("Door")
 	end
-wait(0.5)
-local blur = Instance.new("BlurEffect")
-blur.Parent = Lighting 
-blur.Size = 24
-game:GetService("TweenService"):Create(blur, TweenInfo.new(6), {Size = 0}:Play()
-  lighting.FogColor = Color3.fromRGB(255,255,255)
-ts:Create(lighting, TweenInfo.new(1.25),{FogStart = cfogstart}):Play()
-  ts:Create(lighting, TweenInfo.new(1.25),{FogEnd = cfogend}):Play()
-  wait(0.5)
+	vpChar.HumanoidRootPart.Anchored = false
+	local blur = Instance.new("BlurEffect")
+	blur.Parent = lighting 
+	blur.Size = 24
+	game:GetService("TweenService"):Create(blur, TweenInfo.new(2), {Size = 0}):Play()
+	lighting.FogColor = Color3.fromRGB(255,255,255)
+	ts:Create(lighting, TweenInfo.new(1.25),{FogStart = 0}):Play()
+	ts:Create(lighting, TweenInfo.new(1.25),{FogEnd = 100}):Play()
+	wait(0.5)
+	
 	ts:Create(lighting, TweenInfo.new(1.25),{FogColor = cfogcolor}):Play()
+	wait(0.5)
+	ts:Create(lighting, TweenInfo.new(1.25),{FogStart = cfogstart}):Play()
+	ts:Create(lighting, TweenInfo.new(1.25),{FogEnd = cfogend}):Play()
 
-tpremote:Destroy()
-  
+	
+	tpremote:Destroy()
+
 end
-
 
 local vm = require(game.ReplicatedStorage.ClientModules.EntityModules.Void)
 vm.stuff = VoidPlayer()
