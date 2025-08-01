@@ -869,7 +869,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 		end
 	end
-	if croom:GetAttribute("RawName") == "HaltHallway" then
+	if croom:GetAttribute("RawName") == "HaltHallway" then --JKKKKKKKKSWU
 		SpeakerIconShow("99087926706059")
 		local text = entitytablelines[4][1]
 		print(text)
