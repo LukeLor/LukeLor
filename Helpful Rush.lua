@@ -1109,5 +1109,3 @@ end
 SpeakerIconHide()
 print("Up and at it.")
 char = workspace:FindFirstChild(game.Players.LocalPlayer.Name)
-
-local testtoseereach ={"Hi"}
