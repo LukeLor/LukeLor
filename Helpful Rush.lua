@@ -1,4 +1,4 @@
-local char = workspace:FindFirstChild(game.Players.LocalPlayer.Name)
+local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 
 
 
