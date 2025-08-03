@@ -1036,8 +1036,8 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 					for _,animation in Anims do 
 						animation:Stop() -- stops pickup
 					end
-					CurrentDoor.Lock.MaxActivationDistance = 100000
-					CurrentDoor.Lock.RequiresLineOfSight = false
+					CurrentDoor.Lock.UnlockPrompt.MaxActivationDistance = 100000
+					CurrentDoor.Lock.UnlockPrompt.RequiresLineOfSight = false
 
 
 					wait(0.03)
