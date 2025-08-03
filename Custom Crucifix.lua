@@ -13,7 +13,22 @@
 	end
 	return false
 end]]
-local config = {Resist = false, IgnoreEntities = {}, Uses = -1, ResistEntities = {}} -- -1 for infinite
+local function IsVisible(part)
+    local vec, found=workspace.CurrentCamera:WorldToViewportPoint(part.Position)
+    local onscreen = found and vec.Z > 0
+    local cfg = RaycastParams.new()
+    cfg.FilterType = Enum.RaycastFilterType.Blacklist
+    cfg.FilterDescendantsInstances = {part}
+
+    local cast = workspace:Raycast(part.Position, (game.Players.LocalPlayer.Character.UpperTorso.Position - part.Position), cfg)
+    if onscreen then
+        if cast and (cast and cast.Instance).Parent==game.Players.LocalPlayer.Character then
+            return true
+        end
+    end
+end
+
+local config = {Resist = false, IgnoreEntities = {}, Uses = -1, ResistEntities = {}, EntitiesToCruc{}} -- -1 for infinite
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -59,6 +74,7 @@ effects.Texture = SealIcon
 	end
 end
 crucifix.Parent = game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name)
+
 function CrucifixActivation(model, config, plrtool)
 	usesv.Value -= 1
 	task.wait(0.1)
