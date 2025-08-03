@@ -1,4 +1,4 @@
---Currently getting info rn. HEAVILY BASED ON REGULAR VYNIXU'S SCRIPT
+--Currently getting info rn. HEAVILY BASED ON REGULAR VYNIXU'S SCRIPT Char:SetAttribute("Hiding", true)
 --[[function PlayerInLineOfSight(model, config)
 	local origin = model:GetPivot().Position
 	local charOrigin = localCollision.Position
