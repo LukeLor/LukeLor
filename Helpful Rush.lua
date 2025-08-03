@@ -386,7 +386,7 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 		SpeakerIconHide()
 	elseif child.Name == "Eyes" or child.Name == "BackdoorLookman" then
 		SpeakerIconShow("99087926706059")
-		local text = entitytablelines[7][math.random(1,4)]
+		local text = entitytablelines[7][math.random(1,2)]
 		print(text)
 		for i = 1, #text do
 			wait(0.002)
