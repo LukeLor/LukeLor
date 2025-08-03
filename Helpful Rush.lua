@@ -533,7 +533,7 @@ end)
 
 
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
-		
+		wait(0.01)
 roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 		
 	local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
