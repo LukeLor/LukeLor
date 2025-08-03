@@ -174,7 +174,7 @@ local coci = coroutine.create(function()
 					while task.wait() do
 							wait()
 							
-								char = workspace:FindFirstChild(game.Players.LocalPlayer.Name)
+								char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 
 				end
 		end
@@ -341,7 +341,8 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 			print(string.sub(text, 1, i))
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end 
+			SpeakerIconHide()
 
 
 	elseif child.Name == "A60" then
@@ -355,7 +356,8 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 			print(string.sub(text, 1, i))
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end
+			SpeakerIconHide()
 	elseif child.Name == "A120" then
 		SpeakerIconShow("99087926706059")
 		local text = entitytablelines[9][1]
@@ -367,7 +369,8 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 			print(string.sub(text, 1, i))
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end 
+			SpeakerIconHide()
 	elseif child.Name == "BackdoorRush" then
 		SpeakerIconShow("99087926706059")
 		local text = entitytablelines[11][1]
@@ -392,7 +395,8 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 			print(string.sub(text, 1, i))
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end 
+			SpeakerIconHide()
 	end
 	end)
 
@@ -420,7 +424,8 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 			print(string.sub(text, 1, i))
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end
+			SpeakerIconHide()
 	end
 end)
 
@@ -838,7 +843,8 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 			print(string.sub(text, 1, i))
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end 
+			SpeakerIconHide()
 	end
 	if game.ReplicatedStorage.GameData.LatestRoom.Value  == 50 then
 		SpeakerIconShow("99087926706059")
@@ -851,7 +857,8 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 			print(string.sub(text, 1, i))
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end 
+			SpeakerIconHide()
 	end
 	for _, dupeRoom in pairs(croom:GetChildren()) do
 		if dupeRoom.Name == "DoorFake"   then
@@ -865,7 +872,8 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 				print(string.sub(text, 1, i))
 				Caption(string.sub(text, 1, i))
 				wait(0.002)
-			end SpeakerIconHide()
+			end
+				SpeakerIconHide()
 			break
 
 		end
@@ -884,7 +892,8 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end 
+			SpeakerIconHide()
 	end
 	if workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value + 1]:GetAttribute("RawName") == "HaltHallway" or workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value + 1]:GetAttribute("RawName") == "JKKKKKKKKSWU" then
 		SpeakerIconShow("99087926706059")
@@ -900,7 +909,8 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 
 			Caption(string.sub(text, 1, i))
 			wait(0.002)
-		end SpeakerIconHide()
+		end 
+			SpeakerIconHide()
 	end
 	local cokg = coroutine.create(function()
 		while true do
@@ -1115,6 +1125,7 @@ for i = 1, #text do
 	Caption(string.sub(text, 1, i))
 	wait(0.002)
 end
+wait(5)
 SpeakerIconHide()
 print("Up and at it.")
 char = workspace:FindFirstChild(game.Players.LocalPlayer.Name)
