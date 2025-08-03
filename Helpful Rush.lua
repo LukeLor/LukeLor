@@ -460,6 +460,7 @@ end)
 end)
 
 game.Workspace.CurrentRooms.DescendantAdded:Connect(function(v)
+		wait(0.01)
 	if v:IsA("Model") then
 		if v.Name == "_NestHandler" then
 			
