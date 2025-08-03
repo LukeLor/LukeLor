@@ -788,7 +788,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 	if croom:FindFirstChild("Modular_Bookshelf") then
 		local cob = coroutine.create(function()
 			while wait(math.random(30,45)) do
-						for _, shelfs in croom do
+						for _, shelfs in croom:GetChildren() do
 				if shelfs.Name == "Modular_Bookshelf" and shelfs:FindFirstChild("LiveHintBook") then
 
 
