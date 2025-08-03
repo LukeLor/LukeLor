@@ -44,12 +44,13 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 		--MainGame.fovtarget = 70
 	wait(4)
 	HelpfulDialogue.Visible = false
+		if MainGame.fovtarget then
 		MainGame.fovtarget = 60
 		wait(0.1)
 		MainGame.fovtarget = 65
 		wait(0.1)
 		MainGame.fovtarget = 70
-		
+		end
 	UserInputService.InputBegan:Connect(function(i,proc)
 		if proc then return end
 
