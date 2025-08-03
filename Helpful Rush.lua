@@ -49,9 +49,12 @@ SpeakerIconHide = function()
 	local iconholder = newui.Icon
 
 	local ts = game:GetService("TweenService")
-	ts:Create(iconholder, TweenInfo.new(.75), {ImageTransparency = 1}):Play()
+	
+	
+					coroutine.resume(coci)
+	ts:Create(iconholder, TweenInfo.new(3), {ImageTransparency = 1}):Play()
 
-	game.Debris:AddItem(newui, 1.25)
+	game.Debris:AddItem(newui, 5)
 end
 
 SolveAnchor = function(item, fully)
@@ -268,7 +271,7 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 				end
 			end
 		end)
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
+	--	loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 		--SpeakerIconShow("rbxassetid://83305678419163")
 		for i, Hint in ipairs(DeathHints) do
 			--	HelpfulDialogue.TextTransparency = 1
