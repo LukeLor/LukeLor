@@ -787,13 +787,14 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 	if croom:FindFirstChild("Modular_Bookshelf") then
 		local cob = coroutine.create(function()
 			while wait(math.random(30,45)) do
-				if croom.Modular_Bookshelf and croom.Modular_Bookshelf:FindFirstChild("LiveHintBook") then
+						for _, shelfs in croom do
+				if shelfs.Name == "Modular_Bookshelf" and shelfs:FindFirstChild("LiveHintBook") then
 
 
 					local pfs = game:GetService("PathfindingService")
 					local path = pfs:CreatePath()
 
-					path:ComputeAsync(rushhelper.Root.Position, croom.Modular_Bookshelf.LiveHintBook.PrimaryPart.Position)
+					path:ComputeAsync(rushhelper.Root.Position, shelfs.LiveHintBook.PrimaryPart.Position)
 					for _, wpts in pairs(path:GetWaypoints()) do
 						local part = Instance.new("Part")
 						part.Anchored = true
@@ -818,10 +819,10 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 					--LerpTo(rushhelper, WaterPump.PrimaryPart)
 
 
-					croom.Modular_Bookshelf.LiveHintBook.ActivateEventPrompt.MaxActivationDistance = 100000
-					croom.Modular_Bookshelf.LiveHintBook.ActivateEventPrompt.RequiresLineOfSight = false
+					shelfs.LiveHintBook.ActivateEventPrompt.MaxActivationDistance = 100000
+					shelfs.LiveHintBook.ActivateEventPrompt.RequiresLineOfSight = false
 					wait(0.01)
-					FireProxy(croom.Modular_Bookshelf.LiveHintBook.ActivateEventPrompt)
+					FireProxy(shelfs.LiveHintBook.ActivateEventPrompt)
 
 
 
@@ -841,7 +842,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 				end
 
 			end
-
+					end 
 
 
 		end)
