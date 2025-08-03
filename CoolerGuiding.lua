@@ -61,7 +61,7 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 			end
 		end
 	end)
---	loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
 	SpeakerIconShow("83305678419163")
 	for i, Hint in ipairs(DeathHints) do
 		HelpfulDialogue.Visible = false
@@ -75,7 +75,7 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 				MainGame.fovtarget = 70
 			--HelpfulDialogue.Interactable = false
 		else
-				Caption(Hint)	
+				Caption("")	
 			HelpfulDialogue.Visible = false
 				MainGame.fovtarget = 70
 			--HelpfulDialogue.Interactable = false
@@ -118,7 +118,7 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 end)
 
 
-Camera.ChildAdded:Connect(function(Child)
+Workspace.DescendantAdded:Connect(function(Child)
     if Child.Name ~= DeathName then return end
     
 local Main = Child:WaitForChild("MainPart")
