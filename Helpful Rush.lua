@@ -52,9 +52,9 @@ SpeakerIconHide = function()
 	
 	
 					coroutine.resume(coci)
-	ts:Create(iconholder, TweenInfo.new(3), {ImageTransparency = 1}):Play()
+	ts:Create(iconholder, TweenInfo.new(7), {ImageTransparency = 1}):Play()
 
-	game.Debris:AddItem(newui, 5)
+	game.Debris:AddItem(newui, 8)
 end
 
 SolveAnchor = function(item, fully)
@@ -322,7 +322,7 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 		Caption(string.sub(text, 1, i))
 		wait(0.002)
 	end
-		wait(5)
+	
 		SpeakerIconHide()
 	end)
 	print("Initiate mechanic")
