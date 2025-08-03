@@ -431,13 +431,18 @@ end)
 
 
 workspace.CurrentCamera.ChildRemoved:Connect(function() 
-	for _, guidance in pairs(workspace.CurrentCamera:GetChildren()) do
-		if guidance:IsA("BasePart") and guidance.Name == "Guidance" then
-				guidance.WeldConstraint:Destroy()
+	workspace.CurrentCamera.ChildRemoved:Connect(function(inst) 
+
+		if inst:IsA("BasePart") and inst.Name == "Guidance" then
+						inst.WeldConstraint:Destroy()
 			rushhelper.Root.AlignPosition.Enabled = true
 			rushhelper.Root.Anchored = false
-		end
+			
+		
 	end
+end)
+			
+	
 end)
 
 game.Workspace.CurrentRooms.DescendantAdded:Connect(function(v)
