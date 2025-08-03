@@ -12,7 +12,7 @@
 		return (result == nil), result
 	end
 	return false
-end]]
+end
 local function IsVisible(part)
     local vec, found=workspace.CurrentCamera:WorldToViewportPoint(part.Position)
     local onscreen = found and vec.Z > 0
@@ -26,7 +26,7 @@ local function IsVisible(part)
             return true
         end
     end
-end
+end]]
 
 local config = {Resist = false, IgnoreEntities = {}, Uses = -1, ResistEntities = {}, EntitiesToCruc{}} -- -1 for infinite
 local TweenService = game:GetService("TweenService")
