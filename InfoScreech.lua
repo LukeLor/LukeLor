@@ -1,6 +1,6 @@
 local sc = game.ReplicatedStorage.Entities.Screech
 for _, insts in sc:GetDescendants() do
 if insts.Parent ~= nil then
-print(insts.Name.." is a "..insts.ClassName.." and a child of "..insts.Parent.Name..".")
+print(insts.Name.." is a: "..insts.ClassName..", and a child of: "..insts.Parent.Name..".")
 end
 end
