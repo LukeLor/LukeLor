@@ -307,7 +307,18 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 		--Caption("")
 		wait(0.5)
 		SpeakerIconShow("99087926706059")
-		Caption(deathmsgs[math.random(1,6)][1])
+			local text = deathmsgs[math.random(1,6)][1]
+	for i = 1, #text do
+
+
+		wait(0.002)
+		rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+		rushhelper.Main.Talk:Play()
+		print(string.sub(text, 1, i))
+
+		Caption(string.sub(text, 1, i))
+		wait(0.002)
+	end
 		wait(5)
 		SpeakerIconHide()
 	end)
