@@ -416,7 +416,7 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 	for _, guidance in pairs(workspace.CurrentCamera:GetChildren()) do
 		if guidance:IsA("BasePart") and guidance.Name == "Guidance" then
 			local weld = Instance.new("WeldConstraint")
-			rushhelper:Pivot(guidance.CFrame)
+			rushhelper:PivotTo(guidance.CFrame)
 			weld.Parent = guidance
 			weld.Part0 = guidance
 			weld.Part1 = rushhelper.Root
