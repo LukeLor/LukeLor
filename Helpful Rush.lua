@@ -188,7 +188,7 @@ print("running ci")
 --KeyPrompt : HasKey.ModulePrompt
 --ValvePrompt : ValvePrompt
 
-
+local roomnumdupe = 0
 local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 	rushhelper.Parent = workspace
 	local pitch = Instance.new("PitchShiftSoundEffect")
@@ -216,7 +216,7 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 		},{"Stay quiet.", "Crouch!", "Don't be loud."--Figure
 		},{"Psst.", "Around you!"--Screech
 		},{"Don't look!", "Avoid eye contact."}--Eyes
-		,{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The room number is "..game.ReplicatedStorage.GameData.LatestRoom.Value.."."}--Dupe
+		,{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The number for this room is "..roomnumdupe.."."}--Dupe
 		,{"A-120."}, {"A-60."},{"It- Blitz..."},
 		{"It isn't funny!","Stop laughing.","Giggle up ahead.", "Watch above you."}--Giggle
 
@@ -529,8 +529,9 @@ end)
 
 
 game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Connect(function()
-
-
+		
+roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
+		
 	local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
 	local foundfuses = CheckIf("FuseHolder",croom)
 	if foundfuses then
