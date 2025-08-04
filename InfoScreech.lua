@@ -1,5 +1,5 @@
 local sc = game.ReplicatedStorage.Entities.Screech
-local notwanted = {"Part", "BasePart", "MeshPart", "UnionOperation", "Model", "Motor6D", "ManuelWeld", "Attachment", "PointLight", "Sound"}
+local notwanted = {"Part", "BasePart", "MeshPart", "UnionOperation", "Model", "Motor6D", "ManuelWeld", "Attachment", "PointLight", "Sound", "DistortionSoundEffect"}
 
 for _, insts in sc:GetDescendants() do
 if insts.Parent ~= nil and not table.find(notwanted, insts.ClassName) then
