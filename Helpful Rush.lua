@@ -209,12 +209,19 @@ parttofix.Anchored = true
 parttofix.Parent = workspace
 parttofix.Name = "RotPart"
 parttofix.Position = char:WaitForChild("HumanoidRootPart").Position
+local ogar = char:WaitForChild("Humanoid").AutoRotate
+char:WaitForChild("Humanoid").AutoRotate = false
 parttofix.Rotation = Vector3.new(0, 0, -0)
 parttofix.CanCollide = false
 parttofix.Transparency = 1
 wait()
 char:PivotTo(parttofix.CFrame)
 wait()
+if ogar ~= nil then
+char:WaitForChild("Humanoid").AutoRotate = ogar
+else
+	char:WaitForChild("Humanoid").AutoRotate = true
+end
 parttofix:Destroy()
 	local newatt = Instance.new("Attachment")
 	newatt.Parent = char:WaitForChild("UpperTorso")
