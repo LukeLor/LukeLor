@@ -204,6 +204,18 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 	pitch.Parent = talk
 	talk.PlaybackSpeed = 0.75
 	talk.Volume = 0.2
+local parttofix = Instance.new("Part")
+parttofix.Anchored = true
+parttofix.Parent = workspace
+parttofix.Name = "RotPart"
+parttofix.Position = char:WaitForChild("HumanoidRootPart").Position
+parttofix.Rotation = Vector3.new(0, 0, -0)
+parttofix.CanCollide = false
+parttofix.Transparency = 1
+wait()
+char:PivotTo(parttofix.CFrame)
+wait()
+parttofix:Destroy()
 	local newatt = Instance.new("Attachment")
 	newatt.Parent = char:WaitForChild("UpperTorso")
 	newatt.WorldCFrame = char:WaitForChild("Head").CFrame
@@ -416,6 +428,7 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 
 
 	workspace.CurrentCamera.ChildAdded:Connect(function(child)
+		
 	for _, guidance in pairs(workspace.CurrentCamera:GetChildren()) do
 		if guidance:IsA("BasePart") and guidance.Name == "Guidance" then
 			local weld = Instance.new("WeldConstraint")
@@ -428,6 +441,10 @@ local rushhelper = game:GetObjects("rbxassetid://94481096227907")[1]
 		end
 	end
 	if child.Name == "Screech" then
+				rushhelper.Top.Attachment.RushNormal.Transparency =  NumberSequence.new( 0.99, 1)
+		rushhelper.Bottom.Attachment.RushNormal.Transparency =  NumberSequence.new( 0.99, 1)
+		rushhelper.Main.BlackTrail.Transparency = NumberSequence.new( 0.99, 1)
+	
 		SpeakerIconShow("99087926706059")
 		local text = entitytablelines[6][math.random(1,2)]
 		print(text)
@@ -445,7 +462,12 @@ end)
 
 
 workspace.CurrentCamera.ChildRemoved:Connect(function() 
-	workspace.CurrentCamera.ChildRemoved:Connect(function(inst) 
+		if inst.Name == "Screech" then
+		rushhelper.Top.Attachment.RushNormal.Transparency =  NumberSequence.new( 0)
+		rushhelper.Bottom.Attachment.RushNormal.Transparency =  NumberSequence.new( 0)
+		rushhelper.Main.BlackTrail.Transparency = NumberSequence.new( 0)
+		
+	end
 
 		if inst:IsA("BasePart") and inst.Name == "Guidance" then
 						inst.WeldConstraint:Destroy()
@@ -454,7 +476,7 @@ workspace.CurrentCamera.ChildRemoved:Connect(function()
 			
 		
 	end
-end)
+
 			
 	
 end)
