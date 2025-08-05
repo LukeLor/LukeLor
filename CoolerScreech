@@ -1,0 +1,13 @@
+local sc = game.ReplicatedStorage.Entities.Screech
+
+local kill = "rbxassetid//:90523109393870"
+local idle = "rbxassetid//:115775704603958"
+local attk = "rbxassetid//:89453579354465"
+local cght = "rbxassetid//:113341707161663"
+
+sc.Animations.AttackDeath.AnimationId = kill
+sc.Animations.Attack.AnimationId = attk
+sc.Animations.Caught.AnimationId = cght
+sc.Animations.Idle.AnimationId = idle
+sc.Animations.AttackOther.AnimationId = attk
+sc.Animations.CaughtOther.AnimationId = cght
