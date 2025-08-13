@@ -482,6 +482,42 @@ parttofix:Destroy()
 			SpeakerIconHide()
 	end
 end)
+local cool = coroutine.create(function()
+		local oc = false
+				while wait() do
+						
+					while task.wait() do
+							wait()
+							
+								if oxygen < 25 and oc == false then
+SpeakerIconShow("99087926706059")
+			local text = "Hey, your oxygen levels are getting low! Hang in there! 
+	for i = 1, #text do
+
+
+		wait(0.002)
+		rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+		rushhelper.Main.Talk:Play()
+		print(string.sub(text, 1, i))
+
+		Caption(string.sub(text, 1, i))
+		wait(0.002)
+	end
+		SpeakerIconHide()
+					oc = true
+wait(10)
+					oc = false
+					
+	
+end
+				end
+		end
+
+			end)
+	
+					coroutine.resume(cool)
+
+
 
 
 workspace.CurrentCamera.ChildRemoved:Connect(function() 
