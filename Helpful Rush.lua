@@ -1,3 +1,19 @@
+--[[Entity Names
+	["FigureRig"] = "Figure",
+	["SallyMoving"] = "Window",
+	["RushMoving"] = "Rush",
+	["Eyes"] = "Eyes",
+	["Groundskeeper"] = "Skeeper",
+	["BackdoorLookman"] = "Lookman",
+	["BackdoorRush"] = "Blitz",
+	["MandrakeLive"] = "Mandrake",
+	["GloomPile"] = "Egg",
+	["Snare"] = "Snare",
+	["GrumbleRig"] = "Grumble",
+	["GiggleCeiling"] = "Giggle",
+	["AmbushMoving"] = "Ambush"
+]] 
+
 local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 
 
