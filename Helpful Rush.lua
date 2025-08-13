@@ -51,7 +51,7 @@ SpeakerIconHide = function()
 	local ts = game:GetService("TweenService")
 	
 	
-					coroutine.resume(coci)
+					--coroutine.resume(coci)
 	ts:Create(iconholder, TweenInfo.new(7), {ImageTransparency = 1}):Play()
 
 	game.Debris:AddItem(newui, 8)
