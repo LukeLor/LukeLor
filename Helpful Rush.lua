@@ -15,7 +15,7 @@
 ]] 
 
 local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-
+local oxygen = char:GetAttribute("Oxygen")
 
 
 Caption = function(text)
@@ -194,7 +194,7 @@ local coci = coroutine.create(function()
 							wait()
 							
 								char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-
+oxygen = char:GetAttribute("Oxygen")
 				end
 		end
 
