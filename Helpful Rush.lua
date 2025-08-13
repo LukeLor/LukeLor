@@ -344,7 +344,7 @@ parttofix:Destroy()
 		--SpeakerIconHide()
 		--Caption("")
 		wait(0.5)
-		SpeakerIconShow("99087926706059")
+		SpeakerIconShow("82511368550076")
 			local text = deathmsgs[math.random(1,6)][1]
 	for i = 1, #text do
 
