@@ -16,11 +16,14 @@ task.wait(typewait)
 end
 end
 
-module.SpeakerIconShow = function(IconId)
+module.SpeakerIconShow = function(IconId, Name)
    local newui = Instance.new("ScreenGui")
 	newui.Parent = game.Players.LocalPlayer.PlayerGui
-	newui.Name = "SpeakerIcon"
-
+	if Name ~= nil and Name ~= "" then
+		newui.Name = tostring(Name) 
+	else
+	newui.Name = "SpeakerIcon" 
+	end
 
 	local icon = "rbxassetid://"..IconId
 	local captiontext = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption
@@ -40,16 +43,16 @@ aspect.Parent = iconholder
 	
 
 end
-module.SpeakerIconHide = function()
-    local newui = game.Players.LocalPlayer.PlayerGui.SpeakerIcon
+module.SpeakerIconHide = function(Name, Time)
+    local newui = game.Players.LocalPlayer.PlayerGui.SpeakerIcon or game.Players.LocalPlayer.PlayerGui[tostring(Name)]
 	newui.Name = "BeingRemoved"
     
 local iconholder = newui.Icon
 
 local ts = game:GetService("TweenService")
-    ts:Create(iconholder, TweenInfo.new(.75), {ImageTransparency = 1}):Play()
+    ts:Create(iconholder, TweenInfo.new(Time ~= nil and Time or 4), {ImageTransparency = 1}):Play()
 
-       game.Debris:AddItem(newui, 1.25)
+       game.Debris:AddItem(newui, Time ~= nil and Time + 0.5 or 4.5)
 end
 
 for name, func in module do
