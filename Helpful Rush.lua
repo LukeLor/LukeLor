@@ -520,7 +520,7 @@ end
 
 
 
-workspace.CurrentCamera.ChildRemoved:Connect(function() 
+workspace.CurrentCamera.ChildRemoved:Connect(function(inst) 
 		if inst.Name == "Screech" then
 		rushhelper.Top.Attachment.RushNormal.Transparency =  NumberSequence.new( 0)
 		rushhelper.Bottom.Attachment.RushNormal.Transparency =  NumberSequence.new( 0)
