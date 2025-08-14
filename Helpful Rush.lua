@@ -491,7 +491,7 @@ local cool = coroutine.create(function()
 							
 								if oxygen < 25 and oc == false then
 SpeakerIconShow("99087926706059")
-			local text = "Hey, your oxygen levels are getting low! Hang in there! 
+			local text = "Hey, your oxygen levels are getting low! Hang in there!" 
 	for i = 1, #text do
 
 
