@@ -620,7 +620,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 	local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
 	local foundfuses = CheckIf("FuseHolder",croom)
 	if foundfuses then
-		for _, fuses in croom do
+		for _, fuses in croom:GetDescendants() do
 			if fuses:IsA("Model") and fuses.Name =="FuseHolder" then
 				local pfs = game:GetService("PathfindingService")
 				local path = pfs:CreatePath()
@@ -654,7 +654,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 
 				local hasgen = CheckIf("MinesGenerator", croom)	
 				if hasgen then
-					for _, models in croom do
+					for _, models in croom:GetDescendants() do
 						if models:IsA("Model") and models.Name == "MinesGenerator" then
 							gen = models
 						end
@@ -698,7 +698,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 
 
 			end
-			for _, models in croom do
+			for _, models in croom:GetDescendants() do
 				if models:IsA("Model") and models.Name == "MinesGenerator" and models.Lever.LeverPrompt.Enabled == true then
 					FireProxy(models.Lever.LeverPrompt)
 				end
@@ -795,7 +795,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 	if croom:FindFirstChild("LiveBreakerPolePickup") then
 		local cobp = coroutine.create(function()
 			while wait(math.random(15,30)) do
-				for _, bpzlp in croom:GetChildren() do
+				for _, bpzlp in croom:GetDescendants() do
 					if bpzlp.Name == "LiveBreakerPolePickup" then
 
 
@@ -869,7 +869,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 	if croom:FindFirstChild("Modular_Bookshelf") then
 		local cob = coroutine.create(function()
 			while wait(math.random(30,45)) do
-						for _, shelfs in croom:GetChildren() do
+						for _, shelfs in croom:GetDescendants() do
 				if shelfs.Name == "Modular_Bookshelf" and shelfs:FindFirstChild("LiveHintBook") then
 
 
