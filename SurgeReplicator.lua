@@ -5,9 +5,10 @@ local PointB = nil
 local Part = nil --Own model with primarypart
 
 if Part == nil then
-local SurgeRemake = Instance.new("Model")
+local Surge = Instance.new("Model")
+      Surge.Name = "Surge" 
       local main = Instance.new("Part") 
-      main.Parent = SurgeRemake
+      main.Parent = Surge
       main.Anchored = true
       main.Shape = Enum.PartType.Ball
       main.Size = Vector3.new(3,3,3)
@@ -15,14 +16,19 @@ local SurgeRemake = Instance.new("Model")
       main.Name = "SurgeMain"
       local FaceAtt = Instance.new("Attachment")
       FaceAtt.Parent = main
-      FaceAtt.Name = "Face" 
+      FaceAtt.Name = "FaceAtt"
+      FaceAtt.Position = Vector3.new(0,0,0)
+      FaceAtt.WorldPosition = main.Position
       local Face = Instance.new("ParticleEmitter") 
       Face.Parent = FaceAtt
       Face.Texture = SurgeFaces[1]
       Face.Speed = 0
       Face.Lifetime = 0.1
       Face.Rate = 50
-      Face.Rotation = 15,-15
+      Face.Rotation = NumberRange.new(-15, 15) 
+      Face.RotSpeed = 0 
+      Face.Name = "Face" 
+      
 end
 
 local Magnitude = (PointA - PointB).Magnitude
