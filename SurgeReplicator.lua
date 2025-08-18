@@ -1,5 +1,11 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
-local SurgeFaces = {LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F1.png"), LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F2.png"), LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F3.png") } 
+local SurgeFaces = {LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F1.png"), LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F2.png"), LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F3.png") }
+local FaceColors = {
+	ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)), 
+	ColorSequenceKeypoint.new(0.25, Color3.new(1, 0.5, 0)),
+	ColorSequenceKeypoint.new(0.5, Color3.new(0, 1, 2)), 
+      ColorSequenceKeypoint.new(0.8, Color3.new(1, 1, 1)), 
+}
 local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130,0)
 local PointB = nil
 local Part = nil --Own model with primarypart
@@ -28,7 +34,11 @@ local Surge = Instance.new("Model")
       Face.Rotation = NumberRange.new(-15, 15) 
       Face.RotSpeed = 0 
       Face.Name = "Face" 
-      
+      Face.Size = 2.56
+      Face.Color = ColorSequence.new(FaceColors) 
+      local light = Instance.new("PointLight")
+      light.Parent = FaceAtt
+      light.Color
 end
 
 local Magnitude = (PointA - PointB).Magnitude
@@ -50,7 +60,7 @@ end
 for Index = 1, 10 do
      local CurrentPosition = QuadBezier(PointA, MidPosition, PointB, Index / 10)
 
-     local PositionTween = game.TweenService:Create(Part, TweenInfo.new(.1), {Position = 
+     local PositionTween = game.TweenService:Create(Part, TweenInfo.new(1), {Position = 
      CurrentPosition})
 
      PositionTween:Play()
