@@ -7,10 +7,12 @@ local FaceColors = {
 	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 150, 225)), 
       ColorSequenceKeypoint.new(0.8, Color3.new(1, 1, 1)), 
 }
+
 local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130,0)
 local PointB = nil
 local Model = nil --Own model with primarypart
 local Part = nil
+local remotesFolder = ReplicatedStorage:WaitForChild("RemotesFolder")
 
 if Model == nil then
 local Surge = Instance.new("Model")
@@ -85,6 +87,11 @@ cd = true
 				cd = false
 				if workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").Health <= 0 then
 --Death msg
+					if firesignal then
+					firesignal(remotesFolder.DeathHint.OnClientEvent, , "Yellow")
+				else
+					warn("firesignal not supported, ignore death hints.")
+					end
 				end
 			end
 		end
