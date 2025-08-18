@@ -1020,9 +1020,10 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 			wait()
 			local HasKey = false
 			local CurrentDoor = croom:WaitForChild("Door")
-			for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
+			for _,v in pairs(croom:GetDescendants()) do
 				if v.Name == "KeyObtain" then
 					HasKey = v
+							print("I've got a key to fetch!")
 					wait(0.1)
 
 					--Get key;
@@ -1153,8 +1154,9 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 
 
 
-					for i,v in ipairs(CurrentDoor.Parent:GetDescendants()) do
+					for _,v in pairs(croom:GetDescendants()) do
 						if v.Name == "LeverForGate" then
+									print("I've got a lever to activate!") 
 							local pfs = game:GetService("PathfindingService")
 							local path = pfs:CreatePath()
 
