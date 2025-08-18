@@ -124,15 +124,17 @@ local cosd = coroutine.create(function()
 			if MagnitudeS < 10 and cd == false and workspace:FindFirstChild(game.Players.LocalPlayer.Name):GetAttribute("Hiding") == false then 
 cd = true
 				workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").Health -= 40
-				wait(0.5)
+				wait(0.4)
 				cd = false
+				wait(0.1)
 				if workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").Health <= 0 then
 --Death msg
 					if firesignal then
-					firesignal(remotesFolder.DeathHint.OnClientEvent, , "Yellow")
+					firesignal(remotesFolder.DeathHint.OnClientEvent, {"Hmm. What was it this time?", "You've died to what I call Surge.","What did it feel like? All the electricity in your body?","...Probably not great.", "You can do this. I believe in you.", "I'll see you next time. Right?" } , "Yellow")
 				else
 					warn("firesignal not supported, ignore death hints.")
 					end
+					cd=true
 				end
 			end
 		end
