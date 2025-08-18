@@ -1,5 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
-local SurgeFaceBase = LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F1.png") 
+local SurgeFaces = {LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F1.png"), LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F2.png"), LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F3.png") } 
 local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130,0)
 local PointB = nil
 local Part = nil --Own model with primarypart
@@ -18,11 +18,11 @@ local SurgeRemake = Instance.new("Model")
       FaceAtt.Name = "Face" 
       local Face = Instance.new("ParticleEmitter") 
       Face.Parent = FaceAtt
-      Face.Texture = SurgeFaceBase
+      Face.Texture = SurgeFaces[1]
       Face.Speed = 0
       Face.Lifetime = 0.1
       Face.Rate = 50
-      
+      Face.
 end
 
 local Magnitude = (PointA - PointB).Magnitude
