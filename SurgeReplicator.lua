@@ -53,7 +53,12 @@ else
 end
 local effectui=Instance.new("ScreenGui")
 local effectil = Instance.new("ImageLabel")
-
+effectil.Image = SurgeEffect 
+effectui.Name = "SurgeEffectUi" 
+effectil.Parent = effectui
+effectil.Size = UDim2.new(1, 0,1, 0) 
+effectil.Transparency = 1
+effectui.Parent = game.Players.LocalPlayer.PlayerGui
 local cosf = coroutine.create(function()
 				while wait(0.1) do
 						
@@ -75,8 +80,8 @@ local cose = coroutine.create(function()
 					while task.wait() do
 							
 						local MagnitudeS = (PointA - Part).Magnitude
-if Magnitude < 101 then 
-
+if MagnitudeS < 101 then 
+effectil.Transparency = MagnitudeS/10
 			end
 		end
 
