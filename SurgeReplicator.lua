@@ -73,13 +73,29 @@ Model.SurgeMain.FaceAtt.Face.Texture = SurgeFaces[i]
 			end)
 	
 					coroutine.resume(cosf)
+local cosd = coroutine.create(function()
+				while wait(0.1) do
+						
+					local MagnitudeS = (workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position - Part.Position).Magnitude
+ local cd = false
+			if MagnitudeS < 10 and cd == false and workspace:FindFirstChild(game.Players.LocalPlayer.Name):GetAttribute("Hiding") == false then 
+cd = true
+				workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").Health -= 40
+				wait(0.5)
+				cd = false
+			end
+		end
+
+			end)
+	
+					coroutine.resume(cosd)
 
 local cose = coroutine.create(function()
 			
 						
 					while task.wait() do
 							
-						local MagnitudeS = (PointA - Part).Magnitude
+						local MagnitudeS = (workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart") - Part.Position).Magnitude
 if MagnitudeS < 101 then 
 effectil.Transparency = MagnitudeS/10
 			end
