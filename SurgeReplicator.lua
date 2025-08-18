@@ -1,16 +1,18 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local SurgeFaces = {LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F1.png"), LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F2.png"), LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_F3.png") }
+local SurgeEffect = LoadCustomAsset("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Surge_Effect%20(1).png")
 local FaceColors = {
 	ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)), 
-	ColorSequenceKeypoint.new(0.25, Color3.new(1, 0.5, 0)),
-	ColorSequenceKeypoint.new(0.5, Color3.new(0, 1, 2)), 
+	ColorSequenceKeypoint.new(0.25, Color3.fromRGB(255,255 , 224)),
+	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 150, 225)), 
       ColorSequenceKeypoint.new(0.8, Color3.new(1, 1, 1)), 
 }
 local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130,0)
 local PointB = nil
-local Part = nil --Own model with primarypart
+local Model = nil --Own model with primarypart
+local Part = nil
 
-if Part == nil then
+if Model == nil then
 local Surge = Instance.new("Model")
       Surge.Name = "Surge" 
       local main = Instance.new("Part") 
@@ -38,7 +40,16 @@ local Surge = Instance.new("Model")
       Face.Color = ColorSequence.new(FaceColors) 
       local light = Instance.new("PointLight")
       light.Parent = FaceAtt
-      light.Color
+      light Color = Color3.fromRGB(255,255,224)
+	light Shadows = true
+	Surge.PrimaryPart = main
+	light.Range = 25
+	Part = main
+	Model = Surge
+	Model.Parent = workspace
+else
+	Model.Parent = workspace
+	Part = Model.PrimaryPart
 end
 
 local Magnitude = (PointA - PointB).Magnitude
@@ -56,7 +67,7 @@ local function QuadBezier (StartPosition, MidPosition, EndPosition, Offset)
 
        return QuadBezier
 end
-
+for Index = 1, math.random(3,7) do
 for Index = 1, 10 do
      local CurrentPosition = QuadBezier(PointA, MidPosition, PointB, Index / 10)
 
@@ -65,4 +76,5 @@ for Index = 1, 10 do
 
      PositionTween:Play()
      PositionTween.Completed:Wait()
+end
 end
