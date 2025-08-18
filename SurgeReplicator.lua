@@ -22,7 +22,7 @@ local SurgeRemake = Instance.new("Model")
       Face.Speed = 0
       Face.Lifetime = 0.1
       Face.Rate = 50
-      Face.
+      Face.Rotation = 15,-15
 end
 
 local Magnitude = (PointA - PointB).Magnitude
