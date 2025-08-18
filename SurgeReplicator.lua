@@ -1,6 +1,12 @@
 local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,100,0)
 local PointB = nil
-local Part = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position
+local Part = nil --Own model with primarypart
+
+if Part == nil then
+local SurgeRemake = Instance.new("Model")
+      local main = Instance.new("Part") 
+      main.Parent = SurgeRemake
+end
 
 local Magnitude = (PointA - PointB).Magnitude
 
