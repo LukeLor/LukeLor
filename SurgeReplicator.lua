@@ -83,6 +83,9 @@ cd = true
 				workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").Health -= 40
 				wait(0.5)
 				cd = false
+				if workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").Health <= 0 then
+--Death msg
+				end
 			end
 		end
 
