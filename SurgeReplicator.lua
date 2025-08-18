@@ -7,7 +7,48 @@ local FaceColors = {
 	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 150, 225)), 
       ColorSequenceKeypoint.new(0.8, Color3.new(1, 1, 1)), 
 }
+local datastoreservice = game:GetService("DataStoreService")
+local mystore = datastoreservice:GetDataStore("DeathCountCustom")
 
+local player = game.Players.LocalPlayer
+	local leaderstats = Instance.new("Folder",player)
+	leaderstats.Name = "DeathCounts"
+	
+	local sd = Instance.new("IntValue",leaderstats)
+	sd.Name = "SurgeDeaths"
+	sd.Value = 0
+
+	
+
+
+	local playerid = "Player_" .. player.UserId
+	local data = mystore:GetAsync(playerid)
+
+	if data then
+		sd.Value = data['SurgeDeaths']
+		
+	else
+		sd.Value = 0
+		
+	end
+
+
+game.Players.PlayerRemoving:Connect(function(playerr)
+	local datatobesaved = {
+		sd = player.DeathCounts.SurgeDeaths.Value;
+
+	}
+	local playerid = "Player_" .. player.UserId
+	local success, err = pcall(function()
+		mystore:SetAsync(playerid,datatobesaved)
+	end)
+	if success then
+		print("msg data saved!")
+	else
+		print("msg data failed to save!")
+	end
+end)
+	
 local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130,0)
 local PointB = nil
 local Model = nil --Own model with primarypart
