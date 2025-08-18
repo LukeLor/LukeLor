@@ -51,6 +51,38 @@ else
 	Model.Parent = workspace
 	Part = Model.PrimaryPart
 end
+local effectui=Instance.new("ScreenGui")
+local effectil = Instance.new("ImageLabel")
+
+local cosf = coroutine.create(function()
+				while wait(0.1) do
+						
+					for i=1,3 do
+if Model.Name == "Surge" then
+Model.SurgeMain.FaceAtt.Face.Texture = SurgeFaces[i] 
+					wait(0.1)
+				end
+			end
+		end
+
+			end)
+	
+					coroutine.resume(cosf)
+
+local cose = coroutine.create(function()
+			
+						
+					while task.wait() do
+							
+						local MagnitudeS = (PointA - Part).Magnitude
+if Magnitude < 101 then 
+
+			end
+		end
+
+			end)
+	
+					coroutine.resume(cose)
 
 local Magnitude = (PointA - PointB).Magnitude
 
@@ -76,5 +108,7 @@ for Index = 1, 10 do
 
      PositionTween:Play()
      PositionTween.Completed:Wait()
+		PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position
+
 end
 end
