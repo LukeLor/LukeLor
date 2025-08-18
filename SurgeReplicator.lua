@@ -1,4 +1,6 @@
-local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,100,0)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+local SurgeFaceBase = LoadCustomAsset(
+local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130,0)
 local PointB = nil
 local Part = nil --Own model with primarypart
 
@@ -6,6 +8,17 @@ if Part == nil then
 local SurgeRemake = Instance.new("Model")
       local main = Instance.new("Part") 
       main.Parent = SurgeRemake
+      main.Anchored = true
+      main.Shape = Enum.PartType.Ball
+      main.Size = Vector3.new(3,3,3)
+      main.Transparency = 1
+      main.Name = "SurgeMain"
+      local FaceAtt = Instance.new("Attachment")
+      FaceAtt.Parent = main
+      FaceAtt.Name = "Face" 
+      local Face = Instance.new("ParticleEmitter") 
+      Face.Parent = FaceAtt
+      Face.Texture = 
 end
 
 local Magnitude = (PointA - PointB).Magnitude
