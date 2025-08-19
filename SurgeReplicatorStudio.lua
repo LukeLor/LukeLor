@@ -1,7 +1,7 @@
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
-	local SurgeFaces = {"rbxassetid://127607784059365" }
-	local SurgeEffect = "rbxassetid://140496260994883"
+	local SurgeFaces = {"rbxassetid://118873055196420", "rbxassetid://134903720492948", "rbxassetid://132882139467436"}
+	local SurgeEffect = "rbxassetid://87098132980397"
 	local start = Instance.new("Part")
 	start.Size=Vector3.new(1,1,1)
 	start.Transparency =1
