@@ -50,7 +50,8 @@ game.Players.PlayerRemoving:Connect(function(playerr)
 end)
 	
 local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130,0)
-local PointB = nil
+local PointB = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position
+
 local Model = nil --Own model with primarypart
 local Part = nil
 local remotesFolder = ReplicatedStorage:WaitForChild("RemotesFolder")
@@ -67,7 +68,7 @@ local Surge = Instance.new("Model")
       main.Name = "SurgeMain"
       local FaceAtt = Instance.new("Attachment")
       FaceAtt.Parent = main
-      FaceAtt.Name = "FaceAtt"
+      FaceAtt.Name = "FaceAt"
       FaceAtt.Position = Vector3.new(0,0,0)
       FaceAtt.WorldPosition = main.Position
       local Face = Instance.new("ParticleEmitter") 
@@ -211,6 +212,8 @@ for Index = 1, 10 do
      
 		PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position
 partforlerp:Destroy() 
+		PointB = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(math.random(5,20),math.random(5,20), math.random(5,20)) 
+
 end
 end
 local partforlerp = Instance.new("Part")
