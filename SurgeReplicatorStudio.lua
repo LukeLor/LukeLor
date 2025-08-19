@@ -1,4 +1,4 @@
---loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
 	local SurgeFaces = {"rbxassetid://118873055196420", "rbxassetid://134903720492948", "rbxassetid://132882139467436"}
 	local SurgeEffect = "rbxassetid://87098132980397"
@@ -24,7 +24,7 @@
 	main.Position = PointB
 	local Model = nil --Own model with primarypart
 	local Part = nil
-	--local remotesFolder = ReplicatedStorage:WaitForChild("RemotesFolder")
+	local remotesFolder = ReplicatedStorage:WaitForChild("RemotesFolder")
 
 	if Model == nil then
 		local Surge = Instance.new("Model")
@@ -59,6 +59,7 @@
 		light.Shadows = true
 		Surge.PrimaryPart = main
 		light.Range = 25
+	light.Brightness = 20
 		Part = main
 		Model = Surge
 		Model.Parent = workspace
@@ -103,11 +104,11 @@
 				wait(0.1)
 				if workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").Health <= 0 then
 					--Death msg
-			--[[	if firesignal then
+				if firesignal then
 					firesignal(remotesFolder.DeathHint.OnClientEvent, {"Hmm. What was it this time?", "You've died to what I call Surge.","What did it feel like? All the electricity in your body?","...Probably not great.", "You can do this. I believe in you.", "I'll see you next time. Right?" } , "Yellow")
 				else
 					warn("firesignal not supported, ignore death hints.")
-				end]]
+				end
 					cd=true
 				end
 			end
@@ -123,8 +124,8 @@
 		while task.wait() do
 
 			local MagnitudeS = (workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position - Part.Position).Magnitude
-			if MagnitudeS < 101 then 
-				effectil.ImageTransparency = MagnitudeS/10
+			if MagnitudeS < 131 then 
+				effectil.ImageTransparency = MagnitudeS/13
 			end
 		end
 
