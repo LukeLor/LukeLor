@@ -54,7 +54,7 @@ local PointB = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForCh
 
 local Model = nil --Own model with primarypart
 local Part = nil
-local remotesFolder = ReplicatedStorage:WaitForChild("RemotesFolder")
+local remotesFolder = game.ReplicatedStorage:WaitForChild("RemotesFolder")
 
 if Model == nil then
 local Surge = Instance.new("Model")
