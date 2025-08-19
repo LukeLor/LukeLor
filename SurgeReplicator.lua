@@ -102,6 +102,7 @@ effectil.Parent = effectui
 effectil.Size = UDim2.new(1, 0,1, 0) 
 effectil.Transparency = 1
 effectui.Parent = game.Players.LocalPlayer.PlayerGui
+effectil.AnchorPoint = Vector2.new(0,0)
 local cosf = coroutine.create(function()
 				while wait(0.1) do
 						
@@ -162,6 +163,31 @@ local Magnitude = (PointA - PointB).Magnitude
 
 local MidPosition = CFrame.new(PointA, PointB) * CFrame.new(0, 0, -Magnitude) * CFrame.new(-math.random(Magnitude / 2), math.random(Magnitude / 2)).Position
 
+LerpTo = function(model, target)
+	local alpha = 0
+	local speed = 70
+	local dist = (model.PrimaryPart.Position - target.Position).Magnitude
+	local relativeSpeed = dist / speed
+	local startCFrame = model.PrimaryPart.CFrame
+	local loop = nil
+	local reachedTarget = Instance.new("BindableEvent")
+
+	loop = game:GetService("RunService").Heartbeat:Connect(function(delta)
+
+
+		local goalCFrame = startCFrame:Lerp(target.CFrame, alpha)
+		model:PivotTo(goalCFrame)
+		alpha += delta / relativeSpeed
+		if alpha >= 1 then
+			loop:Disconnect()
+			reachedTarget:Fire()
+		end
+	end)
+
+	reachedTarget.Event:Wait()
+
+end
+
 local function Lerp(a, b, c)
       return a + (b - a) * c
 end
@@ -177,12 +203,20 @@ for Index = 1, math.random(3,7) do
 for Index = 1, 10 do
      local CurrentPosition = QuadBezier(PointA, MidPosition, PointB, Index / 10)
 
-     local PositionTween = game.TweenService:Create(Part, TweenInfo.new(1), {Position = 
-     CurrentPosition})
-
-     PositionTween:Play()
-     PositionTween.Completed:Wait()
+     local partforlerp = Instance.new("Part")
+		partforlerp.Size=Vector3.new(1,1,1)
+		partforlerp.Position = CurrentPosition
+		partforlerp.Transparency = 1
+		LerpTo(Model, partforlerp) 
+     
 		PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position
-
+partforlerp:Destroy() 
 end
 end
+local partforlerp = Instance.new("Part")
+		partforlerp.Size=Vector3.new(1,1,1)
+partforlerp.Transparency =1
+		partforlerp.Position = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130)
+LerpTo(Model, partforlerp)
+Model:Destroy()
+effectui:Destroy()
