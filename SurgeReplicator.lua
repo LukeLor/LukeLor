@@ -10,7 +10,7 @@ local FaceColors = {
 local datastoreservice = game:GetService("DataStoreService")
 local mystore = datastoreservice:GetDataStore("DeathCountCustom")
 
-local player = game.Players.LocalPlayer
+--[[local player = game.Players.LocalPlayer
 	local leaderstats = Instance.new("Folder",player)
 	leaderstats.Name = "DeathCounts"
 	
@@ -47,7 +47,7 @@ game.Players.PlayerRemoving:Connect(function(playerr)
 	else
 		print("msg data failed to save!")
 	end
-end)
+end)]]
 	
 local PointA = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position + Vector3.new(0,130,0)
 local PointB = workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position
@@ -74,11 +74,11 @@ local Surge = Instance.new("Model")
       local Face = Instance.new("ParticleEmitter") 
       Face.Parent = FaceAtt
       Face.Texture = SurgeFaces[1]
-      Face.Speed = 0
-      Face.Lifetime = 0.1
+      Face.Speed = NumberRange.new(0, 0)
+      Face.Lifetime = NumberRange.new(0.1, 0.1)
       Face.Rate = 50
       Face.Rotation = NumberRange.new(-15, 15) 
-      Face.RotSpeed = 0 
+      Face.RotSpeed = NumberRange.new(0, 0)
       Face.Name = "Face" 
       Face.Size = 2.56
       Face.Color = ColorSequence.new(FaceColors) 
