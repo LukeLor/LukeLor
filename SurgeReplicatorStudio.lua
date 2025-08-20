@@ -1,6 +1,12 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
-
-	local SurgeFaces = {"rbxassetid://118873055196420", "rbxassetid://134903720492948", "rbxassetid://132882139467436"}
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+while wait(2) do
+	local surgewarning = Instance.new("Sound")
+	surgewarning.Name = "SurgeIncoming"
+	surgewarning.Parent = workspace
+	surgewarning.SoundId = "rbxassetid://84067456965325"
+	surgewarning:Play()
+	wait(4)
+	local SurgeFaces = {"rbxassetid://118873055196420", "rbxassetid://134903720492948","rbxassetid://132882139467436" }
 	local SurgeEffect = "rbxassetid://87098132980397"
 	local start = Instance.new("Part")
 	start.Size=Vector3.new(1,1,1)
@@ -22,9 +28,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 
 	main.Transparency =1
 	main.Position = PointB
-	local Model = nil --Own model with primarypart
+	local Model = workspace:WaitForChild("Surge"):Clone() --Own model with primarypart
 	local Part = nil
-	local remotesFolder = ReplicatedStorage:WaitForChild("RemotesFolder")
+	--local remotesFolder = ReplicatedStorage:WaitForChild("RemotesFolder")
 
 	if Model == nil then
 		local Surge = Instance.new("Model")
@@ -59,7 +65,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 		light.Shadows = true
 		Surge.PrimaryPart = main
 		light.Range = 25
-	light.Brightness = 20
 		Part = main
 		Model = Surge
 		Model.Parent = workspace
@@ -80,7 +85,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 	local cosf = coroutine.create(function()
 		while wait(0.1) do
 
-			for i=1, 1 do
+			for i=1, 3 do
 				if Model.Name == "Surge" then
 					Model.SurgeMain.FaceAt.Face.Texture = SurgeFaces[i] 
 					wait(0.1)
@@ -104,11 +109,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 				wait(0.1)
 				if workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").Health <= 0 then
 					--Death msg
-				if firesignal then
+			--[[	if firesignal then
 					firesignal(remotesFolder.DeathHint.OnClientEvent, {"Hmm. What was it this time?", "You've died to what I call Surge.","What did it feel like? All the electricity in your body?","...Probably not great.", "You can do this. I believe in you.", "I'll see you next time. Right?" } , "Yellow")
 				else
 					warn("firesignal not supported, ignore death hints.")
-				end
+				end]]
 					cd=true
 				end
 			end
@@ -124,25 +129,26 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 		while task.wait() do
 
 			local MagnitudeS = (workspace:FindFirstChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").Position - Part.Position).Magnitude
-			if MagnitudeS < 131 then 
-				effectil.ImageTransparency = MagnitudeS/13
+			if MagnitudeS < 101 then 
+				effectil.ImageTransparency = MagnitudeS/10
 			end
 		end
 
 	end)
 
 	coroutine.resume(cose)
-
 	local Magnitude = (PointA - PointB).Magnitude
 	print(Magnitude)
 	print(PointA)
 	print(PointB)
 	wait(0.1)
 	--local MidPosition = CFrame.new(PointA, PointB) * CFrame.new(0, 0, -Magnitude) * CFrame.new(-math.random(Magnitude / 2), math.random(Magnitude / 2)).Position
-
+if Model.Name == "Surge" then
+	Model.AnimationController:LoadAnimation(Model.Animation.Atk):Play()
+end
 	LerpTo = function(model, target)
 		local alpha = 0
-		local speed = 100
+		local speed = 65
 		local dist = (model.PrimaryPart.Position - target.Position).Magnitude
 		local relativeSpeed = dist / speed
 		local startCFrame = model.PrimaryPart.CFrame
@@ -195,6 +201,9 @@ LerpTo(Model, partaround)
 		end
 		LerpTo(Model, from)
 	end
+	if Model.Name == "Surge" then
+		Model.AnimationController:LoadAnimation(Model.Animation.Leave):Play()
+	end
 	local partforlerp = Instance.new("Part")
 	partforlerp.Size=Vector3.new(1,1,1)
 	partforlerp.Transparency =1
@@ -202,3 +211,4 @@ LerpTo(Model, partaround)
 	LerpTo(Model, partforlerp)
 	Model:Destroy()
 	effectui:Destroy()
+end
