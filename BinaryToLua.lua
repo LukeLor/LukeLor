@@ -1,3 +1,4 @@
+
 local CharToBinary = {
   [" "] = "00100000",
   ["!"] = "00100001",
@@ -192,4 +193,9 @@ local BinaryToChar = {
   ["01111101"] = "}",
   ["01111110"] = "~"
 }
-
+local function Encode(Text, Type)
+if Type == "Binary" then
+local storedtexttolua = nil
+    
+  end
+end
