@@ -195,6 +195,10 @@ local BinaryToChar = {
 }
 
 local function Encode(Text, Type)
+  if Type == nil then
+print("Type is nil, returning text.")
+        return Text
+  end
   local usedtable
 if Type == "Binary" then
 
@@ -241,6 +245,10 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
 end
 
     local function Decode(Text, Type)
+      if Type == nil then
+print("Type is nil, returning text.")
+        return Text
+      end
   local usedtable
 if Type == "Binary" then
 
@@ -285,12 +293,3 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
   end
     return tostring(result)
         end
-        
-  local BE =  Encode("011101000110010101110011011101000","Binary")
-  print(BE)
-  local LE =  Encode("print(\"Hi I'm getting tested\")","Lua")
-  print(LE)
-    local BD = Decode(BE, "Binary")
-        print(BD)
-local LD = Decode(LE, "Lua")
-        print(LD)
