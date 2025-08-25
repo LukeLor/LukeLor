@@ -1,4 +1,6 @@
 --NOT MINE
+local Converter = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/BinaryToTextModule.lua"))()
+
 local SyncHelper = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Utility/SyncHelper.lua"))()
 local SyncSeed = SyncHelper:returnSeed()
 local SyncRandom = Random.new(SyncSeed)
