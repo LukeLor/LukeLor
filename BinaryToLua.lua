@@ -199,7 +199,7 @@ if Type == "Binary" then
 local storedtexttolua = nil
     local newtext
     usedtable = BinaryToChar
-    for i = 1, #Text, 8 do
+    for i = 0, #Text, 8 do
       
 storedtexttolua = usedtable[i]
       
@@ -209,7 +209,7 @@ storedtexttolua = usedtable[i]
     if Type == "Lua" then
 local storedtexttobinary = nil
     usedtable = CharToBinary
-    for i = 1, #Text do
+    for i = 0, #Text do
       
 storedtexttobinary = usedtable[i]
       
