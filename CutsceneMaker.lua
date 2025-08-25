@@ -83,9 +83,18 @@ sound.Parent = Parent
   end
 
   module.SyncAnimationEvent = function(Animation, SignalName, WhatToDo)
+		if Animation and SignalName then
 Animation:GetMarkerReachedSignal(SignalName):Connect(function(...)
+					if WhatToDo then
 	WhatToDo()
+					else
+						print("Nothing is available.")
+					end
 end)
+				
+		else
+			warn("Invalid Animation and or SignalName. SyncAnimationEvent uses: (Animation, SignalName,WhatToDo). WhatToDo is optional.")
+		end
   end
 
   
