@@ -54,6 +54,7 @@ end
 end
 
 module.PlayAnimation = function(Rig, Animation)
+  if Rig and Animation then
 if Animation:IsA("String") then
 local animationtrack = Instance.new("Animation")
     animationtrack.Parent = Rig
@@ -61,7 +62,10 @@ local animationtrack = Instance.new("Animation")
     Animation = animationtrack
   end
   local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
-  player:LoadAnimation(Animation)
+  player:LoadAnimation(Animation):Play
+  else
+    warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, Animation)."
+  end
 end
 
 return module 
