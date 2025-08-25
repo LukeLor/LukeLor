@@ -37,9 +37,11 @@ game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(ti
   end
     end
 
-module.CreateScene = function()
-
-  
+module.CreateScene = function(...)
+local instructions = table.pack(...)
+for _, instruction in instructions do
+instruction
+  end
 end
 
 
