@@ -197,6 +197,7 @@ local function Encode(Text, Type)
   local usedtable
 if Type == "Binary" then
 local storedtexttolua = nil
+    local newtext
     usedtable = BinaryToChar
     for i = 1, #Text, 8 do
       
@@ -217,27 +218,3 @@ storedtexttobinary = usedtable[i]
       end
 end
     
-local function Decode(Text, Type)
-  local usedtable
-if Type == "Binary" then
-local storedtexttolua = nil
-    usedtable = BinaryToChar
-    for i = 1, #Text, 8 do
-      
-storedtexttolua = usedtable[i]
-      
-    end
-    print("Decoded and came up with result of: "..tostring(storedtexttolua)
-  end
-    if Type == "Lua" then
-local storedtexttobinary = nil
-    usedtable = CharToBinary
-    for i = 1, #Text do
-      
-storedtexttobinary = usedtable[i]
-      
-    end
-    print("Decoded and came up with result of: "..tostring(storedtexttobinary)
-      end
-        end
-        
