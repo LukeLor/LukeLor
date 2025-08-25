@@ -68,4 +68,17 @@ local animationtrack = Instance.new("Animation")
   end
 end
 
-return module 
+
+module.PlaySound = function(SoundId, Parent)
+local sound = Instance.new("Sound") 
+    sound.SoundId = SoundId
+    if Parent then
+sound.Parent = Parent
+      else 
+      sound.Parent = workspace
+    end
+    sound:Play()
+  end
+
+  
+    return module 
