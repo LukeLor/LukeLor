@@ -220,7 +220,7 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
     --print("Came up with result of: "..tostring(result))
       
   end
-    return result
+    return tostring(result)
   
     if string.lower(Type) == "text" then
 usedtable = CharToBinary
@@ -241,7 +241,7 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
     --print("Came up with result of: "..tostring(result))
       
   end
-    return result
+    return tostring(result)
 end
 
     return module
