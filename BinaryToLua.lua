@@ -200,9 +200,8 @@ local storedtexttolua
     local newtext
     usedtable = BinaryToChar
     for i = 1, #Text, 8 do
-      
-storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
-      
+  local chunk = string.sub(Text, i, i + 7)
+  storedtexttolua = storedtexttolua .. (usedtable[chunk] or "?")
     end
     print("Came up with result of: "..tostring(storedtexttolua))
   end
