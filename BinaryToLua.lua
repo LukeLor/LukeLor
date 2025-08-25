@@ -226,4 +226,4 @@ storedtexttobinary = usedtable[i]
     print("Came up with result of: "..tostring(storedtexttobinary))
       end
 end
-    Encode("011101000110010101110011","Binary")
+    Encode("011101000110010101110011011101000","Binary")
