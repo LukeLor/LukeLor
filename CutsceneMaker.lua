@@ -47,7 +47,7 @@ module.CreateScene = function(...)
 local instructions = table.pack(...)
 end
 
-module.PlayScene(Scene)
+module.PlayScene = function(Scene)
 for inum, instruction in Scene do
 Scene[inum]()
 end
