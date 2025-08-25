@@ -1,4 +1,7 @@
 --NOT MINE
+local captions = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaptionDoorsSource.lua"))()
+
+
 local Converter = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/BinaryToTextModule.lua"))()
 
 local SyncHelper = loadstring(game:HttpGet("https://raw.githubusercontent.com/ChronoAcceleration/Comet-Development/refs/heads/main/Doors/Utility/SyncHelper.lua"))()
@@ -70,15 +73,8 @@ function LoadPaintingTableOnPainting(PaintingModel, PaintingTable)
     NewPrompt.Parent = PaintingModel
     NewPrompt.Triggered:Connect(function()
         MainUI:FindFirstChild("LiveCaption"):Destroy()
-        local CaptionFrame = MainUI.MainFrame.Caption:Clone()
-        CaptionFrame.Name = "LiveCaption"
-        CaptionFrame.Visible = true
-        CaptionFrame.Text = PaintingTable.PaintingMessage
-        CaptionFrame.Parent = MainUI
-        game:GetService("TweenService"):Create(CaptionFrame, TweenInfo.new(PaintingTable.PaintingMessageDuration, Enum.EasingStyle.Exponential, Enum.EasingDirection.In), {BackgroundTransparency = 1, TextTransparency = 1, TextStrokeTransparency = 2}):Play()
-        game:GetService("TweenService"):Create(CaptionFrame, TweenInfo.new(1.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.new(0, 0, 0)}):Play()
-        game.Debris:AddItem(CaptionFrame, PaintingTable.PaintingMessageDuration + 10)
-    end)
+            captions.TypeCaption(PaintingTable.PaintingMessage)
+            end)
     Prompt:Destroy()
 end
 
