@@ -14,7 +14,7 @@ local ImageType = Enum.ThumbnailType.HeadShot -- Thumbnail Type
 
 local content = game.Players:GetUserThumbnailAsync(Player.UserId, ImageType, ImageSize) -- Gets Image from UserId
 
-ImageLabel.Image = content -- Inserts Image
+
 
 local PaintingNames = {"Painting_Small", "Painting_Big", "Painting_VeryBig", "Painting_Tall"}
 local Paintings = {
@@ -23,7 +23,7 @@ local Paintings = {
         CanBeOn = {"Painting_Tall"},
         PaintingMessage = 'It is you!',
         PaintingMessageDuration = 5,
-        PaintingImage = "https://github.com/Focuslol666/RbxScripts/raw/main/DOORS/MyScript/Other/LavenderCat.png",
+        PaintingImage = content,
         Weight = 0.00000235
     },
     {
