@@ -7,6 +7,14 @@ local SyncRandom = Random.new(SyncSeed)
 
 local Player = game:GetService("Players").LocalPlayer
 local MainUI = Player.PlayerGui.MainUI.MainFrame
+local Player = game.Players.LocalPlayer
+
+local ImageSize = Enum.ThumbnailSize.Size420x420 -- Thumbnail Size
+local ImageType = Enum.ThumbnailType.HeadShot -- Thumbnail Type
+
+local content = game.Players:GetUserThumbnailAsync(Player.UserId, ImageType, ImageSize) -- Gets Image from UserId
+
+ImageLabel.Image = content -- Inserts Image
 
 local PaintingNames = {"Painting_Small", "Painting_Big", "Painting_VeryBig", "Painting_Tall"}
 local Paintings = {
