@@ -201,7 +201,7 @@ local storedtexttolua = nil
     usedtable = BinaryToChar
     for i = 0, #Text, 8 do
       
-storedtexttolua = usedtable[i]
+storedtexttolua = tostring(usedtable[i])
       
     end
     print("Came up with result of: "..tostring(storedtexttolua))
