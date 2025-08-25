@@ -194,11 +194,25 @@ local BinaryToChar = {
   ["01111110"] = "~"
 }
 local function Encode(Text, Type)
+  local usedtable
 if Type == "Binary" then
 local storedtexttolua = nil
-    local usedtable = BinaryToChar
+    usedtable = BinaryToChar
     for i = 1, #Text, 8 do
-storedtexttolua = 
+      
+storedtexttolua = usedtable[i]
+      
     end
+    print("Came up with result of: "..tostring(storedtexttolua)
   end
+    if Type == "Lua" then
+local storedtexttobinary = nil
+    usedtable = CharToBinary
+    for i = 1, #Text do
+      
+storedtexttobinary = usedtable[i]
+      
+    end
+    print("Came up with result of: "..tostring(storedtexttobinary)
+      end
 end
