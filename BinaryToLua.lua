@@ -241,6 +241,6 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
 end
   local BE =  Encode("011101000110010101110011011101000","Binary")
   print(BE)
-    local LE =  Encode("print(\"Hi I'm getting tested\"","Lua")
+  local LE =  Encode("print(\"Hi I'm getting tested\")","Lua")
   print(LE)
     
