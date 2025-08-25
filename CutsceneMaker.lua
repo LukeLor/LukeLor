@@ -5,32 +5,38 @@ module.CamTo = function(destination, time, style, direction)
   if destination and time and not style and not direction then
     if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") then
 game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time), {CFrame = destination.CFrame}):Play()
+        task.wait(time)
     end
   end
   if destination and time and not style and not direction then
     if destination:IsA("CFrame")  then
 game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time), {CFrame = destination}):Play()
-    end
+    task.wait(time)
+      end
   end
   if destination and time and  style and not direction then
     if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") then
 game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time, style), {CFrame = destination.CFrame}):Play()
-    end
+  task.wait(time)
+      end
   end
   if destination and time and  style and not direction then
     if destination:IsA("CFrame")  then
 game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time, style), {CFrame = destination}):Play()
-    end
+  task.wait(time)
+      end
   end
   if destination and time and  style and  direction then
     if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") then
 game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time, style,direction), {CFrame = destination.CFrame}):Play()
-    end
+   task.wait(time)
+      end
   end
   if destination and time and  style and  direction then
     if destination:IsA("CFrame")  then
 game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time, style, direction), {CFrame = destination}):Play()
-    end
+  task.wait(time)
+      end
   end
   else
     warn("Invalid time and or destination. CamTo uses: (destination,time, style, direction). Style and Direction are optional.")
@@ -39,9 +45,12 @@ game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(ti
 
 module.CreateScene = function(...)
 local instructions = table.pack(...)
-for _, instruction in instructions do
-instruction
-  end
+end
+
+module.PlayScene(Scene)
+for inum, instruction in Scene do
+Scene[inum]()
+end
 end
 
 
