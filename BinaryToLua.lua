@@ -239,8 +239,56 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
   end
     return tostring(result)
 end
+
+    local function Decode(Text, Type)
+  local usedtable
+if Type == "Binary" then
+
+    usedtable = CharToBinary
+    --[[for i = 1, #Text, 8 do
+
+storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
+
+    end]]
+    local result = ""
+    for i = 1, #Text, 8 do
+      local chunk = string.sub(Text, i, i+7)
+      local char = usedtable[chunk]
+      if not char then
+        result = result .. "?"
+      else
+        result = result .. char
+      end
+    --print("Came up with result of: "..tostring(result))
+      
+  end
+    return tostring(result)
+  
+    if Type == "Lua" then
+usedtable = CharToBinary
+    --[[for i = 1, #Text, 8 do
+
+storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
+
+    end]]
+    local result = ""
+    for i = 1, #Text do
+      local chunk = string.sub(Text, i, 1)
+      local char = usedtable[chunk]
+      if not char then
+        result = result .. "?"
+      else
+        result = result .. char
+      end
+    --print("Came up with result of: "..tostring(result))
+      
+  end
+    return tostring(result)
+        end
+        
   local BE =  Encode("011101000110010101110011011101000","Binary")
   print(BE)
   local LE =  Encode("print(\"Hi I'm getting tested\")","Lua")
   print(LE)
-    
+    local BD = Decode(BE)
+        print(BD)
