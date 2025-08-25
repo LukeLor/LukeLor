@@ -251,8 +251,8 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
 
     end]]
     local result = ""
-    for i = 1, #Text, 8 do
-      local chunk = string.sub(Text, i, i+7)
+    for i = 1, #Text do
+      local chunk = string.sub(Text, 1, i)
       local char = usedtable[chunk]
       if not char then
         result = result .. "?"
