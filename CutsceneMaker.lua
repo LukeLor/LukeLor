@@ -38,6 +38,24 @@ game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(ti
   task.wait(time)
       end
   end
+		if destination and time and not style and not direction then
+    if destination:IsA("Attachment") then
+game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time), {CFrame = destination.WorldCFrame}):Play()
+        task.wait(time)
+    end
+		end
+		if destination and time and  style and not direction then
+    if destination:IsA("Attachment") then
+game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time, style), {CFrame = destination.WorldCFrame}):Play()
+        task.wait(time)
+    end
+		end
+		if destination and time and  style and  direction then
+    if destination:IsA("Attachment") then
+game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time, style, direction), {CFrame = destination.WorldCFrame}):Play()
+        task.wait(time)
+    end
+		end
   else
     warn("Invalid time and or destination. CamTo uses: (destination,time, style, direction). Style and Direction are optional.")
   end
