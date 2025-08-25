@@ -82,8 +82,10 @@ sound.Parent = Parent
     sound:Play()
   end
 
-  module.SyncAnimationEvent = function(Animation, SignalName)
-
+  module.SyncAnimationEvent = function(Animation, SignalName, WhatToDo)
+Animation:GetMarkerReachedSignal(SignalName):Connect(function(...)
+	WhatToDo()
+end)
   end
 
   
