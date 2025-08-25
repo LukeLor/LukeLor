@@ -20,18 +20,18 @@ local PaintingNames = {"Painting_Small", "Painting_Big", "Painting_VeryBig", "Pa
 local Paintings = {
     {
         ID = "Yourself",
-        CanBeOn = {"Painting_Tall"},
+        CanBeOn = {"Painting_Small","Painting_Big"},
         PaintingMessage = 'It is you!',
         PaintingMessageDuration = 5,
         PaintingImage = content,
         Weight = 0.00000235
     },
     {
-        ID = "BlackHole",
+        ID = "Rush",
         CanBeOn = {"Painting_Small"},
-        PaintingMessage = 'This painting seems to have signs of life...',
+        PaintingMessage = 'This seems to be something you remember.',
         PaintingMessageDuration = 5,
-        PaintingImage = "https://github.com/Focuslol666/RbxScripts/raw/main/DOORS/MyScript/Other/Void_BlackHole.png",
+        PaintingImage = "rbxassetid://131912907317839",
         Weight = 0.000235
     }
 }
