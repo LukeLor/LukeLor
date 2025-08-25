@@ -200,7 +200,7 @@ print("Type is nil, returning text.")
         return Text
   end
   local usedtable
-if Type == "Binary" then
+if string.lower(Type) == "binary" then
 
     usedtable = BinaryToChar
     --[[for i = 1, #Text, 8 do
@@ -222,7 +222,7 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
   end
     return tostring(result)
   
-    if Type == "Lua" then
+    if string.lower(Type) == "text" then
 usedtable = CharToBinary
     --[[for i = 1, #Text, 8 do
 
@@ -250,7 +250,7 @@ print("Type is nil, returning text.")
         return Text
       end
   local usedtable
-if Type == "Binary" then
+if string.lower(Type) == "binary" then
 
     usedtable = CharToBinary
     --[[for i = 1, #Text, 8 do
@@ -272,7 +272,7 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
   end
     return tostring(result)
   
-    if Type == "Lua" then
+    if string.lower(Type) == "text" then
 usedtable = BinaryToChar
     --[[for i = 1, #Text, 8 do
 
