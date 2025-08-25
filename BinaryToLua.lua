@@ -199,12 +199,20 @@ if Type == "Binary" then
 local storedtexttolua =""
     local newtext
     usedtable = BinaryToChar
-    for i = 1, #Text, 8 do
+    --[[for i = 1, #Text, 8 do
 
 storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
 
-    end
-    print("Came up with result of: "..tostring(storedtexttolua))
+    end]]
+    for i = 1, #Text, 8 do
+      local chunk = string.sub(Text, i, i+7)
+      local char = BinaryToChar[chunk]
+      if not char then
+        result = result .. "?"
+      else
+        result = result .. char
+      end
+    print("Came up with result of: "..tostring(result))
   end
     if Type == "Lua" then
 local storedtexttobinary = nil
