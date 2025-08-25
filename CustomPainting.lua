@@ -11,9 +11,9 @@ local MainUI = Player.PlayerGui.MainUI.MainFrame
 local PaintingNames = {"Painting_Small", "Painting_Big", "Painting_VeryBig", "Painting_Tall"}
 local Paintings = {
     {
-        ID = "Lavender",
+        ID = "Yourself",
         CanBeOn = {"Painting_Tall"},
-        PaintingMessage = 'This painting is titled "Lavender Cat".',
+        PaintingMessage = 'It is you!',
         PaintingMessageDuration = 5,
         PaintingImage = "https://github.com/Focuslol666/RbxScripts/raw/main/DOORS/MyScript/Other/LavenderCat.png",
         Weight = 0.00000235
