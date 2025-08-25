@@ -204,7 +204,7 @@ local storedtexttolua = nil
 storedtexttolua = usedtable[i]
       
     end
-    print("Came up with result of: "..tostring(storedtexttolua)
+    print("Came up with result of: "..tostring(storedtexttolua))
   end
     if Type == "Lua" then
 local storedtexttobinary = nil
@@ -214,7 +214,7 @@ local storedtexttobinary = nil
 storedtexttobinary = usedtable[i]
       
     end
-    print("Came up with result of: "..tostring(storedtexttobinary)
+    print("Came up with result of: "..tostring(storedtexttobinary))
       end
 end
     Encode("011101000110010101110011","Binary")
