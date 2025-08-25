@@ -53,18 +53,20 @@ Scene[inum]()
 end
 end
 
-module.PlayAnimation = function(Rig, Animation)
+module.PlayAnimation = function(Rig, Animation, Name)
   if Rig and Animation then
 if Animation:IsA("String") then
 local animationtrack = Instance.new("Animation")
     animationtrack.Parent = Rig
     animationtrack.AnimationId = Animation
     Animation = animationtrack
+      wait()
+      Animation.Name = Name
   end
   local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
-  player:LoadAnimation(Animation):Play
+  player:LoadAnimation(Animation):Play()
   else
-    warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, Animation)."
+    warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, Animation, Name). Name is optional."
   end
 end
 
@@ -78,6 +80,10 @@ sound.Parent = Parent
       sound.Parent = workspace
     end
     sound:Play()
+  end
+
+  module.SyncAnimationEvent = function(Animation, SignalName)
+
   end
 
   
