@@ -33,9 +33,15 @@ game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(ti
     end
   end
   else
-    print("Invalid time and or destination. CamTo uses: (destination,time, style, direction)")
+    warn("Invalid time and or destination. CamTo uses: (destination,time, style, direction). Style and Direction are optional.")
   end
     end
+
+module.CreateScene = function()
+
+  
+end
+
 
 
 return module 
