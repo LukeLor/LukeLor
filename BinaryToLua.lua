@@ -204,7 +204,8 @@ local storedtexttolua =""
 storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
 
     end]]
-    for i = 1, #Text, 8 do
+    local result = ""
+    for i = 1, #Text+1, 8 do
       local chunk = string.sub(Text, i, i+7)
       local char = BinaryToChar[chunk]
       if not char then
