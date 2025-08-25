@@ -53,6 +53,15 @@ Scene[inum]()
 end
 end
 
-
+module.PlayAnimation = function(Rig, Animation)
+if Animation:IsA("String") then
+local animationtrack = Instance.new("Animation")
+    animationtrack.Parent = Rig
+    animationtrack.AnimationId = Animation
+    Animation = animationtrack
+  end
+  local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
+  player:LoadAnimation(Animation)
+end
 
 return module 
