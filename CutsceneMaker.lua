@@ -1,6 +1,7 @@
 local module = {}
 
 module.CamTo = function(destination, time, style, direction)
+  if destination ~= nil and time ~= nil then
   if destination and time and not style and not direction then
     if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") then
 game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time), {CFrame = destination.CFrame}):Play()
@@ -30,6 +31,9 @@ game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(ti
     if destination:IsA("CFrame")  then
 game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(time, style, direction), {CFrame = destination}):Play()
     end
+  end
+  else
+    print("Invalid time and or destination. CamTo uses: (destination,time, style, direction)")
   end
     end
 
