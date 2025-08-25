@@ -27,6 +27,14 @@ local Paintings = {
         Weight = 0.00000235
     },
     {
+        ID = "Surge",
+        CanBeOn = {"Painting_Small"},
+        PaintingMessage = 'A small shock goes through your body...',
+        PaintingMessageDuration = 5,
+        PaintingImage = "rbxassetid://121949728359085",
+        Weight = 0.00000235
+    },
+    {
         ID = "Rush",
         CanBeOn = {"Painting_Small"},
         PaintingMessage = 'This seems to be something you remember.',
