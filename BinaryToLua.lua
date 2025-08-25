@@ -193,6 +193,7 @@ local BinaryToChar = {
   ["01111101"] = "}",
   ["01111110"] = "~"
 }
+
 local function Encode(Text, Type)
   local usedtable
 if Type == "Binary" then
@@ -213,8 +214,11 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
       else
         result = result .. char
       end
-    print("Came up with result of: "..tostring(result))
+    --print("Came up with result of: "..tostring(result))
+      
   end
+    return tostring(result)
+  
     if Type == "Lua" then
 local storedtexttobinary = nil
     usedtable = CharToBinary
@@ -226,4 +230,5 @@ storedtexttobinary = usedtable[i]
     print("Came up with result of: "..tostring(storedtexttobinary))
       end
 end
-    Encode("011101000110010101110011011101000","Binary")
+  local BE =  Encode("011101000110010101110011011101000","Binary")
+  print(BE)
