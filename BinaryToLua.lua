@@ -206,7 +206,7 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
     end]]
     local result = ""
     for i = 1, #Text, 8 do
-      local chunk = string.sub(Text, i, i+7)
+      local chunk = string.sub(Text, i, 8)
       local char = BinaryToChar[chunk]
       if not char then
         result = result .. "?"
