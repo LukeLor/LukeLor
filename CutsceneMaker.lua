@@ -73,6 +73,7 @@ for inum, instruction in Scene do
 Scene[inum]()
 end
 	workspace.CurrentCamera.CameraType = oldcamtype
+	
 end
 
 module.PlayAnimation = function(Rig, Animation, Name)
