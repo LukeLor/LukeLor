@@ -265,15 +265,15 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
     return tostring(result)
   
     if Type == "Lua" then
-usedtable = CharToBinary
+usedtable = BinaryToChar
     --[[for i = 1, #Text, 8 do
 
 storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
 
     end]]
     local result = ""
-    for i = 1, #Text do
-      local chunk = string.sub(Text, i, 1)
+    for i = 1, #Text, 8 do
+      local chunk = string.sub(Text, i, i+7)
       local char = usedtable[chunk]
       if not char then
         result = result .. "?"
@@ -292,3 +292,5 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
   print(LE)
     local BD = Decode(BE, "Binary")
         print(BD)
+local LD = Decode(LE, "Lua")
+        print(LD)
