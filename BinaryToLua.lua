@@ -196,7 +196,7 @@ local BinaryToChar = {
 local function Encode(Text, Type)
   local usedtable
 if Type == "Binary" then
-local storedtexttolua = nil
+local storedtexttolua
     local newtext
     usedtable = BinaryToChar
     for i = 1, #Text, 8 do
