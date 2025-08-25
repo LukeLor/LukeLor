@@ -66,9 +66,13 @@ local instructions = table.pack(...)
 end
 
 module.PlayScene = function(Scene)
+	local oldcamtype = workspace.CurrentCamera.CameraType
+	task.wait(0.1)
+	workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 for inum, instruction in Scene do
 Scene[inum]()
 end
+	workspace.CurrentCamera.CameraType = oldcamtype
 end
 
 module.PlayAnimation = function(Rig, Animation, Name)
