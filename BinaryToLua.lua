@@ -199,8 +199,8 @@ if Type == "Binary" then
 local storedtexttolua = nil
     local newtext
     usedtable = BinaryToChar
-    for i = 0, #Text, 8 do
-      
+    for i = 1, #Text+1, 8 do
+      Text = "R"..tostring(Text)
 storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
       
     end
