@@ -74,13 +74,16 @@ module.CreateScene = function(...)
 local instructions = table.pack(...)
 end
 
-module.PlayScene = function(Scene)
+module.PlayScene = function(Scene, AfterFunction)
 	local oldcamtype = workspace.CurrentCamera.CameraType
 	task.wait(0.1)
 	workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 for inum, instruction in Scene do
 Scene[inum]()
 end
+	if AfterFunction then
+AfterFunction()
+	end
 	workspace.CurrentCamera.CameraType = oldcamtype
 	
 end
