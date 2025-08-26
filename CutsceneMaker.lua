@@ -1,23 +1,6 @@
 local module = {}
 
-local function ShakeCamera(shakeCf)
-	-- shakeCf: CFrame value that represents the offset to apply for shake effect.
-	-- Apply the effect:
-	camera.CFrame = camera.CFrame * shakeCf
-end
 
--- Create CameraShaker instance:
-local renderPriority = Enum.RenderPriority.Camera.Value + 1
-local camShake = CameraShaker.new(renderPriority, ShakeCamera)
-
--- Start the instance:
-camShake:Start()
-
--- Apply explosion shakes every 5 seconds:
-while (true) do
-	wait(5)
-	camShake:Shake(CameraShaker.Presets.Explosion)
-end
 
 module.CamTo = function(destination, time, style, direction)
   if destination ~= nil and time ~= nil then
