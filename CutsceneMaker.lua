@@ -113,7 +113,7 @@ local animationtrack = Instance.new("Animation")
   local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
   player:LoadAnimation(Animation):Play()
   else
-    warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, Animation, Name). Name is optional."
+    warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, Animation, Name). Name is optional.")
   end
 end
 
