@@ -75,10 +75,15 @@ game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(ti
     end
 
 module.CreateScene = function(...)
+	
 local instructions = table.pack(...)
+	
+		--warn("There are no instructions (arguments) to create a scene.")
+
 end
 
 module.PlayScene = function(Scene, AfterFunction)
+	if Scene then
 	local oldcamtype = workspace.CurrentCamera.CameraType
 	task.wait(0.1)
 	workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
@@ -89,7 +94,9 @@ end
 AfterFunction()
 	end
 	workspace.CurrentCamera.CameraType = oldcamtype
-	
+	else 
+		warn("No scene was played as no scene was given.")
+	end
 end
 
 module.PlayAnimation = function(Rig, Animation, Name)
@@ -111,6 +118,7 @@ end
 
 
 module.PlaySound = function(SoundId, Parent)
+		if SoundId then
 local sound = Instance.new("Sound") 
     sound.SoundId = SoundId
     if Parent then
@@ -119,6 +127,9 @@ sound.Parent = Parent
       sound.Parent = workspace
     end
     sound:Play()
+		else
+			warn("No SoundId to play..")
+		end
   end
 
   module.SyncAnimationEvent = function(Animation, SignalName, WhatToDo)
