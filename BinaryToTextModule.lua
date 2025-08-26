@@ -221,7 +221,7 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
       
   end
     return tostring(result)
-  
+  end
     if string.lower(Type) == "text" then
 usedtable = CharToBinary
     --[[for i = 1, #Text, 8 do
@@ -243,6 +243,6 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
   end
     return tostring(result)
 end
-
+end
     return module
     
