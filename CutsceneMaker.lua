@@ -1,7 +1,7 @@
 local module = {}
 
 module.ShakeCamera = function()
-
+local shaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sleitnick/RbxCameraShaker/refs/heads/master/src/CameraShaker/init.lua"))()
 end
 
 module.CamTo = function(destination, time, style, direction)
