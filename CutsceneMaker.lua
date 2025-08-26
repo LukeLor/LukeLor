@@ -109,6 +109,7 @@ local animationtrack = Instance.new("Animation")
       wait()
       Animation.Name = Name
   end
+		Animation.Parent = Rig
   local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
   player:LoadAnimation(Animation):Play()
   else
