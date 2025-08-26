@@ -6,7 +6,11 @@ local shaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLo
 	local camShake = shaker.new(Enum.RenderPriority.Camera.Value, function(shakeCFrame)
 			camera.CFrame =  camera.CFrame * shakeCFrame
 		end)
+	if magnitude and roughness and fadeInTime and fadeOutTime then
 	camShake:ShakeOnce(magnitude, roughness, fadeInTime, fadeOutTime)
+	else
+		warn("Missing magnitude, roughness, fadeInTime, or fadeOutTime. ShakeCamera uses: (magnitude, roughness, fadeInTime, fadeOutTime).")
+	end
 end
 
 module.CamTo = function(destination, time, style, direction)
