@@ -1,6 +1,8 @@
 local module = {}
 
+module.ShakeCamera = function()
 
+end
 
 module.CamTo = function(destination, time, style, direction)
   if destination ~= nil and time ~= nil then
