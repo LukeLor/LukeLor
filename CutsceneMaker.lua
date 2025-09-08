@@ -1,5 +1,39 @@
 local module = {}
+module.LookAt = function(Part, timev)
+	if Part and Part:IsA("Part") or Part and Part:IsA("BasePart") or Part and Part:IsA("MeshPart") then
+		if timev then
+			
+			game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(timev), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, Part.Position)}):Play()	
+	else	
+workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, Part.Position)
+		end	
+		else
+		warn("Can't look at object. LookAt uses: Part and time. Time is optional.")
+	end
+	
+end
+module.LockOn = function(Part, timev)
+	if Part and Part:IsA("Part") or Part and Part:IsA("BasePart") or Part and Part:IsA("MeshPart") then
+		if timev then
+			
+			local countdown = function(desttime)
+				local timer = 0
+				repeat timer = timer + 0.1 wait(0.1) print(timer) workspace.CurrentCamera.CFrame = Part.CFrame until timer >= desttime
+			end
+		local camto = coroutine.create(function()
+			countdown(timev)
+			end
+		)	
+		coroutine.resume(camto)
+	else
+		warn("Can't lock on to object. LockOn uses: Part and time.")
+	end
+	else
+		warn("Can't lock on to object. LockOn uses: Part and time.")
+	end
+		
 
+end
 module.ShakeCamera = function(magnitude, roughness, fadeInTime, fadeOutTime)
 	local camera = workspace.CurrentCamera
 	local shaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/RbxCameraShaker/refs/heads/master/src/CameraShaker/init.lua"))()
