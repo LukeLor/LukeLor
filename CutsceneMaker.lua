@@ -34,6 +34,25 @@ module.LockOn = function(Part, timev)
 		
 
 end
+module.ChangeFOV = function(num, timefov)
+
+	if num then
+		if timefov then
+			game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(timefov), {FieldOfView = num}):Play()
+		else
+			workspace.CurrentCamera.FieldOfView = num
+		end
+		else
+	warn("No set FOV number. ChangeFOV uses: num, time. Time is optional.")
+end
+end
+module.ChangeValue = function(inst, val)
+	if inst and val then
+		inst.Value = val
+		else
+	warn("No Instance (StringValue, BoolValue, NumberValue, ect.) and or no value to set it to. ChangeValue uses: inst, val.")
+end
+end
 module.ShakeCamera = function(magnitude, roughness, fadeInTime, fadeOutTime)
 	local camera = workspace.CurrentCamera
 	local shaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/RbxCameraShaker/refs/heads/master/src/CameraShaker/init.lua"))()
