@@ -13,15 +13,18 @@
 	["GiggleCeiling"] = "Giggle",
 	["AmbushMoving"] = "Ambush"
 ]] 
-local captionholder = nil
-for _, modulescript in game.Players.LocalPlayer.PlayerGui:GetDescendants() do
-if modulescript:IsA("ModuleScript") then
-if require(modulescript).caption then
-print("Found Caption Holder!)
-				captionholder = require(modulescript)
-				break
-		end	end
-	end
+local captionholder
+
+for _, ms in ipairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+    if ms:IsA("ModuleScript") then
+        local ok, mod = pcall(require, ms)
+        if ok and type(mod) == "table" and type(mod.caption) == "function" then
+            captionholder = mod
+            print("Found Caption Holder!")
+            break
+        end
+    end
+end
 	
 	local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 local oxygen = char:GetAttribute("Oxygen")
