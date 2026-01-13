@@ -13,19 +13,28 @@
 	["GiggleCeiling"] = "Giggle",
 	["AmbushMoving"] = "Ambush"
 ]] 
-
-local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+local captionholder = nil
+for _, modulescript in game.Players.LocalPlayer.PlayerGui:GetDescendants() do
+if modulescript:IsA("ModuleScript") then
+if require(modulescript).caption then
+print("Found Caption Holder!)
+				captionholder = require(modulescript)
+				break
+		end	end
+	end
+	
+	local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 local oxygen = char:GetAttribute("Oxygen")
 
 
 Caption = function(text)
-	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text,true)
+captionholder.caption(text,true)
 end
 
 
 TypeCaption = function(text, typewait) 
-	for i = 1, #text do
-		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(string.sub(text,1,i) ,true)
+	for i = 1, #text, 1 do
+		captionholder.caption(string.sub(text,1,i) ,true)
 		if typewait ~= nil then
 			task.wait(typewait)
 		else
@@ -257,6 +266,8 @@ parttofix:Destroy()
 		,{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The number for this room is "..roomnumdupe.."."}--Dupe
 		,{"A-120."}, {"A-60."},{"It- Blitz..."},
 		{"It isn't funny!","Stop laughing.","Giggle up ahead.", "Watch above you."}--Giggle
+, {"That girl's out to play.", "Quick, drop an item!", "Watch it! Sally's here."},
+	{"Mandrake soon?","Mandrake expected.","Don't let your guard down, there's a Mandrake lurking..."}
 
 	}
 
@@ -361,8 +372,44 @@ parttofix:Destroy()
 		SpeakerIconHide()
 	end)
 	print("Initiate mechanic")
-	
-	game.Workspace.ChildAdded:Connect(function(child)
+
+wworkspaceDescendantAdded:Connect(function(inst)
+if inst.Name == "SallyMoving" then
+local text = entitytablelines[13][math.random(1,3)]
+		print(text)
+		SpeakerIconShow("99087926706059")
+		for i = 1, #text do
+
+
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+
+			Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+		SpeakerIconHide()
+		end
+			if inst.Name == "MandrakeLive" then
+local text = entitytablelines[14][math.random(1,3)]
+		print(text)
+		SpeakerIconShow("99087926706059")
+		for i = 1, #text do
+
+
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+
+			Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+		SpeakerIconHide()
+		end
+	end)
+game.Workspace.ChildAdded:Connect(function(child)
 	if child.Name == "AmbushMoving" then
 		local text = entitytablelines[2][math.random(1,4)]
 		print(text)
