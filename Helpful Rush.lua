@@ -15,7 +15,7 @@
 ]] 
 local captionholder
 
-for _, ms in ipairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
+for _, ms in game.Players.LocalPlayer.PlayerGui:GetDescendants() do
     if ms:IsA("ModuleScript") then
         local ok, mod = pcall(require, ms)
         if ok and type(mod) == "table" and type(mod.caption) == "function" then
