@@ -1263,7 +1263,6 @@ for i = 1, #text do
 	Caption(string.sub(text, 1, i))
 	wait(0.002)
 end
-wait(5)
 SpeakerIconHide()
 print("Up and at it.")
 char = workspace:FindFirstChild(game.Players.LocalPlayer.Name)
