@@ -88,56 +88,32 @@ SpeakerIconHide = function()
 end
 
 SolveAnchor = function(item, fully)
+if isMines then
+            if Toggles.AutoAnchorSolver.Value and latestRoom.Value == 50 and mainUI.MainFrame:FindFirstChild("AnchorHintFrame") then
+                local prompts = Script.Functions.GetAllPromptsWithCondition(function(prompt)
+                    return prompt.Name == "ActivateEventPrompt" and prompt.Parent:IsA("Model") and prompt.Parent.Name == "MinesAnchor" and not prompt.Parent:GetAttribute("Activated")
+                end)
 
-	if item:IsA("Model") then
-		if item.Name == "_NestHandler" then
-			local AnchorIdentify = {
-				["A"] = 1,
-				["B"] = 2,
-				["C"] = 3,
-				["D"] = 4,
-				["E"] = 5,
-				["F"] = 6
-			}
-			local Anchors = {}
+                local CurrentGameState = {
+                    DesignatedAnchor = mainUI.MainFrame.AnchorHintFrame.AnchorCode.Text,
+                    AnchorCode = mainUI.MainFrame.AnchorHintFrame.Code.Text
+                }
 
-			while not next(Anchors) and task.wait() do
-				for _, Anchor in item:GetChildren() do
-					if Anchor.Name == "MinesAnchor" and not Anchor:GetAttribute("Activated") then
-						table.insert(Anchors, AnchorIdentify[Anchor.Sign.TextLabel.Text], Anchor)
-					end
-				end
+                for _, prompt in pairs(prompts) do
+                    task.spawn(function()
+                        local Anchor = prompt.Parent
+                        local CurrentAnchor = Anchor.Sign.TextLabel.Text
 
-				local AnchorsIndex = {}
-				for Index in Anchors do
-					table.insert(AnchorsIndex, Index)
-				end
+                        if not (Script.Functions.DistanceFromCharacter(prompt.Parent) < prompt.MaxActivationDistance) then return end
+                        if CurrentAnchor ~= CurrentGameState.DesignatedAnchor then return end
 
-				local NumberIndex = math.min( unpack(AnchorsIndex) )
-				local NextAnchor = Anchors[NumberIndex]
-
-				if NumberIndex > 1 then
-					local Code = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.AnchorHintFrame.Code.Text
-
-
-					--                        local Solved = SolveAnchor(Code, Offset)
-
-
-					if  not NextAnchor:GetAttribute("Activated") and fully then
-
-						NextAnchor.AnchorRemote:InvokeServer( tostring(Code) )
-					else
-						if not NextAnchor:GetAttribute("Activated") and not fully then
-							return NextAnchor
-						end
-
-					end
-
-				end
-			end
-
-
-		end
+                        local result = Anchor:FindFirstChildOfClass("RemoteFunction"):InvokeServer(CurrentGameState.AnchorCode)
+                        if result then
+                            Script.Functions.Alert("Solved Anchor " .. CurrentAnchor .. " successfully!", 5)
+                        end
+                    end)
+                end
+            end
 	end
 end
 
