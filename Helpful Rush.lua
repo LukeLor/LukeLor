@@ -109,9 +109,7 @@ end
                     task.spawn(function()
                         local Anchor = prompt.Parent
                         local CurrentAnchor = Anchor.Sign.TextLabel.Text
-
-                        if not (Script.Functions.DistanceFromCharacter(prompt.Parent) < prompt.MaxActivationDistance) then return end
-                        if CurrentAnchor ~= CurrentGameState.DesignatedAnchor then return end
+  if CurrentAnchor ~= CurrentGameState.DesignatedAnchor then return end
 
                         local result = Anchor:FindFirstChildOfClass("RemoteFunction"):InvokeServer(CurrentGameState.AnchorCode)
                         if result then
