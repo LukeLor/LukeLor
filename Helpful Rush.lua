@@ -15,12 +15,12 @@
 ]] 
 local captionholder
 
-for _, ms in game.Players.LocalPlayer.PlayerGui:GetDescendants() do
+for _, ms in ipairs(game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUi"):GetDescendants()) do
     if ms:IsA("ModuleScript") then
         local ok, mod = pcall(require, ms)
         if ok and type(mod) == "table" and type(mod.caption) == "function" then
             captionholder = mod
-            print("Found Caption Holder!")
+            print("Found Caption Holder! Path is... "..tostring(ms:GetFullName()))
             break
         end
     end
@@ -31,11 +31,13 @@ local oxygen = char:GetAttribute("Oxygen")
 
 
 Caption = function(text)
+	if not captionholder then return end
 captionholder.caption(text,true)
 end
 
 
 TypeCaption = function(text, typewait) 
+	if not captionholder then return end
 	for i = 1, #text, 1 do
 		captionholder.caption(string.sub(text,1,i) ,true)
 		if typewait ~= nil then
