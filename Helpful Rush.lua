@@ -134,7 +134,7 @@ FireProxy = function(proxy)
 	proxy:InputHoldBegin()
 	holdtime = 0.1 --Testing + I know what im doing.
 	wait(0.05)
-	if holdtime == 0 then
+	if timeheld == 0 then
 		wait(0.05)
 		proxy:InputHoldEnd()
 		print("PromptInitiated")
