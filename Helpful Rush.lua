@@ -14,7 +14,7 @@
 	["AmbushMoving"] = "Ambush"
 ]] 
 local captionholder
-
+local mainUi = game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUi")
 for _, ms in ipairs(game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUi"):GetDescendants()) do
     if ms:IsA("ModuleScript") then
         local ok, mod = pcall(require, ms)
@@ -87,16 +87,22 @@ SpeakerIconHide = function()
 	game.Debris:AddItem(newui, 8)
 end
 
+
 SolveAnchor = function(item, fully)
-if isMines then
-            if Toggles.AutoAnchorSolver.Value and latestRoom.Value == 50 and mainUI.MainFrame:FindFirstChild("AnchorHintFrame") then
-                local prompts = Script.Functions.GetAllPromptsWithCondition(function(prompt)
-                    return prompt.Name == "ActivateEventPrompt" and prompt.Parent:IsA("Model") and prompt.Parent.Name == "MinesAnchor" and not prompt.Parent:GetAttribute("Activated")
-                end)
+
+            if mainUi.MainFrame:FindFirstChild("AnchorHintFrame") then
+                local prompts = {}
+		for _, prompt in game.Workspace:GetDescendants() do
+
+		
+			if prompt.Name == "ActivateEventPrompt" and prompt.Parent:IsA("Model") and prompt.Parent.Name == "MinesAnchor" and not prompt.Parent:GetAttribute("Activated") then
+               
+		table.insert(prompts, prompt)
+end
 
                 local CurrentGameState = {
-                    DesignatedAnchor = mainUI.MainFrame.AnchorHintFrame.AnchorCode.Text,
-                    AnchorCode = mainUI.MainFrame.AnchorHintFrame.Code.Text
+                    DesignatedAnchor = mainUi.MainFrame.AnchorHintFrame.AnchorCode.Text,
+                    AnchorCode = mainUi.MainFrame.AnchorHintFrame.Code.Text
                 }
 
                 for _, prompt in pairs(prompts) do
@@ -109,11 +115,12 @@ if isMines then
 
                         local result = Anchor:FindFirstChildOfClass("RemoteFunction"):InvokeServer(CurrentGameState.AnchorCode)
                         if result then
-                            Script.Functions.Alert("Solved Anchor " .. CurrentAnchor .. " successfully!", 5)
-                        end
+							SpeakerIconShow("99087926706059")
+                              TypeCaption("Alright! An anchor down.")
+                        SpeakerIconHide()
+						end
                     end)
                 end
-            end
 	end
 end
 
