@@ -134,16 +134,7 @@ FireProxy = function(proxy)
 	end
 end
 
-CheckIf = function(what, where)
-    if not where or not where:IsA then return false end
-    if typeof(what) == "Instance" then
-        return where:IsAncestorOf(what)
-    elseif typeof(what) == "string" then
-        return where:FindFirstChild(what, true) ~= nil
-    else
-        return false
-    end
-	end
+
 
 LerpTo = function(model, target, path)
 	local alpha = 0
@@ -641,8 +632,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 		
 	local croom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
-	local foundfuses = CheckIf("FuseHolder",croom)
-	if foundfuses then
+	
 		for _, fuses in croom:GetDescendants() do
 			if fuses:IsA("Model") and fuses.Name =="FuseHolder" then
 				local pfs = game:GetService("PathfindingService")
@@ -707,7 +697,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 				wait(0.01)
 					FireProxy(fuses.FuseObtain.ModulePrompt)
 					wait(0.01)
-					if hasgen then
+					
 						for _, FuseInput in gen.Fuses:GetChildren() do
 							if FuseInput:FindFirstChild("FusesPrompt") then
 								FuseInput.FusePrompt.MaxActivationDistance = 100000
@@ -715,11 +705,11 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 								wait(0.01)
 								FireProxy(FuseInput.FusesPrompt)
 							end
-						end
+						
 					end
 
 
-			end
+			
 			for _, models in croom:GetDescendants() do
 				if models:IsA("Model") and models.Name == "MinesGenerator" and models.Lever.LeverPrompt.Enabled == true then
 					FireProxy(models.Lever.LeverPrompt)
