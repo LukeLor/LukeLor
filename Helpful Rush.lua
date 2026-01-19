@@ -347,7 +347,7 @@ parttofix:Destroy()
 	end)
 	print("Initiate mechanic")
 
-wworkspaceDescendantAdded:Connect(function(inst)
+workspaceDescendantAdded:Connect(function(inst)
 if inst.Name == "SallyMoving" then
 local text = entitytablelines[13][math.random(1,3)]
 		print(text)
