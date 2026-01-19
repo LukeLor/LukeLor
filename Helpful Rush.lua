@@ -675,14 +675,13 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 				local pathgen = pfs:CreatePath()
 				local gen
 
-				local hasgen = CheckIf("MinesGenerator", croom)	
-				if hasgen then
+				
 					for _, models in croom:GetDescendants() do
 						if models:IsA("Model") and models.Name == "MinesGenerator" then
 							gen = models
 						end
 					end
-				end
+				
 				pathgen:ComputeAsync(rushhelper.Root.Position, gen.PrimaryPart.Position)
 				for _, wpts in pairs(pathgen:GetWaypoints()) do
 					local part = Instance.new("Part")
