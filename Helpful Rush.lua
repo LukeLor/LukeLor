@@ -135,13 +135,15 @@ FireProxy = function(proxy)
 end
 
 CheckIf = function(what, where)
-	if where:IsAncestorOf(what) then
-		return true
-	else
-		return false
+    if not where or not where:IsA then return false end
+    if typeof(what) == "Instance" then
+        return where:IsAncestorOf(what)
+    elseif typeof(what) == "string" then
+        return where:FindFirstChild(what, true) ~= nil
+    else
+        return false
+    end
 	end
-
-end
 
 LerpTo = function(model, target, path)
 	local alpha = 0
