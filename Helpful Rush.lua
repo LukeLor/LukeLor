@@ -78,7 +78,7 @@ end
 
 SolveAnchor = function(item, fully)
 
-            if mainUi.MainFrame:FindFirstChild("AnchorHintFrame") then
+            if game.Players.LocalPlayer.PlayerGui.MainUi.MainFrame:FindFirstChild("AnchorHintFrame") then
                 local prompts = {}
 		for _, prompt in game.Workspace:GetDescendants() do
 
@@ -89,8 +89,8 @@ SolveAnchor = function(item, fully)
 end
 
                 local CurrentGameState = {
-                    DesignatedAnchor = mainUi.MainFrame.AnchorHintFrame.AnchorCode.Text,
-                    AnchorCode = mainUi.MainFrame.AnchorHintFrame.Code.Text
+                    DesignatedAnchor = game.Players.LocalPlayer.PlayerGui.MainUi.MainFrame.AnchorHintFrame.AnchorCode.Text,
+                    AnchorCode = game.Players.LocalPlayer.PlayerGui.MainUi.MainFrame.AnchorHintFrame.Code.Text
                 }
 
                 for _, prompt in pairs(prompts) do
