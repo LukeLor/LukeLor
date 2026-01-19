@@ -234,7 +234,9 @@ parttofix:Destroy()
 		,{"A-120."}, {"A-60."},{"It- Blitz..."},
 		{"It isn't funny!","Stop laughing.","Giggle up ahead.", "Watch above you."}--Giggle
 , {"That girl's out to play.", "Quick, drop an item!", "Watch it! Sally's here."},
-	{"Mandrake soon?","Mandrake expected.","Don't let your guard down, there's a Mandrake lurking..."}
+	{"Mandrake soon?","Mandrake expected.","Don't let your guard down, there's a Mandrake lurking..."},
+	{"The ground is being kept.","Groundskeeper's out!"},
+	{"Surge is descending!", "Keep your head up.", "Surge is near.","We're going to get fried if you don't hide!","The sky's yellow..."}
 
 	}
 
@@ -360,6 +362,40 @@ local text = entitytablelines[13][math.random(1,3)]
 		end
 			if inst.Name == "MandrakeLive" then
 local text = entitytablelines[14][math.random(1,3)]
+		print(text)
+		SpeakerIconShow("99087926706059")
+		for i = 1, #text do
+
+
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+
+			Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+		SpeakerIconHide()
+		end
+		if inst.Name == "Surge" then
+local text = entitytablelines[16][math.random(1,5)]
+		print(text)
+		SpeakerIconShow("99087926706059")
+		for i = 1, #text do
+
+
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+
+			Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+		SpeakerIconHide()
+		end
+		if inst.Name == "Groundskeeper" then
+local text = entitytablelines[15][math.random(1,2)]
 		print(text)
 		SpeakerIconShow("99087926706059")
 		for i = 1, #text do
