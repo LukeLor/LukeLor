@@ -25,7 +25,6 @@ end
 
 
 TypeCaption = function(text, typewait) 
-	if not captionholder then return end
 	for i = 1, #text, 1 do
 		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(string.sub(text,1,i), true)
 		if typewait ~= nil then
