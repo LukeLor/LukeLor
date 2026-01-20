@@ -230,7 +230,7 @@ parttofix:Destroy()
 		},{"Stay quiet.", "Crouch!", "Don't be loud."--Figure
 		},{"Psst.", "Around you!"--Screech
 		},{"Don't look!", "Avoid eye contact."}--Eyes
-		,{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The number for this room is "..roomnumdupe.."."}--Dupe
+		,{"Uhm... the door?","Look at the door! Something may be lurking...","Look I'll hand it to you. The number for this room is "..tostring(roomnumdupe).."."}--Dupe
 		,{"A-120."}, {"A-60."},{"It- Blitz..."},
 		{"It isn't funny!","Stop laughing.","Giggle up ahead.", "Watch above you."}--Giggle
 , {"That girl's out to play.", "Quick, drop an item!", "Watch it! Sally's here."},
