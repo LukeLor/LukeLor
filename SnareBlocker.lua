@@ -1,19 +1,21 @@
-script.Parent.Touched:Connect(function(hit)
+for _, Object in pairs(game:GetService("Workspace").CurrentRooms:GetDescendants()) do
+	if Object.Name == "Snare" and Object:FindFirstChild("Snare") then 
+Object.Touched:Connect(function(hit)
 	if hit.Parent:FindFirstChild("Humanoid") then
-		script.Parent.CanTouch = false
+		Object.Hitbox.CanTouch = false
 	
-		local lock = game:GetService("InsertService"):LoadAsset(134623425206809) -- Curious: 82037744082799
+		local lock = game:GetObjects(134623425206809)[1]
 lock.Parent = script.Parent
 local newlock = lock.LockEffect.Lock
 		newlock.ParticleEmitter.Enabled = true
-		newlock.Parent = script.Parent
+		newlock.Parent = Object.Hitbox
 		lock:Destroy()
 	
-		local effects=	game:GetService("InsertService"):LoadAsset(107175245956530)
+		local effects=	game:GetObjects(107175245956530)[1] ] -- Curious: 82037744082799
 		effects.Parent = workspace
 		for _, effecth in effects:GetChildren() do
 			print( effecth.Name)
-			effecth.Parent = script.Parent.Parent.Snare.Holes
+			effecth.Parent = Snare.Snare.Holes
 			print("Parented: "..effecth.Name)
 			for _, effect in effecth:GetChildren() do
 				print( effect.Name)
@@ -24,8 +26,8 @@ local newlock = lock.LockEffect.Lock
 		end
 	
 		effects:Destroy()
-		game:GetService("TweenService"):Create(script.Parent.Parent.Snare.Holes, TweenInfo.new(0), {Color = Color3.fromRGB(0,0,0)}):Play()
-		game:GetService("TweenService"):Create(script.Parent.Parent.Snare.Holes, TweenInfo.new(0.25), {Color = Color3.fromRGB(100, 146, 219)}):Play()--Curious: 248, 217, 109
+		game:GetService("TweenService"):Create(Object.Snare.Holes, TweenInfo.new(0), {Color = Color3.fromRGB(0,0,0)}):Play()
+		game:GetService("TweenService"):Create(Object.Snare.Holes, TweenInfo.new(0.25), {Color = Color3.fromRGB(100, 146, 219)}):Play()--Curious: 248, 217, 109
 	task.wait(0.1)
 		newlock.ParticleEmitter.Texture = "rbxassetid://135389918701762"
 	task.wait(0.1)
@@ -42,3 +44,5 @@ local newlock = lock.LockEffect.Lock
 		newlock.ParticleEmitter.Texture = "rbxassetid://109471683017650"
 	end
 end)
+	end
+	end
