@@ -7,7 +7,7 @@ workspace.DescendantAdded:Connect(function(Object)
 		Object.Hitbox.CanTouch = false
 	
 		local lock = game:GetObjects("rbxassetid://134623425206809")[1]
-lock.Parent = script.Parent
+lock.Parent = workspace
 local newlock = lock.LockEffect.Lock
 		newlock.ParticleEmitter.Enabled = true
 		newlock.Parent = Object.Hitbox
@@ -17,11 +17,11 @@ local newlock = lock.LockEffect.Lock
 		effects.Parent = workspace
 		for _, effecth in effects:GetChildren() do
 			print( effecth.Name)
-			effecth.Parent = Snare.Snare.Holes
+			effecth.Parent = Object.Snare.Holes
 			print("Parented: "..effecth.Name)
 			for _, effect in effecth:GetChildren() do
 				print( effect.Name)
-				effect.Parent = script.Parent.Parent.Snare.Holes
+				effect.Parent = Object.Snare.Holes
 				print("Parented: "..effect.Name)
 
 			end
