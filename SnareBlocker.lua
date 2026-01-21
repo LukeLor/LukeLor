@@ -1,5 +1,5 @@
 workspace.DescendantAdded:Connect(function(Object)
-		while task.wait() do
+		for _, asset in game.Workspace.CurrentRooms:GetDescendants() do
 	if Object.Name == "Snare" and Object:FindFirstChild("Snare") and not Object:FindFirstChild("GoneOver") then
 			print("snare")
 			local mark = Instance.new("BoolValue")
@@ -30,7 +30,29 @@ local newlock = lock.Lock
 		effects:Destroy()
 		game:GetService("TweenService"):Create(Object.Snare.Holes, TweenInfo.new(0), {Color = Color3.fromRGB(0,0,0)}):Play()
 		game:GetService("TweenService"):Create(Object.Snare.Holes, TweenInfo.new(0.25), {Color = Color3.fromRGB(100, 146, 219)}):Play()--Curious: 248, 217, 109
-	task.wait(0.1)
+function GetGitSound(GithubSnd, SoundName)
+    local url = GithubSnd
+    if not isfile(SoundName..".mp3") then
+	    writefile(SoundName..".mp3", game:HttpGet(url))
+	end
+	return (getcustomasset or getsynasset)(SoundName..".mp3")
+end
+
+function CustomSound(soundLink, vol, sndName)
+    local sound = Instance.new("Sound")
+    sound.SoundId = GetGitSound(soundLink, sndName)
+    
+    sound.Name = "Lock"
+    sound.Volume = vol or 1
+    return sound
+end
+
+local CameraShaker = require(game.Player.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+	
+local locked = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/LockSnareSound.mp3?raw=true",0.5,"SnareLock")
+		locked.Parent = Object.Hitbox
+		locked:Play()
+		CameraShake.camShaker:ShakeOnce(5,15,0,1) 					
 		newlock.ParticleEmitter.Texture = "rbxassetid://135389918701762"
 	task.wait(0.1)
 		newlock.ParticleEmitter.Texture = "rbxassetid://75134945132260"
@@ -45,8 +67,9 @@ local newlock = lock.Lock
 		task.wait(0.1)
 		newlock.ParticleEmitter.Texture = "rbxassetid://109471683017650"
 							print("vfx finished")
+							task.wait(0.775)
+		CameraShake.camShaker:ShakeOnce(5,6,0,1.75)
 					end		
-					end
 					end
 					end)
 			coroutine.resume(ds)
