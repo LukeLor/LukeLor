@@ -1,7 +1,7 @@
-for _, Object in pairs(game:GetService("Workspace").CurrentRooms:GetDescendants()) do
-	if Object.Name == "Snare" and Object:FindFirstChild("Snare") then 
-Object.Touched:Connect(function(hit)
+workspace.DescendantAdded:Connect(function(Object)
+	if Object.Name == "Snare" and Object:FindFirstChild("Snare") then
 	if hit.Parent:FindFirstChild("Humanoid") then
+				local ds = coroutine.create(function()
 		Object.Hitbox.CanTouch = false
 	
 		local lock = game:GetObjects(134623425206809)[1]
@@ -43,6 +43,6 @@ local newlock = lock.LockEffect.Lock
 		task.wait(0.1)
 		newlock.ParticleEmitter.Texture = "rbxassetid://109471683017650"
 	end
-end)
+				end)
 	end
-	end
+	end)
