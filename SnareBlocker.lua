@@ -67,7 +67,7 @@ local locked = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/LockSna
 		task.wait(0.1)
 		newlock.ParticleEmitter.Texture = "rbxassetid://109471683017650"
 							print("vfx finished")
-							task.wait(0.775)
+							task.wait(1.275)
 		CameraShake.camShaker:ShakeOnce(5,6,0,1.75)
 					end		
 					end
