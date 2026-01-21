@@ -6,14 +6,14 @@ workspace.DescendantAdded:Connect(function(Object)
 							if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Object.Hitbox.Position).Magnitude < 8 and Object.Hitbox.CanTouch == true then
 		Object.Hitbox.CanTouch = false
 	
-		local lock = game:GetObjects(134623425206809)[1]
+		local lock = game:GetObjects("rbxassetid://134623425206809")[1]
 lock.Parent = script.Parent
 local newlock = lock.LockEffect.Lock
 		newlock.ParticleEmitter.Enabled = true
 		newlock.Parent = Object.Hitbox
 		lock:Destroy()
 	
-		local effects=	game:GetObjects(107175245956530)[1] -- Curious: 82037744082799
+		local effects=	game:GetObjects("rbxassetid://107175245956530")[1] -- Curious: 82037744082799
 		effects.Parent = workspace
 		for _, effecth in effects:GetChildren() do
 			print( effecth.Name)
