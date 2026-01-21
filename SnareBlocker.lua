@@ -1,5 +1,5 @@
-workspace.DescendantAdded:Connect(function(Object)
-		for _, asset in game.Workspace.CurrentRooms:GetDescendants() do
+workspace.DescendantAdded:Connect(function(ObjectO)
+		for _, Object in game.Workspace.CurrentRooms:GetDescendants() do
 	if Object.Name == "Snare" and Object:FindFirstChild("Snare") and not Object:FindFirstChild("GoneOver") then
 			print("snare")
 			local mark = Instance.new("BoolValue")
