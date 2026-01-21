@@ -2,7 +2,7 @@ workspace.DescendantAdded:Connect(function(Object)
 	if Object.Name == "Snare" and Object:FindFirstChild("Snare") then
 				local ds = coroutine.create(function()
 						while task.wait() do
-							if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Object.Hitbox.Position).Magnitude < 5 then
+							if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Object.Hitbox.Position).Magnitude < 5 and Object.Hitbox.CanTouch == true then
 		Object.Hitbox.CanTouch = false
 	
 		local lock = game:GetObjects(134623425206809)[1]
