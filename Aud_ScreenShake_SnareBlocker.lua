@@ -20,7 +20,7 @@ local playerCFrame = workspace.CurrentCamera.CFrame
 		local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCFrame) 	
 			workspace.CurrentCamera.CFrame = workspace.CurrentCamera.CFrame * shakeCFrame 
 		end) 
-local locked = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/LockSnareSound.mp3?raw=true", "SnareLock")
+local locked = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/LockSnareSound.mp3?raw=true",0.5,"SnareLock")
 		locked.Parent = workspace
 locked.TimePosition = 0.15
 		locked:Play()
