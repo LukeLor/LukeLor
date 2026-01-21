@@ -1,5 +1,6 @@
 workspace.DescendantAdded:Connect(function(Object)
 	if Object.Name == "Snare" and Object:FindFirstChild("Snare") then
+			print("snare")
 				local ds = coroutine.create(function()
 						while task.wait() do
 							if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Object.Hitbox.Position).Magnitude < 5 and Object.Hitbox.CanTouch == true then
@@ -43,6 +44,7 @@ local newlock = lock.LockEffect.Lock
 		newlock.ParticleEmitter.Texture = "rbxassetid://92040110017917"
 		task.wait(0.1)
 		newlock.ParticleEmitter.Texture = "rbxassetid://109471683017650"
+							print("vfx finished")
 					end		
 					end
 					end)
