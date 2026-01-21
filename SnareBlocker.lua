@@ -1,6 +1,11 @@
 workspace.DescendantAdded:Connect(function(Object)
-	if Object.Name == "Snare" and Object:FindFirstChild("Snare") then
+		while task.wait() do
+	if Object.Name == "Snare" and Object:FindFirstChild("Snare") and not Object:FindFirstChild("GoneOver") then
 			print("snare")
+			local mark = Instance.new("BoolValue")
+			mark.Name = "GoneOver"
+			mark.Parent = Object
+			mark.Value = true
 				local ds = coroutine.create(function()
 						while task.wait() do
 							if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Object.Hitbox.Position).Magnitude < 8 and Object.Hitbox.CanTouch == true then
@@ -41,6 +46,7 @@ local newlock = lock.Lock
 		newlock.ParticleEmitter.Texture = "rbxassetid://109471683017650"
 							print("vfx finished")
 					end		
+					end
 					end
 					end)
 			coroutine.resume(ds)
