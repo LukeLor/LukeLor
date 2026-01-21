@@ -12,7 +12,7 @@ local newlock = lock.LockEffect.Lock
 		newlock.Parent = Object.Hitbox
 		lock:Destroy()
 	
-		local effects=	game:GetObjects(107175245956530)[1] ] -- Curious: 82037744082799
+		local effects=	game:GetObjects(107175245956530)[1] -- Curious: 82037744082799
 		effects.Parent = workspace
 		for _, effecth in effects:GetChildren() do
 			print( effecth.Name)
