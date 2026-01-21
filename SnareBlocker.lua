@@ -8,23 +8,18 @@ workspace.DescendantAdded:Connect(function(Object)
 	
 		local lock = game:GetObjects("rbxassetid://134623425206809")[1]
 lock.Parent = workspace
-local newlock = lock.LockEffect.Lock
+local newlock = lock.Lock
 		newlock.ParticleEmitter.Enabled = true
 		newlock.Parent = Object.Hitbox
 		lock:Destroy()
 	
 		local effects=	game:GetObjects("rbxassetid://107175245956530")[1] -- Curious: 82037744082799
 		effects.Parent = workspace
-		for _, effecth in effects:GetChildren() do
+		for _, effect in effects:GetChildren() do
 			print( effecth.Name)
 			effecth.Parent = Object.Snare.Holes
 			print("Parented: "..effecth.Name)
-			for _, effect in effecth:GetChildren() do
-				print( effect.Name)
-				effect.Parent = Object.Snare.Holes
-				print("Parented: "..effect.Name)
-
-			end
+			
 		end
 	
 		effects:Destroy()
