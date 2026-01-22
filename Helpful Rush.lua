@@ -499,7 +499,9 @@ local locked = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/LockSna
 							print("vfx finished")
 							task.wait(1.275)
 		CameraShake.camShaker:ShakeOnce(5,6,0,1.75)
-					end		
+							else
+					task.wait(5)
+							end		
 					end
 					end)
 			coroutine.resume(ds)
