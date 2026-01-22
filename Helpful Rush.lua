@@ -416,7 +416,7 @@ local text = entitytablelines[15][math.random(1,2)]
 	end)
 workspace.DescendantAdded:Connect(function(ObjectO)
 		for _, Object in game.Workspace.CurrentRooms:GetDescendants() do
-	if Object.Name == "Snare" and Object:FindFirstChild("Snare") and not Object:FindFirstChild("GoneOver") and math.random(1,4) == 1 then
+	if Object.Name == "Snare" and Object:FindFirstChild("Snare") and not Object:FindFirstChild("GoneOver") then
 			print("snare")
 			local mark = Instance.new("BoolValue")
 			mark.Name = "GoneOver"
@@ -424,7 +424,7 @@ workspace.DescendantAdded:Connect(function(ObjectO)
 			mark.Value = true
 				local ds = coroutine.create(function()
 						while task.wait() do
-							if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Object.Hitbox.Position).Magnitude < 8 and Object.Hitbox.CanTouch == true then
+							if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Object.Hitbox.Position).Magnitude < 8 and Object.Hitbox.CanTouch == true and math.random(1,4) == 1  then
 		Object.Hitbox.CanTouch = false
 	
 		local lock = game:GetObjects("rbxassetid://134623425206809")[1]
