@@ -74,43 +74,4 @@ local locked = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/LockSna
 					end)
 			coroutine.resume(ds)
 	end
-	end)	end
-	return (getcustomasset or getsynasset)(SoundName..".mp3")
-end
-
-function CustomSound(soundLink, vol, sndName)
-    local sound = Instance.new("Sound")
-    sound.SoundId = GetGitSound(soundLink, sndName)
-    
-    sound.Name = "Lock"
-    sound.Volume = vol or 1
-    return sound
-end
-
-local CameraShaker = require(game.Player.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
-	
-local locked = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/LockSnareSound.mp3?raw=true",0.5,"SnareLock")
-		locked.Parent = Object.Hitbox
-		locked:Play()
-		CameraShake.camShaker:ShakeOnce(5,15,0,1) 					
-		newlock.ParticleEmitter.Texture = "rbxassetid://135389918701762"
-	task.wait(0.1)
-		newlock.ParticleEmitter.Texture = "rbxassetid://75134945132260"
-	task.wait(0.1)
-		newlock.ParticleEmitter.Texture = "rbxassetid://113033745280657"
-	task.wait(0.1)
-		newlock.ParticleEmitter.Texture = "rbxassetid://92040110017917"
-	task.wait(0.1)
-		newlock.ParticleEmitter.Texture = "rbxassetid://109471683017650"
-		task.wait(0.1)
-		newlock.ParticleEmitter.Texture = "rbxassetid://92040110017917"
-		task.wait(0.1)
-		newlock.ParticleEmitter.Texture = "rbxassetid://109471683017650"
-							print("vfx finished")
-							task.wait(1.275)
-		CameraShake.camShaker:ShakeOnce(5,6,0,1.75)
-					end		
-					end
-					end)
-			coroutine.resume(ds)
-	end
+	end)
