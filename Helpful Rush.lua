@@ -433,9 +433,23 @@ local newlock = lock.Lock
 		newlock.ParticleEmitter.Enabled = true
 		newlock.Parent = Object.Hitbox
 		lock:Destroy()
-	
-		local effects=	game:GetObjects("rbxassetid://107175245956530")[1] -- Curious: 82037744082799
-		effects.Parent = workspace
+	local lighttype
+								local floor = game:GetService("ReplicatedStorage").GameData.Floor.Value
+								if floor == "Hotel" or floor == "Mines" then
+									lighttype = 1
+	local text = entitytablelines[17][1]
+								else
+								local text = entitytablelines[17][2]
+									lighttype=2
+								end
+								
+		local effects
+								if lighttype == 1 then
+									effects = game:GetObjects("rbxassetid://107175245956530")[1] -- Curious: 82037744082799
+								else
+effects = game:GetObjects("rbxassetid://82037744082799")[1] 
+								end
+								effects.Parent = workspace
 		for _, effect in effects:GetChildren() do
 			print( effecth.Name)
 			effecth.Parent = Object.Snare.Holes
@@ -445,8 +459,13 @@ local newlock = lock.Lock
 	
 		effects:Destroy()
 		game:GetService("TweenService"):Create(Object.Snare.Holes, TweenInfo.new(0), {Color = Color3.fromRGB(0,0,0)}):Play()
+								if lighttype == 1 then
 		game:GetService("TweenService"):Create(Object.Snare.Holes, TweenInfo.new(0.25), {Color = Color3.fromRGB(100, 146, 219)}):Play()--Curious: 248, 217, 109
-function GetGitSound(GithubSnd, SoundName)
+								else
+game:GetService("TweenService"):Create(Object.Snare.Holes, TweenInfo.new(0.25), {Color = Color3.fromRGB(248, 217, 109)}):Play()--Curious: 248, 217, 109
+						
+								end
+									function GetGitSound(GithubSnd, SoundName)
     local url = GithubSnd
     if not isfile(SoundName..".mp3") then
 	    writefile(SoundName..".mp3", game:HttpGet(url))
@@ -464,12 +483,7 @@ function CustomSound(soundLink, vol, sndName)
 end
 
 local CameraShaker = require(game.Player.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
-								local floor = game:GetService("ReplicatedStorage").GameData.Floor.Value
-								if floor == "Hotel" or floor == "Mines" then
-	local text = entitytablelines[17][1]
-								else
-								local text = entitytablelines[17][2]
-								end
+								
 								
 								
 								print(text)
