@@ -464,8 +464,15 @@ function CustomSound(soundLink, vol, sndName)
 end
 
 local CameraShaker = require(game.Player.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+								local floor = game:GetService("ReplicatedStorage").GameData.Floor.Value
+								if floor == "Hotel" or floor == "Mines" then
 	local text = entitytablelines[17][1]
-		print(text)
+								else
+								local text = entitytablelines[17][2]
+								end
+								
+								
+								print(text)
 		SpeakerIconShow("99087926706059")
 		for i = 1, #text do
 
