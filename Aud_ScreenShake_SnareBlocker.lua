@@ -1,4 +1,4 @@
-workspace.DescendantAdded:Connect(function(ObjectO)
+
 		for _, Object in game.Workspace.CurrentRooms:GetDescendants() do
 	if Object.Name == "Snare" and Object:FindFirstChild("Snare") and not Object:FindFirstChild("GoneOver") then
 			print("snare")
@@ -74,4 +74,3 @@ local locked = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/LockSna
 					end)
 			coroutine.resume(ds)
 	end
-	end)
