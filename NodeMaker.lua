@@ -8,25 +8,28 @@ path:ComputeAsync(startPosition, goalPosition)
   local spart = Instance.new("Part")
   spart.Position = startPosition
   spart.Size= Vector3.new(1,1,1)
-  spart.Parent = workspace
+  spart.Parent = room
   spart.Anchored = true
   spart.CanCollide = false
-  generatednodes[1] = spart
+spart.Transparency = 1
+	generatednodes[1] = spart
   local epart = Instance.new("Part")
   epart.Position = goalPosition
   epart.Size= Vector3.new(1,1,1)
-  epart.Parent = workspace
+  epart.Parent = room
   epart.Anchored = true
-  spart.CanCollide = false
+  epart.CanCollide = false
+	epart.Transparency = 1
   generatednodes[2] = epart
   if #path:GetWaypoints() > 0 then
     for _, wpt in path:GetWaypoints() do
   local part = Instance.new("Part")
   part.Position = wpt.Position + Vector3.new(0,6,0)
   part.Size= Vector3.new(1,1,1)
-  part.Parent = workspace
+  part.Parent = room
   part.Anchored = true
   part.CanCollide = false
+part.Transparency = 1
   generatednodes[#generatednodes +1] = part
   end
   else
@@ -52,6 +55,3 @@ if not model.PrimaryPart then return end
 print("PrimaryPart found.")
 model.Parent = workspace
 model:PivotTo(cnode.CFrame)
-for _, individnode in nodes do
-	individnode:Destroy()
-end
