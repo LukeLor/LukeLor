@@ -6,22 +6,28 @@ local goalPosition = room:WaitForChild("RoomExit").Position
 path:ComputeAsync(startPosition, goalPosition)
   local generatednodes= {}
   local spart = Instance.new("Part")
-   spart.Position = startPosition
-   spart.Size= Vector3.new(1,1,1)
+  spart.Position = startPosition
+  spart.Size= Vector3.new(1,1,1)
   spart.Parent = workspace
+  spart.Anchored = true
+  spart.CanCollide = false
   generatednodes[1] = spart
   local epart = Instance.new("Part")
-   epart.Position = goalPosition
-   epart.Size= Vector3.new(1,1,1)
+  epart.Position = goalPosition
+  epart.Size= Vector3.new(1,1,1)
   epart.Parent = workspace
+  epart.Anchored = true
+  spart.CanCollide = false
   generatednodes[2] = epart
   if #path:GetWaypoints() > 0 then
-    for wpt in path:GetWaypoints() do
-local part = Instance.new("Part")
-   part.Position = wpt.Position
-   part.Size= Vector3.new(1,1,1)
+    for _, wpt in path:GetWaypoints() do
+  local part = Instance.new("Part")
+  part.Position = wpt.Position + Vector3.new(0,3,0)
+  part.Size= Vector3.new(1,1,1)
   part.Parent = workspace
-    generatednodes[#generatednodes +1] = part
+  part.Anchored = true
+  part.CanCollide = false
+  generatednodes[#generatednodes +1] = part
   end
   else
     warn("Couldn't find any nodes. Start -- End is too obstructed making pathfind not work.")
