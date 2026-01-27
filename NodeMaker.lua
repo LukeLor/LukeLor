@@ -22,7 +22,7 @@ path:ComputeAsync(startPosition, goalPosition)
   if #path:GetWaypoints() > 0 then
     for _, wpt in path:GetWaypoints() do
   local part = Instance.new("Part")
-  part.Position = wpt.Position + Vector3.new(0,3,0)
+  part.Position = wpt.Position + Vector3.new(0,6,0)
   part.Size= Vector3.new(1,1,1)
   part.Parent = workspace
   part.Anchored = true
@@ -43,5 +43,14 @@ end
 local nodes = VisualizeNodes(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value])
 local cnode = nodes[math.random(1,#nodes)]
 
-local highlight = Instance.new("Highlight")
-highlight.Parent = cnode
+local model = game:GetObjects("rbxassetid://136064945135625")[1]
+if not model then return end
+print("Model has loaded!")
+
+model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
+if not model.PrimaryPart then return end
+print("PrimaryPart found.")
+
+for _, individnode in nodes do
+	individnode:Destroy()
+end
