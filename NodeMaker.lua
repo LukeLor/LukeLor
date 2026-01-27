@@ -5,7 +5,17 @@ local goalPosition = room:WaitForChild("RoomExit").Position
   local path = pfs:CreatePath()
 path:ComputeAsync(startPosition, goalPosition)
   local generatednodes= {}
-for wpt in path:GetWaypoints() do
+  local spart = Instance.new("Part")
+   spart.Position = startCFrame
+   spart.Size= Vector3.new(1,1,1)
+  spart.Parent = workspace
+  generatednodes[1] = spart
+  local epart = Instance.new("Part")
+   epart.Position = goalPosition
+   epart.Size= Vector3.new(1,1,1)
+  epart.Parent = workspace
+  generatednodes[2] = epart
+  for wpt in path:GetWaypoints() do
 local part = Instance.new("Part")
    part.Position = wpt.Position
    part.Size= Vector3.new(1,1,1)
