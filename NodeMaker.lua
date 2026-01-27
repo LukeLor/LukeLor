@@ -6,7 +6,7 @@ local goalPosition = room:WaitForChild("RoomExit").Position
 path:ComputeAsync(startPosition, goalPosition)
   local generatednodes= {}
   local spart = Instance.new("Part")
-   spart.Position = startCFrame
+   spart.Position = startPosition
    spart.Size= Vector3.new(1,1,1)
   spart.Parent = workspace
   generatednodes[1] = spart
