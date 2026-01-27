@@ -50,7 +50,7 @@ print("Model has loaded!")
 model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
 if not model.PrimaryPart then return end
 print("PrimaryPart found.")
-
+model.Parent = workspace
 model:PivotTo(cnode.CFrame)
 for _, individnode in nodes do
 	individnode:Destroy()
