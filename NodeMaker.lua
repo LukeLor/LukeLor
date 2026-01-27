@@ -2,7 +2,8 @@ function GeneratePath(room)
 local pfs = game:GetService("PathfindingService")
 local startPosition = room:WaitForChild("RoomEntrance").Position
 local goalPosition = room:WaitForChild("RoomExit").Position
-return pfs:ComputeAsync(startPosition, goalPosition)
+local path = pfs:CreatePath()
+return path:ComputeAsync(startPosition, goalPosition)
 end
 
 function VisualizeNodes(path)
