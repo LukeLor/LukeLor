@@ -22,7 +22,12 @@ local part = Instance.new("Part")
   part.Parent = workspace
     generatednodes[#generatednodes +1] = part
   end
-  return generatednodes
+  if #generatednodes == 2 then
+warn("2 nodes have been found, most likely the Start and End of room.")
+  else
+    warn("Found 2+ nodes!")
+  end
+    return generatednodes
 end
 
 local nodes = VisualizeNodes(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value])
