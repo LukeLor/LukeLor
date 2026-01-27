@@ -1,13 +1,9 @@
-function GeneratePath(room)
-local pfs = game:GetService("PathfindingService")
+function VisualizeNodes(room)
+  local pfs = game:GetService("PathfindingService")
 local startPosition = room:WaitForChild("RoomEntrance").Position
 local goalPosition = room:WaitForChild("RoomExit").Position
-local path = pfs:CreatePath()
-path = path:ComputeAsync(startPosition, goalPosition)
-return path
-end
-
-function VisualizeNodes(path)
+  local path = pfs:CreatePath()
+path:ComputeAsync(startPosition, goalPosition)
   local generatednodes= {}
 for wpt in path:GetWaypoints() do
 local part = Instance.new("Part")
@@ -19,7 +15,7 @@ local part = Instance.new("Part")
   return generatednodes
 end
 
-local nodes = VisualizeNodes(GeneratePath(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]))
+local nodes = VisualizeNodes(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value])
 local cnode = nodes[math.random(1,#nodes)]
 
 local highlight = Instance.new("Highlight")
