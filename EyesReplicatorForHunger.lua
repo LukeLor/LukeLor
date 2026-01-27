@@ -46,25 +46,18 @@ function GetNodesFromRoom(room, reversed)
 
 	return nodes
 end
-function GetPathfindNodesAmbush(config)
-	local pathfindNodes = {}
-    local rooms = workspace.CurrentRooms:GetChildren()
-    
-        for i = 1, #rooms, 1 do
-            local room = rooms[i]
-            local roomNodes = GetNodesFromRoom(room, false)
-            for _, node in roomNodes do
-                pathfindNodes[#pathfindNodes + 1] = node
-            end
-        end
-	return pathfindNodes
-end
-local pathfindNodes = GetPathfindNodesAmbush()
+
+local pathfindNodes = GetNodesFromRoom(currentLoadedRoom,  false)
 model.Parent = workspace
-							
+model:PivotTo(CFrame.new(Vector3.new(0,0,0))
+
+if pathfindNodes then
 for _, n in pathfindNodes do
 local cframe = n.CFrame + Vector3.new(0, 3, 0)
 model:PivotTo(cframe)
   break
 end
-print("spawned")
+else
+warn("for some non-apparent reason, there aren't any nodes...")
+end
+	print("spawned")
