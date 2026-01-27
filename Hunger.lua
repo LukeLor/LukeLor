@@ -5,7 +5,7 @@ local currentLoadedRoom = workspace.CurrentRooms:FindFirstChild(tostring(LatestR
 if not currentLoadedRoom then return end
 print("Got current room: "..currentLoadedRoom.Name)
 
-local model = game:GetObjects("rbxassetid://130117055058747")[1]
+local model = game:GetObjects("rbxassetid://136064945135625")[1]
 if not model then return end
 print("Model has loaded!")
 
