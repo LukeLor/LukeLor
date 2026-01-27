@@ -3,12 +3,15 @@ local LatestRoom = ReplicatedStorage.GameData.LatestRoom.Value
 
 local currentLoadedRoom = workspace.CurrentRooms:FindFirstChild(tostring(LatestRoom-1))
 if not currentLoadedRoom then return end
+print("Got current room: "..currentLoadedRoom.Name)
 
 local model = game:GetObjects("rbxassetid://130117055058747")[1]
 if not model then return end
+print("Model has loaded!")
 
 model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
 if not model.PrimaryPart then return end
+print("PrimaryPart found.")
 
 function GetNodesFromRoom(room, reversed)
 	local nodes = {}
