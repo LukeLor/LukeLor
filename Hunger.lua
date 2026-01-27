@@ -1,7 +1,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LatestRoom = ReplicatedStorage.GameData.LatestRoom.Value
 
-local currentLoadedRoom = workspace.CurrentRooms:FindFirstChild(tostring(LatestRoom-1))
+local currentLoadedRoom = workspace.CurrentRooms:FindFirstChild(tostring(LatestRoom))
 if not currentLoadedRoom then return end
 print("Got current room: "..currentLoadedRoom.Name)
 
