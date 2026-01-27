@@ -58,9 +58,10 @@ if pathfindNodes then
 for _, n in pathfindNodes do
 local cframe = n.CFrame + Vector3.new(0, 3, 0)
 model:PivotTo(cframe)
+			print("spawned")
   break
 end
 else
 warn("for some non-apparent reason, there aren't any nodes...")
 end
-	print("spawned")
+	
