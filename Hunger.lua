@@ -52,7 +52,7 @@ end
 
 local pathfindNodes = GetNodesFromRoom(currentLoadedRoom,  false)
 model.Parent = workspace
-model:PivotTo(CFrame.new(Vector3.new(0,0,0))
+model:PivotTo(CFrame.new(Vector3.new(0,0,0)))
 
 if pathfindNodes then
 for _, n in pathfindNodes do
