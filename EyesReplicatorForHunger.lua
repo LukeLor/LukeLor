@@ -59,11 +59,12 @@ function GetPathfindNodesAmbush(config)
         end
 	return pathfindNodes
 end
-			pathfindNodes = GetPathfindNodesAmbush()
-	model.Parent = workspace
+local pathfindNodes = GetPathfindNodesAmbush()
+model.Parent = workspace
 							
-							for _, n in pathfindNodes do
-								local cframe = n.CFrame + Vector3.new(0, 3, 0)
+for _, n in pathfindNodes do
+local cframe = n.CFrame + Vector3.new(0, 3, 0)
 model:PivotTo(cframe)
   break
 end
+print("spawned")
