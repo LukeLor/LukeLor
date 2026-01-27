@@ -15,17 +15,21 @@ path:ComputeAsync(startPosition, goalPosition)
    epart.Size= Vector3.new(1,1,1)
   epart.Parent = workspace
   generatednodes[2] = epart
-  for wpt in path:GetWaypoints() do
+  if #path:GetWaypoints() > 0 then
+    for wpt in path:GetWaypoints() do
 local part = Instance.new("Part")
    part.Position = wpt.Position
    part.Size= Vector3.new(1,1,1)
   part.Parent = workspace
     generatednodes[#generatednodes +1] = part
   end
+  else
+    warn("Couldn't find any nodes. Start -- End is too obstructed making pathfind not work.")
+  end
   if #generatednodes == 2 then
 warn("2 nodes have been found, most likely the Start and End of room.")
   else
-    warn("Found 2+ nodes!")
+    print("Found 2+ nodes!")
   end
     return generatednodes
 end
