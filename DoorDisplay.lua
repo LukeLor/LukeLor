@@ -1,3 +1,6 @@
+--PrefixFrame.Prefix
+--MainFrame
+
 local function Roll(NewNum:number, Label:TextLabel)
 	local rollc = coroutine.create(function()
 		local clonedlabel = Label:Clone()
