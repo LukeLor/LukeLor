@@ -1,6 +1,8 @@
 --PrefixFrame.Prefix
 --MainFrame
 --Id: 113797893001247
+local Ui = game:GetObjects("rbxassetid://113797893001247")[1]
+Ui.Parent = game.Players.LocalPlayer.PlayerGui
 
 local function Roll(NewNum:number, Label:TextLabel)
 	local rollc = coroutine.create(function()
@@ -27,22 +29,22 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 	print(#stringed_num)
 
 	if #stringed_num == 1 then
-		Roll(newval, script.Parent.FourthDigit)
-		if script.Parent.ThirdDigit.Text ~="0" then
-			Roll(0, script.Parent.ThirdDigit)
+		Roll(newval, Ui.MainFrame.FourthDigit)
+		if Ui.MainFrame.ThirdDigit.Text ~="0" then
+			Roll(0, Ui.MainFrame.ThirdDigit)
 			sh = 0
 		end
-		if script.Parent.SecondDigit.Text ~="0" then
-			Roll(0, script.Parent.SecondDigit)
+		if Ui.MainFrame.SecondDigit.Text ~="0" then
+			Roll(0, Ui.MainFrame.SecondDigit)
 			th = 0
 		end
-		if script.Parent.FirstDigit.Text ~="0" then
-			Roll(0, script.Parent.FirstDigit)
+		if Ui.MainFrame.FirstDigit.Text ~="0" then
+			Roll(0, Ui.MainFrame.FirstDigit)
 			fh = 0
 		end
 	end
 	if #stringed_num == 2 then
-		Roll(string.sub(stringed_num,2,2), script.Parent.FourthDigit)
+		Roll(string.sub(stringed_num,2,2), Ui.MainFrame.FourthDigit)
 		if string.sub(stringed_num,1,1) ~= sh then
 			Roll(string.sub(stringed_num,1,1), script.Parent.ThirdDigit)
 		elseif string.sub(stringed_num,1,1) == sh then
