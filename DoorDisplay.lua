@@ -3,6 +3,7 @@
 --Id: 113797893001247 
 local Ui = game:GetObjects("rbxassetid://113797893001247")[1] 
 Ui.Parent = game.Players.LocalPlayer.PlayerGui 
+Ui.PrefixFrame.Visible = false
 
 local function Roll(NewNum:number, Label:TextLabel) 
     local rollc = coroutine.create(function() 
