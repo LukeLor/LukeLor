@@ -46,7 +46,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 	if #stringed_num == 2 then
 		Roll(string.sub(stringed_num,2,2), Ui.MainFrame.FourthDigit)
 		if string.sub(stringed_num,1,1) ~= sh then
-			Roll(string.sub(stringed_num,1,1), script.Parent.ThirdDigit)
+			Roll(string.sub(stringed_num,1,1), Ui.MainFrame.ThirdDigit)
 		elseif string.sub(stringed_num,1,1) == sh then
 			print("dude stay.")
 		end
@@ -54,7 +54,7 @@ game.ReplicatedStorage.GameData.LatestRoom:GetPropertyChangedSignal("Value"):Con
 		print("sh = "..sh)
 
 		if script.Parent.SecondDigit.Text ~="0" then
-			Roll(0, script.Parent.SecondDigit)
+			Roll(0, Ui.MainFrame.SecondDigit)
 			th = 0
 		end
 		if script.Parent.FirstDigit.Text ~="0" then
