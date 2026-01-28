@@ -1,10 +1,11 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
 local moduleScripts = {
-	Module_Events = require(ReplicatedStorage.ClientModules.Module_Events),
+	Module_Events = require(ReplicatedStorage.ModulesClient.Module_Events),
 	Main_Game = require(playerGui.MainUI.Initiator.Main_Game),
 	Earthquake = require(remotesFolder.RequestAsset:InvokeServer("Earthquake"))
 }
+local gameStats = game.ReplicatedStorage:WaitForChild("GameStats")
 local plr = game.Players.LocalPlayer
 local char = workspace:FindFirstChild(plr.Name)
 local roof_finder = Instance.new("Part")
@@ -80,6 +81,8 @@ EQ(GetCurrentRoom(false))
 					TouchedParts.Parent:FindFirstChild("Humanoid"):TakeDamage(25)
 						if firesignal then
 					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to The Stomper...", "It'll make banging noises to indicate its there.", "Make sure to move out of its way when it tries crushing you!"}, "Blue")
+						gameStats["Player_".. localPlayer.Name].Total.DeathCause.Value = "Stomper"
+		
 				else
 					warn("firesignal not supported, ignore death hints.")
 				end
