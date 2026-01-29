@@ -80,7 +80,7 @@ EQ(GetCurrentRoom(false))
 					wait(1)
 					TouchedParts.Parent:FindFirstChild("Humanoid"):TakeDamage(25)
 						if firesignal then
-					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to Stomper...", "It'll make banging noises to indicate its there.", "Make sure to move out of its way when it tries crushing you!"}, "Blue")
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to Stomper...", "It'll make banging noises and an earthquake to indicate it's there.", "Make sure to move out of its way when it tries crushing you!"}, "Blue")
 						gameStats["Player_".. localPlayer.Name].Total.DeathCause.Value = "Stomper"
 		
 				else
