@@ -135,7 +135,7 @@ takedmg = false
 	stompermodel:Destroy()
 	print("\"all clean!\"")
 end
-while true do
+--[[while true do
 	wait()
 	print("Finding")
 	roof_finder.Position += Vector3.new(0,2.5,0)
@@ -154,4 +154,6 @@ while true do
 			end
 		end
 	end
-end
+end]]
+roof_finder.Position = roof_finder.Position+Vector3.new(0,50,0)
+Stomper(roof_finder.CFrame)
