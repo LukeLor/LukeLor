@@ -2,7 +2,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 
 local moduleScripts = {
 	Module_Events = require(game.ReplicatedStorage.ModulesClient.Module_Events),
-	Main_Game = require(playerGui.MainUI.Initiator.Main_Game),
+	Main_Game = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
 	Earthquake = require(game.ReplicatedStorage:WaitForChild("RemotesFolder").RequestAsset:InvokeServer("Earthquake"))
 }
 print("defined modules")
