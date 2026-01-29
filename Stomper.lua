@@ -155,5 +155,6 @@ end
 		end
 	end
 end]]
+print("loop has been skipped, automatically placed part")
 roof_finder.Position = roof_finder.Position+Vector3.new(0,50,0)
 Stomper(roof_finder.CFrame)
