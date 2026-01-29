@@ -5,6 +5,7 @@ local moduleScripts = {
 	Main_Game = require(playerGui.MainUI.Initiator.Main_Game),
 	Earthquake = require(game.ReplicatedStorage:WaitForChild("RemotesFolder").RequestAsset:InvokeServer("Earthquake"))
 }
+print("defined modules")
 local gameStats = game.ReplicatedStorage:WaitForChild("GameStats")
 local plr = game.Players.LocalPlayer
 local char = workspace:FindFirstChild(plr.Name)
@@ -17,6 +18,7 @@ roof_finder.CanTouch = true
 roof_finder.Parent = workspace
 roof_finder.Name = "Roof_Finder"
 roof_finder.Transparency = 1
+print("setup finished.")
 
 function GetCurrentRoom(latest)
     if latest then
@@ -31,7 +33,7 @@ task.defer(moduleScripts.Earthquake, moduleScripts.Main_Game, currentRoom)
 end)
 end
 function Stomper(pos:CFrame)
-
+print("Initiate")
 	local newvel = Instance.new("VectorForce")
 	newvel.Force =Vector3.new(0,10000,5000)
 	local stompermodel = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.rbxm")
@@ -55,10 +57,11 @@ EQ(GetCurrentRoom(false))
 	wait(1.5)
 	stompermodel:PivotTo(pos)
 	soundpart:Destroy()
-	
+	print("Spawning complete")
 	for i = 0, 12, 1 do
 		if stompermodel.Leg.Teeth.Position.Y > char.HumanoidRootPart.Position.Y then
 	stompermodel:PivotTo(stompermodel.Root.CFrame - Vector3.new(0,2,0))
+			print("down")
 		end
 		if stompermodel.Leg.Teeth.Position.Y <= char.HumanoidRootPart.Position.Y then
 		--Do nothing
@@ -72,6 +75,7 @@ EQ(GetCurrentRoom(false))
 
 
 				if char.Humanoid.Health <= 25 and takedmg then
+						print("ggs")
 					local cc = workspace.CurrentCamera
 					TouchedParts.Parent.Humanoid.WalkSpeed = 0
 					TouchedParts.Parent.HumanoidRootPart.Anchored = true
@@ -101,6 +105,7 @@ EQ(GetCurrentRoom(false))
 				wait(0.5)
 			newvel:Destroy()
 				TouchedParts.Parent.Humanoid.Sit = false
+					print("ow")
 			end				
 		end)
 	end
@@ -108,7 +113,7 @@ EQ(GetCurrentRoom(false))
 	for i = 0, 15, 1 do
 		stompermodel:PivotTo(stompermodel.Root.CFrame - Vector3.new(0,0.1,0))
 		wait()
-		
+		print("up")
 	end
 	char.HumanoidRootPart.Anchored = false
 takedmg = false
@@ -124,9 +129,11 @@ takedmg = false
 		wait()
 		
 	end
+	print("up done")
 	char.HumanoidRootPart.Anchored = false
 	wait(1)
 	stompermodel:Destroy()
+	print("\"all clean!\"")
 end
 while true do
 	wait()
