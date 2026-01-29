@@ -108,6 +108,7 @@ EQ(GetCurrentRoom(false))
 					print("ow")
 			end				
 		end)
+		break
 	end
 	stompermodel.Leg.Teeth.Slam:Play()
 	for i = 0, 15, 1 do
