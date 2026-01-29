@@ -1,5 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
-
+print("start")
 local moduleScripts = {
 	Module_Events = require(game.ReplicatedStorage.ModulesClient.Module_Events),
 	Main_Game = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game),
