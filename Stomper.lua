@@ -3,7 +3,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 local moduleScripts = {
 	Module_Events = require(ReplicatedStorage.ModulesClient.Module_Events),
 	Main_Game = require(playerGui.MainUI.Initiator.Main_Game),
-	Earthquake = require(remotesFolder.RequestAsset:InvokeServer("Earthquake"))
+	Earthquake = require(game.ReplicatedStorage:WaitForChild("RemotesFolder").RequestAsset:InvokeServer("Earthquake"))
 }
 local gameStats = game.ReplicatedStorage:WaitForChild("GameStats")
 local plr = game.Players.LocalPlayer
