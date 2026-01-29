@@ -22,7 +22,7 @@ function GetCurrentRoom(latest)
     if latest then
         return workspace.CurrentRooms:GetChildren()[#workspace.CurrentRooms:GetChildren()]
     end
-    return workspace.CurrentRooms:FindFirstChild(localPlayer:GetAttribute("CurrentRoom"))
+    return workspace.CurrentRooms:FindFirstChild(game.Players.LocalPlayer:GetAttribute("CurrentRoom"))
 end
 
 function EQ(currentRoom)
