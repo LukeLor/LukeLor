@@ -64,7 +64,8 @@ EQ(GetCurrentRoom(false))
 			print("down")
 		end
 		if stompermodel.Leg.Teeth.Position.Y <= char.HumanoidRootPart.Position.Y -3 then
-		--Do nothing
+		break
+			--adnd move on
 		end
 	wait()
 		stompermodel.CamDeath.Touched:Connect(function(TouchedParts)
@@ -108,7 +109,6 @@ EQ(GetCurrentRoom(false))
 					print("ow")
 			end				
 		end)
-		break
 	end
 	stompermodel.Leg.Teeth.Slam:Play()
 	for i = 0, 15, 1 do
