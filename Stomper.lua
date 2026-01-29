@@ -59,7 +59,7 @@ EQ(GetCurrentRoom(false))
 	soundpart:Destroy()
 	print("Spawning complete")
 	for i = 0, 12, 1 do
-		if stompermodel.Leg.Teeth.Position.Y > char.HumanoidRootPart.Position.Y then
+		if stompermodel.Leg.Teeth.Position.Y > char.HumanoidRootPart.Position.Y - 3 then
 	stompermodel:PivotTo(stompermodel.Root.CFrame - Vector3.new(0,2,0))
 			print("down")
 		end
