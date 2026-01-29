@@ -129,6 +129,7 @@ takedmg = false
 end
 while true do
 	wait()
+	print("Finding")
 	roof_finder.Position += Vector3.new(0,2.5,0)
 	roof_finder.CanCollide = true
 	for _, TouchedParts in pairs(roof_finder:GetTouchingParts()) do
@@ -137,6 +138,7 @@ while true do
 				if Parts.Name == TouchedParts.Name then
 					roof_finder.Position -= Vector3.new(0,2.5,0)
 					roof_finder.Position = Vector3.new(char.HumanoidRootPart.Position.X,roof_finder.Position.Y,char.HumanoidRootPart.Position.Z)
+				print("Activate")
 					Stomper(roof_finder.CFrame)
 					return
 					
