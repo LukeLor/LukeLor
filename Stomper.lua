@@ -63,7 +63,7 @@ EQ(GetCurrentRoom(false))
 	stompermodel:PivotTo(stompermodel.Root.CFrame - Vector3.new(0,2,0))
 			print("down")
 		end
-		if stompermodel.Leg.Teeth.Position.Y <= char.HumanoidRootPart.Position.Y then
+		if stompermodel.Leg.Teeth.Position.Y <= char.HumanoidRootPart.Position.Y -3 then
 		--Do nothing
 		end
 	wait()
