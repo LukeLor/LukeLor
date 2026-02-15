@@ -12,7 +12,7 @@ temp.Name = string.lower(i)
 temp:FindFirstChildOfClass("Animation").AnimationId = emote:FindFirstChildOfClass("Animation").AnimationId
 num = num+1
 local image = "rbxthumb://type=Asset&id=" ..v[1].. "&w=150&h=150"
-game.Players[char.Name].PlayerGui.MainUi.EmoteWheel.Main.EmoteWheels.Front:FindFirstChildOfClass("TextButton")[tostring(num)].Image = image
-game.Players[char.Name].PlayerGui.MainUi.EmoteWheel.Main.EmoteWheels.Front:FindFirstChildOfClass("TextButton")[tostring(num)]:SetAttribute("Name", i)
+game.Players[char.Name].PlayerGui.MainUi.EmoteWheel.Main:FindFirstChildOfClass("Frame").Front:FindFirstChildOfClass("TextButton")[tostring(num)].Image = image
+game.Players[char.Name].PlayerGui.MainUi.EmoteWheel.Main:FindFirstChildOfClass("Frame").Front:FindFirstChildOfClass("TextButton")[tostring(num)]:SetAttribute("Name", i)
   
 end
