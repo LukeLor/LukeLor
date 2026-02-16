@@ -1,9 +1,10 @@
 
 local friends = game.Players:GetFriendsAsync(game.Players.X_masLucas7.UserId):GetCurrentPage()
 local id = 0
-for i, friend in friends do
+for i, friend in pairs(friends) do
  print(i, friend)
-  break
+ id = friend.Id
+ break
 end
 
 local desc = game.Players:GetHumanoidDescriptionFromUserId(id)
