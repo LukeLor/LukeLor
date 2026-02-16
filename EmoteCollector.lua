@@ -1,7 +1,8 @@
-local friends = game.Players:GetFriendsAsync(game.Players.LocalPlayer.UserId):GetCurrentPage()
+
+local friends = game.Players:GetFriendsAsync(game.Players.X_masLucas7.UserId):GetCurrentPage()
 local id = 0
-for _, friend in friends do
- id = friends[math.random(1,#friends)]
+for i, friend in friends do
+ print(i, friend)
   break
 end
 
