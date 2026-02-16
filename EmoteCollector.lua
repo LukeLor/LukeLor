@@ -1,4 +1,10 @@
-local id = 1156217066
+local friends = game.Players:GetFriendsAsync(game.Players.LocalPlayer.UserId):GetCurrentPage()
+local id = 0
+for _, friend in friends do
+ id = friends[math.random(1,#friends)]
+  break
+end
+
 local desc = game.Players:GetHumanoidDescriptionFromUserId(id)
 local emotes = desc:GetEmotes()
 local char = workspace.X_masLucas7
