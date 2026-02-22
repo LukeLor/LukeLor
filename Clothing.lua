@@ -1,4 +1,4 @@
-
+local char = workspace.X_masLucas7
 local plrrep = game.ReplicatedStorage.StoredObj.PlrRep
 local plr = plrrep:Clone()
 
@@ -8,7 +8,7 @@ local id = 290323663 --game.Players:FindFirstChild(script.Parent.Name).UserId
 print(id)
 local desc = game.Players:GetHumanoidDescriptionFromUserIdAsync(id)
 plr.Humanoid:ApplyDescriptionAsync(desc)
-plr:PivotTo(script.Parent.HumanoidRootPart.CFrame)
+plr:PivotTo(char.HumanoidRootPart.CFrame)
 local s_id = "rbxassetid://0"
 if plr:FindFirstChildOfClass("Shirt") then
 s_id = plr:FindFirstChildOfClass("Shirt").ShirtTemplate
@@ -27,7 +27,7 @@ if plr:FindFirstChildOfClass("ShirtGraphic") then
 end
 
 	--Upper
-for _, textures in script.Parent:WaitForChild("UpperTorso"):GetDescendants() do
+for _, textures in char:WaitForChild("UpperTorso"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = s_id
 		textures.ZIndex = 3
@@ -42,7 +42,7 @@ if textures:IsA("Texture") and textures.Name == "TShirt" then
 		textures.ZIndex = 5
 	end
 end
-for _, textures in script.Parent:WaitForChild("LowerTorso"):GetDescendants() do
+for _, textures in char:WaitForChild("LowerTorso"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = s_id
 		textures.ZIndex = 3
@@ -57,7 +57,7 @@ if textures:IsA("Texture") and textures.Name == "TShirt" then
 		textures.ZIndex = 5
 	end
 end
-for _, textures in script.Parent:WaitForChild("LeftUpperArm"):GetDescendants() do
+for _, textures in char:WaitForChild("LeftUpperArm"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = s_id
 		textures.ZIndex = 3
@@ -72,7 +72,7 @@ if textures:IsA("Texture") and textures.Name == "TextureBU" then
 		textures.ZIndex = 2
 end
 end
-for _, textures in script.Parent:WaitForChild("LeftLowerArm"):GetDescendants() do
+for _, textures in char:WaitForChild("LeftLowerArm"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = s_id
 		textures.ZIndex = 3
@@ -83,7 +83,7 @@ for _, textures in script.Parent:WaitForChild("LeftLowerArm"):GetDescendants() d
 		textures.Color3 = plr["Body Colors"].LeftArmColor3
 	end
 end
-for _, textures in script.Parent:WaitForChild("RightUpperArm"):GetDescendants() do
+for _, textures in char:WaitForChild("RightUpperArm"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = s_id
 		textures.ZIndex = 3
@@ -98,7 +98,7 @@ end
 		textures.Color3 = plr["Body Colors"].RightArmColor3
 	end
 end
-for _, textures in script.Parent:WaitForChild("RightLowerArm"):GetDescendants() do
+for _, textures in char:WaitForChild("RightLowerArm"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = s_id
 		textures.ZIndex = 3
@@ -111,7 +111,7 @@ for _, textures in script.Parent:WaitForChild("RightLowerArm"):GetDescendants() 
 end
 
 --Hands
-for _, textures in script.Parent:WaitForChild("LeftHand"):GetDescendants() do
+for _, textures in char:WaitForChild("LeftHand"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		if textures.Face ~= Enum.NormalId.Bottom then
 			textures.Texture = s_id
@@ -128,7 +128,7 @@ for _, textures in script.Parent:WaitForChild("LeftHand"):GetDescendants() do
 		textures.Color3 = plr["Body Colors"].LeftArmColor3
 	end
 end
-for _, textures in script.Parent:WaitForChild("RightHand"):GetDescendants() do
+for _, textures in char:WaitForChild("RightHand"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		if textures.Face ~= Enum.NormalId.Bottom then
 		textures.Texture = s_id
@@ -148,7 +148,7 @@ end
 
 --Head
 
-for _, textures in script.Parent:WaitForChild("Head"):GetDescendants() do
+for _, textures in char:WaitForChild("Head"):GetDescendants() do
 	if textures:IsA("Texture") then
 		textures.Color3 = plr["Body Colors"].HeadColor3
 			textures.ZIndex = 3
@@ -158,7 +158,7 @@ end
 
 --Legs
 
-for _, textures in script.Parent:WaitForChild("LeftUpperLeg"):GetDescendants() do
+for _, textures in char:WaitForChild("LeftUpperLeg"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = p_id
 		textures.ZIndex = 3
@@ -169,7 +169,7 @@ for _, textures in script.Parent:WaitForChild("LeftUpperLeg"):GetDescendants() d
 		textures.Color3 = plr["Body Colors"].LeftLegColor3
 	end
 end
-for _, textures in script.Parent:WaitForChild("LeftLowerLeg"):GetDescendants() do
+for _, textures in char:WaitForChild("LeftLowerLeg"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = p_id
 		textures.ZIndex = 3
@@ -180,7 +180,7 @@ for _, textures in script.Parent:WaitForChild("LeftLowerLeg"):GetDescendants() d
 		textures.Color3 = plr["Body Colors"].LeftLegColor3
 	end
 end
-for _, textures in script.Parent:WaitForChild("RightUpperLeg"):GetDescendants() do
+for _, textures in char:WaitForChild("RightUpperLeg"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = p_id
 		textures.ZIndex = 3
@@ -191,7 +191,7 @@ for _, textures in script.Parent:WaitForChild("RightUpperLeg"):GetDescendants() 
 		textures.Color3 = plr["Body Colors"].RightLegColor3
 	end
 end
-for _, textures in script.Parent:WaitForChild("RightLowerLeg"):GetDescendants() do
+for _, textures in char:WaitForChild("RightLowerLeg"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
 		textures.Texture = p_id
 		textures.ZIndex = 3
@@ -203,9 +203,8 @@ for _, textures in script.Parent:WaitForChild("RightLowerLeg"):GetDescendants() 
 	end
 end
 
-script.Parent.HumanoidRootPart.Anchored = false
+char.HumanoidRootPart.Anchored = false
 
 --script.Parent:PivotTo(workspace.SpawnLocation.CFrame)
 plr:Destroy()
 
-script:Destroy()
