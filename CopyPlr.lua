@@ -1,10 +1,11 @@
+local id = 290323663
 local char = workspace.X_masLucas7 
 local plrrep = game.ReplicatedStorage.StoredObj.PlrRep
 local plr = plrrep:Clone()
 local plr2 = plrrep:Clone()
 plr2.Parent =workspace
 plr.Parent = workspace
-local id = 290323663 --game.Players:FindFirstChild(script.Parent.Name).UserId
+ --game.Players:FindFirstChild(script.Parent.Name).UserId
 print(id)
 local desc = game.Players:GetHumanoidDescriptionFromUserIdAsync(id)
 plr.Humanoid:ApplyDescriptionAsync(desc)
