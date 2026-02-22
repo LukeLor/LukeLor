@@ -20,6 +20,12 @@ if plr:FindFirstChildOfClass("Pants") then
 	p_id = plr:FindFirstChildOfClass("Pants").PantsTemplate
 end
 
+local t_id = "rbxassetid://0"
+
+if plr:FindFirstChildOfClass("ShirtGraphic") then
+	t_id = plr:FindFirstChildOfClass("Pants").PantsTemplate
+end
+
 	--Upper
 for _, textures in script.Parent:WaitForChild("UpperTorso"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
@@ -30,6 +36,10 @@ for _, textures in script.Parent:WaitForChild("UpperTorso"):GetDescendants() do
 		textures.Texture = "rbxassetid://15650043117"
 		textures.ZIndex = 1
 		textures.Color3 = plr["Body Colors"].TorsoColor3
+	end
+if textures:IsA("Texture") and textures.Name == "TShirt" then
+		textures.Texture = t_id
+		textures.ZIndex = 5
 	end
 end
 for _, textures in script.Parent:WaitForChild("LowerTorso"):GetDescendants() do
@@ -42,6 +52,10 @@ for _, textures in script.Parent:WaitForChild("LowerTorso"):GetDescendants() do
 		textures.ZIndex = 1
 		textures.Color3 = plr["Body Colors"].TorsoColor3
 	end
+if textures:IsA("Texture") and textures.Name == "TShirt" then
+		textures.Texture = t_id
+		textures.ZIndex = 5
+	end
 end
 for _, textures in script.Parent:WaitForChild("LeftUpperArm"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
@@ -53,6 +67,10 @@ for _, textures in script.Parent:WaitForChild("LeftUpperArm"):GetDescendants() d
 		textures.ZIndex = 1
 		textures.Color3 = plr["Body Colors"].LeftArmColor3
 	end
+if textures:IsA("Texture") and textures.Name == "TextureBU" then
+		textures.Texture = s_id
+		textures.ZIndex = 2
+end
 end
 for _, textures in script.Parent:WaitForChild("LeftLowerArm"):GetDescendants() do
 	if textures:IsA("Texture") and textures.Name == "Texture" then
@@ -70,6 +88,10 @@ for _, textures in script.Parent:WaitForChild("RightUpperArm"):GetDescendants() 
 		textures.Texture = s_id
 		textures.ZIndex = 3
 	end
+if textures:IsA("Texture") and textures.Name == "TextureBU" then
+		textures.Texture = s_id
+		textures.ZIndex = 2
+end
 	if textures:IsA("Texture") and textures.Name == "SkinTexture" then
 		textures.Texture = "rbxassetid://15650043117"
 		textures.ZIndex = 1
