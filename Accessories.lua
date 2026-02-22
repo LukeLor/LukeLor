@@ -1,4 +1,4 @@
-
+local char = workspace.X_masLucas7 
 local plrrep = game.ReplicatedStorage.StoredObj.PlrRep
 local plr = plrrep:Clone()
 local plr2 = plrrep:Clone()
@@ -8,10 +8,15 @@ local id = 290323663 --game.Players:FindFirstChild(script.Parent.Name).UserId
 print(id)
 local desc = game.Players:GetHumanoidDescriptionFromUserIdAsync(id)
 plr.Humanoid:ApplyDescriptionAsync(desc)
-plr:PivotTo(script.Parent.HumanoidRootPart.CFrame)
+plr:PivotTo(char.HumanoidRootPart.CFrame)
 plr2:PivotTo(plr.PrimaryPart.CFrame)
 plr2.HumanoidRootPart.Anchored = true
-script.Parent.HumanoidRootPart.Anchored = true
+char.HumanoidRootPart.Anchored = true
+for _, EA in char:GetChildren() do
+if EA.Name == "AccWeld" then
+EA:Destroy()
+end
+end
 for _, part in plr:GetDescendants() do
 	if part:IsA("Accessory") then
 	part.Parent = plr2
@@ -25,13 +30,13 @@ end
 	
 			print("doing pw now")
 			local weld = Instance.new("WeldConstraint")
-			weld.Parent = script.Parent
+			weld.Parent = char
 			weld.Name = "AccWeld"
-				weld.Part0 = script.Parent[pw.Part1.Name]
+				weld.Part0 = char[pw.Part1.Name]
 			weld.Part1 = pw.Part0
 			pw.Part0.Massless = true
 			pw.Part0.Name = part.Name
-			pw.Part0.Parent = script.Parent 
+			pw.Part0.Parent = char
 		weld.Enabled = true
 			print("done: "..part.Name)
 		end
@@ -39,10 +44,8 @@ end
 	
 	end
 end
-
-script.Parent.HumanoidRootPart.Anchored = false
+char.HumanoidRootPart.Anchored = false
 
 --script.Parent:PivotTo(workspace.SpawnLocation.CFrame)
 plr:Destroy()
 plr2:Destroy()
-script:Destroy()
