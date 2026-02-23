@@ -1,21 +1,18 @@
 local char = workspace.X_masLucas7 
 
-local j = Instance.new("WeldConstraint")
-local j2 = Instance.new("WeldConstraint")
-
-
-j.Part0 = char.LeftLowerArm
-j.Part1 = char.LeftUpperArm
-j.Parent = char
-
-char.LeftUpperArm.Name = "Hi"
-local mainj = nil
-
-for _, j in char.UpperTorso:GetChildren() do
-  if j:IsA("Motor6D") and j.Part1.Name == "Hi" then 
-    mainj = j
-    break
-  end
-end
-
-mainj.Part1 = j.Part0
+local weld1 = Instance.new("WeldConstraint")
+weld1.Parent = char
+weld1.Part0 = char.LeftUpperArm
+weld1.Part1 = char.LeftLowerArm 
+local weld2 = Instance.new("WeldConstraint")
+weld1.Parent = char
+weld1.Part0 = char.RightUpperArm
+weld1.Part1 = char.RightLowerArm 
+local weld3 = Instance.new("WeldConstraint")
+weld1.Parent = char
+weld1.Part0 = char.LeftUpperLeg
+weld1.Part1 = char.LeftLowerLeg
+local weld4 = Instance.new("WeldConstraint")
+weld1.Parent = char
+weld1.Part0 = char.RightUpperLeg
+weld1.Part1 = char.RightLowerLeg
