@@ -12,7 +12,7 @@ char.LeftUpperArm.Name = "Hi"
 local mainj = nil
 
 for _, j in char.UpperTorso:GetChildren() do
-  if j:IsA("Motor6D") and j.Part1.Name == "LeftUpperArm" then 
+  if j:IsA("Motor6D") and j.Part1.Name == "Hi" then 
     mainj = j
     break
   end
