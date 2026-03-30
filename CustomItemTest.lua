@@ -25,6 +25,7 @@ item.Size = item.Size * 0.3
 item.CanCollide = false
 item = item.Parent
 item.Parent = char
+item.Name = "Fake"
 local weld = Instance.new("WeldConstraint")
 weld.Parent = char
 weld.Name = "ItemWeld"
@@ -32,8 +33,8 @@ weld.Part0 = char.RightHand
 weld.Part1 = item.Handle
 item.Handle.Name = item.Name
 item.Handle.Parent = char
-item:Destroy()
 item = item.Name
+
 char.Data.HoldingItem.Value = true
-char.Data.HoldingItem.HeldItem.Value = item.Handle
+char.Data.HoldingItem.HeldItem.Value = item
 char.Data.HoldingItem.HeldItem.CanShoot.Value = true
