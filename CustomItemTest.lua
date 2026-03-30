@@ -21,19 +21,18 @@ RepLaunch.Handle:Destroy()
 RepLaunch.Name = "Gun" 
 item.Parent = RepLaunch 
 item.Name = "Handle"
-item.Size = item.Size * 0.3
+item.Size = item.Size * 0.2
 item.CanCollide = false
-item = item.Parent
+item = RepLaunch
 item.Parent = char
-item.Name = "Fake"
+item.Name = "PGun"
 local weld = Instance.new("WeldConstraint")
 weld.Parent = char
 weld.Name = "ItemWeld"
 weld.Part0 = char.RightHand
 weld.Part1 = item.Handle
 item.Handle.Name = item.Name
-item.Handle.Parent = char
-item = item.Name
+item.PGun.Parent = char
 
 char.Data.HoldingItem.Value = true
 char.Data.HoldingItem.HeldItem.Value = item
