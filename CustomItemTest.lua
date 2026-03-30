@@ -32,7 +32,9 @@ weld.Name = "ItemWeld"
 weld.Part0 = char.RightHand
 weld.Part1 = item.Handle
 item.Handle.Name = item.Name
-item.PGun.Parent = char
+item = item.PGun
+item.Parent = char
+char:FindFirstChildOfClass("Tool"):Destroy()
 
 char.Data.HoldingItem.Value = true
 char.Data.HoldingItem.HeldItem.Value = item
