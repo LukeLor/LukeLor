@@ -35,6 +35,7 @@ item.Handle.Name = item.Name
 item = item.PGun
 item.Parent = char
 char:FindFirstChildOfClass("Tool"):Destroy()
+item.Rotation += Vector3.new(0,90,0)
 
 char.Data.HoldingItem.Value = true
 char.Data.HoldingItem.HeldItem.Value = item
