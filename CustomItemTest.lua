@@ -10,7 +10,7 @@ end
 
 if not item then return end 
 
-local RepLaunch= game.ReplicatedStorage.ReplicatedCollectabables.Launcher:Clone()
+local RepLaunch= game.ReplicatedStorage.ReplicatedCollectables.Launcher:Clone()
 RepLaunch.Parent = workspace 
 item.Parent = RepLaunch
 item.CFrame = RepLaunch.Handle.CFrame
@@ -20,6 +20,20 @@ RepLaunch.Handle.Bullet.Parent = item
 RepLaunch.Handle:Destroy()
 RepLaunch.Name = "Gun" 
 item.Parent = RepLaunch 
+item.Name = "Handle"
+item.Size = item.Size * 0.3
+item.CanCollide = false
 item = item.Parent
 item.Parent = char
-
+local weld = Instance.new("WeldConstraint")
+weld.Parent = char
+weld.Name = "ItemWeld"
+weld.Part0 = char.RightHand
+weld.Part1 = item.Handle
+item.Handle.Name = item.Name
+item.Handle.Parent = char
+item:Destroy()
+item = item.Name
+char.Data.HoldingItem.Value = true
+char.Data.HoldingItem.HeldItem.Value = item.Handle
+char.Data.HoldingItem.HeldItem.CanShoot.Value = true
