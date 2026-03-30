@@ -12,4 +12,14 @@ if not item then return end
 
 local RepLaunch= game.ReplicatedStorage.ReplicatedCollectabables.Launcher:Clone()
 RepLaunch.Parent = workspace 
-RepLaunch
+item.Parent = RepLaunch
+item.CFrame = RepLaunch.Handle.CFrame
+RepLaunch.Handle.BulletWeld.Part0 = item
+RepLaunch.Handle.BulletWeld.Parent = item
+RepLaunch.Handle.Bullet.Parent = item
+RepLaunch.Handle:Destroy()
+RepLaunch.Name = "Gun" 
+item.Parent = RepLaunch 
+item = item.Parent
+item.Parent = char
+
