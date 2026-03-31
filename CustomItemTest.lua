@@ -51,7 +51,7 @@ char.Data.HoldingItem.HeldItem.CanShoot.Value = true
 
 game.ReplicatedStorage.Events.ItemEvent.OnServerEvent:Connect(function(plr, itemobj)
 print("omg item")
-    if plr.Name == char.Name then
+print(plr.Name, char.Name)
     if itemobj.Name == "PGun" then
       print("paired")
       local bullet = itemobj.Bullet
@@ -72,5 +72,4 @@ local tp= Instance.new("Part")
 bullet.AssemblyLinearVelocity = bullet.AssemblyLinearVelocity - Vector3.new(0,15,0)
       end
       end
-    end
   end)
