@@ -52,7 +52,13 @@ char.Data.HoldingItem.HeldItem.CanShoot.Value = true
 game.ReplicatedStorage.Events.ItemEvent.OnServerEvent:Connect(function(plr, itemobj)
 print("omg item")
 print(plr.Name, char.Name)
-    if itemobj.Name == "PGun" then
+    if plr.Name = char.Name then
+      print("same identity.")
+    else 
+      print("mismatch.")
+return
+    end
+    if itemobj.Name == item.Name then
       print("paired")
       local bullet = itemobj.Bullet
       bullet.Touched:Connect(function(hit)
