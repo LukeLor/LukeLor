@@ -62,7 +62,7 @@ return
       print("extra is smth")
     end
     print(extraparam.Name)
-    if itemobj.Name == item.Name then
+    if extraparam.Name == item.Name then
       print("paired")
       local bullet = itemobj.Bullet
       bullet.Touched:Connect(function(hit)
