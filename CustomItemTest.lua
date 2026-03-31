@@ -17,7 +17,6 @@ item.CFrame = RepLaunch.Handle.CFrame
 RepLaunch.Handle.BulletWeld.Part0 = item
 RepLaunch.Handle.BulletWeld.Parent = item
 RepLaunch.Handle.Bullet.Parent = item
-item.Bullet.CFrame = item.CFrame
 item.Bullet.Material = Enum.Material.Neon
 item.Bullet.Color = Color3.fromRGB(0,255,127.5)
 RepLaunch.Handle:Destroy()
@@ -39,7 +38,6 @@ item = item.PGun
 item.Parent = char
 char:FindFirstChildOfClass("Tool"):Destroy()
 item.Rotation += Vector3.new(90,0,0)
-item.Bullet.CFrame = item.CFrame
 
 char.Data.HoldingItem.Value = true
 char.Data.HoldingItem.HeldItem.Value = item
