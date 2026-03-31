@@ -17,6 +17,9 @@ item.CFrame = RepLaunch.Handle.CFrame
 
 RepLaunch.Handle.BulletWeld.Part0 = item
 RepLaunch.Handle.BulletWeld.Parent = item
+RepLaunch.Handle.BulletWeld.Enabled = false
+RepLaunch.Handle.Bullet.CFrame = item.CFrame
+RepLaunch.Handle.BulletWeld.Enabled = true
 RepLaunch.Handle.Bullet.Parent = item
 item.Bullet.Material = Enum.Material.Neon
 item.Bullet.Color = Color3.fromRGB(0,255,127.5)
