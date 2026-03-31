@@ -17,8 +17,11 @@ item.CFrame = RepLaunch.Handle.CFrame
 RepLaunch.Handle.BulletWeld.Part0 = item
 RepLaunch.Handle.BulletWeld.Parent = item
 RepLaunch.Handle.Bullet.Parent = item
+RepLaunch.Handle.Bullet.CFrame = item.CFrame
+RepLaunch.Handle.Bullet.Material = Enum.Material.Neon
+RepLaunch.Handle.Bullet.Color = Color3.fromRGB(0,255,127.5)
 RepLaunch.Handle:Destroy()
-RepLaunch.Name = "Gun" 
+RepLaunch.Name = "PGun" 
 item.Parent = RepLaunch 
 item.Name = "Handle"
 item.Size = item.Size * 0.2
@@ -35,8 +38,24 @@ item.Handle.Name = item.Name
 item = item.PGun
 item.Parent = char
 char:FindFirstChildOfClass("Tool"):Destroy()
-item.Rotation += Vector3.new(0,0,90)
+item.Rotation += Vector3.new(90,0,0)
 
 char.Data.HoldingItem.Value = true
 char.Data.HoldingItem.HeldItem.Value = item
 char.Data.HoldingItem.HeldItem.CanShoot.Value = true
+
+
+game.ReplicatedStorage.Events.ItemEvent.OnServerEvent(function(itemobj)
+if itemobj.Name == "PGun" then
+      local bullet = itemobj.Bullet
+      bullet.Touched:Connect(function(hit)
+if hit.Name ~= "PGun" then
+local tp= Instance.new("Part")
+           tp.Parent = workspace
+            tp.Size = Vector3.new(1,1,1)
+           tp.CFrame = bullet.CFrame
+            tp.Anchored = true
+          end
+        end)
+    end
+  end)
