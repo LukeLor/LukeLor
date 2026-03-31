@@ -42,6 +42,7 @@ item = item.PGun
 item.Parent = char
 char:FindFirstChildOfClass("Tool"):Destroy()
 item.Rotation += Vector3.new(90,0,0)
+item.Name = "PGun"
 
 char.Data.HoldingItem.Value = true
 char.Data.HoldingItem.HeldItem.Value = item
@@ -49,9 +50,12 @@ char.Data.HoldingItem.HeldItem.CanShoot.Value = true
 
 
 game.ReplicatedStorage.Events.ItemEvent.OnServerEvent:Connect(function(itemobj)
-if itemobj.Name == "PGun" then
+print("omg item")
+    if itemobj.Name == "PGun" then
+      print("paired")
       local bullet = itemobj.Bullet
       bullet.Touched:Connect(function(hit)
+          print("ack")
 if hit.Name ~= "PGun" then
 local tp= Instance.new("Part")
            tp.Parent = workspace
@@ -59,6 +63,7 @@ local tp= Instance.new("Part")
            tp.CFrame = bullet.CFrame
             tp.Anchored = true
             char:PivotTo(tp.CFrame)
+            print("Boop")
             bullet:Destroy()
           end
         end)
