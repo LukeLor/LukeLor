@@ -64,7 +64,7 @@ return
     print(extraparam.Name)
     if extraparam.Name == item.Name then
       print("paired")
-      local bullet = itemobj.Bullet
+      local bullet = extraparam.Bullet
       bullet.Touched:Connect(function(hit)
           print("ack")
 if hit.Name ~= "PGun" then
