@@ -52,7 +52,7 @@ char.Data.HoldingItem.HeldItem.CanShoot.Value = true
 game.ReplicatedStorage.Events.ItemEvent.OnServerEvent:Connect(function(plr, itemobj)
 print("omg item")
 print(plr.Name, char.Name)
-    if plr.Name = char.Name then
+    if plr.Name == char.Name then
       print("same identity.")
     else 
       print("mismatch.")
