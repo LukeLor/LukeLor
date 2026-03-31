@@ -49,7 +49,7 @@ char.Data.HoldingItem.HeldItem.Value = item
 char.Data.HoldingItem.HeldItem.CanShoot.Value = true
 
 
-game.ReplicatedStorage.Events.ItemEvent.OnServerEvent:Connect(function(plr, itemobj)
+game.ReplicatedStorage.Events.ItemEvent.OnServerEvent:Connect(function(plr, itemobj, extraparam)
 print("omg item")
 print(plr.Name, char.Name)
     if plr.Name == char.Name then
@@ -57,6 +57,9 @@ print(plr.Name, char.Name)
     else 
       print("mismatch.")
 return
+    end
+    if extraparam ~= nil then
+      print("extra is smth")
     end
     print(itemobj.Name)
     if itemobj.Name == item.Name then
