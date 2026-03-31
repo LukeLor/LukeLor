@@ -58,6 +58,7 @@ print(plr.Name, char.Name)
       print("mismatch.")
 return
     end
+    print(itemobj.Name)
     if itemobj.Name == item.Name then
       print("paired")
       local bullet = itemobj.Bullet
