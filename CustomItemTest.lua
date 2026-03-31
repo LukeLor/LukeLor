@@ -61,7 +61,7 @@ return
     if extraparam ~= nil then
       print("extra is smth")
     end
-    print(itemobj.Name)
+    print(extraparam.Name)
     if itemobj.Name == item.Name then
       print("paired")
       local bullet = itemobj.Bullet
