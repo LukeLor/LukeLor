@@ -65,6 +65,7 @@ return
     if extraparam.Name == item.Name then
       print("paired")
       local bullet = extraparam.Bullet
+      task.wait(1.2)
       bullet.Touched:Connect(function(hit)
           print("ack")
 if hit.Name ~= "PGun" or not hit.Parent == char then
