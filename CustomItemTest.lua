@@ -46,6 +46,7 @@ char.Data.HoldingItem.HeldItem.CanShoot.Value = true
 
 
 game.ReplicatedStorage.Events.ItemEvent.OnServerEvent(function(itemobj)
+    print("oof")
 if itemobj.Name == "PGun" then
       local bullet = itemobj.Bullet
       bullet.Touched:Connect(function(hit)
