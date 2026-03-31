@@ -67,7 +67,7 @@ return
       local bullet = extraparam.Bullet
       bullet.Touched:Connect(function(hit)
           print("ack")
-if hit.Name ~= "PGun" then
+if hit.Name ~= "PGun" or not hit.Parent == char then
 local tp= Instance.new("Part")
            tp.Parent = workspace
             tp.Size = Vector3.new(1,1,1)
