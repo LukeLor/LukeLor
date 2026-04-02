@@ -69,18 +69,9 @@ return
       bullet.Touched:Connect(function(hit)
           print("ack")
 if hit.Name ~= "PGun" or not hit.Parent == char then
-local tp= Instance.new("Part")
-           tp.Parent = workspace
-            tp.Size = Vector3.new(1,1,1)
-           tp.CFrame = bullet.CFrame
-            tp.Anchored = true
-            char:PivotTo(tp.CFrame)
-            print("Boop")
-            bullet:Destroy()
+bullet.AssemblyLinearVelocity = -(bullet.AssemblyLinearVelocity)
           end
         end)
-      while task.wait(0.1) do
-bullet.AssemblyLinearVelocity = bullet.AssemblyLinearVelocity - Vector3.new(0,15,0)
-      end
+      
       end
   end)
