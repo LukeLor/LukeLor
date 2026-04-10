@@ -16,7 +16,7 @@ MediaPlayer.Looped = true
 local Tempo = 120
 
 local Play = function(sequence)
-for _, individNotes in sequence do 
+for _, individNotes in ipairs(sequence) do 
 local duration = individNotes[2]
 local noteName = individNotes[1]
 local slurred = individNotes[3]
