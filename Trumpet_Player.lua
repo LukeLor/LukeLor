@@ -21,7 +21,7 @@ local duration = individNotes[2]
 local noteName = individNotes[1]
 local slurred = individNotes[3]
 local noteId = keyIndex[noteName]
-MediaPlayer.SoundId = noteId
+MediaPlayer.SoundId = "rbxassetid://"..noteId
 MediaPlayer:Play()
     for i = 0, duration, 1 do
     task.wait(60/Tempo) 
