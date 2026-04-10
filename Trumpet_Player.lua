@@ -36,7 +36,7 @@ end
 Tempo = 78
 Play({{"E",1,true},{"G",1,true},{"A",2,true},{"G",2,true},{"C",2,true},{"F",2,true},{"E",2,true},{"D",1,true},{"G",1,true},{"E",2,false},{"E",1,true},{"G",1,true},{"A",2,true},{"B",1,true},{"G",1,true},{"E",3,false},{"E",0.5,true},{"G",0.5,true},{"A",1,true},{"C2",1,true},{"B",1,true},{"G",1,true},{"A",3,true}})    
 task.wait(60/Tempo*9)
-Play({{"C2",0.5,true},{"B",0.5,true},{"A",1,true},{"C",1,true},{"B",1,true},{"G",1,true},{"A",4,true}})
+Play({{"C2",0.5,true},{"B",0.5,true},{"A",1,true},{"C2",1,true},{"B",1,true},{"G",1,true},{"A",4,true}})
 Tempo = 120
 task.wait(60/Tempo*3)
-Play({{"E",0.5,true},{"G",0.5,true},{"A",1,true}})
+Play({{"E",0.5,true},{"G",0.5,true},{"A",1,true},{"A",0.5,true},{"G",0.5,true},{"A",1,true}})
