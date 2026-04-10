@@ -24,7 +24,7 @@ local slurred = individNotes[3]
 local noteId = keyIndex[noteName]
 MediaPlayer.SoundId = "rbxassetid://"..noteId
 MediaPlayer:Play()
-    for i = 0, duration*10, 0.1 do
+    for i = 0, duration, 0.1 do
     task.wait(60/Tempo/10)
       end
     if slurred then
