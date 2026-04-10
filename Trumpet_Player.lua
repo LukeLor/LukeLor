@@ -11,16 +11,25 @@ local keyIndex = {
 
 local MediaPlayer = Instance.new("Sound")
 MediaPlayer.Parent = workspace
+MediaPlayer.Looped = true
 
-local BPM = 60
+local Tempo = 120
 
 local Play = function(sequence)
 for individNotes in sequence do 
 local duration = individNotes[2]
 local noteName = individNotes[1]
+local slurred = individNotes[3]
 local noteId = keyIndex[noteName]
 MediaPlayer.SoundId = noteId
 MediaPlayer:Play()
-    task.wait(
+    for i = 0, duration, 1 do
+    task.wait(60/Tempo) 
+    end
+    if not slurred then
+MediaPlayer:Stop()
+    end
   end
 end
+Tempo = 78
+Play({"E",1,true},{"G",1,true},{"A",2,true},{"G",2,true},{"C",2,true})                    
