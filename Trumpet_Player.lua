@@ -9,3 +9,18 @@ local keyIndex = {
   "C2" =107855371255694
 }
 
+local MediaPlayer = Instance.new("Sound")
+MediaPlayer.Parent = workspace
+
+local BPM = 60
+
+local Play = function(sequence)
+for individNotes in sequence do 
+local duration = individNotes[2]
+local noteName = individNotes[1]
+local noteId = keyIndex[noteName]
+MediaPlayer.SoundId = noteId
+MediaPlayer:Play()
+    task.wait(
+  end
+end
