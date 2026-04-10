@@ -34,4 +34,4 @@ MediaPlayer:Stop()
   MediaPlayer:Stop()
 end
 Tempo = 78
-Play({{"E",1,true},{"G",1,true},{"A",2,true},{"G",2,true},{"C",2,true}})                    
+Play({{"E",1,true},{"G",1,true},{"A",2,true},{"G",2,true},{"C",2,true},{"F",2,true},{"E",2,true},{"D",1,true},{"G",1,true},{"E",2,false},{"E",1,true},{"G",1,true},{"A",2,true},{"B",1,true},{"G",1,true},{"E",3,false},{"E",0.5,true},{"G",0.5,true},{"A",1,true},{"C2",1,true},{"B",1,true},{"G",1,true},{"G",3,true}})                    
