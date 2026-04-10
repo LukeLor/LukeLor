@@ -20,6 +20,7 @@ for _, individNotes in ipairs(sequence) do
 local duration = individNotes[2]
 local noteName = individNotes[1]
 local slurred = individNotes[3]
+    print(noteName, duration, slurred)
 local noteId = keyIndex[noteName]
 MediaPlayer.SoundId = "rbxassetid://"..noteId
 MediaPlayer:Play()
