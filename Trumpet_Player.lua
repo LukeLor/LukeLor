@@ -25,12 +25,13 @@ local noteId = keyIndex[noteName]
 MediaPlayer.SoundId = "rbxassetid://"..noteId
 MediaPlayer:Play()
     for i = 0, duration, 0.1 do
-    task.wait(60/Tempo/10)
       if i == 9 and not slurred then
         MediaPlayer:Stop()
+        print("not slurred")
       else
         print("slurred")
       end
+      task.wait(60/Tempo/10)
       end
     
   end
