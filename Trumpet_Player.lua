@@ -26,10 +26,13 @@ MediaPlayer.SoundId = "rbxassetid://"..noteId
 MediaPlayer:Play()
     for i = 0, duration, 0.1 do
     task.wait(60/Tempo/10)
+      if i == 9 and not slurred then
+        MediaPlayer:Stop()
+      else
+        print("slurred")
       end
-    if slurred then
-MediaPlayer:Stop()
-    end
+      end
+    
   end
   MediaPlayer:Stop()
 end
