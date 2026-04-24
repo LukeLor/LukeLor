@@ -51,6 +51,38 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
   loadstring(game:HttpGet(listOfEntities[id]))()
 end)
 
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+	wait(3.5)
+	if not workspace:FindFirstChild("SeekMoving") then
+		return 
+	end
+	local RealSeek = workspace:FindFirstChild("SeekMoving")
+	local RealSeekRig = RealSeek:FindFirstChild("SeekRig")
+	local seekNew = game:GetObjects("rbxassetid://11664451634")[1] 
+	seekNew.Name = "seek2"
+
+	
+
+	seekNew.Parent = workspace
+	local SeekRig = seekNew
+	SeekRig.PrimaryPart.Anchored = true
+	spawn(function()
+		while game["Run Service"].Heartbeat:Wait() and RealSeek do
+			if RealSeekRig:FindFirstChild("Root") then
+				SeekRig:PivotTo(RealSeekRig:FindFirstChild("Root").CFrame)
+			end
+			
+			for i,v in pairs(RealSeekRig:GetChildren()) do
+				if v:IsA("BasePart") then
+					v.Transparency = 1
+							if SeekRig:FindFirstChild(v.Name) then
+SeekRig[v.Name].CFrame = v.CFrame
+							end	
+						end
+			end
+		end
+	end)
+
 task.spawn(function()
 
 		while task.wait() do 
@@ -69,6 +101,7 @@ for i,v in pairs(game.ReplicatedStorage.Misc.Eyes:GetDescendants()) do
 					
 				end
 			end
+					break
 		end		
 	end)
 -- \\ Main // --
