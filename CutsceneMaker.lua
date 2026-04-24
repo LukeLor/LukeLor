@@ -169,6 +169,7 @@ module.PlaySound = function(SoundId, Parent)
 			sound.Parent = workspace
 		end
 		sound:Play()
+		game.Debris:AddItem(sound, sound.Length+1)
 	else
 		warn("No SoundId to play..")
 	end
