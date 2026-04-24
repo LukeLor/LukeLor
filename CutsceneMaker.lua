@@ -53,6 +53,7 @@ module.ChangeValue = function(inst, val)
 	warn("No Instance (StringValue, BoolValue, NumberValue, ect.) and or no value to set it to. ChangeValue uses: inst, val.")
 end
 end
+--[[BROKEN
 module.ShakeCamera = function(magnitude, roughness, fadeInTime, fadeOutTime)
 	local camera = workspace.CurrentCamera
 	local shaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/RbxCameraShaker/refs/heads/master/src/CameraShaker/init.lua"))()
@@ -65,7 +66,7 @@ module.ShakeCamera = function(magnitude, roughness, fadeInTime, fadeOutTime)
 		warn("Missing magnitude, roughness, fadeInTime, or fadeOutTime. ShakeCamera uses: (magnitude, roughness, fadeInTime, fadeOutTime).")
 	end
 end
-
+]]
 module.CamTo = function(destination, timeT, style, direction)
 	
 	if destination ~= nil and timeT ~= nil then
