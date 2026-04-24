@@ -84,7 +84,7 @@ module.CamTo = function(destination, timeT, style, direction)
 			end
 		end
 		if destination and timeT and  style and not direction then
-			if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") or Part:IsA("UnionOperation") then
+			if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") or destination:IsA("UnionOperation") then
 				game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(timeT, style), {CFrame = destination.CFrame}):Play()
 				task.wait(timeT)
 			end
@@ -96,7 +96,7 @@ module.CamTo = function(destination, timeT, style, direction)
 			end
 		end
 		if destination and timeT and  style and  direction then
-			if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") or Part:IsA("UnionOperation") then
+			if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") or destination:IsA("UnionOperation") then
 				game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(timeT, style,direction), {CFrame = destination.CFrame}):Play()
 				task.wait(timeT)
 			end
