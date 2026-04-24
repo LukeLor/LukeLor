@@ -13,59 +13,8 @@ local Host: Player? = nil
 
 local activeClients = {} :: {Player}
 local listOfEntities = {
-    [1] = Spawner:Create(
-		Entity = {
-		Name = "Dasher",
-		Asset = "https://github.com/LukeLor/LukeLor/raw/main/DasherNew.rbxm",
-		HeightOffset = 0
-	},
-	Lights = {
-		Flicker = {
-			Enabled = true,
-			Duration = 2.5
-		},
-		Shatter = true,
-		Repair = false
-	},
-	Earthquake = {
-		Enabled = true
-	},
-	CameraShake = {
-		Enabled = true,
-		Range = 100,
-		Values = {1.5, 25, 0.2, 2} -- Magnitude, Roughness, FadeIn, FadeOut
-	},
-	Movement = {
-		Speed = 300,
-		Delay = 5,
-		Reversed = false
-	},
-	Rebounding = {
-		Enabled = true,
-		Type = "Ambush", -- "Blitz"
-		Min = 3,
-		Max = 6,
-		Delay = 3
-	},
-	Damage = {
-		Enabled = true,
-		Range = 40,
-		Amount = 1000
-	},
-	Crucifixion = {
-		Enabled = true,
-		Range = 40,
-		Resist = false,
-		Break = true
-	},
-	Death = {
-		Type = "Guiding", -- "Curious"
-		Hints = {"You died to Dasher..", "Use what you learned from Ambush!", "Keep note that Dasher is faster than Ambush."},
-		Cause = ""
-	}
-	
-)
-
+    [1] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua"
+	[2] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua"
 }
 
 -- \\ Setup // --
@@ -99,7 +48,7 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
     end
 
     -- Spawn entity with id
-    listOfEntities[id]:Run(true)
+  loadstring(game:HttpGet(listOfEntities[id]))()
 end)
 
 -- \\ Main // --
