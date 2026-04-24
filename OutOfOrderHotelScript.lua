@@ -56,9 +56,11 @@ task.spawn(function()
 		while task.wait() do 
 for i,v in pairs(game.ReplicatedStorage.Misc.Eyes:GetDescendants()) do
 	if v.Name == "Eye" then
-		v:FindFirstChild("Part").Decal.Texture = "rbxassetid://1882220622"
-		v:FindFirstChild("Eye").Name = "KYS"
-	end
+		local newEye= game:GetObjects("rbxassetid://101739887940358")[1]
+					newEye.Parent = v.Parent
+					newEye.Name = v.Name
+					v:Destroy()
+				end
 			end
 		end		
 	end)
