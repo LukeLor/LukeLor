@@ -58,8 +58,15 @@ for i,v in pairs(game.ReplicatedStorage.Misc.Eyes:GetDescendants()) do
 	if v.Name == "Eye" then
 		local newEye= game:GetObjects("rbxassetid://101739887940358")[1]
 					newEye.Parent = v.Parent
-					newEye.Name = v.Name
+					newEye.Name = v.Name.."New"
 					v:Destroy()
+				end
+			end
+			for i,v in pairs(game.ReplicatedStorage.Misc.Eyes:GetDescendants()) do
+	if v.Name == "EyeNew" then
+		
+					newEye.Name = "Eye"
+					
 				end
 			end
 		end		
