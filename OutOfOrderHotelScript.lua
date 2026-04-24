@@ -14,7 +14,7 @@ local Host: Player? = nil
 local activeClients = {} :: {Player}
 local listOfEntities = {
     [1] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua"
-	[2] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua"
+	[2] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Dasher.lua"
 }
 
 -- \\ Setup // --
