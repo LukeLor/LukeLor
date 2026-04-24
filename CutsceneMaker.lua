@@ -1,6 +1,6 @@
 local module = {}
 module.LookAt = function(Part, timev)
-	if Part and Part:IsA("Part") or Part and Part:IsA("BasePart") or Part and Part:IsA("MeshPart") then
+	if Part and Part:IsA("Part") or Part and Part:IsA("BasePart") or Part and Part:IsA("MeshPart") or Part:IsA("UnionOperation") then
 		if timev then
 			
 			game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(timev), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, Part.Position)}):Play()	
@@ -13,7 +13,7 @@ workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Posit
 	
 end
 module.LockOn = function(Part, timev)
-	if Part and Part:IsA("Part") or Part and Part:IsA("BasePart") or Part and Part:IsA("MeshPart") then
+	if Part and Part:IsA("Part") or Part and Part:IsA("BasePart") or Part and Part:IsA("MeshPart") or Part:IsA("UnionOperation") then
 		if timev then
 			
 			local countdown = function(desttime)
