@@ -174,9 +174,9 @@ module.PlaySound = function(SoundId, Parent)
 	end
 end
 
-module.SyncAnimationEvent = function(Animation, SignalName, WhatToDo)
-	if Animation and SignalName then
-		Animation:GetMarkerReachedSignal(SignalName):Connect(function(...)
+module.SyncAnimationEvent = function(AnimationTrack, SignalName, WhatToDo)
+	if AnimationTrack and SignalName then
+		AnimationTrack:GetMarkerReachedSignal(SignalName):Connect(function(...)
 			if WhatToDo then
 				WhatToDo()
 			else
@@ -185,7 +185,7 @@ module.SyncAnimationEvent = function(Animation, SignalName, WhatToDo)
 		end)
 
 	else
-		warn("Invalid Animation and or SignalName. SyncAnimationEvent uses: (Animation, SignalName,WhatToDo). WhatToDo is optional.")
+		warn("Invalid AnimationTrack and or SignalName. SyncAnimationEvent uses: (AnimationTrack, SignalName,WhatToDo). WhatToDo is optional.")
 	end
 end
 
