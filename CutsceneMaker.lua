@@ -140,8 +140,8 @@ end
 
 
 module.PlayAnimation = function(Rig, AnimationID, Name)
-	if Rig and Animation then
-		if Animation then
+	if Rig and AnimationID then
+		if AnimationID then
 			local animationtrack = Instance.new("Animation")
 			animationtrack.Parent = Rig
 			animationtrack.AnimationId = tostring("rbxassetid://"..AnimationID)
