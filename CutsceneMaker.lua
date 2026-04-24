@@ -13,7 +13,7 @@ workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Posit
 	
 end
 module.LockOn = function(Part, timev)
-	if Part and Part:IsA("Part") or Part and Part:IsA("BasePart") or Part and Part:IsA("MeshPart") or Part:IsA("UnionOperation") then
+	if Part and Part:IsA("Part") or Part and Part:IsA("BasePart") or Part and Part:IsA("MeshPart") or Part and Part:IsA("UnionOperation") then
 		if timev then
 			
 			local countdown = function(desttime)
