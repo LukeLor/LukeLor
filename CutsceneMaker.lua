@@ -139,12 +139,12 @@ end
 
 
 
-module.PlayAnimation = function(Rig, Animation, Name)
+module.PlayAnimation = function(Rig, AnimationID, Name)
 	if Rig and Animation then
 		if Animation then
 			local animationtrack = Instance.new("Animation")
 			animationtrack.Parent = Rig
-			animationtrack.AnimationId = Animation
+			animationtrack.AnimationId = tostring("rbxassetid://"..AnimationID)
 			Animation = animationtrack
 			wait()
 			Animation.Name = Name
@@ -153,7 +153,7 @@ module.PlayAnimation = function(Rig, Animation, Name)
 		local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
 		player:LoadAnimation(Animation):Play()
 	else
-		warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, Animation, Name). Name is optional.")
+		warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, AnimationID, Name). Name is optional.")
 	end
 
 end
