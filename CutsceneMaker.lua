@@ -145,7 +145,7 @@ module.PlayAnimation = function(Rig, AnimationID, Name)
 			local animationtrack = Instance.new("Animation")
 			animationtrack.Parent = Rig
 			animationtrack.AnimationId = tostring("rbxassetid://"..AnimationID)
-			Animation = animationtrack
+			--Animation = animationtrack
 			wait()
 			if Name then
 			animationtrack.Name = Name
