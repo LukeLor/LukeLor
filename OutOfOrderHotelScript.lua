@@ -122,6 +122,14 @@ CutsceneMaker.PlayAnimation(Host.Character, "ANIMATION-ID")
 				CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
 				
 			end
+			task.wait(scenedur)
+			if LocalPlayer == Host then
+			Host.Character:WaitForChild("HumanoidRootPart").Anchored = false
+			else
+				if isAlive() then 
+				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = false
+				end
+			end
 		end
 		
 	end)
