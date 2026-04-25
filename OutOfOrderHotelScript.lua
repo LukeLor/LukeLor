@@ -48,8 +48,8 @@ end
 	end
 
 
-local isAlive = function()
-if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
+local isAlive = function(char)
+if (char == nil and game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0) or (char:WaitForChild("Humanoid").Health > 0  and char) then
 
 		return true
 		
@@ -73,7 +73,7 @@ task.spawn(function()
         end)
 
         local host = activeClients[1]
-        if host ~= Host then
+        if host ~= Host and then
             print("New Host elected:", host)
         end
 
