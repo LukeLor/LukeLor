@@ -17,12 +17,20 @@ module.LockOn = function(Part, timev)
 		if timev then
 			
 			local countdown = function(desttime)
+				local startTime = tick() 
+				local elapsedTimeC = tick() - startTime
 				local runService = game:GetService("RunService")
 local event = runService.RenderStepped:Connect(function()
-	
+	game.Workspace.CurrentCamera.CFrame = Part.CFrame
+	elapsedTimeC = tick()- startTime
+					
 end)
-				local timer = 0
-				repeat timer = timer + 0.1 wait(0.1) print(timer) workspace.CurrentCamera.CFrame = Part.CFrame until timer >= desttime
+	while task.wait() do
+if elapsedTimeC >= desttime then
+						event:Disconnect()
+break
+					end	
+				end	
 			end
 		local camto = coroutine.create(function()
 			countdown(timev)
