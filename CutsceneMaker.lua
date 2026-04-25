@@ -17,6 +17,10 @@ module.LockOn = function(Part, timev)
 		if timev then
 			
 			local countdown = function(desttime)
+				local runService = game:GetService("RunService")
+local event = runService.RenderStepped:Connect(function()
+	
+end)
 				local timer = 0
 				repeat timer = timer + 0.1 wait(0.1) print(timer) workspace.CurrentCamera.CFrame = Part.CFrame until timer >= desttime
 			end
