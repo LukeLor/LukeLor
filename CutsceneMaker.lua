@@ -148,13 +148,13 @@ module.PlayAnimation = function(Rig, AnimationID, Name)
 			Animation = animationtrack
 			wait()
 			if Name then
-			Animation.Name = Name
+			animationtrack.Name = Name
 			end		
-		end
-		Animation.Parent = Rig
+		
+		animationtrack.Parent = Rig
 		local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
-		player:LoadAnimation(Animation):Play()
-	else
+		player:LoadAnimation(animationtrack):Play()
+		end	else
 		warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, AnimationID, Name). Name is optional.")
 	end
 
