@@ -28,8 +28,16 @@ if maingame then
 end
 
 local isAlive = function()
+if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
 
-end
+		return true
+		
+	else
+
+		return false
+	
+	end
+	end
 	-- \\ Setup // --
 
 Communicator.Config.ExcludeSelf = false
@@ -50,7 +58,7 @@ task.spawn(function()
 
         Host = host
 
-        task.wait(10)
+        task.wait(1)
     end
 end)
 
@@ -70,9 +78,14 @@ return
 		end		
 
 		if cutsceneName == "Scene49" then
-			if
+			if isAlive() then
 CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character)
-			
+
+			else
+
+CutsceneMaker.PlayAnimation
+				
+			end
 		end
 		
 	end)
