@@ -27,6 +27,28 @@ if maingame then
 	end
 end
 
+local HideShowChar = function(char, show_hide)
+	if string.lower(show_hide) == "hide" then
+		for _, parts in char:GetDescendants() do
+if parts:IsA("BasePart") then
+
+			parts:SetAttribute("OgTransparency", parts.LocalTransparencyModifier)
+part.LocalTransparencyModifier = 1
+		end
+		end
+	end
+
+else
+	for _, parts in char:GetDescendants() do
+if parts:IsA("BasePart") then
+
+			local ogtrans= parts:GetAttribute("OgTransparency")
+part.LocalTransparencyModifier = ogtrans
+		end
+	end
+end
+
+
 local isAlive = function()
 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
 
