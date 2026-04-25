@@ -27,7 +27,7 @@ if maingame then
 	end
 end
 
-local HideShowChar = function(char, show_hide)
+local HideShow = function(char, show_hide)
 	if string.lower(show_hide) == "hide" then
 		for _, parts in char:GetDescendants() do
 if parts:IsA("BasePart") then
