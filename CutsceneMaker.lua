@@ -20,7 +20,9 @@ module.LockOn = function(Part, timev)
 				local startTime = tick() 
 				local elapsedTimeC = tick() - startTime
 				local runService = game:GetService("RunService")
-local event = runService.RenderStepped:Connect(function()
+local event
+				
+				event = runService.RenderStepped:Connect(function()
 	game.Workspace.CurrentCamera.CFrame = Part.CFrame
 	elapsedTimeC = tick()- startTime
 					if elapsedTimeC >= desttime or Part.Parent == nil then
