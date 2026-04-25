@@ -23,8 +23,9 @@ module.LockOn = function(Part, timev)
 local event = runService.RenderStepped:Connect(function()
 	game.Workspace.CurrentCamera.CFrame = Part.CFrame
 	elapsedTimeC = tick()- startTime
-					if elapsedTimeC >= desttime then
+					if elapsedTimeC >= desttime or Part == nil then
 						event:Disconnect()
+							return
 					end	
 end)
 	
