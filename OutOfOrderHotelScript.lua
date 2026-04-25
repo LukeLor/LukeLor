@@ -36,7 +36,6 @@ if parts:IsA("BasePart") then
 part.LocalTransparencyModifier = 1
 		end
 	end
-
 else
 	for _, parts in char:GetDescendants() do
 if parts:IsA("BasePart") then
