@@ -33,7 +33,7 @@ local HideShow = function(char, show_hide)
 if parts:IsA("BasePart") then
 
 			parts:SetAttribute("OgTransparency", parts.LocalTransparencyModifier)
-part.LocalTransparencyModifier = 1
+parts.LocalTransparencyModifier = 1
 		end
 	end
 else
@@ -41,7 +41,7 @@ else
 if parts:IsA("BasePart") then
 
 			local ogtrans= parts:GetAttribute("OgTransparency")
-part.LocalTransparencyModifier = ogtrans
+parts.LocalTransparencyModifier = ogtrans
 		end
 	end
 end
