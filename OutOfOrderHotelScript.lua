@@ -35,7 +35,6 @@ if parts:IsA("BasePart") then
 			parts:SetAttribute("OgTransparency", parts.LocalTransparencyModifier)
 part.LocalTransparencyModifier = 1
 		end
-		end
 	end
 
 else
@@ -47,6 +46,7 @@ part.LocalTransparencyModifier = ogtrans
 		end
 	end
 end
+	end
 
 
 local isAlive = function()
