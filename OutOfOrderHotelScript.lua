@@ -73,7 +73,7 @@ task.spawn(function()
         end)
 
         local host = activeClients[1]
-        if host ~= Host and then
+        if host ~= Host and isAlive(host.Character) then
             print("New Host elected:", host)
         end
 
