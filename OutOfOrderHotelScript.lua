@@ -40,7 +40,7 @@ else
 	for _, parts in char:GetDescendants() do
 if parts:IsA("BasePart") then
 
-			local ogtrans= parts:GetAttribute("OgTransparency")
+			local ogtrans= parts:GetAttribute("OgTransparency") or 0
 parts.LocalTransparencyModifier = ogtrans
 		end
 	end
