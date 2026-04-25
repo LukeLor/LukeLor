@@ -98,24 +98,27 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 if sender ~= Host then
 return
 		end		
-
+local scenedur=0
 		if cutsceneName == "Scene49" then
+			scenedur = 5
 			if isAlive() then
 				for _, plrs in game.Players:GetPlayers() do 
 				HideShow(plrs.Character, "hide")
 				end
+				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = true
 				HideShow(game.Players.LocalPlayer.Character, "show")
 CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "ANIMATION-ID")
-				CutsceneMaker.CamLock(true)
+				CutsceneMaker.CamLock(true, scenedur)
 CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
 			else
 for _, plrs in game.Players:GetPlayers() do 
 				HideShow(plrs.Character, "hide")
 				end
 					HideShow(Host.Character, "show")
-
+Host.Character:WaitForChild("HumanoidRootPart").Anchored = true
+			
 CutsceneMaker.PlayAnimation(Host.Character, "ANIMATION-ID")
-				CutsceneMaker.CamLock(true)
+				CutsceneMaker.CamLock(true,scenedur)
 				CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
 				
 			end
