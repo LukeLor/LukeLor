@@ -123,6 +123,9 @@ CutsceneMaker.PlayAnimation(Host.Character, "ANIMATION-ID")
 				
 			end
 			task.wait(scenedur)
+			for _, plrs in game.Players:GetPlayers() do 
+				HideShow(plrs.Character, "show")
+			end
 			if LocalPlayer == Host then
 			Host.Character:WaitForChild("HumanoidRootPart").Anchored = false
 			else
