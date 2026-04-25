@@ -27,8 +27,10 @@ if maingame then
 	end
 end
 
+local isAlive = function()
 
--- \\ Setup // --
+end
+	-- \\ Setup // --
 
 Communicator.Config.ExcludeSelf = false
 
@@ -68,7 +70,8 @@ return
 		end		
 
 		if cutsceneName == "Scene49" then
-
+			if
+CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character)
 			
 		end
 		
