@@ -80,12 +80,12 @@ return
 		if cutsceneName == "Scene49" then
 			if isAlive() then
 CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "ANIMATION-ID")
-				CamLock(true)
+				CutsceneMaker.CamLock(true)
 CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
 			else
 
 CutsceneMaker.PlayAnimation(Host.Character, "ANIMATION-ID")
-				CamLock(true)
+				CutsceneMaker.CamLock(true)
 				CutsceneMaker.LockOn(Host.Character:WaitForChild("Head")
 				
 			end
