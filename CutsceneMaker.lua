@@ -147,7 +147,9 @@ module.PlayAnimation = function(Rig, AnimationID, Name)
 			animationtrack.AnimationId = tostring("rbxassetid://"..AnimationID)
 			Animation = animationtrack
 			wait()
+			if Name then
 			Animation.Name = Name
+			end		
 		end
 		Animation.Parent = Rig
 		local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
