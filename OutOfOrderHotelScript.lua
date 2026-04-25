@@ -20,7 +20,7 @@ local listOfEntities = {
 }
 
 
-local CamToggle = function(lock_unlock:boolean)
+local CamLock = function(lock_unlock:boolean)
 local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
 if maingame then
 		maingame.stopcam = lock_unlock
@@ -79,11 +79,14 @@ return
 
 		if cutsceneName == "Scene49" then
 			if isAlive() then
-CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character)
-
+CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "ANIMATION-ID")
+				CamLock(true)
+CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
 			else
 
-CutsceneMaker.PlayAnimation
+CutsceneMaker.PlayAnimation(Host.Character, "ANIMATION-ID")
+				CamLock(true)
+				CutsceneMaker.LockOn(Host.Character:WaitForChild("Head")
 				
 			end
 		end
