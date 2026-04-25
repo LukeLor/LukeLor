@@ -101,14 +101,22 @@ return
 
 		if cutsceneName == "Scene49" then
 			if isAlive() then
+				for _, plrs in game.Players:GetPlayers() do 
+				HideShow(plrs.Character, "hide")
+				end
+				HideShow(game.Players.LocalPlayer.Character, "show")
 CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "ANIMATION-ID")
 				CutsceneMaker.CamLock(true)
 CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
 			else
+for _, plrs in game.Players:GetPlayers() do 
+				HideShow(plrs.Character, "hide")
+				end
+					HideShow(Host.Character, "show")
 
 CutsceneMaker.PlayAnimation(Host.Character, "ANIMATION-ID")
 				CutsceneMaker.CamLock(true)
-				CutsceneMaker.LockOn(Host.Character:WaitForChild("Head")
+				CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
 				
 			end
 		end
