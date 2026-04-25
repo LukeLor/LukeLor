@@ -106,7 +106,7 @@ local scenedur=0
 				end
 				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = true
 				HideShow(game.Players.LocalPlayer.Character, "show")
-CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "ANIMATION-ID")
+CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "97483427438843")
 				CutsceneMaker.CamLock(true, scenedur)
 CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
 			else
@@ -116,7 +116,7 @@ for _, plrs in game.Players:GetPlayers() do
 					HideShow(Host.Character, "show")
 Host.Character:WaitForChild("HumanoidRootPart").Anchored = true
 			
-CutsceneMaker.PlayAnimation(Host.Character, "ANIMATION-ID")
+CutsceneMaker.PlayAnimation(Host.Character, "97483427438843")
 				CutsceneMaker.CamLock(true,scenedur)
 				CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
 				
