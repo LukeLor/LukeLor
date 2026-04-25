@@ -51,6 +51,17 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
   loadstring(game:HttpGet(listOfEntities[id]))()
 end)
 
+Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
+if sender ~= Host then
+return
+		end		
+		
+end)
+		
+--\\ Main //--
+
+--==Crossover Seek==--
+
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
 	wait(3.5)
 	if not workspace:FindFirstChild("SeekMoving") then
@@ -83,6 +94,8 @@ SeekRig[v.Name].CFrame = v.CFrame
 		end
 	end)
 
+		--==Crossover Seek Eye==--
+		
 task.spawn(function()
 
 		while task.wait() do 
@@ -104,8 +117,19 @@ for i,v in pairs(game.ReplicatedStorage.Misc.Eyes:GetDescendants()) do
 					break
 		end		
 	end)
--- \\ Main // --
+		
+--==Door 49 Scene==--
+		
+		game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+if game.ReplicatedStorage.GameData.LatestRoom.Value == 49 then
+if LocalPlayer == Host then
+        -- Initiate Cutscene for all clients.
+        Communicator:Send("Cutscene", "Scene49")
+					end
+				end
+				end)	
 
+		--==Spawner==--
 while task.wait( math.random(10, 30) ) do
     if LocalPlayer == Host then
         -- Request to summon random entity as Host
