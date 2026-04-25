@@ -26,7 +26,8 @@ if maingame then
 		maingame.stopcam = lock_unlock
 	end
 end
-	
+
+
 -- \\ Setup // --
 
 Communicator.Config.ExcludeSelf = false
@@ -65,8 +66,14 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 if sender ~= Host then
 return
 		end		
+
+		if cutsceneName == "Scene49" then
+
+			
+		end
 		
-end)
+	end)
+
 		
 --\\ Main //--
 
