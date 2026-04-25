@@ -11,12 +11,21 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local Host: Player? = nil
 
+local CutsceneActive = false
 local activeClients = {} :: {Player}
 local listOfEntities = {
     [1] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua"
 	[2] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Dasher.lua"
 }
 
+
+local CamToggle = function(lock_unlock:boolean)
+local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+if maingame then
+		maingame.stopcam = lock_unlock
+	end
+end
+	
 -- \\ Setup // --
 
 Communicator.Config.ExcludeSelf = false
