@@ -162,7 +162,7 @@ game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
 	end
 	local RealSeek = workspace:FindFirstChild("SeekMoving")
 	local RealSeekRig = RealSeek:FindFirstChild("SeekRig")
-	local seekNew = game:GetObjects("rbxassetid://11664451634")[1] 
+	local seekNew = game:GetObjects("rbxassetid://124308549143932")[1] 
 	seekNew.Name = "seek2"
 
 
