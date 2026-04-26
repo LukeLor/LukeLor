@@ -99,6 +99,8 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 	end		
 	local scenedur=0
 	if cutsceneName == "Scene49" then
+			local IL = game:GetObjects("rbxassetid://105185680624158")[1]
+			IL.Parent = workspace
 		scenedur = 5
 		if isAlive() then
 			for _, plrs in game.Players:GetPlayers() do 
@@ -109,8 +111,9 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 			HideShow(game.Players.LocalPlayer.Character, "show")
 			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "87169059953452")
 			CamLock(true)
+					IL:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame)
 			CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
-				
+			
 		else
 			for _, plrs in game.Players:GetPlayers() do 
 				HideShow(plrs.Character, "hide")
@@ -120,7 +123,9 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 	Host.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame - Vector3.new(0,4,0))
 			CutsceneMaker.PlayAnimation(Host.Character, "87169059953452")
 		    CamLock(true)
+					IL:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame)
 			CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
+				
 
 		end
 		task.wait(scenedur)
@@ -138,6 +143,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 		end
 				
 			CamLock(false)
+			IL:Destroy()
 	end
 
 end)
