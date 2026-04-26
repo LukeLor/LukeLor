@@ -105,19 +105,21 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 				HideShow(plrs.Character, "hide")
 			end
 			game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = true
+				game.Players.LocalPlayer.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
 			HideShow(game.Players.LocalPlayer.Character, "show")
 			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "87169059953452")
-			CutsceneMaker.CamLock(true, scenedur)
+			CamLock(true)
 			CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
+				
 		else
 			for _, plrs in game.Players:GetPlayers() do 
 				HideShow(plrs.Character, "hide")
 			end
 			HideShow(Host.Character, "show")
 			Host.Character:WaitForChild("HumanoidRootPart").Anchored = true
-
+	Host.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
 			CutsceneMaker.PlayAnimation(Host.Character, "87169059953452")
-			CutsceneMaker.CamLock(true,scenedur)
+		    CamLock(true)
 			CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
 
 		end
@@ -127,11 +129,15 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 		end
 		if LocalPlayer == Host then
 			Host.Character:WaitForChild("HumanoidRootPart").Anchored = false
+				Host.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
 		else
 			if isAlive() then 
 				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = false
+						game.Players.LocalPlayer.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
 			end
 		end
+				
+			CamLock(false)
 	end
 
 end)
