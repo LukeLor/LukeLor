@@ -105,7 +105,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 				HideShow(plrs.Character, "hide")
 			end
 			game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = true
-				game.Players.LocalPlayer.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
+				game.Players.LocalPlayer.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame - Vector3.new(0,4,0))
 			HideShow(game.Players.LocalPlayer.Character, "show")
 			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "87169059953452")
 			CamLock(true)
@@ -117,7 +117,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 			end
 			HideShow(Host.Character, "show")
 			Host.Character:WaitForChild("HumanoidRootPart").Anchored = true
-	Host.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
+	Host.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame - Vector3.new(0,4,0))
 			CutsceneMaker.PlayAnimation(Host.Character, "87169059953452")
 		    CamLock(true)
 			CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
@@ -129,11 +129,11 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 		end
 		if LocalPlayer == Host then
 			Host.Character:WaitForChild("HumanoidRootPart").Anchored = false
-				Host.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
+				Host.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame - Vector3.new(0,4,0))
 		else
 			if isAlive() then 
 				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = false
-						game.Players.LocalPlayer.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
+						game.Players.LocalPlayer.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame - Vector3.new(0,4,0))
 			end
 		end
 				
