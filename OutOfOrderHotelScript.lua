@@ -106,7 +106,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 			end
 			game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = true
 			HideShow(game.Players.LocalPlayer.Character, "show")
-			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "91194941736314")
+			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "87169059953452")
 			CutsceneMaker.CamLock(true, scenedur)
 			CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
 		else
@@ -116,7 +116,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 			HideShow(Host.Character, "show")
 			Host.Character:WaitForChild("HumanoidRootPart").Anchored = true
 
-			CutsceneMaker.PlayAnimation(Host.Character, "91194941736314")
+			CutsceneMaker.PlayAnimation(Host.Character, "87169059953452")
 			CutsceneMaker.CamLock(true,scenedur)
 			CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
 
