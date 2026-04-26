@@ -15,14 +15,14 @@ local Host: Player? = nil
 local CutsceneActive = false
 local activeClients = {} :: {Player}
 local listOfEntities = {
-    [1] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua",
+	[1] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua",
 	[2] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Dasher.lua"
 }
 
 
 local CamLock = function(lock_unlock:boolean)
-local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
-if maingame then
+	local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+	if maingame then
 		maingame.stopcam = lock_unlock
 	end
 end
@@ -30,113 +30,113 @@ end
 local HideShow = function(char, show_hide)
 	if string.lower(show_hide) == "hide" then
 		for _, parts in char:GetDescendants() do
-if parts:IsA("BasePart") then
+			if parts:IsA("BasePart") then
 
-			parts:SetAttribute("OgTransparency", parts.LocalTransparencyModifier)
-parts.LocalTransparencyModifier = 1
+				parts:SetAttribute("OgTransparency", parts.LocalTransparencyModifier)
+				parts.LocalTransparencyModifier = 1
+			end
 		end
-	end
-else
-	for _, parts in char:GetDescendants() do
-if parts:IsA("BasePart") then
+	else
+		for _, parts in char:GetDescendants() do
+			if parts:IsA("BasePart") then
 
-			local ogtrans= parts:GetAttribute("OgTransparency") or 0
-parts.LocalTransparencyModifier = ogtrans
+				local ogtrans= parts:GetAttribute("OgTransparency") or 0
+				parts.LocalTransparencyModifier = ogtrans
+			end
 		end
 	end
 end
-	end
 
 
 local isAlive = function(char)
-if (char == nil and game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0) or (char:WaitForChild("Humanoid").Health > 0  and char) then
+	if (char == nil and game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0) or (char:WaitForChild("Humanoid").Health > 0  and char) then
 
 		return true
-		
+
 	else
 
 		return false
-	
+
 	end
-	end
-	-- \\ Setup // --
+end
+-- \\ Setup // --
 
 Communicator.Config.ExcludeSelf = false
 
 task.spawn(function()
-    while true do
-        activeClients = Communicator:Ping(1, true)
-        
-        -- Elect player as Host by UserId
-        table.sort(activeClients, function(a: Player, b: Player)
-            return a.UserId < b.UserId
-        end)
+	while true do
+		activeClients = Communicator:Ping(1, true)
 
-        local host = activeClients[1]
-        if host ~= Host and isAlive(host.Character) then
-            print("New Host elected:", host)
-        end
+		-- Elect player as Host by UserId
+		table.sort(activeClients, function(a: Player, b: Player)
+			return a.UserId < b.UserId
+		end)
 
-        Host = host
+		local host = activeClients[1]
+		if host ~= Host and isAlive(host.Character) then
+			print("New Host elected:", host)
+		end
 
-        task.wait(1)
-    end
+		Host = host
+
+		task.wait(1)
+	end
 end)
 
 Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
-    if sender ~= Host then
-        -- Ignore commands not sent by Host
-        return
-    end
+	if sender ~= Host then
+		-- Ignore commands not sent by Host
+		return
+	end
 
-    -- Spawn entity with id
-  loadstring(game:HttpGet(listOfEntities[id]))()
+	-- Spawn entity with id
+	loadstring(game:HttpGet(listOfEntities[id]))()
 end)
 
 Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
-if sender ~= Host then
-return
-		end		
-local scenedur=0
-		if cutsceneName == "Scene49" then
-			scenedur = 5
-			if isAlive() then
-				for _, plrs in game.Players:GetPlayers() do 
-				HideShow(plrs.Character, "hide")
-				end
-				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = true
-				HideShow(game.Players.LocalPlayer.Character, "show")
-CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "91194941736314")
-				CutsceneMaker.CamLock(true, scenedur)
-CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
-			else
-for _, plrs in game.Players:GetPlayers() do 
-				HideShow(plrs.Character, "hide")
-				end
-					HideShow(Host.Character, "show")
-Host.Character:WaitForChild("HumanoidRootPart").Anchored = true
-			
-CutsceneMaker.PlayAnimation(Host.Character, "91194941736314")
-				CutsceneMaker.CamLock(true,scenedur)
-				CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
-				
-			end
-			task.wait(scenedur)
+	if sender ~= Host then
+		return
+	end		
+	local scenedur=0
+	if cutsceneName == "Scene49" then
+		scenedur = 5
+		if isAlive() then
 			for _, plrs in game.Players:GetPlayers() do 
-				HideShow(plrs.Character, "show")
+				HideShow(plrs.Character, "hide")
 			end
-			if LocalPlayer == Host then
+			game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = true
+			HideShow(game.Players.LocalPlayer.Character, "show")
+			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "91194941736314")
+			CutsceneMaker.CamLock(true, scenedur)
+			CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
+		else
+			for _, plrs in game.Players:GetPlayers() do 
+				HideShow(plrs.Character, "hide")
+			end
+			HideShow(Host.Character, "show")
+			Host.Character:WaitForChild("HumanoidRootPart").Anchored = true
+
+			CutsceneMaker.PlayAnimation(Host.Character, "91194941736314")
+			CutsceneMaker.CamLock(true,scenedur)
+			CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
+
+		end
+		task.wait(scenedur)
+		for _, plrs in game.Players:GetPlayers() do 
+			HideShow(plrs.Character, "show")
+		end
+		if LocalPlayer == Host then
 			Host.Character:WaitForChild("HumanoidRootPart").Anchored = false
-			else
-				if isAlive() then 
+		else
+			if isAlive() then 
 				game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Anchored = false
-				end
 			end
 		end
-		
-	end)
+	end
 
-		
+end)
+
+
 --\\ Main //--
 
 --==Crossover Seek==--
@@ -151,68 +151,70 @@ game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
 	local seekNew = game:GetObjects("rbxassetid://11664451634")[1] 
 	seekNew.Name = "seek2"
 
-	
+
 
 	seekNew.Parent = workspace
 	local SeekRig = seekNew
 	SeekRig.PrimaryPart.Anchored = true
-	spawn(function()
+	task.spawn(function()
 		while game["Run Service"].Heartbeat:Wait() and RealSeek do
 			if RealSeekRig:FindFirstChild("Root") then
 				SeekRig:PivotTo(RealSeekRig:FindFirstChild("Root").CFrame)
 			end
-			
+
 			for i,v in pairs(RealSeekRig:GetChildren()) do
 				if v:IsA("BasePart") then
 					v.Transparency = 1
-							if SeekRig:FindFirstChild(v.Name) then
-SeekRig[v.Name].CFrame = v.CFrame
-							end	
-						end
+					if SeekRig:FindFirstChild(v.Name) then
+						SeekRig[v.Name].CFrame = v.CFrame
+					end	
+				end
 			end
 		end
 	end)
+	end)
 
-		--==Crossover Seek Eye==--
-		
-task.spawn(function()
+	--==Crossover Seek Eye==--
+
+	task.spawn(function()
 
 		while task.wait() do 
-for i,v in pairs(game.ReplicatedStorage.Misc.Eyes:GetDescendants()) do
-	if v.Name == "Eye" then
-		local newEye= game:GetObjects("rbxassetid://101739887940358")[1]
+			for i,v in pairs(game.ReplicatedStorage.Misc.Eyes:GetDescendants()) do
+				if v.Name == "Eye" then
+					local newEye= game:GetObjects("rbxassetid://101739887940358")[1]
 					newEye.Parent = v.Parent
 					newEye.Name = v.Name.."New"
 					v:Destroy()
 				end
 			end
 			for i,v in pairs(game.ReplicatedStorage.Misc.Eyes:GetDescendants()) do
-	if v.Name == "EyeNew" then
-		
-					newEye.Name = "Eye"
-					
+				if v.Name == "EyeNew" then
+
+					v.Name = "Eye"
+
 				end
 			end
-					break
+			break
 		end		
 	end)
-		
---==Door 49 Scene==--
-		
-		game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
-if game.ReplicatedStorage.GameData.LatestRoom.Value == 49 then
-if LocalPlayer == Host then
-        -- Initiate Cutscene for all clients.
-        Communicator:Send("Cutscene", "Scene49")
-					end
-				end
-				end)	
 
-		--==Spawner==--
-while task.wait( math.random(10, 30) ) do
-    if LocalPlayer == Host then
-        -- Request to summon random entity as Host
-        local randomId = math.random(1, #listOfEntities)
-        Communicator:Send("SpawnEntity", randomId)
-    end
-end
+	--==Door 49 Scene==--
+
+	game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+		if game.ReplicatedStorage.GameData.LatestRoom.Value == 49 then
+			if LocalPlayer == Host then
+				-- Initiate Cutscene for all clients.
+				Communicator:Send("Cutscene", "Scene49")
+			end
+		end
+	end)	
+
+	--==Spawner==--
+	while task.wait( math.random(10, 30) ) do
+		if LocalPlayer == Host then
+			-- Request to summon random entity as Host
+			local randomId = math.random(1, #listOfEntities)
+			Communicator:Send("SpawnEntity", randomId)
+		end
+	end
+	
