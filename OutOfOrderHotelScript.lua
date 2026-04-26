@@ -112,6 +112,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "87169059953452")
 			CamLock(true)
 					IL:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame)
+			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "124745906464200")	
 			CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
 			
 		else
@@ -122,6 +123,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 			Host.Character:WaitForChild("HumanoidRootPart").Anchored = true
 	Host.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame - Vector3.new(0,4,0))
 			CutsceneMaker.PlayAnimation(Host.Character, "87169059953452")
+				CutsceneMaker.PlayAnimation(IL, "124745906464200")	
 		    CamLock(true)
 					IL:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame)
 			CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
