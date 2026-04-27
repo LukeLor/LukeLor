@@ -101,7 +101,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 	if cutsceneName == "Scene49" then
 			local IL = game:GetObjects("rbxassetid://105185680624158")[1]
 			IL.Parent = workspace
-		scenedur = 5
+		scenedur = 530/60
 		if isAlive() then
 			for _, plrs in game.Players:GetPlayers() do 
 				HideShow(plrs.Character, "hide")
