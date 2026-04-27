@@ -170,22 +170,24 @@ game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
 	seekNew.Parent = workspace
 	local SeekRig = seekNew
 	SeekRig.PrimaryPart.Anchored = true
-	task.spawn(function()
-		while game["Run Service"].Heartbeat:Wait() and RealSeek do
-			if RealSeekRig:FindFirstChild("Root") then
+		if RealSeekRig:FindFirstChild("Root") then
 				SeekRig:PivotTo(RealSeekRig:FindFirstChild("Root").CFrame)
 			end
 
+	
+		
 			for i,v in pairs(RealSeekRig:GetChildren()) do
 				if v:IsA("BasePart") then
-					v.Transparency = 1
+					local w = Instance.new("WeldConstraint")
+				w.Parent = RealSeekRig
+				w.Part0 = v
 					if SeekRig:FindFirstChild(v.Name) then
-						SeekRig[v.Name].CFrame = v.CFrame
+						w.Part1 = SeekRig[v.Name]
 					end	
 				end
 			end
-		end
-	end)
+		
+	
 	end)
 
 	--==Crossover Seek Eye==--
