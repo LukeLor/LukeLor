@@ -19,7 +19,7 @@ animobj.AnimationId = "rbxassetid://109097434361117"
 animobj.Parent = char
 hitbox.CanTouch = false
 local animtrack = char:WaitForChild("Humanoid"):LoadAnimation(animobj)
-game.ReplicatedStorage.Events.ItemEvent:Connect(function(plr, type, obj)
+game.ReplicatedStorage.Events.ItemEvent.OnServerEvent:Connect(function(plr, type, obj)
 
     if type == "Melee" and obj.Name == "Punch" then
       animtrack:Play()
