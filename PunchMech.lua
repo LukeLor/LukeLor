@@ -24,7 +24,7 @@ game.ReplicatedStorage.Events.ItemEvent:Connect(function(plr, type, obj)
 
     if type == "Melee" and obj.Name == "Punch" then
       animtrack:Play()
-      for i = 0, animtack.Length*animtrack.Speed, 0.1 do
+      for i = 0, animtrack.Length*animtrack.Speed, 0.1 do
         hitbox.CanTouch = true
        hitbox.Touched:Connect(function(hit)
 if hit.Parent:FindFirstChild("Humanoid") then
