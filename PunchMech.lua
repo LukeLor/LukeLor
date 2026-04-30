@@ -14,7 +14,6 @@ char.Data.HoldingItem.HeldItem.Value = hitbox
 hitbox.Name = "Punch"
 char.Data.HoldingItem.Value = true
 char.Data.HoldingItem.HeldItem.Melee.Value = true
-char.Data.HoldingItem.HeldItem:FindFirstChildOfClass("NumberValue").Value = 3
 local animobj = Instance.new("Animation")
 animobj.AnimationId = "rbxassetid://109097434361117"
 animobj.Parent = char
