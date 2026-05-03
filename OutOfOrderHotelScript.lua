@@ -19,6 +19,17 @@ local listOfEntities = {
 	[2] = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Dasher.lua"
 }
 
+local TypeCaption = function(text, typewait) 
+	for i = 1, #text, 1 do
+		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(string.sub(text,1,i), true)
+		if typewait ~= nil then
+			task.wait(typewait)
+		else
+			task.wait(0.2)
+		end
+	end
+end
+
 
 local CamLock = function(lock_unlock:boolean)
 	local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
@@ -90,6 +101,7 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
 	end
 
 	-- Spawn entity with id
+		TypeCaption("Entity Spawned.")
 	loadstring(game:HttpGet(listOfEntities[id]))()
 end)
 
