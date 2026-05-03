@@ -2,48 +2,48 @@ local module = {}
 module.LookAt = function(Part, timev)
 	if (Part and Part:IsA("Part")) or (Part and Part:IsA("BasePart")) or (Part and Part:IsA("MeshPart")) or (Part and Part:IsA("UnionOperation")) then
 		if timev then
-			
+
 			game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(timev), {CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, Part.Position)}):Play()	
-	else	
-workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, Part.Position)
+		else	
+			workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, Part.Position)
 		end	
-		else
+	else
 		warn("Can't look at object. LookAt uses: Part and time. Time is optional.")
 	end
-	
+
 end
 module.LockOn = function(Part, timev)
 	if (Part and Part:IsA("Part")) or (Part and Part:IsA("BasePart")) or (Part and Part:IsA("MeshPart")) or (Part and Part:IsA("UnionOperation")) then
 		if timev then
-			
+
 			local countdown = function(desttime)
 				local startTime = tick() 
 				local elapsedTimeC = tick() - startTime
 				local runService = game:GetService("RunService")
-local event
-				
+				local event
+
 				event = runService.RenderStepped:Connect(function()
-	game.Workspace.CurrentCamera.CFrame = Part.CFrame
-	elapsedTimeC = tick()- startTime
+					game.Workspace.CurrentCamera.CFrame = Part.CFrame
+					elapsedTimeC = tick()- startTime
 					if elapsedTimeC >= desttime or Part.Parent == nil then
 						event:Disconnect()
-							return
+						return
 					end	
-end)
-	
+				end)
+
 			end
-		local camto = coroutine.create(function()
-			countdown(timev)
+			local camto = coroutine.create(function()
+				countdown(timev)
 			end
-		)	
-		coroutine.resume(camto)
+			)	
+			coroutine.resume(camto)
+		else
+			warn("Can't lock on to object. LockOn uses: Part and time.")
+		end
 	else
 		warn("Can't lock on to object. LockOn uses: Part and time.")
 	end
-	else
-		warn("Can't lock on to object. LockOn uses: Part and time.")
-	end
-		
+
 
 end
 module.ChangeFOV = function(num, timefov)
@@ -54,16 +54,16 @@ module.ChangeFOV = function(num, timefov)
 		else
 			workspace.CurrentCamera.FieldOfView = num
 		end
-		else
-	warn("No set FOV number. ChangeFOV uses: num, time. Time is optional.")
-end
+	else
+		warn("No set FOV number. ChangeFOV uses: num, time. Time is optional.")
+	end
 end
 module.ChangeValue = function(inst, val)
 	if inst and val then
 		inst.Value = val
-		else
-	warn("No Instance (StringValue, BoolValue, NumberValue, ect.) and or no value to set it to. ChangeValue uses: inst, val.")
-end
+	else
+		warn("No Instance (StringValue, BoolValue, NumberValue, ect.) and or no value to set it to. ChangeValue uses: inst, val.")
+	end
 end
 --[[BROKEN
 module.ShakeCamera = function(magnitude, roughness, fadeInTime, fadeOutTime)
@@ -80,9 +80,9 @@ module.ShakeCamera = function(magnitude, roughness, fadeInTime, fadeOutTime)
 end
 ]]
 module.CamTo = function(destination, timeT, style, direction)
-	
+
 	if destination ~= nil and timeT ~= nil then
-		
+
 		if destination and timeT and not style and not direction then
 			if destination:IsA("Part") or destination:IsA("BasePart") or destination:IsA("MeshPart") or destination:IsA("UnionOperation") then
 				game:GetService("TweenService"):Create(workspace.CurrentCamera, TweenInfo.new(timeT), {CFrame = destination.CFrame}):Play()
@@ -144,14 +144,14 @@ end
 
 module.CreateScene = function(...)
 
---return instructions
+	--return instructions
 	--warn("There are no instructions (arguments) to create a scene.")
 
 end
 
 
 
-module.PlayAnimation = function(Rig, AnimationID, Name)
+module.PlayAnimation = function(Rig, AnimationID, Name, looped)
 	if Rig and AnimationID then
 		if AnimationID then
 			local animationtrack = Instance.new("Animation")
@@ -160,12 +160,14 @@ module.PlayAnimation = function(Rig, AnimationID, Name)
 			--Animation = animationtrack
 			wait()
 			if Name then
-			animationtrack.Name = Name
+				animationtrack.Name = Name
 			end		
-		
-		animationtrack.Parent = Rig
-		local player = Rig:WaitForChild("Humanoid") or Rig:WaitForChild("AnimationController")
-		player:LoadAnimation(animationtrack):Play()
+
+			animationtrack.Parent = Rig
+			local player = Rig:FindFirstChild("Humanoid") or Rig:FindFirstChild("AnimationController")
+			local track = player:LoadAnimation(animationtrack)
+			track.Looped = looped ~= nil and looped or false
+			track:Play()
 		end	else
 		warn("Invalid Rig and or Animation. PlayAnimation uses: (Rig, AnimationID, Name). Name is optional.")
 	end
