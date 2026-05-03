@@ -111,9 +111,9 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 	end		
 	local scenedur=0
 	if cutsceneName == "Scene49" then
-			local IL = game:GetObjects("rbxassetid://105185680624158")[1]
+			local IL = game.InsertService:LoadAsset(105185680624158).IsolatedLight
 			IL.Parent = workspace
-		scenedur = 530/60
+		scenedur = 22
 		if isAlive() then
 			for _, plrs in game.Players:GetPlayers() do 
 				HideShow(plrs.Character, "hide")
@@ -142,8 +142,9 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 				
 
 		end
-		task.wait(scenedur)
-		for _, plrs in game.Players:GetPlayers() do 
+		task.wait(scenedur+4)
+
+						for _, plrs in game.Players:GetPlayers() do 
 			HideShow(plrs.Character, "show")
 		end
 		if LocalPlayer == Host then
@@ -155,7 +156,6 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 						game.Players.LocalPlayer.Character:PivotTo(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].RoomEntrance.CFrame)
 			end
 		end
-				
 			CamLock(false)
 			IL:Destroy()
 	end
