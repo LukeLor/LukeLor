@@ -142,8 +142,9 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 				
 
 		end
-		task.wait(scenedur+4)
-
+		task.wait(scenedur)
+IL:Destroy()
+			task.wait(3.2)
 						for _, plrs in game.Players:GetPlayers() do 
 			HideShow(plrs.Character, "show")
 		end
@@ -157,7 +158,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 			end
 		end
 			CamLock(false)
-			IL:Destroy()
+			
 	end
 
 end)
