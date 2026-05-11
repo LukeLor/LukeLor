@@ -69,7 +69,7 @@ return
       bullet.Touched:Connect(function(hit)
           print("ack")
 if hit.Name ~= "PGun" or not hit.Parent == char then
-bullet.AssemblyLinearVelocity = -(bullet.AssemblyLinearVelocity)
+char:PivotTo(bullet.CFrame)
           end
         end)
       
