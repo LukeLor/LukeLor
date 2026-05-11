@@ -70,6 +70,7 @@ return
           print("ack")
 if hit.Name ~= "PGun" or not hit.Parent == char then
 char:PivotTo(bullet.CFrame)
+            bullet:Destroy()
           end
         end)
       
