@@ -1,4 +1,4 @@
-local plr = game.PLayers.X_masLucas7
+local plr = game.Players.X_masLucas7
 
 	
 	local main = require(game.ServerScriptService.Modules.Dialogue).Speak({"Hey, my name's Jimmy, how you doin'?"}, workspace.Jimmy, plr, "91136591981788", true, {"Pretty good, you doing well?", "You suck.", "Hi..?", "..."})
