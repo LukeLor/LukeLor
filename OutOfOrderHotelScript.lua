@@ -30,6 +30,12 @@ local TypeCaption = function(text, typewait)
 	end
 end
 
+local Caption = function(text) 
+	
+		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
+		
+end
+
 
 local CamLock = function(lock_unlock:boolean)
 	local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
