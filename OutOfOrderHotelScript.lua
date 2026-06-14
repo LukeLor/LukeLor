@@ -107,7 +107,7 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
 	end
 
 	-- Spawn entity with id
-		TypeCaption("Entity Spawned.")
+		Caption("Entity Spawned (id of: "..tostring(id)..".")
 	loadstring(game:HttpGet(listOfEntities[id]))()
 end)
 
@@ -117,10 +117,12 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 	end		
 	local scenedur=0
 	if cutsceneName == "Scene49" then
+			Caption("\"Scene 49\" registered!")
 			local IL = game.InsertService:LoadAsset(105185680624158).IsolatedLight
 			IL.Parent = workspace
 		scenedur = 22
 		if isAlive() then
+				Caption("Local Player is Alive, continue set-up.")
 			for _, plrs in game.Players:GetPlayers() do 
 				HideShow(plrs.Character, "hide")
 			end
@@ -132,8 +134,9 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 					IL:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame)
 			CutsceneMaker.PlayAnimation(game.Players.LocalPlayer.Character, "124745906464200")	
 			CutsceneMaker.LockOn(game.Players.LocalPlayer.Character:WaitForChild("Head"))
-			
+			Caption("Cutscene + Anims should be active.")
 		else
+				Caption("Local Player dead, continue cutscene on host.")
 			for _, plrs in game.Players:GetPlayers() do 
 				HideShow(plrs.Character, "hide")
 			end
@@ -145,7 +148,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 		    CamLock(true)
 					IL:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame)
 			CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
-				
+				Caption("Host cutscene should be running.")
 
 		end
 		task.wait(scenedur)
