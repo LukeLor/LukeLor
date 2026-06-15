@@ -107,7 +107,7 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
 	end
 
 	-- Spawn entity with id
-		Caption("Entity Spawned (id of: "..tostring(id)..".")
+		Caption("Entity Spawned (id of: "..tostring(id)..").")
 	loadstring(game:HttpGet(listOfEntities[id]))()
 end)
 
