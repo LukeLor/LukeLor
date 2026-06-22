@@ -194,7 +194,7 @@ local BinaryToChar = {
   ["01111110"] = "~"
 }
 
-local function Encode(Text, Type)
+local function EncodeFrom(Text, Type)
   if Type == nil then
 print("Type is nil, returning text.")
         return Text
