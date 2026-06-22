@@ -244,4 +244,7 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
     return tostring(result)
 end
 end
-    EncodeTo("Challenge Mode should really be in doors, y'know? It's a pretty cool concept that Capztion made! So, LSplash, why don't you, uhhh.... add it?", "binary")
+ local msg=   EncodeTo("Challenge Mode should really be in doors, y'know? It's a pretty cool concept that Capztion made! So, LSplash, why don't you, uhhh.... add it?", "binary")
+print(msg)
+local recode = EncodeTo(msg,"text")
+print(recode)
