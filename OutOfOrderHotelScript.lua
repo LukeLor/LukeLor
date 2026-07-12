@@ -182,7 +182,7 @@ end)
 
 --==Crossover Seek==--
 
-game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+--[[game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
 	wait(3.5)
 	if not workspace:FindFirstChild("SeekMoving") then
 		return 
@@ -239,7 +239,7 @@ game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
 			end
 			break
 		end		
-	end)
+	end)]]
 
 	--==Door 49 Scene==--
 
