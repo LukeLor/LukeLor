@@ -112,12 +112,12 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
 
 	-- Spawn entity with id
 		Caption("Entity chosen. (id of: "..tostring(id)..").")
-		if game:HttpGet(listOfEntities[id]) then
+	
 	loadstring(game:HttpGet(listOfEntities[id]))()
-			Caption("Entity initiated, yayyy!!!")
+			--[[Caption("Entity initiated, yayyy!!!")
 		else
 			Caption("Unfortunately something occured and the entity could not spawn.")
-		end
+		end]]
 end)
 
 Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
