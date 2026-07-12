@@ -15,8 +15,8 @@ local Host: Player? = nil
 local CutsceneActive = false
 local activeClients = {} :: {Player}
 local listOfEntities = {
-	 "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua",
-	 "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Dasher.lua"
+	[1]= "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Stomper.lua",
+	[2]= "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Dasher.lua"
 }
 
 local TypeCaption = function(text, typewait) 
@@ -67,7 +67,7 @@ end
 
 local isAlive = function(char)
 	if char == nil then
-char = game.Players.LocalPlayer:WaitForChild("Character")
+char = game.Players.LocalPlayer.Character
 	
 	end	
 	if  char:WaitForChild("Humanoid").Health > 0 then
