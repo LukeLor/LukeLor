@@ -257,6 +257,7 @@ end)
 	end)	
 
 	--==Spawner==--
+task.spawn(function()
 	while task.wait( math.random(10, 30) ) do
 		if LocalPlayer == Host then
 			-- Request to summon random entity as Host
@@ -264,4 +265,4 @@ end)
 			Communicator:Send("SpawnEntity", randomId)
 		end
 	end
-	
+	end)	
