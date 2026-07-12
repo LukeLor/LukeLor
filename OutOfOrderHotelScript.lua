@@ -127,8 +127,8 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 	local scenedur=0
 	if cutsceneName == "Scene49" then
 			Caption("\"Scene 49\" registered!")
-			local ILM = game:GetObjects("rbxassetid://105185680624158")[1]
-			local IL = ILM.IsolatedLight
+			local IL = game:GetObjects("rbxassetid://105185680624158")[1]
+			--local IL = ILM.IsolatedLight
 			IL.Parent = workspace
 		scenedur = 22
 		if isAlive() then
