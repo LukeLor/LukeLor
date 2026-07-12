@@ -66,7 +66,7 @@ end
 
 
 local isAlive = function(char)
-	if (char == nil and game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0) or (char:WaitForChild("Humanoid").Health > 0  and char) then
+	if char == nil and game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 or char:WaitForChild("Humanoid").Health > 0  and char then
 
 		return true
 
