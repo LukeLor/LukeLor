@@ -113,7 +113,13 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
 	-- Spawn entity with id
 		Caption("Entity chosen. (id of: "..tostring(id)..").")
 	
-	loadstring(game:HttpGet(listOfEntities[id]))()
+	--loadstring(game:HttpGet(listOfEntities[id]))()
+		local success, source = pcall(function() return game:HttpGet(listOfEntities[id]) end)
+	if success and source then
+		loadstring(source)()
+	else
+		Caption("Ru-oh, issue occured...")
+		end
 			--[[Caption("Entity initiated, yayyy!!!")
 		else
 			Caption("Unfortunately something occured and the entity could not spawn.")
