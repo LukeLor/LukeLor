@@ -67,19 +67,14 @@ end
 
 local isAlive = function(char)
 	if char == nil then
-char = game.Players.LocalPlayer.Character
-	
+		char = game.Players.LocalPlayer.Character
 	end	
-	if  char:WaitForChild("Humanoid").Health > 0 then
-
-		return true
-
-	else
-
-		return false
-
+	if char and char:FindFirstChild("Humanoid") then
+		return char.Humanoid.Health > 0
 	end
+	return false
 end
+
 -- \\ Setup // --
 
 Communicator.Config.ExcludeSelf = false
