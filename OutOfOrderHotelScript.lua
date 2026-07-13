@@ -124,6 +124,15 @@ Communicator:Listen("SpawnEntity", function(sender: Player, id: number)
 		end]]
 end)
 
+Communicator:Listen("Caption", function(sender: Player, text: string)
+	if sender ~= Host then
+		-- Ignore commands not sent by Host
+		return
+	end
+
+	require(game.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text)
+end)
+
 Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 	if sender ~= Host then
 		return
@@ -253,6 +262,11 @@ end)
 	--==Door 49 Scene==--
 
 	game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+		if LocalPlayer == Host then
+			-- Request to summon random entity as Host
+			--local randomId = math.random(1, #listOfEntities)
+			Communicator:Send("Caption", "It seems we entered door "..tostring(game.ReplicatedStorage.GameData.LatestRoom.Value))
+		end
 		if game.ReplicatedStorage.GameData.LatestRoom.Value == 5 then
 			if LocalPlayer == Host then
 				-- Initiate Cutscene for all clients.
