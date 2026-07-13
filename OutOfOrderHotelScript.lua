@@ -267,7 +267,7 @@ end)
 			--local randomId = math.random(1, #listOfEntities)
 			Communicator:Send("Caption", "It seems we entered door "..tostring(game.ReplicatedStorage.GameData.LatestRoom.Value))
 		end
-		if game.ReplicatedStorage.GameData.LatestRoom.Value == 5 then
+		if game.ReplicatedStorage.GameData.LatestRoom.Value == 2 then
 			if LocalPlayer == Host then
 				-- Initiate Cutscene for all clients.
 				Communicator:Send("Cutscene", "Scene49")
