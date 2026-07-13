@@ -157,7 +157,7 @@ Communicator:Listen("Cutscene", function(sender:Player, cutsceneName:string)
 			CutsceneMaker.PlayAnimation(Host.Character, "87169059953452")
 				CutsceneMaker.PlayAnimation(IL, "124745906464200")	
 		    CamLock(true)
-					IL:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame)
+					IL:PivotTo(Host.Character:WaitForChild("HumanoidRootPart").CFrame)
 			CutsceneMaker.LockOn(Host.Character:WaitForChild("Head"))
 				Caption("Host cutscene should be running.")
 
