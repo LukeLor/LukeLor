@@ -253,7 +253,7 @@ end)
 	--==Door 49 Scene==--
 
 	game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
-		if game.ReplicatedStorage.GameData.LatestRoom.Value == 49 then
+		if game.ReplicatedStorage.GameData.LatestRoom.Value == 5 then
 			if LocalPlayer == Host then
 				-- Initiate Cutscene for all clients.
 				Communicator:Send("Cutscene", "Scene49")
