@@ -3,6 +3,8 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local Communicator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Communicator/main/init.luau"))()
 local CutsceneMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CutsceneMaker.lua"))()
 
+--Main |:]
+
 -- \\ Services // --
 
 local Players = game:GetService("Players")
