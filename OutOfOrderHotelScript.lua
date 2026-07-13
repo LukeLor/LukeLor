@@ -1,4 +1,4 @@
-
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Out of Order for the Hotel is running, yippeeee!!!")
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
 local Communicator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Communicator/main/init.luau"))()
 local CutsceneMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CutsceneMaker.lua"))()
@@ -259,6 +259,7 @@ end)
 	end)	
 
 	--==Spawner==--
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I.. am. next. level. MAD. (Yay, its running entites now)")
 task.spawn(function()
 	while task.wait( math.random(10, 30) ) do
 		if LocalPlayer == Host then
