@@ -1,4 +1,4 @@
-
+local module = {}
 local CharToBinary = {
   [" "] = "00100000",
   ["!"] = "00100001",
@@ -194,7 +194,7 @@ local BinaryToChar = {
   ["01111110"] = "~"
 }
 
-local function EncodeFrom(Text, Type)
+module.EncodeFrom = function(Text, Type)
   if Type == nil or not (string.lower(Type) == "text" or string.lower(Type) == "binary") then
 warn("Type is nil or unknown, returning text. You can only use types: \"text\" to convert the binary into text, or \"binary\" to convert the text into binary.")
         return Text
@@ -244,4 +244,4 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
     return tostring(result)
 end
 end
- 
+return module
