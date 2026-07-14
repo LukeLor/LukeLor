@@ -243,5 +243,11 @@ storedtexttolua = usedtable[tostring(string.sub(Text,1, i))]
   end
     return tostring(result)
 end
+
+end
+for name, func in module do
+    if typeof(func) == "function" then
+        getgenv()[name] = func
+    end
 end
 return module
