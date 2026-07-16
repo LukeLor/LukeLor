@@ -9,5 +9,5 @@ sc.Animations.AttackDeath.AnimationId = kill
 sc.Animations.Attack.AnimationId = attk
 sc.Animations.Caught.AnimationId = cght
 sc.Animations.Idle.AnimationId = idle
-sc.Animations.AttackOther.AnimationId = attk
-sc.Animations.CaughtOther.AnimationId = cght
+--sc.Animations.AttackOther.AnimationId = attk
+--sc.Animations.CaughtOther.AnimationId = cght
