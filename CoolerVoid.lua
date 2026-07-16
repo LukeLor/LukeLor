@@ -54,7 +54,7 @@ VoidPlayer = function(dest, plr)
 	ts:Create(lighting, TweenInfo.new(1.25),{FogEnd = cfogend}):Play()
 
 	
-	tpremote:Destroy()
+	--tpremote:Destroy()
 
 end
 
