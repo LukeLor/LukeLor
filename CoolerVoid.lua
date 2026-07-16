@@ -19,9 +19,9 @@ VoidPlayer = function(dest, plr)
 	ts:Create(lighting, TweenInfo.new(0.75),{FogStart = 0}):Play()
 	ts:Create(lighting, TweenInfo.new(0.75),{FogEnd = 0}):Play()
 	wait(0.75)
-	local tpremote = Instance.new("RemoteEvent")
-	tpremote.Parent = game.ReplicatedStorage
-	tpremote:FireServer(dest,voidedplr)
+	--local tpremote = Instance.new("RemoteEvent")
+--	tpremote.Parent = game.ReplicatedStorage
+	--tpremote:FireServer(dest,voidedplr)
 	local vpChar = workspace:FindFirstChild(voidedplr.Name)
 	vpChar.HumanoidRootPart.Anchored = true
 	wait(0.5)
