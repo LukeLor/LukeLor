@@ -52,7 +52,7 @@ end
 Module.CheckDeaths = function(self, identifier: string): boolean
   
     if table.find(DecodeConfig(), identifier) ~= nil then
-local kills = table.find(DecodeConfig(), identifier)["Deaths"]
+local kills = DecodeConfig()[table.find(DecodeConfig(), identifier)]["Deaths"]
     return kills
   else
     return 0
@@ -104,7 +104,7 @@ Module.SetupDeaths = function(self, deathConfig: DeathConfig)
     
 end
 
-Module.UpdateDeaths(self, deathConfig: DeathConfig)
+Module.UpdateDeaths = function(self, deathConfig: DeathConfig)
     
     local config = DecodeConfig()
 
@@ -119,7 +119,7 @@ else
     end
 
 
-  local kills = table.find(DecodeConfig(), deathConfig.Identifier)["Deaths"]
+  local kills = DecodeConfig()[table.find(DecodeConfig(), deathConfig.Identifier)]["Deaths"]
 kills = kills + 1
 
     
