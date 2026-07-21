@@ -114,12 +114,12 @@ Module.UpdateDeaths(self, deathConfig: DeathConfig)
          table.find(config, deathConfig.Identifier)
     then
 else
-  warn("Can't update. No death counter has an identifier of: '"..tostring(achievementConfig.Identifier).."' so try using SetupDeaths() instead.")  
+  warn("Can't update. No death counter has an identifier of: '"..tostring(deathConfig.Identifier).."' so try using SetupDeaths() instead.")  
     return
     end
 
 
-  local kills = table.find(DecodeConfig(), identifier)["Deaths"]
+  local kills = table.find(DecodeConfig(), deathConfig.Identifier)["Deaths"]
 kills = kills + 1
 
     
