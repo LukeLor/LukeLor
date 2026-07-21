@@ -17,22 +17,35 @@
 	
 	local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 local oxygen = char:GetAttribute("Oxygen")
-
+local MainUI = nil
+if Player.PlayerGui.MainUI:FindFirstChild("MainFrame") then
+	MainUI = game.PlayersLocalPlayer.PlayerGui.MainUI.MainFrame
+end
 
 Caption = function(text)
-	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
-end
+	if MainUI and MainUI:FindFirstChild("LiveCaption")then
+		MainUI:FindFirstChild("LiveCaption"):Destroy()
+	else
+		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
+	end
+	end
 
 
 TypeCaption = function(text, typewait) 
+	
 	for i = 1, #text, 1 do
-		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(string.sub(text,1,i), true)
-		if typewait ~= nil then
+		if MainUI and MainUI:FindFirstChild("LiveCaption") then
+			MainUI:FindFirstChild("LiveCaption"):Destroy()
+		else
+			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(string.sub(text,1,i), true)
+		end
+			if typewait ~= nil then
 			task.wait(typewait)
 		else
 			task.wait(0.2)
 		end
 	end
+
 end
 
 SpeakerIconShow = function(IconId)
