@@ -111,7 +111,7 @@ Module.UpdateDeaths(self, deathConfig: DeathConfig)
   
     
     if
-         table.find(config, achievementConfig.Identifier)
+         table.find(config, deathConfig.Identifier)
     then
 else
   warn("Can't update. No death counter has an identifier of: '"..tostring(achievementConfig.Identifier).."' so try using SetupDeaths() instead.")  
