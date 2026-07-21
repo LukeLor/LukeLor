@@ -98,7 +98,7 @@ Module.SetupDeaths = function(self, deathConfig: DeathConfig)
 
 
   config[#config + 1] = deathConfig.Identifier
-  config[#config + 1]["Deaths"] = 0
+  config[#config + 1].Deaths = 0
   
   WriteConfig(config)
     
