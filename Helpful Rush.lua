@@ -25,6 +25,7 @@ end
 Caption = function(text)
 	if MainUI and MainUI:FindFirstChild("LiveCaption")then
 		MainUI:FindFirstChild("LiveCaption"):Destroy()
+		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
 	else
 		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
 	end
@@ -36,6 +37,7 @@ TypeCaption = function(text, typewait)
 	for i = 1, #text, 1 do
 		if MainUI and MainUI:FindFirstChild("LiveCaption") then
 			MainUI:FindFirstChild("LiveCaption"):Destroy()
+			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
 		else
 			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(string.sub(text,1,i), true)
 		end
