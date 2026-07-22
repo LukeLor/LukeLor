@@ -69,7 +69,6 @@ Module.SetupDeaths = function(self, deathConfig: DeathConfig)
     local config = DecodeConfig()
     
     local identifier = deathConfig.Identifier or DefaultTrack.Identifier
-    local deaths = deathConfig.Deaths or DefaultTrack.Deaths
     
     if config[identifier] ~= nil then
         warn("Player already set up kill count.")
@@ -77,7 +76,7 @@ Module.SetupDeaths = function(self, deathConfig: DeathConfig)
     end
 
     config[identifier] = {
-        ["Deaths"] = deaths
+        ["Deaths"] = 0
     }
   
     WriteConfig(config)
