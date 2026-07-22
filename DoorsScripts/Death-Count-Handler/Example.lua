@@ -1,0 +1,21 @@
+local DeathManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Death-Count-Handler/Main.luau"))()
+
+if DeathManager:CheckDeaths("DeathsTest") then
+    DeathManager:ResetDeaths("DeathsTest")
+end
+
+DeathManager:SetupDeaths({
+    Identifier = "DeathsTest"
+})
+
+local character = game.Players.LocalPlayer.Character
+if character then
+local Humanoid = character:WaitForChild("Humanoid")
+  if Humanoid then
+if Humanoid.PropertyChanged:Connect(function ("Health")
+DeathManager:UpdateDeaths({
+    Identifier = "DeathsTest"
+})
+        end)
+  end
+end
