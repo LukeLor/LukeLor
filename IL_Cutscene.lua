@@ -15,7 +15,7 @@ sceneFolder.Parent = workspace
 
 --Verify Assets
 if not (ILM and CamRig and Start_C and Start_I and Leave_I and Move and Leave_C) then
-  --Add support for rbxassetid.
+  --Add support for rbxassetid later.
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("One or more assets did NOT load. Make sure to support rbxassetid for this specific user.",true)
 
 else
@@ -79,5 +79,10 @@ end
 --Parenting session #2
 ILM.Parent = workspace
 CamRig.Parent = workspace
-PlayAnim(ILM, Start_I)
 
+
+--CUTSCENE, YAY!!!
+ILM:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame)
+CamRig:PivotTo(ILM.PrimaryPart.CFrame)
+PlayAnim(ILM, Start_I)
+PlayAnim(CamRig, Start_I)
