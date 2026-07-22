@@ -1,4 +1,3 @@
--- CREDITS TO REGULARVYNIXU FOR CUSTOM ACHIEVEMENTS (WHICH WAS USED TO HELP MAKE THIS)! 
 -- \\ Services // --
 
 local HttpService = game:GetService("HttpService")
@@ -15,7 +14,6 @@ local DefaultTrack = {
     Deaths = 0
 }
 
-
 local Module = {}
 
 type DeathConfig = {
@@ -23,14 +21,11 @@ type DeathConfig = {
     Deaths: number?
 }
 
-type Track = {
-    Identifier: string,
-    Deaths: number
+type DeathLog = {
+    [string]: {
+        Deaths: number
+    }
 }
-
-
-
-type DeathLog = { Track }
 
 -- \\ Functions // --
 
@@ -44,87 +39,62 @@ local function DecodeConfig(): DeathLog
     local success, result = pcall(function()
         return HttpService:JSONDecode(readfile("DOORS_Custom_Deaths.json"))
     end)
-    return success and result or {}
+    return success and typeof(result) == "table" and result or {}
 end
 
 -- \\ Main // --
 
-Module.CheckDeaths = function(self, identifier: string): boolean
+Module.CheckDeaths = function(self, identifier: string): number
+    local config = DecodeConfig()
   
-    if table.find(DecodeConfig(), identifier) ~= nil then
-local kills = DecodeConfig()[table.find(DecodeConfig(), identifier)]["Deaths"]
-    return kills
-  else
-    return 0
-  end
+    if config[identifier] ~= nil then
+        local kills = config[identifier]["Deaths"]
+        return kills
+    else
+        return 0
+    end
 end
 
 Module.ResetDeaths = function(self, identifier: string)
     local config = DecodeConfig()
 
-    for i, v in next, config do
-        if v == identifier then
-            table.remove(config, i)
-        end
+    if config[identifier] ~= nil then
+        config[identifier] = nil
     end
 
     WriteConfig(config)
 end
 
 Module.SetupDeaths = function(self, deathConfig: DeathConfig)
-    
     local config = DecodeConfig()
-
-    -- Fetch death config properties
-    local newTrack = {}
-    if typeof(deathConfig) == "table" then
-        for i, v in next, deathConfig do
-            newTrack[i] = v
-        end
-    end
-    for i, v in next, DefaultTrack do
-        if newTrack[i] == nil then
-            newTrack[i] = v
-        end
-    end
     
-    -- Check if player already set up
-  if
-         table.find(config, deathConfig.Identifier)
-    then
-    warn("Player already set up kill count.")
+    local identifier = deathConfig.Identifier or DefaultTrack.Identifier
+    local deaths = deathConfig.Deaths or DefaultTrack.Deaths
+    
+    if config[identifier] ~= nil then
+        warn("Player already set up kill count.")
         return
     end
 
-
-  config[#config + 1] = deathConfig.Identifier
-  config[#config].Deaths = 0
+    config[identifier] = {
+        ["Deaths"] = deaths
+    }
   
-  WriteConfig(config)
-    
+    WriteConfig(config)
 end
 
 Module.UpdateDeaths = function(self, deathConfig: DeathConfig)
-    
     local config = DecodeConfig()
-
-  
+    local identifier = deathConfig.Identifier or DefaultTrack.Identifier
     
-    if
-         table.find(config, deathConfig.Identifier)
-    then
-else
-  warn("Can't update. No death counter has an identifier of: '"..tostring(deathConfig.Identifier).."' so try using SetupDeaths() instead.")  
-    return
+    if config[identifier] == nil then
+        warn("Can't update. No death counter has an identifier of: '"..tostring(identifier).."' so try using SetupDeaths() instead.")  
+        return
     end
 
-
-  local kills = DecodeConfig()[table.find(DecodeConfig(), deathConfig.Identifier)]["Deaths"]
-kills = kills + 1
-
+    config[identifier]["Deaths"] = config[identifier]["Deaths"] + 1
     
-  WriteConfig(config)
-    
+    WriteConfig(config)
 end
 
 return Module
