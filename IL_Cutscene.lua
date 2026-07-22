@@ -100,7 +100,16 @@ CamRig.Parent = workspace
 
 
 --CUTSCENE, YAY!!!
+CutsceneMaker.LockOn(CamRig:WaitForChild("Head"), 7)
+Caption("Scene started.")
+CamLock(true)
+local oldCamType = workspace.CurrentCamera.CameraType
+game.worksapce.CuttentCamera.CameraType = Enum.CameraType.Scriptable
 ILM:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame)
 CamRig:PivotTo(ILM.PrimaryPart.CFrame)
 PlayAnim(ILM, Start_I)
 PlayAnim(CamRig, Start_I)
+task.wait(7)
+CamLock(false)
+workspace.CurrentCamera.CameraType = oldCamType
+Caption("Scene over.")
