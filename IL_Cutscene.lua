@@ -10,14 +10,21 @@ local Start_I = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/Lu
 local Move = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Move.rbxm")
 local Leave_I = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Leave.rbxm")
 local Leave_C = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LeaveCam.rbxm")
-
+local sceneFolder = Instance.new("Folder")
+sceneFolder.Parent = workspace
 
 --Verify Assets
 if not (ILM and CamRig and Start_C and Start_I and Leave_I and Move and Leave_C) then
   --Add support for rbxassetid.
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("One or more assets did NOT load. Make sure to support rbxassetid for this specific user.",true)
+
 else
   --All set
+	Start_C.Parent = sceneFolder
+	Start_I.Parent = sceneFolder
+	Leave_C.Parent = sceneFolder
+	Leave_I.Parent = sceneFolder
+	Move.Parent = sceneFolder
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("ALL assets LOADED. Yayyyy!!!",true)
 end
 
@@ -72,5 +79,5 @@ end
 --Parenting session #2
 ILM.Parent = workspace
 CamRig.Parent = workspace
-
+PlayAnim(ILM, Start_I)
 
