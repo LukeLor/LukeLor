@@ -15,7 +15,7 @@ local Humanoid = character:WaitForChild("Humanoid")
                 })
             end
         end)
-        require(playerGui.MainUI.Initiator.Main_Game).caption(tostring(DeathManager:CheckDeaths()), true)
+        require(playerGui.MainUI.Initiator.Main_Game).caption(tostring(DeathManager:CheckDeaths()).." Death(s)", true)
   end
 end
 
