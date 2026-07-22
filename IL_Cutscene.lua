@@ -1,4 +1,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+local CutsceneMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CutsceneMaker.lua"))()
+
+
 
 --Models
 local ILM = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/IL.rbxm")
@@ -52,9 +55,10 @@ StartM.Parent = workspace
 LoopM.Parent = workspace
 EndM.Parent = workspace
 
---Load Anims
-PlayAnim = function(Rig, Animation)
-local KeyframeSequenceProvider = game:GetService("KeyframeSequenceProvider")
+--Functions
+local PlayAnim = function(Rig, Animation)
+
+	local KeyframeSequenceProvider = game:GetService("KeyframeSequenceProvider")
 local Workspace = workspace
 local Players = game:GetService("Players")
 
@@ -76,6 +80,20 @@ playingAnim.AnimationId = hashId
         track:Play()
   end
 end
+
+local Caption = function(text) 
+	
+		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
+		
+end
+
+local CamLock = function(lock_unlock:boolean)
+	local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+	if maingame then
+		maingame.stopcam = lock_unlock
+	end
+end
+
 --Parenting session #2
 ILM.Parent = workspace
 CamRig.Parent = workspace
