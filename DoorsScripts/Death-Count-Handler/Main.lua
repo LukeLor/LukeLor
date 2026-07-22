@@ -30,7 +30,7 @@ type Track = {
 
 
 
-type DeathLog = { string }
+type DeathLog = { Track }
 
 -- \\ Functions // --
 
