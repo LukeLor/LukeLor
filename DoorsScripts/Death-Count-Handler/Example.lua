@@ -1,8 +1,8 @@
 local DeathManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Death-Count-Handler/Main.luau"))()
 
-if DeathManager:CheckDeaths("DeathsTest") then
+--[[if DeathManager:CheckDeaths("DeathsTest") then
     DeathManager:ResetDeaths("DeathsTest")
-end
+end]]
 
 DeathManager:SetupDeaths({
     Identifier = "DeathsTest"
@@ -19,5 +19,6 @@ local Humanoid = character:WaitForChild("Humanoid")
                 })
             end
         end)
+        require(playerGui.MainUI.Initiator.Main_Game).caption(DeathManager:CheckDeaths(), true)
   end
 end
