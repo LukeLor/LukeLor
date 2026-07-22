@@ -24,8 +24,8 @@ type DeathConfig = {
 }
 
 type Track = {
-    Deaths: number,
-    [number]: any
+    Identifier: string,
+    Deaths: number
 }
 
 
