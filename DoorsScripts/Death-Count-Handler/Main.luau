@@ -17,8 +17,7 @@ local DefaultTrack = {
 local Module = {}
 
 type DeathConfig = {
-    Identifier: string?,
-    Deaths: number?
+    Identifier: string?
 }
 
 type DeathLog = {
