@@ -12,10 +12,12 @@ local character = game.Players.LocalPlayer.Character
 if character then
 local Humanoid = character:WaitForChild("Humanoid")
   if Humanoid then
-if Humanoid.PropertyChanged:Connect(function ("Health")
-DeathManager:UpdateDeaths({
-    Identifier = "DeathsTest"
-})
+ Humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+            if Humanoid.Health <= 0 then
+                DeathManager:UpdateDeaths({
+                    Identifier = "DeathsTest"
+                })
+            end
         end)
   end
 end
