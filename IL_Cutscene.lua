@@ -48,9 +48,9 @@ function CustomSound(soundLink, vol, sndName)
   return sound
 end
 
-local StartM = CustomSound(https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Start, 1, WotF_Start)
-local LoopM = CustomSound(https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Loop, 1, WotF_Loop)
-local EndM = CustomSound(https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_End, 1, WotF_End)
+local StartM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Start", 1, "WotF_Start")
+local LoopM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Loop", 1, "WotF_Loop")
+local EndM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_End", 1, "WotF_End")
 StartM.Parent = workspace
 LoopM.Parent = workspace
 EndM.Parent = workspace
