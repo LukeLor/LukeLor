@@ -108,7 +108,7 @@ game.workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 ILM:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame)
 CamRig:PivotTo(ILM.PrimaryPart.CFrame)
 PlayAnim(ILM, Start_I)
-PlayAnim(CamRig, Start_I)
+PlayAnim(CamRig, Start_C)
 task.wait(7)
 CamLock(false)
 workspace.CurrentCamera.CameraType = oldCamType
