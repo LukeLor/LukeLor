@@ -19,10 +19,24 @@ sceneFolder.Parent = workspace
 --Verify Assets
 if not (ILM and CamRig and Start_C and Start_I and Leave_I and Move and Leave_C) then
   --Add support for rbxassetid later.
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("One or more assets did NOT load. Make sure to support rbxassetid for this specific user. Though at the current moment, nothing has been done. Returning...",true)
-return
+	
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("One or more assets did NOT load with custom function. Using rbxasetid...",true)
+ILM = game:GetObjects("rbxassetid://140198400419491")[1]
+CamRig = game:GetObjects("rbxassetid://125432385789057")[1]
+Start_C = CamRig.RawAnimations:WaitForChild("IsolatedLight_C_I-Ca")
+Leave_C = CamRig.RawAnimations:WaitForChild("IL_Leave_Cam")
+Leave_I = ILM.RawAnimations:WaitForChild("IsolatedLight_Leave")
+Start_I = ILM.RawAnimations:WaitForChild("IsolatedLight_Chase_Intro")
+Move = ILM.RawAnimations:WaitForChild("IsolatedLight_Move")
+	Start_C.Parent = sceneFolder
+	Start_I.Parent = sceneFolder
+	Leave_C.Parent = sceneFolder
+	Leave_I.Parent = sceneFolder
+	Move.Parent = sceneFolder
+	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Set up rbxassetid versions.",true)
 else
   --All set
+	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("All assets loaded and are being parented.",true)
 	Start_C.Parent = sceneFolder
 	Start_I.Parent = sceneFolder
 	Leave_C.Parent = sceneFolder
