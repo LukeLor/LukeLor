@@ -65,9 +65,14 @@ end
 local StartM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Start.mp3", 1, "WotF_Start")
 local LoopM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Loop.mp3", 1, "WotF_Loop")
 local EndM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_End.mp3", 1, "WotF_End")
+if (StartM and LoopM and EndM)
 StartM.Parent = workspace
 LoopM.Parent = workspace
 EndM.Parent = workspace
+	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Music also registered.",true)
+else
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Music failed to register...",true)
+end
 
 --Functions
 local PlayAnim = function(Rig, Animation)
