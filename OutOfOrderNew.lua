@@ -14,7 +14,7 @@ function CustomSound(soundLink, vol, sndName)
   return sound
 end
 
-local LoopM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/IsolatedLightDeathLoop.mp3", 1, "IsolatedLightDeathLoop")
+local LoopM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/IsolatedLightDeathLoopNew.mp3", 1, "IsolatedLightDeathLoop")
 local EndM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/IsolatedLightDeathEnd.mp3", 1, "IsolatedLightDeathEnd")
 
 local ILChaseHappened = false
