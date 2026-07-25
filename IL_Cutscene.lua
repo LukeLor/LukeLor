@@ -86,7 +86,7 @@ local hashId = KeyframeSequenceProvider:RegisterKeyframeSequence(Animation)
 
 local playingAnim = Instance.new("Animation")
 playingAnim.AnimationId = hashId
-
+playingAnim.Parent = sceneFolder 
     local humanoid = Rig:FindFirstChildOfClass("Humanoid") or Rig:FindFirstChildOfClass("AnimationController")
     local animator =  humanoid:FindFirstChildOfClass("Animator")
     
