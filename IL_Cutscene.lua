@@ -15,6 +15,7 @@ local Leave_I = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/Lu
 local Leave_C = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LeaveCam.rbxm")
 local sceneFolder = Instance.new("Folder")
 sceneFolder.Parent = workspace
+sceneFolder.Name = "IsolatedLightCutsceneAssets"
 
 --Verify Assets
 if not (ILM and CamRig and Start_C and Start_I and Leave_I and Move and Leave_C) then
@@ -66,9 +67,9 @@ local StartM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/re
 local LoopM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Loop.mp3", 1, "WotF_Loop")
 local EndM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_End.mp3", 1, "WotF_End")
 if (StartM and LoopM and EndM)
-StartM.Parent = workspace
-LoopM.Parent = workspace
-EndM.Parent = workspace
+StartM.Parent = sceneFolder 
+LoopM.Parent = sceneFolder 
+EndM.Parent = sceneFolder 
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Music also registered.",true)
 else
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Music failed to register...",true)
