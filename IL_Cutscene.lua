@@ -66,7 +66,7 @@ end
 local StartM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Start.mp3", 1, "WotF_Start")
 local LoopM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_Loop.mp3", 1, "WotF_Loop")
 local EndM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/WotF_End.mp3", 1, "WotF_End")
-if (StartM and LoopM and EndM)
+if (StartM and LoopM and EndM) then
 StartM.Parent = sceneFolder 
 LoopM.Parent = sceneFolder 
 EndM.Parent = sceneFolder 
