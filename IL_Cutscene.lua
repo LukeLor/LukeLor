@@ -79,9 +79,19 @@ end
 
 --Functions
 local PlayAnim = function(Rig, Animation)
-	local Lifeform = Rig:FindFirstChildOfClass("Humanoid",5) or Rig:FindFirstChildOfClass("AnimationController",5)
-	local Animator = AnimatorModule.new(Lifeform) -- Your rig (you can also use the player)
-local AnimationTrack = Animator:LoadAnimation(Animation) -- Path to KeyFrameSequence
+	local Hum = Rig:FindFirstChildOfClass("Humanoid") 
+	if Hum == nil then
+Hum = Instance.new("Humanoid")
+		if Rig:FindFirstChildOfClass("AnimationController") then
+			local aC_Name = Rig:FindFirstChildOfClass("AnimationController").Name
+Rig:FindFirstChildOfClass("AnimationController"):Destroy()
+			Hum.Parent = Rig 
+			Hum.Name = aC_Name
+    end
+end
+		local Animator = AnimatorModule.new(Hum)
+local AnimationTrack = Animator:LoadAnimation(Animation) 
+	AnimationTrack:Play()
 end
 
 local Caption = function(text) 
