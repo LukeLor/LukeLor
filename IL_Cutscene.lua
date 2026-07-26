@@ -88,6 +88,7 @@ Rig:FindFirstChildOfClass("AnimationController"):Destroy()
 			Hum.Parent = Rig 
 			Hum.Name = aC_Name
     end
+		Hum.Parent = Rig 
 end
 		local Animator = AnimatorModule.new(Hum)
 local AnimationTrack = Animator:LoadAnimation(Animation) 
