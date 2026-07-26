@@ -1,7 +1,8 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local CutsceneMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CutsceneMaker.lua"))()
-local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1]
-local Animator = 
+
+local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!!
+local Animator = require(AnimatorStore.ReplicatedStorage.Animator)
 
 
 --Models
