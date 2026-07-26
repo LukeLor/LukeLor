@@ -78,7 +78,7 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("
 end
 
 --Functions
-local PlayAnim = function(Rig, Animation)
+local LoadAnim = function(Rig, Animation)
 	local Hum = Rig:FindFirstChildOfClass("Humanoid") 
 	if Hum == nil then
 Hum = Instance.new("Humanoid")
@@ -92,7 +92,14 @@ Rig:FindFirstChildOfClass("AnimationController"):Destroy()
 end
 		local Animator = AnimatorModule.new(Hum)
 local AnimationTrack = Animator:LoadAnimation(Animation) 
-	AnimationTrack:Play()
+	return AnimationTrack
+end
+
+local PlayAnim = function(AnimationTrack)
+AnimationTrack:Play()
+end
+local StopAnim = function(AnimationTrack)
+AnimationTrack:Stop()
 end
 
 local Caption = function(text) 
@@ -121,8 +128,10 @@ local oldCamType = workspace.CurrentCamera.CameraType
 game.workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 ILM:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame)
 CamRig:PivotTo(ILM.PrimaryPart.CFrame)
-PlayAnim(ILM, Start_I)
-PlayAnim(CamRig, Start_C)
+local I_Start_Track = LoadAnim(ILM, Start_I)
+local C_Start_Track = LoadAnim(CamRig, Start_C)
+PlayAnim(I_Start_Track)
+PlayAnim(C_Start_Track)
 task.wait(7)
 CamLock(false)
 workspace.CurrentCamera.CameraType = oldCamType
