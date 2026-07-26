@@ -2,7 +2,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 local CutsceneMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CutsceneMaker.lua"))()
 
 local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!!
-local Animator = require(AnimatorStore.ReplicatedStorage.Animator)
+local AnimatorModule = require(AnimatorStore.ReplicatedStorage.Animator)
 
 
 --Models
@@ -79,28 +79,9 @@ end
 
 --Functions
 local PlayAnim = function(Rig, Animation)
-
-	local KeyframeSequenceProvider = game:GetService("KeyframeSequenceProvider")
-local Workspace = workspace
-local Players = game:GetService("Players")
-
-local hashId = KeyframeSequenceProvider:RegisterKeyframeSequence(Animation)
-
-local playingAnim = Instance.new("Animation")
-playingAnim.AnimationId = hashId
-playingAnim.Parent = sceneFolder 
-    local humanoid = Rig:FindFirstChildOfClass("Humanoid") or Rig:FindFirstChildOfClass("AnimationController")
-    local animator =  humanoid:FindFirstChildOfClass("Animator")
-    
-    if animator then
-         local track = animator:LoadAnimation(playingAnim)
-        track.Priority = Enum.AnimationPriority.Action4
-        track:Play()
-  else
-        local track = humanoid:LoadAnimation(playingAnim)
-     track.Priority = Enum.AnimationPriority.Action4
-        track:Play()
-  end
+	local Lifeform = Rig:FindFirstChildOfClass("Humanoid",5) or Rig:FindFirstChildOfClass("AnimationController",5)
+	local Animator = AnimatorModule.new(Lifeform) -- Your rig (you can also use the player)
+local AnimationTrack = Animator:LoadAnimation(Animation) -- Path to KeyFrameSequence
 end
 
 local Caption = function(text) 
