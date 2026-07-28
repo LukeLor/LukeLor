@@ -157,7 +157,7 @@ end
 
 if firesignal then
 	if DeathManager:CheckDeaths("IsolatedLightDeaths") == 1 then
-					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Well, sorry here "..game.Players.LocalPlayer.DisplayName..", but I can't spoil anything.", "Maybe... it'llbe possible if you die again though?", "See you on the other side.", "I know you'll come back.", "You're just too...", "Curious."}, "Yellow")
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Well, sorry here "..game.Players.LocalPlayer.DisplayName..", but I can't spoil anything.", "Maybe... it'll be possible if you die again though?", "See you on the other side.", "I know you'll come back.", "You're just too...", "Curious."}, "Yellow")
 	elseif DeathManager:CheckDeaths("IsolatedLightDeaths") == 2 then
 					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Actually, I'm unsure about something.", "Am I supposed to be the architect that you're...", "supposed to be seeing?", "Just a thought for myself to ponder on.", "Not as it'd concern you though."}, "Yellow")
 	elseif DeathManager:CheckDeaths("IsolatedLightDeaths") == 3 then
