@@ -173,5 +173,5 @@ if firesignal then
 else
 					warn("firesignal not supported, ignore death hints.")
 				end
-						gameStats["Player_".. plr.Name].Total.DeathCause.Value = "Unknown..."
+						gameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Unknown..."
 				
