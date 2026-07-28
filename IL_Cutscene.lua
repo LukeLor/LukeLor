@@ -168,7 +168,7 @@ if firesignal then
 					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Welcome back!", "WE don't know anything about this 'Fourth Architect' which is quite unfortunate.", "It seems that it'll be important.", "For all we know, it could be more powerful than all of us together!", "I'll let you see Curious one more time.."}, "Blue")
 	
 				elseif DeathManager:CheckDeaths("IsolatedLightDeaths") == 6 then
-					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You're... back again.", "Guiding tell you everything?","In that case, it seems that the case is closed.", "We won'tknow for quite a while.", "Maybe that last architect will show its face one day!", "But for now, farewell, "..game.Players.LocalPlayer.DisplayName..", I'm sure you'll make it far in whatever you do."}, "Yellow")
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You're... back again.", "Guiding tell you everything?","In that case, it seems that the case is closed.", "We won't know for quite a while.", "Maybe that last architect will show its face one day!", "But for now, farewell, "..game.Players.LocalPlayer.DisplayName..", I'm sure you'll make it far in whatever you do."}, "Yellow")
 	end
 else
 					warn("firesignal not supported, ignore death hints.")
