@@ -131,6 +131,8 @@ CamRig.Parent = sceneFolder
 
 
 --CUTSCENE, YAY!!!
+ILM.PrimaryPart.Anchored = true
+CamRig.PrimaryPart.Anchored = true
 CutsceneMaker.LockOn(CamRig:WaitForChild("Head"), 7)
 Caption("Scene started.")
 CamLock(true)
