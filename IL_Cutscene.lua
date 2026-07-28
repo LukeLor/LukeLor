@@ -1,6 +1,10 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 local CutsceneMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CutsceneMaker.lua"))()
 
+--TESTING!!!
+local DeathManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Death-Count-Handler/Main.luau"))()
+
+--ANIMATION HANDLER
 local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!!
 local AnimatorModule = require(AnimatorStore.ReplicatedStorage.Animator)
 
@@ -135,4 +139,36 @@ PlayAnim(C_Start_Track)
 task.wait(7)
 CamLock(false)
 workspace.CurrentCamera.CameraType = oldCamType
-Caption("Scene over.")
+Caption("Scene over, ADDED NEW TESTING LINES, SO CURRENT PLAYER WILL DIE IN 3 SECONDS.")
+task.wait(3)
+game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+if DeathManager:CheckDeaths("IsolatedLightDeaths") == 0 then
+DeathManager:SetupDeaths({
+Identifier = "IsolatedLightDeaths"
+})
+else
+	DeathManager:UpdateDeaths({
+Identifier = "IsolatedLightDeaths"
+}) 
+end
+
+if firesignal then
+	if DeathManager:CheckDeaths("IsolatedLightDeaths") == 1 then
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Well, sorry here "..game.Players.LocalPlayer.DisplayName..", but I can't spoil anything.", "Maybe... it'llbe possible if you die again though?", "See you on the other side.", "I know you'll come back.", "You're just too...", "Curious."}, "Yellow")
+	elseif DeathManager:CheckDeaths("IsolatedLightDeaths") == 2 then
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Actually, I'm unsure about something.", "Am I supposed to be the architect that you're...", "supposed to be seeing?", "Just a thought for myself to ponder on.", "Not as it'd concern you though."}, "Yellow")
+	elseif DeathManager:CheckDeaths("IsolatedLightDeaths") == 3 then
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"3rd times a charm, huh?", "I think I'm not supposed to see you.", "It's another architect, though I can't tell who...", "I'll let her take over for me.", "Hope she'll see you."}, "Yellow")
+	elseif DeathManager:CheckDeaths("IsolatedLightDeaths") == 4 then
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Hello!", "You're the one that Curious wanted to send to me...", "correct?", "We're still... trying to figure things out.","You'll be off the hook, come back again, okay?"}, "Blue")
+	elseif DeathManager:CheckDeaths("IsolatedLightDeaths") == 5 then
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Welcome back!", "WE don't know anything about this 'Fourth Architect' which is quite unfortunate.", "It seems that it'll be important.", "For all we know, it could be more powerful than all of us together!", "I'll let you see Curious one more time.."}, "Blue")
+	
+				elseif DeathManager:CheckDeaths("IsolatedLightDeaths") == 6 then
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You're... back again.", "Guiding tell you everything?","In that case, it seems that the case is closed.", "We won'tknow for quite a while.", "Maybe that last architect will show its face one day!", "But for now, farewell, "..game.Players.LocalPlayer.DisplayName..", I'm sure you'll make it far in whatever you do."}, "Yellow")
+	end
+else
+					warn("firesignal not supported, ignore death hints.")
+				end
+						gameStats["Player_".. plr.Name].Total.DeathCause.Value = "Stomper"
+				
