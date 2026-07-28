@@ -173,5 +173,5 @@ if firesignal then
 else
 					warn("firesignal not supported, ignore death hints.")
 				end
-						gameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Unknown..."
+						game.ReplicatedStorage:WaitForChild("GameStats")["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Unknown..."
 				
