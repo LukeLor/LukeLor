@@ -19,6 +19,8 @@ local Start_I = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/Lu
 local Move = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Move.rbxm")
 local Leave_I = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Leave.rbxm")
 local Leave_C = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LeaveCam.rbxm")
+
+--C-Holder
 local sceneFolder = Instance.new("Folder")
 sceneFolder.Parent = workspace
 sceneFolder.Name = "IsolatedLightCutsceneAssets"
@@ -30,6 +32,9 @@ if not (ILM and CamRig and Start_C and Start_I and Leave_I and Move and Leave_C)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("One or more assets did NOT load with custom function. Using rbxasetid...",true)
 ILM = game:GetObjects("rbxassetid://140198400419491")[1]
 CamRig = game:GetObjects("rbxassetid://125432385789057")[1]
+ILM.Parent = sceneFolder 
+CamRig.Parent = sceneFolder
+task.wait(0.1)
 Start_C = CamRig.RawAnimations:WaitForChild("IsolatedLight_C_I-Ca")
 Leave_C = CamRig.RawAnimations:WaitForChild("IL_Leave_Cam")
 Leave_I = ILM.RawAnimations:WaitForChild("IsolatedLight_Leave")
@@ -44,6 +49,7 @@ Move = ILM.RawAnimations:WaitForChild("IsolatedLight_Move")
 else
   --All set
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("All assets loaded and are being parented.",true)
+	
 	Start_C.Parent = sceneFolder
 	Start_I.Parent = sceneFolder
 	Leave_C.Parent = sceneFolder
@@ -120,8 +126,8 @@ local CamLock = function(lock_unlock:boolean)
 end
 
 --Parenting session #2
-ILM.Parent = workspace
-CamRig.Parent = workspace
+ILM.Parent = sceneFolder 
+CamRig.Parent = sceneFolder 
 
 
 --CUTSCENE, YAY!!!
