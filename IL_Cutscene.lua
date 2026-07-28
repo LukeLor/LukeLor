@@ -146,6 +146,9 @@ if DeathManager:CheckDeaths("IsolatedLightDeaths") == 0 then
 DeathManager:SetupDeaths({
 Identifier = "IsolatedLightDeaths"
 })
+	DeathManager:UpdateDeaths({
+Identifier = "IsolatedLightDeaths"
+}) 
 else
 	DeathManager:UpdateDeaths({
 Identifier = "IsolatedLightDeaths"
