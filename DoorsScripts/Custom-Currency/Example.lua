@@ -15,7 +15,7 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(t
 
 local CurrencyManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Currency/Main.luau"))()
 
-if CurrencyManager:CheckBalance("Shinies") then
+if CurrencyManager:CheckBalance("Shinies") > 0 then
     CurrencyManager:ResetCurrency("Shinies")
 end
 
