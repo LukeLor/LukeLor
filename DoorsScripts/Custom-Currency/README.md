@@ -15,7 +15,7 @@ Identifier = "YOUR_CURRENCY_IDENTIFIER"
 
 next, if you want to update it, use:
 ```lua
-CurrencyManager:UpdateBalance({
+CurrencyManager:UpdateCurrency({
 Identifier = "YOUR_CURRENCY_IDENTIFIER"
 }, 10) 
 ```
