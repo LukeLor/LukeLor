@@ -90,7 +90,8 @@ Module.UpdateCurrency = function(self, currencyConfig: CurrencyConfig, addedAmt:
         return
     end
 
-    config[identifier]["Amount"] = config[identifier]["Amount"] + addedAmt ~= nil and tonumber(addedAmt) or 1
+local toAdd = addedAmt ~= nil and addedAmt or 1
+    config[identifier]["Amount"] = config[identifier]["Amount"] + toAdd 
     
     WriteConfig(config)
 end
