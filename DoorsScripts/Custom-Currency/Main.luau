@@ -1,4 +1,3 @@
---CURRENTLY USING THE DEATH TRACKER AS A REFERENCE LOL, IM TOO LAZY AND DUMB TO DO IT IN ONE GO
 -- \\ Services // --
 
 local HttpService = game:GetService("HttpService")
