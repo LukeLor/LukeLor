@@ -12,18 +12,18 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 local DefaultCurrency = {
     Identifier = "CustomCoins",
-    Deaths = 0
+    Amount = 0
 }
 
 local Module = {}
 
-type DeathConfig = {
+type CurrencyConfig = {
     Identifier: string?
 }
 
-type DeathLog = {
+type CurrencyLog = {
     [string]: {
-        Deaths: number
+        Amount: number
     }
 }
 
@@ -31,31 +31,31 @@ type DeathLog = {
 
 local function WriteConfig(data: DeathLog): (boolean, string?)
     return pcall(function()
-        writefile("DOORS_Custom_Deaths.json", HttpService:JSONEncode(data))
+        writefile("DOORS_Custom_Currency.json", HttpService:JSONEncode(data))
     end)
 end
 
 local function DecodeConfig(): DeathLog
     local success, result = pcall(function()
-        return HttpService:JSONDecode(readfile("DOORS_Custom_Deaths.json"))
+        return HttpService:JSONDecode(readfile("DOORS_Custom_Currency.json"))
     end)
     return success and typeof(result) == "table" and result or {}
 end
 
 -- \\ Main // --
 
-Module.CheckDeaths = function(self, identifier: string): number
+Module.CheckBalance = function(self, identifier: string): number
     local config = DecodeConfig()
   
     if config[identifier] ~= nil then
-        local kills = config[identifier]["Deaths"]
-        return kills
+        local balance = config[identifier]["Amount"]
+        return balance
     else
         return 0
     end
 end
 
-Module.ResetDeaths = function(self, identifier: string)
+Module.ResetCurrency = function(self, identifier: string)
     local config = DecodeConfig()
 
     if config[identifier] ~= nil then
@@ -65,33 +65,33 @@ Module.ResetDeaths = function(self, identifier: string)
     WriteConfig(config)
 end
 
-Module.SetupDeaths = function(self, deathConfig: DeathConfig)
+Module.SetupCurrency = function(self, currencyConfig: CurrencyConfig)
     local config = DecodeConfig()
     
-    local identifier = deathConfig.Identifier or DefaultTrack.Identifier
+    local identifier = currencyConfig.Identifier or DefaultCurrency.Identifier
     
     if config[identifier] ~= nil then
-        warn("Player already set up kill count.")
+        warn("Player already set up currency.")
         return
     end
 
     config[identifier] = {
-        ["Deaths"] = 0
+        ["Amount"] = 0
     }
   
     WriteConfig(config)
 end
 
-Module.UpdateDeaths = function(self, deathConfig: DeathConfig)
+Module.UpdateCurrency = function(self, currencyConfig: CurrencyConfig, addedAmt: number)
     local config = DecodeConfig()
-    local identifier = deathConfig.Identifier or DefaultTrack.Identifier
+    local identifier = currencyConfig.Identifier or DefaultCurrency.Identifier
     
     if config[identifier] == nil then
-        warn("Can't update. No death counter has an identifier of: '"..tostring(identifier).."' so try using SetupDeaths() instead.")  
+        warn("Can't update. No currency has an identifier of: '"..tostring(identifier).."' so try using SetupCurrency() instead.")  
         return
     end
 
-    config[identifier]["Deaths"] = config[identifier]["Deaths"] + 1
+    config[identifier]["Currency"] = config[identifier]["Currency"] + addedAmt ~= nil and tonunber(addedAmt) or 1
     
     WriteConfig(config)
 end
