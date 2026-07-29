@@ -28,13 +28,13 @@ type CurrencyLog = {
 
 -- \\ Functions // --
 
-local function WriteConfig(data: DeathLog): (boolean, string?)
+local function WriteConfig(data: CurrencyLog): (boolean, string?)
     return pcall(function()
         writefile("DOORS_Custom_Currency.json", HttpService:JSONEncode(data))
     end)
 end
 
-local function DecodeConfig(): DeathLog
+local function DecodeConfig(): CurrencyLog
     local success, result = pcall(function()
         return HttpService:JSONDecode(readfile("DOORS_Custom_Currency.json"))
     end)
