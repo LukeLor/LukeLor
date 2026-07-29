@@ -1,8 +1,10 @@
 local DeathManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Death-Count-Handler/Main.luau"))()
 
+if DeathManager:CheckDeaths("DeathsTest") == 0 then
 DeathManager:SetupDeaths({
     Identifier = "DeathsTest"
 })
+end
 
 local character = game.Players.LocalPlayer.Character
 if character then
