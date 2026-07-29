@@ -1,8 +1,10 @@
 local CurrencyManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Currency/Main.luau"))()
 
+if DeathManager:CheckBalance("Shinies") == 0 then
 CurrencyManager:SetupCurrency({
     Identifier = "Shinies"
 })
+end
 
 local character = game.Players.LocalPlayer.Character
 if character then
