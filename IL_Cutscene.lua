@@ -120,7 +120,7 @@ end
 
 local CamLock = function(lock_unlock:boolean)
 	local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
-	if maingame then
+	if maingame and maingame.stopcam then
 		maingame.stopcam = lock_unlock
 	end
 end
