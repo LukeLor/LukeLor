@@ -12,7 +12,7 @@ local Humanoid = character:WaitForChild("Humanoid")
             if Humanoid.Health <= 0 then
                 CurrencyManager:UpdateCurrency({
                     Identifier = "Shinies"
-                }
+                },
 50)
             end
         end)
