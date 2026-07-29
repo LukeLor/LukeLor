@@ -25,7 +25,7 @@ end
 local CurrencyManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Currency/Main.luau"))()
 
 if CurrencyManager:CheckBalance("Shinies") then
-    CurrencyManager:ResetDeaths("Shinies")
+    CurrencyManager:ResetCurrency("Shinies")
 end
 
 ]]
