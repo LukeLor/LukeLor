@@ -10,8 +10,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
-local DefaultTrack = {
-    Identifier = "DeathRush",
+local DefaultCurrency = {
+    Identifier = "CustomCoins",
     Deaths = 0
 }
 
