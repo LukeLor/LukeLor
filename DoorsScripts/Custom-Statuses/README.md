@@ -1,3 +1,5 @@
+(THIS ONLY CREATES THE UI STATUS EFFECT!)
+
 Here's how to use it:
 
 You'd first: 
