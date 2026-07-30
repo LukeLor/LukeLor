@@ -149,7 +149,6 @@ CamLock(false)
 workspace.CurrentCamera.CameraType = oldCamType
 Caption("Scene over, ADDED NEW TESTING LINES, SO CURRENT PLAYER WILL DIE IN 3 SECONDS.")
 task.wait(3)
---DEATH THAT ID ASSUME IS LIKE THE GRUESOME ONE (FIGURE, A-120)
 	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
 if DeathManager:CheckDeaths("IsolatedLightDeaths") == 0 then
 DeathManager:SetupDeaths({
