@@ -45,6 +45,7 @@ if not Shop then
 Shop:PivotTo(roomCFrame)
 Shop.PrimaryPart.Transparency = 1 
 Shop.PrimaryPart.CanCollide = false
+	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Spawned Shop.",true)
 --Yay, Caiso content!
     local idleK = Shop.Caiso.RawAnimations.Idle
     local idlePlay = LoadAnim(Shop.Caiso, idleK)
@@ -55,4 +56,6 @@ Shop.PrimaryPart.CanCollide = false
 --Haha, just caption that you cant pick up.
 			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this item, due to the fact I don't even have the correct currency...",true)
     end)
+	game.Players.LocalPlayer.Character:PivotTo(Shop.PrimaryPart.CFrame)
+	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player Teleported.",true)
 end
