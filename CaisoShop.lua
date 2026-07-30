@@ -5,7 +5,7 @@ if met then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
   --Animation Handler, mayhaps for Caiso?
-  local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!!
+  local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!! (Again.)
 local AnimatorModule = require(AnimatorStore.ReplicatedStorage.Animator)
 
   --Anim functions
