@@ -4,3 +4,5 @@
 
 
 --Caiso anims: CaisoShop.Caiso.RawAnimations // Idle, Intro, Wave
+
+--Entance: CaisoShop.Entrance (OR) CaisoShop.PrimaryPart
