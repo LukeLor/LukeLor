@@ -10,7 +10,7 @@ local STATUS_UI_NAME = StatusMaker.MakeStatus("ASSETID", "NAME")
 ```
 then that function should return the UI object for you then to delete, and, or, modify overall.
 
-once you are dont with your status, since its a UI object, just run:
+once you are done with your status, since its a UI object, just run:
 
 ```lua
 STATUS_UI_NAME:Destroy()
