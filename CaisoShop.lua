@@ -1,7 +1,7 @@
 local met = true --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
 
 if met then 
-  local roomCFrame = CFrame.new(0,0,0) --REPLACE FOR REAL ENTIRY CFRAME!
+  local roomCFrame = CFrame.new(0,0,0) --REPLACE FOR REAL ENTRY CFRAME!
   loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
   --Animation Handler, mayhaps for Caiso?
