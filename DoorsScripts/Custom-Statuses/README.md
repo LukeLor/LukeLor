@@ -6,7 +6,7 @@ local StatusMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/L
 ```
 once you do that, use:
 ```lua
-local STATUS_UI_NAME = StatusMaker.MakeStatus(ASSETID, NAME)
+local STATUS_UI_NAME = StatusMaker.MakeStatus("ASSETID", "NAME")
 ```
 then that function should return the UI object for you then to delete, and, or, modify overall.
 
