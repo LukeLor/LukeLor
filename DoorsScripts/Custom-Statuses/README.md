@@ -16,4 +16,4 @@ once you are dont with your status, since its a UI object, just run:
 STATUS_UI_NAME:Destroy()
 ```
 
-then the status effects UI should disappear!
+then the status effect UI should disappear!
