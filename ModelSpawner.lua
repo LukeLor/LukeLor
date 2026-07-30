@@ -94,12 +94,12 @@ function spawnItemInRoom(item, room)
 
     if #locations > 0 then
         local location = locations[math.random(1, #locations)];
-        item.Model:PivotTo(location[2] * item.Config.Spawning.Offset);
+        item:PivotTo(location[2] * item.Config.Spawning.Offset);
         local weld = Instance.new("WeldConstraint");
         weld.Part0 = location[1];
-        weld.Part1 = item.Model.PrimaryPart;
-        weld.Parent = item.Model.PrimaryPart;
-        item.Model.Parent = workspace;
+        weld.Part1 = item.PrimaryPart;
+        weld.Parent = item.PrimaryPart;
+        item.Parent = workspace;
 
         --[[ on spawned ]]--
         task.defer(item.Debug.OnSpawned);
@@ -158,7 +158,7 @@ spawner.createItem = function(config)
 
     local tool = LoadCustomInstance(config.Url);
     if tool then
-        local model = convertToModel(tool);
+        local model = tool;
         local prompt = Instance.new("ProximityPrompt");
         prompt.Name = "ModulePrompt";
         prompt.Style = Enum.ProximityPromptStyle.Custom;
@@ -186,18 +186,8 @@ spawner.createItem = function(config)
         local interact; interact = prompt.Triggered:Connect(function()
             interact:Disconnect();
             model:Destroy();
-            tool.Parent = localPlayer:WaitForChild("Backpack");
-            task.defer(data.Debug.OnPickedUp);
+             task.defer(data.Debug.OnPickedUp);
         end);
-
-        --[[ on equipped ]]--
-        tool.Equipped:Connect(function() task.defer(data.Debug.OnEquipped); end);
-
-        --[[ on activated ]]--
-        tool.Activated:Connect(function() task.defer(data.Debug.OnActivated); end);
-
-        --[[ on unequipped ]]--
-        tool.Unequipped:Connect(function() task.defer(data.Debug.OnUnequipped); end);
 
         return data;
     else
