@@ -38,7 +38,8 @@ local Shop = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeL
 
 if not Shop then 
 --RBXASSETID ALTERNATIVE
-  end
+		Shop = game:GetObjects("rbxassetid://131315785960673")[1]
+	end
   
   Shop.Parent = workspace
 Shop:PivotTo(roomCFrame)
