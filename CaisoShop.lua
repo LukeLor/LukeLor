@@ -53,5 +53,6 @@ Shop.PrimaryPart.CanCollide = false
   local chainPrompt = Shop.Shop.IsolatedChainPurchase.Body.PurchasePrompt
  chainPrompt.Triggered:Connect(function()
 --Haha, just caption that you cant pick up.
+			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this item, due to the fact I don't even have the correct currency...",true)
     end)
 end
