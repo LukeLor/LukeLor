@@ -16,7 +16,7 @@ game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):SetAttribute("Stack"
   end
   
 end
-
+local StatusMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Statuses/Main.luau"))()
 local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
       Gumdrop.TextureId ="rbxassetid://117093700428560"
 
@@ -84,18 +84,24 @@ Gumdrop:SetAttribute("Stack", 1)
                         
                             hum:SetAttribute("SpeedBoost", math.random(7,13))
                         hum.WalkSpeed = hum.WalkSpeed + hum:GetAttribute("SpeedBoost")
-                        
+                    local PassiveHeal = StatusMaker.MakeStatus("rbxassetid://105937133919475", "PassiveHeal")    
+                    local Energetic = StatusMaker.MakeStatus("rbxassetid://74056160126141", "Energetic")
                         if xUsed == 0 then 
 Gumdrop:Destroy()
                         end
-                        task.wait(math.random(7,12))
+                        
+                       local effectTime = math.random(7,12)
+                        for i= 1, effectTime, 0.1 do
+task.wait(0.1)
+                         hum.Health += math.random(1,2)
+                        end
 
 InTrans = false
                         hum.WalkSpeed = hum.WalkSpeed - hum:GetAttribute("SpeedBoost")
                         task.wait(0.1) 
                         hum:SetAttribute("SpeedBoost", 0)
-                        
-                        
+                        PassiveHeal:Destroy()
+                        Energetic:Destroy()
                     end
                     end)
                 end
