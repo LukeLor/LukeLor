@@ -11,13 +11,9 @@ local cRoom = workspace:WaitForChild(game.Players.LocalPlayer.Name):GetAttribute
 
 cRoomsFold.DescendantAdded:Connect(function(child)
 if child == "Battery" then
-            local ToolHasNeedsBattery
-
-            for _, Tool in LocalPlayer.Backpack:GetChildren() do
-                if Tool:GetAttribute("RechargeProp") == "Battery" and Tool:GetAttribute("Durability") < Tool:GetAttribute("DurabilityMax") then
-                    ToolHasNeedsBattery = Tool
-
-                    break
-                end
-    end
+if itemModel.Parent == workspace:WaitForChild(game.Players.LocalPlayer.Name) then
+if fireproximityprompt then
+                                                
+     end
+ end
   end
