@@ -1,6 +1,6 @@
 local itemModel = game:GetObjects("rbxassetid://REAL_ID_AFTER_I_MAKE_MODEL")[1]
-local MaxDur = 100
-itemModel:SetAttribute("Durability", math.random(75,MaxDur))
+local MaxDur = 200
+itemModel:SetAttribute("Durability", math.random(150,MaxDur))
 itemModel:SetAttribute("DurabilityMax", MaxDur)
 itemModel:SetAttribute("RechargeProp", "Battery")
 itemModel:SetAttribute("DurabilitySlots", 5)
@@ -8,6 +8,9 @@ itemModel:SetAttribute("NamePlural","Entity Radars")
 itemModel:SetAttribute("NameSingular","Entity Radar")
 itemModel:SetAttribute("CanOwnMultiple",false)
 itemModel:SetAttribute("CanBeZero",true)
+itemModel:SetAttribute("Pickup","EntityRadar")
+itemModel:SetAttribute("Single",true)
+itemModel:SetAttribute("Interactable",true)
 
 local cRoomVal = game.ReplicatedStorage.GameData.LatestRoom.Value 
 local cRoomsFold = workspace.CurrentRooms
