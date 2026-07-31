@@ -77,7 +77,7 @@ Gumdrop:SetAttribute("Stack", 1)
                            -- tweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 100}):Play()
                         
                             hum:SetAttribute("SpeedBoost", math.random(7,13))
-                        hum.WalkSpeed = hum.WalkSpeed + hum:GetAttribute(SpeedBoost)
+                        hum.WalkSpeed = hum.WalkSpeed + hum:GetAttribute("SpeedBoost")
                         
                         if xUsed == 0 then 
 Gumdrop:Destroy()
@@ -85,7 +85,9 @@ Gumdrop:Destroy()
                         task.wait(math.random(7,12))
 
 InTrans = false
-                        hum.WalkSpeed = hum.WalkSpeed - hum:GetAttribute(SpeedBoost)
+                        hum.WalkSpeed = hum.WalkSpeed - hum:GetAttribute("SpeedBoost")
+                        task.wait(0.1) 
+                        hum:SetAttribute("SpeedBoost", 0)
                         
                         
                     end
