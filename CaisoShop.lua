@@ -54,14 +54,14 @@ Shop.PrimaryPart.CanCollide = false
   local chainPrompt = Shop.Shop.IsolatedChainPurchase.Body.PurchasePrompt
  chainPrompt.Triggered:Connect(function()
 --Haha, just caption that you cant pick up. (For now.)
-			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this item, due to the fact I don't even have the correct currency...",true)
+			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this item, due to the fact I don't even have the correct currency...","thought")
     end)
 	local gumdropPrompt = Shop.Shop.Gumdrop.Root.Outer.PurchasePrompt
 	gumdropPrompt.Parent.Parent.Anchored = true
  gumdropPrompt.Triggered:Connect(function()
 --Haha, just caption that you cant pick up. (For now.)
-			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this food, supported by the fact I don't even have the correct currency...",true)
-    end)
+			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this food, supported by the fact I don't even have the correct currency...","thought")
+		end)
 	game.Players.LocalPlayer.Character:PivotTo(Shop.PrimaryPart.CFrame)
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player Teleported.",true)
 end
