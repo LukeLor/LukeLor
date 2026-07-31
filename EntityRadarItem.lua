@@ -14,6 +14,9 @@ if child == "Battery" then
     child.ModulePrompt.Triggered:Connect(function()
 if itemModel.Parent == workspace:WaitForChild(game.Players.LocalPlayer.Name) then
 itemModel:SetAttribute("Durability", itemModel:GetAttribute("Durability")+math.random(8,25))
+                     if child then
+child:Destroy()
+                        end
  end
         end)
   end
