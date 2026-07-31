@@ -1,0 +1,111 @@
+--MODIFYING
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") or char:FindFirstChild("Gumdrop") then
+
+
+  
+end
+
+local Vitamins = game:GetObjects("rbxassetid://11685698403")[1]
+      
+        local tweenService = game:GetService("TweenService")
+
+        
+        local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacteAdded:Wait()
+        local hum = char:WaitForChild("Humanoid")
+
+        
+        local Durability = 35
+        local InTrans = false
+        local Duration = 10
+
+        local xUsed = 
+
+
+      
+
+
+
+        function AddDurability()
+            InTrans = true
+            hum:SetAttribute("SpeedBoost", 15)
+            wait(Duration)
+            InTrans = false
+            hum:SetAttribute("SpeedBoost", 0)
+        end
+
+
+
+
+        function SetupVitamins()
+            Vitamins.Parent = game.Players.LocalPlayer.Backpack
+            Vitamins.Name = "FakeVitamins"
+
+            for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                if tool.Name == "FakeVitamins" then
+                    local slot =game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUI").MainFrame.Hotbar:FindFirstChild(slotNum)
+                    -- while task.wait() do
+                    --     slot.DurabilityNumber.Text = "x"..xUsed
+                    -- end
+                    -- slot.DurabilityNumber.Text = "x"..xUsed
+                    slot.DurabilityNumber.Visible = true
+                    slot.DurabilityNumber.Text = "x"..xUsed
+
+                    Vitamins.Unequipped:Connect(function()
+                        slot.DurabilityNumber.Visible = true
+                        slot.DurabilityNumber.Text = "x"..xUsed
+                    end)
+
+                    Vitamins.Equipped:Connect(function()
+                        slot.DurabilityNumber.Visible = true
+                    end)
+
+                    Vitamins.Activated:Connect(function()
+                        if not InTrans and xUsed > 0 then
+                            xUsed = xUsed - 1
+                            slot.DurabilityNumber.Visible = true
+                            slot.DurabilityNumber.Text = "x"..xUsed
+                            openTrack:Play()
+                            sound_open:Play()
+
+                            tweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 100}):Play()
+                            AddDurability()
+                        end
+                    end)
+                end
+            end
+
+
+
+
+            Vitamins.Equipped:Connect(function()
+                idleTrack:Play()
+            end)
+
+
+            Vitamins.Unequipped:Connect(function()
+                idleTrack:Stop()
+
+            end)
+        end
+
+        v1.SetupVitamins()
+
+        function v1.AddLoop()
+            while task.wait() do
+                if InTrans then
+                    wait()
+                    hum.WalkSpeed = Durability
+                else
+                    hum.WalkSpeed = 16
+                end
+            end
+        end
+
+        while task.wait() do
+            v1.AddLoop()
+        end
+
+        return v1
+
+
+end
