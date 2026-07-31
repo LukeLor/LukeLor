@@ -18,7 +18,9 @@ game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):SetAttribute("Stack"
 end
 
 local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
-      Gumdrop:SetAttribute("Stack", 5)
+      Gumdrop.TextureId ="rbxassetid://117093700428560"
+
+Gumdrop:SetAttribute("Stack", 1)
         local tweenService = game:GetService("TweenService")
 
         
@@ -26,9 +28,9 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
         local hum = char:WaitForChild("Humanoid")
 
         
-        local Durability = 35
+        
         local InTrans = false
-        local Duration = 10
+        
 
         local xUsed = Gumdrop:GetAttribute("Stack")
 
@@ -37,14 +39,7 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
 
 
 
-        function AddDurability()
-            InTrans = true
-            hum:SetAttribute("SpeedBoost", 15)
-            wait(Duration)
-            InTrans = false
-            hum:SetAttribute("SpeedBoost", 0)
-        end
-
+        
 
 
 
@@ -72,15 +67,28 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
 
                     Gumdrop.Activated:Connect(function()
                        if not InTrans and xUsed > 0 then
+                        InTrans = true
                             xUsed = xUsed - 1
             Gumdrop:SetAttribute("Stack", xUsed)
                             slot.DurabilityNumber.Visible = true
                             slot.DurabilityNumber.Text = "x"..xUsed
                             
 
-                            tweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 100}):Play()
-                            AddDurability()
+                           -- tweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 100}):Play()
+                        
+                            hum:SetAttribute("SpeedBoost", math.random(7,13))
+                        hum.WalkSpeed = hum.WalkSpeed + hum:GetAttribute(SpeedBoost)
+                        
+                        if xUsed == 0 then 
+Gumdrop:Destroy()
                         end
+                        task.wait(math.random(7,12))
+
+InTrans = false
+                        hum.WalkSpeed = hum.WalkSpeed - hum:GetAttribute(SpeedBoost)
+                        
+                        
+                    end
                     end)
                 end
             end
@@ -91,24 +99,12 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
             
         end
 
-        v1.SetupVitamins()
+        SetupGumdrop()
 
-        function v1.AddLoop()
-            while task.wait() do
-                if InTrans then
-                    wait()
-                    hum.WalkSpeed = Durability
-                else
-                    hum.WalkSpeed = 16
-                end
-            end
-        end
+        
 
-        while task.wait() do
-            v1.AddLoop()
-        end
-
-        return v1
+        
+        
 
 
 end
