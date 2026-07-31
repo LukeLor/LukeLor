@@ -11,9 +11,9 @@ local cRoom = workspace:WaitForChild(game.Players.LocalPlayer.Name):GetAttribute
 
 cRoomsFold.DescendantAdded:Connect(function(child)
 if child == "Battery" then
+    child.ModulePrompt.Triggered:Connect(function()
 if itemModel.Parent == workspace:WaitForChild(game.Players.LocalPlayer.Name) then
-if fireproximityprompt then
-                                                
-     end
+itemModel:SetAttribute("Durability", itemModel:GetAttribute("Durability")+math.random(8,25))
  end
+        end)
   end
