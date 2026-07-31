@@ -5,7 +5,7 @@ if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") or char:FindFirst
   
 end
 
-local Vitamins = game:GetObjects("rbxassetid://93593530342378")[1]
+local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
       
         local tweenService = game:GetService("TweenService")
 
@@ -36,12 +36,12 @@ local Vitamins = game:GetObjects("rbxassetid://93593530342378")[1]
 
 
 
-        function SetupVitamins()
+        function SetupGumdrop()
             Vitamins.Parent = game.Players.LocalPlayer.Backpack
-            Vitamins.Name = "FakeVitamins"
+            Vitamins.Name = "Gumdrop"
 
             for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                if tool.Name == "FakeVitamins" then
+                if tool.Name == "Gumdrop" then
                     local slot =game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUI").MainFrame.Hotbar:FindFirstChild(slotNum)
                     -- while task.wait() do
                     --     slot.DurabilityNumber.Text = "x"..xUsed
