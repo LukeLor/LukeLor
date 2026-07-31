@@ -5,7 +5,7 @@ if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") or char:FindFirst
   
 end
 
-local Vitamins = game:GetObjects("rbxassetid://11685698403")[1]
+local Vitamins = game:GetObjects("rbxassetid://93593530342378")[1]
       
         local tweenService = game:GetService("TweenService")
 
