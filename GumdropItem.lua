@@ -18,7 +18,7 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
         local InTrans = false
         local Duration = 10
 
-        local xUsed = 
+        local xUsed = 0
 
 
       
@@ -37,16 +37,13 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
 
 
         function SetupGumdrop()
-            Vitamins.Parent = game.Players.LocalPlayer.Backpack
-            Vitamins.Name = "Gumdrop"
+            Gumdrop.Parent = game.Players.LocalPlayer.Backpack
+            Gumdrop.Name = "Gumdrop"
 
             for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 if tool.Name == "Gumdrop" then
                     local slot =game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUI").MainFrame.Hotbar:FindFirstChild(slotNum)
-                    -- while task.wait() do
-                    --     slot.DurabilityNumber.Text = "x"..xUsed
-                    -- end
-                    -- slot.DurabilityNumber.Text = "x"..xUsed
+                    
                     slot.DurabilityNumber.Visible = true
                     slot.DurabilityNumber.Text = "x"..xUsed
 
@@ -64,8 +61,7 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
                             xUsed = xUsed - 1
                             slot.DurabilityNumber.Visible = true
                             slot.DurabilityNumber.Text = "x"..xUsed
-                            openTrack:Play()
-                            sound_open:Play()
+                            
 
                             tweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 100}):Play()
                             AddDurability()
