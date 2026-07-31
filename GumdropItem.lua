@@ -6,7 +6,7 @@ if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") or char:FindFirst
 end
 
 local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
-      
+      Gumdrop:SetAttribute("Stack", 3)
         local tweenService = game:GetService("TweenService")
 
         
@@ -18,7 +18,7 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
         local InTrans = false
         local Duration = 10
 
-        local xUsed = 0
+        local xUsed = Gumdrop:GetAttribute("Stack")
 
 
       
@@ -57,8 +57,9 @@ local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
                     end)
 
                     Vitamins.Activated:Connect(function()
-                        if not InTrans and xUsed > 0 then
+                       if not InTrans and xUsed > 0 then
                             xUsed = xUsed - 1
+            Gumdrop:SetAttribute("Stack", xUsed)
                             slot.DurabilityNumber.Visible = true
                             slot.DurabilityNumber.Text = "x"..xUsed
                             
