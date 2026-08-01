@@ -1,9 +1,11 @@
 local itemModel = game:GetObjects("rbxassetid://REAL_ID_AFTER_I_MAKE_MODEL")[1]
 local MaxDur = 200
+local DurSlots = 5
+local slotDur = MaxDur/DurSlots
 itemModel:SetAttribute("Durability", math.random(150,MaxDur))
 itemModel:SetAttribute("DurabilityMax", MaxDur)
 itemModel:SetAttribute("RechargeProp", "Battery")
-itemModel:SetAttribute("DurabilitySlots", 5)
+itemModel:SetAttribute("DurabilitySlots", DurSlots)
 itemModel:SetAttribute("NamePlural","Entity Radars")
 itemModel:SetAttribute("NameSingular","Entity Radar")
 itemModel:SetAttribute("CanOwnMultiple",false)
@@ -17,6 +19,7 @@ local cRoomsFold = workspace.CurrentRooms
 local lastestRoom = cRoomsFold[cRoomVal]
 local cRoom = workspace:WaitForChild(game.Players.LocalPlayer.Name):GetAttribute("CurrentRoom")
 
+
 cRoomsFold.DescendantAdded:Connect(function(child)
 if child == "Battery" then
     child.ModulePrompt.Triggered:Connect(function()
@@ -25,6 +28,10 @@ itemModel:SetAttribute("Durability", itemModel:GetAttribute("Durability")+math.r
                      if child then
 child:Destroy()
                         end
- end
-        end)
-  end
+                    end
+ end)
+        end
+  end)
+
+
+    
