@@ -1,4 +1,6 @@
-local itemModel = game:GetObjects("rbxassetid://REAL_ID_AFTER_I_MAKE_MODEL")[1]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+local itemModel = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/EntityRadar.rbxm")
+if not itemModel then return end
 local MaxDur = 200
 local DurSlots = 5
 local slotDur = MaxDur/DurSlots
@@ -33,5 +35,12 @@ child:Destroy()
         end
   end)
 
+local drainBattery = false
 
-    
+while task.wait() do 
+if drainBattery then
+
+itemModel:SetAttribute("Durability", 
+        
+    end
+end
