@@ -36,11 +36,19 @@ child:Destroy()
   end)
 
 local drainBattery = false
+itemModel.Equipped:Connect(function()
+drainBattery = true
+    end)
 
-while task.wait() do 
+itemModel.Unequipped:Connect(function()
+drainBattery = false
+    end)
+
+
+while task.wait(1) do 
 if drainBattery then
 
-itemModel:SetAttribute("Durability", 
+itemModel:SetAttribute("Durability", itemModel:GetAttribute() - 1.5)
         
     end
 end
