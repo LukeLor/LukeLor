@@ -49,6 +49,33 @@ while task.wait(1) do
 if drainBattery then
 
 itemModel:SetAttribute("Durability", itemModel:GetAttribute() - 1.5)
-        
+        if itemModel:GetAttribute() < slotDur*3 then
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery.Visible = false
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = true
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery2.Visible = true
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery3.Visible = true
+        elseif itemModel:GetAttribute() < slotDur*2 then
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = false
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery.Visible = false
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery2.Visible = true
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery3.Visible = true
+        elseif itemModel:GetAttribute() < slotDur*1 then
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery2.Battery.Visible = false
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery3.Visible = false
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = false
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery.Visible = true
+        elseif itemModel:GetAttribute() <= slotDur*0 then
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery.Visible = false
+itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = false
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery2.Visible = false
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery3.Visible = false
+        elseif itemModel:GetAttribute() <= slotDur*4 then
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery.Visible = true
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = true
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery2.Visible = true
+            itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery3.Visible = true
+            
+        end
     end
+    
 end
