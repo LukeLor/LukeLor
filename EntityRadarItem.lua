@@ -2,7 +2,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 local itemModel = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/EntityRadar.rbxm")
 if not itemModel then return end
 local MaxDur = 200
-local DurSlots = 5
+local DurSlots = 4
 local slotDur = MaxDur/DurSlots
 itemModel:SetAttribute("Durability", math.random(150,MaxDur))
 itemModel:SetAttribute("DurabilityMax", MaxDur)
