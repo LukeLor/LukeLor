@@ -54,7 +54,11 @@ Module.SpawnRift = function(self, identifier:string, color:Color3, offset:Vector
 local riftModel = game:GetObjects("rbxassetid://RIFTLINK")[1]
  riftModel.Parent = workspace 
     local spot = CFrame.new(0,0,0)
-    riftModel:PivotTo(spot+offset)
+    if offset then
+        riftModel:PivotTo(spot + offset)
+    else
+    riftModel:PivotTo(spot)
+    end
     if color then
 --Color the Rift
     end
