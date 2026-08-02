@@ -5,14 +5,14 @@ if met then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
   --Animation Handler, mayhaps for Caiso?
-  local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!! (Again.)
+ --[[ local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!! (Again.)
 local RepAnimator = AnimatorStore.ReplicatedStorage
 RepAnimator.Parent = game.ReplicatedStorage
-local AnimatorModule = require(RepAnimator.Animator)
+local AnimatorModule = require(RepAnimator.Animator)]]
 
 
   --Anim functions
-  local LoadAnim = function(Rig, Animation)
+ --[[ local LoadAnim = function(Rig, Animation)
 	local Hum = Rig:FindFirstChildOfClass("Humanoid") 
 	if Hum == nil then
 Hum = Instance.new("Humanoid")
@@ -34,7 +34,7 @@ AnimationTrack:Play()
 end
 local StopAnim = function(AnimationTrack)
 AnimationTrack:Stop()
-  end
+  end]]
 
 --Shop model
 local Shop = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/CaisoShop.rbxm")
@@ -50,9 +50,9 @@ Shop.PrimaryPart.Transparency = 1
 Shop.PrimaryPart.CanCollide = false
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Spawned Shop.",true)
 --Yay, Caiso content!
-    local idleK = Shop.Caiso.RawAnimations.Idle
-    local idlePlay = LoadAnim(Shop.Caiso, idleK)
-   PlayAnim(idlePlay)
+  --  local idleK = Shop.Caiso.RawAnimations.Idle
+   -- local idlePlay = LoadAnim(Shop.Caiso, idleK)
+ --  PlayAnim(idlePlay)
   --Test Item Purchase
   local chainPrompt = Shop.Shop.IsolatedChainPurchase.Body.PurchasePrompt
  chainPrompt.Triggered:Connect(function()
