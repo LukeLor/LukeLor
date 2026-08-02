@@ -20,6 +20,8 @@ local Module = {}
 
 type RiftConfig = {
     Identifier: string?
+    ItemName: string?
+    ItemLink: string?
 }
 
 type RiftLog = {
