@@ -5,11 +5,11 @@ local CutsceneMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com
 local DeathManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Death-Count-Handler/Main.luau"))()
 
 --ANIMATION HANDLER
-local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!!
+--[[local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!!
 local RepAnimator = AnimatorStore.ReplicatedStorage
 RepAnimator.Parent = game.ReplicatedStorage
 local AnimatorModule = require(RepAnimator.Animator)
-
+]]
 
 
 --Models
@@ -91,7 +91,7 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("
 end
 
 --Functions
-local LoadAnim = function(Rig, Animation)
+--[[local LoadAnim = function(Rig, Animation)
 	local Hum = Rig:FindFirstChildOfClass("Humanoid") 
 	if Hum == nil then
 Hum = Instance.new("Humanoid")
@@ -113,7 +113,7 @@ AnimationTrack:Play()
 end
 local StopAnim = function(AnimationTrack)
 AnimationTrack:Stop()
-end
+end]]
 
 local Caption = function(text) 
 	
@@ -143,10 +143,10 @@ local oldCamType = workspace.CurrentCamera.CameraType
 game.workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 ILM:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame)
 CamRig:PivotTo(ILM.PrimaryPart.CFrame)
-local I_Start_Track = LoadAnim(ILM, Start_I)
-local C_Start_Track = LoadAnim(CamRig, Start_C)
-PlayAnim(I_Start_Track)
-PlayAnim(C_Start_Track)
+--local I_Start_Track = LoadAnim(ILM, Start_I)
+--local C_Start_Track = LoadAnim(CamRig, Start_C)
+--PlayAnim(I_Start_Track)
+--PlayAnim(C_Start_Track)
 task.wait(7)
 CamLock(false)
 workspace.CurrentCamera.CameraType = oldCamType
