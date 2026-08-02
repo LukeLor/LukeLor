@@ -17,7 +17,8 @@ game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):SetAttribute("Stack"
   
 end
 local StatusMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Statuses/Main.luau"))()
-local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
+local ItemArray = game:GetObjects("rbxassetid://93593530342378")[1]
+local Gumdrop = ItemArray.Gumdrop
       Gumdrop.TextureId ="rbxassetid://117093700428560"
 Gumdrop:SetAttribute("Interactable",true)
 Gumdrop:SetAttribute("Stack", 1)
