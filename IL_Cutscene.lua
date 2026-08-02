@@ -6,7 +6,10 @@ local DeathManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 
 --ANIMATION HANDLER
 local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!!
-local AnimatorModule = require(AnimatorStore.ReplicatedStorage.Animator)
+local RepAnimator = AnimatorStore.ReplicatedStorage
+RepAnimator.Parent = game.ReplicatedStorage
+local AnimatorModule = require(RepAnimator.Animator)
+
 
 
 --Models
