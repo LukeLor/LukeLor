@@ -11,8 +11,8 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 local DefaultRift = {
     Identifier = "CustomRift",
-    ItemName = "Unknown"
-    ItemLink = ""
+    ItemName = "Unknown",
+    ItemLink = "",
     ItemIcon = "rbxassetid://0"
 }
 
@@ -37,7 +37,7 @@ local function WriteConfig(data: RiftLog): (boolean, string?)
     end)
 end
 
-local function DecodeConfig(): CurrencyLog
+local function DecodeConfig(): RiftLog
     local success, result = pcall(function()
         return HttpService:JSONDecode(readfile("DOORS_Custom_Rift.json"))
     end)
@@ -50,7 +50,7 @@ Module.SpawnRift = function(self, identifier:string, color:Color3, offset:Vector
 local riftModel = game:GetObjects("rbxassetid://RIFTLINK")[1]
  riftModel.Parent = workspace 
     local spot = CFrame.new(0,0,0)
-    riftModel.PivotTo(spot+offset)
+    riftModel:PivotTo(spot+offset)
     if color then
 --Color the Rift
     end
