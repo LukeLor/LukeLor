@@ -46,6 +46,16 @@ end
 
 -- \\ Main // --
 
+Module.SpawnRift = function(self, identifier:string, color:Color3, offset:Vector3)
+local riftModel = game:GetObjects("rbxassetid://RIFTLINK")[1]
+ riftModel.Parent = workspace 
+    local spot = CFrame.new(0,0,0)
+    riftModel.PivotTo(spot+offset)
+    if color then
+--Color the Rift
+    end
+end
+
 Module.CheckRiftedItem = function(self, identifier: string): string
     local config = DecodeConfig()
   
