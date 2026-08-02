@@ -6,7 +6,10 @@ if met then
 
   --Animation Handler, mayhaps for Caiso?
   local AnimatorStore = game:GetObjects("rbxassetid://104077319394815")[1] --Thanks, Proxiom!!! (Again.)
-local AnimatorModule = require(AnimatorStore.ReplicatedStorage.Animator)
+local RepAnimator = AnimatorStore.ReplicatedStorage
+RepAnimator.Parent = game.ReplicatedStorage
+local AnimatorModule = require(RepAnimator.Animator)
+
 
   --Anim functions
   local LoadAnim = function(Rig, Animation)
