@@ -19,7 +19,7 @@ end
 local StatusMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Statuses/Main.luau"))()
 local Gumdrop = game:GetObjects("rbxassetid://93593530342378")[1]
       Gumdrop.TextureId ="rbxassetid://117093700428560"
-
+Gumdrop:SetAttribute("Interactable",true)
 Gumdrop:SetAttribute("Stack", 1)
         local tweenService = game:GetService("TweenService")
 
