@@ -1,7 +1,11 @@
 local doorModelName = "BlockedDoorModel"
 
-local met = true --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
+local met = false --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
 
+for _, model in workspace.CurrentRooms:GetDescendants() do
+
+end
+	
 if met then 
   local roomCFrame = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame      --CFrame.new(0,0,0) --REPLACE FOR REAL ENTRY CFRAME!
   loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
