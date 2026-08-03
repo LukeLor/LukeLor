@@ -58,19 +58,20 @@ Gumdrop:SetAttribute("Stack", 1)
                     slot.DurabilityNumber.Text = "x"..xUsed
 
                     Gumdrop.Unequipped:Connect(function()
-                    while task.wait(0.1) do
+                
                         if slot and slot.DurabilityNumber then
                            slot.DurabilityNumber.Visible = true
                            slot.DurabilityNumber.Text = "x"..xUsed
-                        else
-                            break
-                    end
+                        
+                            xUsed = Gumdrop:GetAttribute("Stack")
+                    
                  end
              end)
 
                     Gumdrop.Equipped:Connect(function()
                         slot.DurabilityNumber.Visible = true
-                    end)
+                    xUsed = Gumdrop:GetAttribute("Stack")
+                end)
 
                     Gumdrop.Activated:Connect(function()
                        if not InTrans and xUsed > 0 then
