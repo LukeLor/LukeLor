@@ -58,6 +58,7 @@ if not Shop then
 Shop:PivotTo(roomCFrame)
 Shop.PrimaryPart.Transparency = 1 
 Shop.PrimaryPart.CanCollide = false
+	door:Destroy()
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Spawned Shop.",true)
 --Yay, Caiso content!
   --  local idleK = Shop.Caiso.RawAnimations.Idle
