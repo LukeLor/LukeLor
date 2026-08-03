@@ -1,9 +1,9 @@
-local doorModelName = "BlockedDoorModel" 
+local doorModelName = "FakeDoor_Hotel" --Post Hotel+ BlockedDoorModel
 
 local met = false --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
 local door = nil
 for _, model in workspace.CurrentRooms:GetDescendants() do
-if (model.Name == doorModelName or model.Name == "FakeDoor_Hotel") and model:IsA("Model") then
+if model.Name == doorModelName then
 door = model
 		met = true
 		
@@ -58,7 +58,6 @@ if not Shop then
 Shop:PivotTo(roomCFrame)
 Shop.PrimaryPart.Transparency = 1 
 Shop.PrimaryPart.CanCollide = false
-	door:Destroy()
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Spawned Shop.",true)
 --Yay, Caiso content!
   --  local idleK = Shop.Caiso.RawAnimations.Idle
