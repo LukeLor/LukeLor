@@ -1,4 +1,4 @@
-local doorModelName = "DoorNormal"
+local doorModelName = "BlockedDoorModel"
 
 local met = false --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
 local door = nil
