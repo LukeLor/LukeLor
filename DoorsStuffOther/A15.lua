@@ -1,4 +1,4 @@
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 ---====== Load spawner ======---
 
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
@@ -109,13 +109,15 @@ end)
 
 entity:SetCallback("OnDamagePlayer", function(newHealth: number)
 	if newHealth <= 0 then
-		local ui = game.StarterGui.A15Jumpscare:Clone()
-			ui.Parent = game.StarterGui
-			ui.Name = ui.Name.."Active"
+				local ui = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A15Jumpscare.rbxm?raw=true")
+		
+			ui.Parent = game.Players.LocalPlayer.PlayerGui
+		
 			game:GetService("TweenService"):Create(ui.Bg.A15, TweenInfo.new(0.75), {Size = ui.Bg.A15Dest.Size, Position = ui.Bg.A15Dest.Position}):Play()
 			game:GetService("TweenService"):Create(ui.Bg, TweenInfo.new(1), {BackgroundColor3 = Color3.fromRGB(0, 0,0)}):Play()
 			game:GetService("TweenService"):Create(ui.Bg.A15, TweenInfo.new(1.3), {ImageTransparency = 1}):Play()
 			game:GetService("TweenService"):Create(ui.Bg, TweenInfo.new(3), {BackgroundTransparency = 1}):Play()
+					game:GetService("Debris"):AddItem(ui, 6)
 	else
 		print("Entity has damaged the player")
 	end
