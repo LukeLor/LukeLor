@@ -13,7 +13,7 @@ local entity = Spawner:Create({
 	},
 	Lights = {
 		Flicker = {
-			Enabled = false,
+			Enabled = true,
 			Duration = 1
 		},
 		Shatter = false,
