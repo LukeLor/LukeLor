@@ -6,4 +6,10 @@ end
 if msg.Text == "/A35" then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A35.lua"))()
 end
+		if msg.Text == "/A60" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A60.lua"))()
+end
+		if msg.Text == "/A100" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100.lua"))()
+end
 	end)
