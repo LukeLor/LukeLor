@@ -33,7 +33,7 @@ local entity = Spawner:Create({
 		Reversed = false
 	},
 	Rebounding = {
-		Enabled = false,
+		Enabled = true,
 		Type = "Ambush", -- "Blitz"
 		Min = 1,
 		Max = 1,
