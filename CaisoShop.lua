@@ -1,3 +1,5 @@
+local doorModelName = "BlockedDoorModel"
+
 local met = true --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
 
 if met then 
