@@ -109,7 +109,13 @@ end)
 
 entity:SetCallback("OnDamagePlayer", function(newHealth: number)
 	if newHealth <= 0 then
-		print("Entity has killed the player")
+		local ui = game.StarterGui.A15Jumpscare:Clone()
+			ui.Parent = game.StarterGui
+			ui.Name = ui.Name.."Active"
+			game:GetService("TweenService"):Create(ui.Bg.A15, TweenInfo.new(0.75), {Size = ui.Bg.A15Dest.Size, Position = ui.Bg.A15Dest.Position}):Play()
+			game:GetService("TweenService"):Create(ui.Bg, TweenInfo.new(1), {BackgroundColor3 = Color3.fromRGB(0, 0,0)}):Play()
+			game:GetService("TweenService"):Create(ui.Bg.A15, TweenInfo.new(1.3), {ImageTransparency = 1}):Play()
+			game:GetService("TweenService"):Create(ui.Bg, TweenInfo.new(3), {BackgroundTransparency = 1}):Play()
 	else
 		print("Entity has damaged the player")
 	end
