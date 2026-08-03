@@ -67,11 +67,13 @@ Shop.PrimaryPart.CanCollide = false
 		end)
 	game.Players.LocalPlayer.Character:PivotTo(Shop.PrimaryPart.CFrame)
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player Teleported.",true)
-end
+
 
 
 game:GetService("TextChatService").MessageReceived:Connect(function(msg)
 if msg == "/close" then
 Shop:Destroy()
+				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Shop removed.",true)
 		end	
 	end)
+end
