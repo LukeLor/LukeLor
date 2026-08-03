@@ -65,6 +65,12 @@ local entity = Spawner:Create({
 entity:SetCallback("OnSpawned", function()
 		entity.Model.RushNew.PlaySound.SoundId = "rbxassetid://87112595752706"
     entity.Model.RushNew.PlaySound.PlaybackSpeed = 0.06
+		local close = entity.Model.RushNew.PlaySound:Clone()
+
+		close.MaxDistance = 40
+close:Play() 
+		close.PlaybackSpeed = 0.2
+		
 		print("Entity has spawned")
 end)
 
