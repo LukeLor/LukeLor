@@ -1,13 +1,17 @@
 local doorModelName = "BlockedDoorModel"
 
 local met = false --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
-
+local door = nil
 for _, model in workspace.CurrentRooms:GetDescendants() do
-
-end
+if model.Name == doorModelName then
+door = model
+		met = true
+		
+	end
+	end
 	
 if met then 
-  local roomCFrame = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame      --CFrame.new(0,0,0) --REPLACE FOR REAL ENTRY CFRAME!
+  local roomCFrame = door.PrimaryPart.CFrame      --CFrame.new(0,0,0) --REPLACE FOR REAL ENTRY CFRAME!
   loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
   --Animation Handler, mayhaps for Caiso?
