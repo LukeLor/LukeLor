@@ -3,11 +3,13 @@ local doorModelName = "FakeDoor_Hotel" --Post Hotel+ BlockedDoorModel
 local met = false --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
 local door = nil
 for _, model in workspace.CurrentRooms:GetDescendants() do
-if model.Name == doorModelName and model:IsA("Model") then
+if model.Name == "FakeDoor_Hotel" or model.Name == "BlockedDoorModel" then
+		if model:IsA("Model") then
 door = model
 		met = true
 		break
 	end
+end
 	end
 	
 if met then 
@@ -54,7 +56,7 @@ if not Shop then
 		Shop = game:GetObjects("rbxassetid://131315785960673")[1]
 	end
   
-  Shop.Parent = workspace
+  Shop.Parent = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
 Shop:PivotTo(roomCFrame)
 Shop.PrimaryPart.Transparency = 1 
 Shop.PrimaryPart.CanCollide = false
