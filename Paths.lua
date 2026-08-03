@@ -6,6 +6,8 @@
 
 --Shop interact: CaisoShop.Shop.IsolatedChainPurchase.Body.PurchasePrompt , CaisoShop.Shop.KeyFinder.Handle.PurchasePrompt ,  CaisoShop.Shop.Optionals.MagnifyingGlass.Metal.PurchasePrompt, CaisoShop.Shop.Optionals.EntityRadar.Handle.PurchasePrompt, CaisoShop.Shop.Optionals.Gumdrop.Root.PurchasePrompt,  CaisoShop.Shop.Optionals.Tarts.Handle.PurchasePrompt
 
+--Pillows Pivot: CaisoShop // PurchasableItem3, PurchasableItem4
+
 --Item pivot: CaisoShop.Shop.Optionals // MagnifyingGlass, Tarts, Gumdrop, EntityRadar
 
 
