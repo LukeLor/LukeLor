@@ -1,6 +1,6 @@
 -- TUE VFX: TUE.Root.Attachment. //Attack, Close, Open, SparkOpen, SparkClosed
 
---Asterdust.MainDust
+--Asterdust.OuterDust
 
 --Entity Finder: [Item].Screen.ScreenUI.Frame.Frame. // Entity, Warning, StudLocation (OR).Battery // Battery,Battery1, Battery2, Battery3
 
