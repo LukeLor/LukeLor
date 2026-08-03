@@ -64,8 +64,8 @@ entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
 		for _, lightCup in workspace.CurrentRooms:GetDescendants() do
 if lightCup.Parent.Name == "LightFixture" and lightCup.Name == "Neon" then
-lightCup.Color = Color3.fromRGB(83, 156, 82)
-				lightCup.Parent:FindFirstChildOfClass("PointLight").Color = Color3.fromRGB(83, 156, 82)
+lightCup.Color = Color3.fromRGB(255,0,0)
+				lightCup.Parent:FindFirstChildOfClass("PointLight").Color = Color3.fromRGB(255,0,0)
 			end
 		end
 	--[[local entityModel =	entity.Model
