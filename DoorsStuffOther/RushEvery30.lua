@@ -64,7 +64,8 @@ local entity = Spawner:Create({
 
 entity:SetCallback("OnSpawned", function()
 		entity.Model.RushNew.PlaySound.SoundId = "rbxassetid://18695345785"
-    print("Entity has spawned")
+    entity.Model.RushNew.PlaySound.PlaybackSpeed = 1
+		print("Entity has spawned")
 end)
 
 entity:SetCallback("OnStartMoving", function()
