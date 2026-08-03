@@ -62,6 +62,13 @@ local entity = Spawner:Create({
 
 entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
+	local entityModel =	entity.Model
+		local RushNew= entityModel:WaitForChild("RushNew")
+		local spawn= RushNew.Spawn
+
+		spawn.Parent = workspace
+		spawn:Play()
+		game:GetService("Debris"):AddItem(spawn, 6)
 end)
 
 entity:SetCallback("OnStartMoving", function()
