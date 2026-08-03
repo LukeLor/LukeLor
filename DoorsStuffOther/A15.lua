@@ -16,7 +16,7 @@ local entity = Spawner:Create({
 			Enabled = false,
 			Duration = 1
 		},
-		Shatter = false,
+		Shatter = true,
 		Repair = false
 	},
 	Earthquake = {
