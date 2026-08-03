@@ -6,7 +6,7 @@ for _, model in workspace.CurrentRooms:GetDescendants() do
 if model.Name == doorModelName and model:IsA("Model") then
 door = model
 		met = true
-		return
+		break
 	end
 	end
 	
