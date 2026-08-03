@@ -1,7 +1,7 @@
 local met = true --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
 
 if met then 
-  local roomCFrame = CFrame.new(0,0,0) --REPLACE FOR REAL ENTRY CFRAME!
+  local roomCFrame = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame      --CFrame.new(0,0,0) --REPLACE FOR REAL ENTRY CFRAME!
   loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
   --Animation Handler, mayhaps for Caiso?
@@ -66,6 +66,7 @@ Shop.PrimaryPart.CanCollide = false
 			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this food, supported by the fact I don't even have the correct currency...","thought")
 		end)
 	game.Players.LocalPlayer.Character:PivotTo(Shop.PrimaryPart.CFrame)
+	
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player Teleported.",true)
 
 
