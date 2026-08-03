@@ -72,7 +72,7 @@ Shop.PrimaryPart.CanCollide = false
 
 
 game:GetService("TextChatService").MessageReceived:Connect(function(msg)
-if msg == "/close" then
+if msg.Text == "/close" then
 Shop:Destroy()
 				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Shop removed.",true)
 		end	
