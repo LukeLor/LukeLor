@@ -3,10 +3,10 @@ local doorModelName = "FakeDoor_Hotel" --Post Hotel+ BlockedDoorModel
 local met = false --CHANGE THIS TO CHECK FOR ANY SIDE ROOMS AVAILABLE
 local door = nil
 for _, model in workspace.CurrentRooms:GetDescendants() do
-if model.Name == doorModelName then
+if model.Name == doorModelName and model:IsA("Model") then
 door = model
 		met = true
-		
+		return
 	end
 	end
 	
