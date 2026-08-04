@@ -11,6 +11,12 @@ door = model
 	end
 end
 	end
+
+for _, parts in workspace.CurrentRooms:GetDescendants() do
+if parts.Name == "BlockedDoor" then
+parts:Destroy()
+	end
+end
 	
 if met then 
   local roomCFrame = door.PrimaryPart.CFrame      --CFrame.new(0,0,0) --REPLACE FOR REAL ENTRY CFRAME!
