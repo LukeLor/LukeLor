@@ -19,9 +19,9 @@ end
 local StatusMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Statuses/Main.luau"))()
 local ItemArray = game:GetObjects("rbxassetid://93593530342378")[1]
 local Gumdrop = ItemArray.Gumdrop
-      Gumdrop.TextureId ="rbxassetid://117093700428560"
+     -- Gumdrop.TextureId ="rbxassetid://117093700428560"
 Gumdrop:SetAttribute("Interactable",true)
-Gumdrop:SetAttribute("Stack", 1)
+Gumdrop:SetAttribute("Stack", 5)
         local tweenService = game:GetService("TweenService")
 
         
@@ -70,7 +70,14 @@ Gumdrop:SetAttribute("Stack", 1)
 
                     Gumdrop.Equipped:Connect(function()
                        -- slot.DurabilityNumber.Visible = true
+        --require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I have "..,true)
+
+
                     xUsed = Gumdrop:GetAttribute("Stack")
+        task.wait(0.1)
+        require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I have "..tostring(xUsed).." gumdrops left in this stack...",true)
+
+
                 end)
 
                     Gumdrop.Activated:Connect(function()
@@ -78,6 +85,7 @@ Gumdrop:SetAttribute("Stack", 1)
                         InTrans = true
                             xUsed = xUsed - 1
             Gumdrop:SetAttribute("Stack", xUsed)
+            
                           --[[  slot.DurabilityNumber.Visible = true
                             slot.DurabilityNumber.Text = "x"..xUsed]]
                             
@@ -91,7 +99,9 @@ Gumdrop:SetAttribute("Stack", 1)
                         if xUsed == 0 then 
 Gumdrop:Destroy()
                         end
-                        
+                        require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I have "..tostring(xUsed).." gumdrops now...",true)
+
+
                        local effectTime = math.random(7,12)
                         for i= 1, effectTime, 0.1 do
 task.wait(0.1)
