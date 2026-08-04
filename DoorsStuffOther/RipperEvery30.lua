@@ -7,7 +7,7 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = Spawner:Create({
 	Entity = {
 		Name = "Ripper",
-		Asset = "rbxassetid://11652586296",
+		Asset = "rbxassetid://13942047057",
 		HeightOffset = 0
 	},
 	Lights = {
@@ -71,7 +71,7 @@ entity:SetCallback("OnSpawned", function()
 		close.MaxDistance = 40
 close:Play() 
 		close.PlaybackSpeed = 0.2
-		close.Volume = 1.5]]
+		close.Volume = 1.5
 
     function GitPNG(GithubImg, ImageName)
     local url = GithubImg
@@ -89,7 +89,7 @@ close:Play()
     return (getcustomasset or getsynasset)(ImageName .. ".png")
 entity.Model.RushNew.Attachment.ParticleEmitter.Texture = GitPNG("https://github.com/huyhoanggphuc/Entity-obfuscate/blob/main/Ripper%20(1).png?raw=true", "RipperFace")
 
-		
+		]]
 		print("Entity has spawned")
 end)
 
