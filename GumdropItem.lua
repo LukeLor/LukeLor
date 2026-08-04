@@ -49,27 +49,27 @@ Gumdrop:SetAttribute("Stack", 1)
             Gumdrop.Name = "Gumdrop"
   Gumdrop.TextureId ="rbxassetid://117093700428560"
 
-            for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        --[[   for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 if tool.Name == "Gumdrop" then
      -- tool.TextureId = "rbxassetid://117093700428560"
                     local slot =game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUI").MainFrame.Hotbar:FindFirstChild(slotNum)
                     
                     slot.DurabilityNumber.Visible = true
-                    slot.DurabilityNumber.Text = "x"..xUsed
+                    slot.DurabilityNumber.Text = "x"..xUsed]]
 
                     Gumdrop.Unequipped:Connect(function()
                 
-                        if slot and slot.DurabilityNumber then
+                       --[[ if slot and slot.DurabilityNumber then
                            slot.DurabilityNumber.Visible = true
                            slot.DurabilityNumber.Text = "x"..xUsed
-                        
+                        ]]
                             xUsed = Gumdrop:GetAttribute("Stack")
                     
                  end
              end)
 
                     Gumdrop.Equipped:Connect(function()
-                        slot.DurabilityNumber.Visible = true
+                       -- slot.DurabilityNumber.Visible = true
                     xUsed = Gumdrop:GetAttribute("Stack")
                 end)
 
@@ -78,8 +78,8 @@ Gumdrop:SetAttribute("Stack", 1)
                         InTrans = true
                             xUsed = xUsed - 1
             Gumdrop:SetAttribute("Stack", xUsed)
-                            slot.DurabilityNumber.Visible = true
-                            slot.DurabilityNumber.Text = "x"..xUsed
+                          --[[  slot.DurabilityNumber.Visible = true
+                            slot.DurabilityNumber.Text = "x"..xUsed]]
                             
 
                            -- tweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 100}):Play()
