@@ -67,11 +67,13 @@ entity:SetCallback("OnSpawned", function()
     entity.Model.RushNew.PlaySound.PlaybackSpeed = 0.06
 		entity.Model.RushNew.PlaySound.Volume = 1
 		local close = entity.Model.RushNew.PlaySound:Clone()
-
+close.Parent = entity.Model.RushNew
+		
 		close.MaxDistance = 40
 close:Play() 
 		close.PlaybackSpeed = 0.2
-		close.Volume = 2
+		close.Volume = 1.5
+		
 		
 		print("Entity has spawned")
 end)
