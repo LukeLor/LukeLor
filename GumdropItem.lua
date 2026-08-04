@@ -60,7 +60,7 @@ Gumdrop:SetAttribute("Stack", 5)
         function SetupGumdrop()
             Gumdrop.Parent = game.Players.LocalPlayer.Backpack
             Gumdrop.Name = "Gumdrop"
-  Gumdrop.TextureId ="rbxassetid://117093700428560"
+  --Gumdrop.TextureId ="rbxassetid://117093700428560"
 
         --[[   for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
                 if tool.Name == "Gumdrop" then
