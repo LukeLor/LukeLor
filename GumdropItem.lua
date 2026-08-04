@@ -65,7 +65,7 @@ Gumdrop:SetAttribute("Stack", 5)
                         ]]
                             xUsed = Gumdrop:GetAttribute("Stack")
                     
-                 end
+                -- end
              end)
 
                     Gumdrop.Equipped:Connect(function()
