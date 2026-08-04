@@ -19,6 +19,10 @@ parts:Destroy()
 end
 	
 if met then 
+	if door.PrimaryPart == nil then
+	door.PrimaryPart = door:FindFirstChildOfClass("BasePart")
+	
+	end
   local roomCFrame = door.PrimaryPart.CFrame      --CFrame.new(0,0,0) --REPLACE FOR REAL ENTRY CFRAME!
   loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
