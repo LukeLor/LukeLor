@@ -116,14 +116,7 @@ InTrans = false
                         Energetic:Destroy()
                     end
                     end)
-                end
-            end
-
-
-
-
-            
-        end
+             end
 
         SetupGumdrop()
 
