@@ -71,7 +71,7 @@ entity:SetCallback("OnSpawned", function()
 		close.MaxDistance = 40
 close:Play() 
 		close.PlaybackSpeed = 0.2
-		close.Volume = 1.5
+		close.Volume = 2
 		
 		print("Entity has spawned")
 end)
