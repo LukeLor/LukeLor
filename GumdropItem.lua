@@ -1,20 +1,33 @@
 --MODIFYING
 local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
-if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") or char:FindFirstChild("Gumdrop") then
-
-if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):GetAttribute("Stack") >= 5 or char:FindFirstChild("Gumdrop"):GetAttribute("Stack") >= 5 then
---Return due to stack being maxed.
-    return 
-  else
-    if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") then
-game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):SetAttribute("Stack", game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):GetAttribute("Stack") + 1)
-    elseif char:FindFirstChild("Gumdrop") then 
-      char:FindFirstChild("Gumdrop"):SetAttribute("Stack", char:FindFirstChild("Gumdrop"):GetAttribute("Stack") + 1)
-    end
-    --Return because Gumdrop has been added to stack.
-    return 
-  end
-  
+--BACKPACK
+if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") then
+	if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):GetAttribute("Stack") >= 5 then
+		--Return due to stack being maxed.
+		return 
+	else
+		if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") then
+			game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):SetAttribute("Stack", game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):GetAttribute("Stack") + 1)
+		elseif char:FindFirstChild("Gumdrop") then 
+			char:FindFirstChild("Gumdrop"):SetAttribute("Stack", char:FindFirstChild("Gumdrop"):GetAttribute("Stack") + 1)
+		end
+		--Return because Gumdrop has been added to stack.
+		return 
+	end
+    --CHAR
+elseif char:FindFirstChild("Gumdrop") then
+	if char:FindFirstChild("Gumdrop"):GetAttribute("Stack") >= 5  then
+		--Return due to stack being maxed.
+		return 
+	else
+		if game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop") then
+			game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):SetAttribute("Stack", game.Players.LocalPlayer.Backpack:FindFirstChild("Gumdrop"):GetAttribute("Stack") + 1)
+		elseif char:FindFirstChild("Gumdrop") then 
+			char:FindFirstChild("Gumdrop"):SetAttribute("Stack", char:FindFirstChild("Gumdrop"):GetAttribute("Stack") + 1)
+		end
+		--Return because Gumdrop has been added to stack.
+		return 
+	end
 end
 local StatusMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Statuses/Main.luau"))()
 local ItemArray = game:GetObjects("rbxassetid://93593530342378")[1]
@@ -94,8 +107,10 @@ Gumdrop:SetAttribute("Stack", 5)
                         
                             hum:SetAttribute("SpeedBoost", math.random(7,13))
                         hum.WalkSpeed = hum.WalkSpeed + hum:GetAttribute("SpeedBoost")
-                    local PassiveHeal = StatusMaker.MakeStatus("rbxassetid://105937133919475", "PassiveHeal")    
-                    local Energetic = StatusMaker.MakeStatus("rbxassetid://74056160126141", "Energetic")
+                  	local PassiveHeal = MakeStatus("rbxassetid://127452134994180", "PassiveHeal")    
+			local Energetic = MakeStatus("rbxassetid://108269020278219", "Energetic")
+			PassiveHeal.Visible = true
+			Energetic.Visible = true
                         if xUsed == 0 then 
 Gumdrop:Destroy()
                         end
