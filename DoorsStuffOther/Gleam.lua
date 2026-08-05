@@ -60,17 +60,24 @@ local entity = Spawner:Create({
 ---====== Debug entity ======---
 
 entity:SetCallback("OnSpawned", function()
+		local att = nil
+	for _, validAtt in entity.Model.RushNew:GetChildren() do
+if validAtt:FindFirstChildOfClass("ParticleEmitter") then
+att = ValidAtt 
+				break
+			end
+			end	
+		
+		att.ParticleEmitter.TextureId = "rbxassetid://116573775116536"
 		entity.Model.RushNew.PlaySound.SoundId = "rbxassetid://87112595752706"
-    entity.Model.RushNew.PlaySound.PlaybackSpeed = 0.06
+    entity.Model.RushNew.PlaySound.PlaybackSpeed = 0.2
 		entity.Model.RushNew.PlaySound.Volume = 1
 		local close = entity.Model.RushNew.PlaySound:Clone()
 close.Parent = entity.Model.RushNew
 		
 		close.MaxDistance = 80
 close:Play() 
-		close.PlaybackSpeed = 0.2
-		close.Volume = 1.5
-		
+		close.PlaybackSpeed = 0.4
 		
 		print("Entity has spawned")
 end)
