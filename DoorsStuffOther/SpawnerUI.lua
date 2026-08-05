@@ -13,7 +13,7 @@ templateButton.Parent = UI.MainFrame[tostring(menu).."Menu"]
 templateButton.Text = tostring(Text)
 templateButton.Name = tostring(Text)
 templateButton.MouseButton1Click:Connect(function()
-
+templateButton.Visible = true
 loadstring(game:HttpGet(link))()      
 end)
 
