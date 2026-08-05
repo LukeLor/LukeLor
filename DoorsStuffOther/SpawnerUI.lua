@@ -5,7 +5,7 @@ local UI = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/Door
 
 UI.Parent = game.Players.LocalPlayer.PlayerGui
 
-local SetupButton = function(Text, link, menu) -- Spawn, Timed
+local SetupButton = function(Text, link, menu) -- Spawn, Timed, Gamemodes
 
 local templateButton = UI.MainFrame.SpawnMenu.Template:Clone()
 
@@ -27,6 +27,9 @@ UI.MainFrame.ButtonArea.IconHitArea.MouseButton1Click:Connect(function()
     if UI.MainFrame.TimedMenu.Visible == true then
 UI.MainFrame.TimedMenu.Visible = false
     end
+     if UI.MainFrame.GamemodesMenu.Visible == true then
+UI.MainFrame.GamemodesMenu.Visible = false
+    end
 if UI.MainFrame.SpawnMenu.Visible == false then
 UI.MainFrame.SpawnMenu.Visible = true
     else
@@ -34,9 +37,26 @@ UI.MainFrame.SpawnMenu.Visible = false
     end
   end)
 
+UI.MainFrame.ButtonAreaGame.IconHitArea.MouseButton1Click:Connect(function()
+    if UI.MainFrame.TimedMenu.Visible == true then
+UI.MainFrame.TimedMenu.Visible = false
+    end
+       if UI.MainFrame.SpawnMenu.Visible == true then
+UI.MainFrame.SpawnMenu.Visible = false
+    end
+if UI.MainFrame.GamemodesMenu.Visible == false then
+UI.MainFrame.GamemodesMenu.Visible = true
+    else
+UI.MainFrame.GamemodesMenu.Visible = false  
+    end
+  end)
+
 UI.MainFrame.ButtonAreaTime.IconHitArea.MouseButton1Click:Connect(function()
      if UI.MainFrame.SpawnMenu.Visible == true then
 UI.MainFrame.SpawnMenu.Visible = false
+    end
+     if UI.MainFrame.GamemodesMenu.Visible == true then
+UI.MainFrame.GamemodesMenu.Visible = false
     end
 if UI.MainFrame.TimedMenu.Visible == false then
 UI.MainFrame.TimedMenu.Visible = true
@@ -55,5 +75,6 @@ SetupButton("Ambush Every 30 Seconds", "https://raw.githubusercontent.com/LukeLo
 SetupButton("Rush Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/RushEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
 SetupButton("Ripper Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/RipperEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
 SetupButton("Silence Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/SilenceEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
-SetupButton("A-100 Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100Every30.lua", "Timed") -- Menus: Spawn, Timed
+SetupButton("A-100 Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100Every30.lua", "Timed") -- Menus: Spawn, Timed, Gamemodes
+SetupButton("Rebound Every 30 Seconds", "https://pastebin.com/raw/GMrv1hKc", "Timed") -- Menus: Spawn, Timed, Gamemodes
 
