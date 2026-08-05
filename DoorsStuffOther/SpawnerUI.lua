@@ -14,7 +14,7 @@ templateButton.Text = tostring(Text)
 templateButton.Name = tostring(Text)
   templateButton.Visible = true
 templateButton.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("\""..link.."\""))()      
+loadstring(game:HttpGet(link))()      
 end)
 
   
