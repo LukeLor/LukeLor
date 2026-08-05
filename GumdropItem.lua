@@ -29,9 +29,11 @@ elseif char:FindFirstChild("Gumdrop") then
 		return 
 	end
 end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+
 local StatusMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Statuses/Main.luau"))()
-local ItemArray = game:GetObjects("rbxassetid://93593530342378")[1]
-local Gumdrop = ItemArray.Gumdrop
+local Gumdrop = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Gumdrop.rbxm")
+
      -- Gumdrop.TextureId ="rbxassetid://117093700428560"
 Gumdrop:SetAttribute("Interactable",true)
 Gumdrop:SetAttribute("Stack", 5)
