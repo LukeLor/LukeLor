@@ -60,37 +60,15 @@ Gumdrop:SetAttribute("Stack", 5)
         function SetupGumdrop()
             Gumdrop.Parent = game.Players.LocalPlayer.Backpack
             Gumdrop.Name = "Gumdrop"
-  --Gumdrop.TextureId ="rbxassetid://117093700428560"
 
-        --[[   for slotNum, tool in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                if tool.Name == "Gumdrop" then
-     -- tool.TextureId = "rbxassetid://117093700428560"
-                    local slot =game.Players.LocalPlayer.PlayerGui:WaitForChild("MainUI").MainFrame.Hotbar:FindFirstChild(slotNum)
-                    
-                    slot.DurabilityNumber.Visible = true
-                    slot.DurabilityNumber.Text = "x"..xUsed]]
-
-                    Gumdrop.Unequipped:Connect(function()
-                
-                       --[[ if slot and slot.DurabilityNumber then
-                           slot.DurabilityNumber.Visible = true
-                           slot.DurabilityNumber.Text = "x"..xUsed
-                        ]]
+                Gumdrop.Unequipped:Connect(function()
                             xUsed = Gumdrop:GetAttribute("Stack")
-                    
-                -- end
-             end)
+                end)
 
-                    Gumdrop.Equipped:Connect(function()
-                       -- slot.DurabilityNumber.Visible = true
-        --require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I have "..,true)
-
-
-                    xUsed = Gumdrop:GetAttribute("Stack")
+                Gumdrop.Equipped:Connect(function()
+        xUsed = Gumdrop:GetAttribute("Stack")
         task.wait(0.1)
         require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I have "..tostring(xUsed).." gumdrops left in this stack...",true)
-
-
                 end)
 
                     Gumdrop.Activated:Connect(function()
@@ -98,13 +76,6 @@ Gumdrop:SetAttribute("Stack", 5)
                         InTrans = true
                             xUsed = xUsed - 1
             Gumdrop:SetAttribute("Stack", xUsed)
-            
-                          --[[  slot.DurabilityNumber.Visible = true
-                            slot.DurabilityNumber.Text = "x"..xUsed]]
-                            
-
-                           -- tweenService:Create(workspace.CurrentCamera, TweenInfo.new(0.2), {FieldOfView = 100}):Play()
-                        
                             hum:SetAttribute("SpeedBoost", math.random(7,13))
                         hum.WalkSpeed = hum.WalkSpeed + hum:GetAttribute("SpeedBoost")
                   	local PassiveHeal = StatusMaker.MakeStatus("rbxassetid://127452134994180", "PassiveHeal")    
@@ -120,7 +91,7 @@ Gumdrop:Destroy()
                        local effectTime = math.random(7,12)
                         for i= 1, effectTime, 0.1 do
 task.wait(0.1)
-                         hum.Health += math.random(1,2)
+                         hum.Health += math.random(1,2)/5/10*6
                         end
 
 InTrans = false
