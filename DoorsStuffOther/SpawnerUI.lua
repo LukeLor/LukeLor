@@ -77,4 +77,5 @@ SetupButton("Ripper Every 30 Seconds", "https://raw.githubusercontent.com/LukeLo
 SetupButton("Silence Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/SilenceEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
 SetupButton("A-100 Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100Every30.lua", "Timed") -- Menus: Spawn, Timed, Gamemodes
 SetupButton("Rebound Every 30 Seconds", "https://pastebin.com/raw/GMrv1hKc", "Timed") -- Menus: Spawn, Timed, Gamemodes
+SetupButton("Hardcore", "https://raw.githubusercontent.com/thelostw3r/Mods/main/HardcoreMode.lua", "Gamemodes") -- Menus: Spawn, Timed, Gamemodes
 
