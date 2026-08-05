@@ -62,6 +62,7 @@ end
 
 entity.Debug.OnDeath = function()
     print("Player has died")
+    firesignal(ReplicatedStorage.Bricks.DeathHint.OnClientEvent, {"You died to A-100.", "This one's different","It spawns every 30 seconds.","So always be close to a closet."})
 end
 
 --[[
