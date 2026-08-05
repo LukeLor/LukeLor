@@ -12,8 +12,8 @@ local templateButton = UI.MainFrame.SpawnMenu.Template:Clone()
 templateButton.Parent = UI.MainFrame[tostring(menu).."Menu"]
 templateButton.Text = tostring(Text)
 templateButton.Name = tostring(Text)
+  templateButton.Visible = true
 templateButton.MouseButton1Click:Connect(function()
-templateButton.Visible = true
 loadstring(game:HttpGet(link))()      
 end)
 
