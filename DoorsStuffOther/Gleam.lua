@@ -7,7 +7,7 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = Spawner:Create({
 	Entity = {
 		Name = "Gleam",
-		Asset = "rbxassetid://11652586296",
+		Asset = "https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/Gleam.rbxm?raw=true",
 		HeightOffset = 0
 	},
 	Lights = {
