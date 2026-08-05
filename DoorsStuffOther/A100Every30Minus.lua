@@ -5,9 +5,9 @@ local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 ---====== Create entity ======---
 
 local entity = Spawner.createEntity({
-    CustomName = "Template Entity",
-    Model = "https://github.com/RegularVynixu/Utilities/blob/main/Doors/Entity%20Spawner/Assets/Entities/Rush.rbxm?raw=true", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
-    Speed = 100,
+    CustomName = "A-100",
+    Model = "https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-100.rbxm?raw=true", -- Your entity's model url here ("rbxassetid://1234567890" or GitHub raw url)
+    Speed = 175,
     MoveDelay = 2,
     HeightOffset = 0,
     CanKill = true,
@@ -16,12 +16,12 @@ local entity = Spawner.createEntity({
     ShatterLights = true,
     FlickerLights = {
         Enabled = true,
-        Duration = 1
+        Duration = 2
     },
     Cycles = {
         Min = 1,
-        Max = 1,
-        Delay = 2
+        Max = 2,
+        Delay = 3
     },
     CamShake = {
         Enabled = true,
@@ -30,8 +30,8 @@ local entity = Spawner.createEntity({
     },
     ResistCrucifix = false,
     BreakCrucifix = true,
-    DeathMessage = {"Custom", "death", "message", "goes", "here."},
-    IsCuriousLight = false
+    DeathMessage = {"You died to A-100.", "This one's different","It spawns every 30 seconds.","So always be close to a closet."},
+ IsCuriousLight = false
 })
 
 ---====== Debug ======---
