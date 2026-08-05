@@ -47,7 +47,13 @@ UI.MainFrame.TimedMenu.Visible = false
 
 
 
-
-
-
+SetupButton("A-100", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100.lua", "Spawn") -- Menus: Spawn, Timed
+SetupButton("A-15", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A15.lua", "Spawn") -- Menus: Spawn, Timed
+SetupButton("A-35", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A35.lua", "Spawn") -- Menus: Spawn, Timed
+SetupButton("A-60", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A60.lua", "Spawn") -- Menus: Spawn, Timed
+SetupButton("Ambush Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/AmbushEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
+SetupButton("Rush Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/RushEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
+SetupButton("Ripper Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/RipperEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
+SetupButton("Silence Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/SilenceEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
+SetupButton("A-100 Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100Every30.lua", "Timed") -- Menus: Spawn, Timed
 
