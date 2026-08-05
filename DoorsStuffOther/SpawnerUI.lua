@@ -20,6 +20,34 @@ end)
   
 end
 
+UI.MainFrame.SpawnMenu.Visible = false
+UI.MainFrame.TimedMenu.Visible = false
+
+UI.MainFrame.ButtonArea.IconHitArea.MouseButton1Click:Connect(function()
+    if UI.MainFrame.TimedMenu.Visible == true then
+UI.MainFrame.TimedMenu.Visible = false
+    end
+if UI.MainFrame.SpawnMenu.Visible == false then
+UI.MainFrame.SpawnMenu.Visible = true
+    else
+UI.MainFrame.SpawnMenu.Visible = false  
+    end
+  end)
+
+UI.MainFrame.ButtonAreaTime.IconHitArea.MouseButton1Click:Connect(function()
+     if UI.MainFrame.SpawnMenu.Visible == true then
+UI.MainFrame.SpawnMenu.Visible = false
+    end
+if UI.MainFrame.TimedMenu.Visible == false then
+UI.MainFrame.TimedMenu.Visible = true
+    else
+UI.MainFrame.TimedMenu.Visible = false  
+    end
+  end)
+
+
+
+
 
 
 
