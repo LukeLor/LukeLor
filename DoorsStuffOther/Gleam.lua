@@ -60,7 +60,7 @@ local entity = Spawner:Create({
 ---====== Debug entity ======---
 
 entity:SetCallback("OnSpawned", function()
-		local att = nil
+		--[[local att = nil
 	for _, validAtt in entity.Model.RushNew:GetChildren() do
 if validAtt:FindFirstChildOfClass("ParticleEmitter") then
 att = ValidAtt 
@@ -78,7 +78,7 @@ close.Parent = entity.Model.RushNew
 		close.MaxDistance = 80
 close:Play() 
 		close.PlaybackSpeed = 0.4
-		
+		]]
 		print("Entity has spawned")
 end)
 
