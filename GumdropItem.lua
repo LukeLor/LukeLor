@@ -89,7 +89,7 @@ Gumdrop:Destroy()
 
 
                        local effectTime = math.random(7,12)
-                        for i= 1, effectTime, 0.1 do
+                        for i= 1, effectTime, 1 do
 task.wait(0.1)
                          hum.Health += math.random(1,2)/5/10*6
                         end
