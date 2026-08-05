@@ -1,4 +1,4 @@
-
+local isMinus = game.ReplicatedStorage:FindFirstChild("Bricks") and true or false
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100Every30Spawn.lua"))()
 
@@ -14,6 +14,10 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("
 
 end)
     coroutine.resume(cS)
+    if isMinus then
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100Every30Minus.lua"))()
+    else
+      
     loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100Every30Spawn.lua"))()
   end
 
