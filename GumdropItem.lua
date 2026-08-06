@@ -42,8 +42,8 @@ function HandleUsage(Gumdrop:Tool)
 			Gumdrop:SetAttribute("Stack", xUsed)
 			hum:SetAttribute("SpeedBoost", math.random(7,13))
 			hum.WalkSpeed = hum.WalkSpeed + hum:GetAttribute("SpeedBoost")
-			local PassiveHeal = StatusMaker.MakeStatus("rbxassetid://127452134994180", "PassiveHeal")    
-			local Energetic = StatusMaker.MakeStatus("rbxassetid://108269020278219", "Energetic")
+			local PassiveHeal = MakeStatus("rbxassetid://127452134994180", "PassiveHeal")    
+			local Energetic = MakeStatus("rbxassetid://108269020278219", "Energetic")
 			PassiveHeal.Visible = true
 			Energetic.Visible = true
 			if xUsed == 0 then 
