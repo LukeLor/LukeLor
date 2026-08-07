@@ -107,16 +107,16 @@ local functionC = coroutine.create(function()
 				char.Humanoid.Health -= 0.4
 					if char.Humanoid.Health <= 0 then
 						if firesignal then
-								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"It seems you died to the Universal Eye..", "It's quite a simple game!", "I'm sure you're familiar with it,", "Red Light, Green Light."}, "Blue")
+								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"It seems you died to the Universal Eye..", "It's quite a simple game!", "I'm sure you're familiar with it,", "Red Light, Green Light."}, "Yellow")
 						--[[ Second Death!
-								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You've died to the Universal Eye, yet again.", "I thought you would've had it!", "Remember, Red Light, Green Light!"}, "Blue")
+								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You've died to the Universal Eye, yet again.", "I thought you would've had it!", "Remember, Red Light, Green Light!"}, "Yellow")
 						--Third
 
-							firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Third times a charm, huh?", "Look at it's eye, that'll help you.", "It's not like the \"Eyes\" you're familiar with."}, "Blue")
+							firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Third times a charm, huh?", "Look at it's eye, that'll help you.", "It's not like the \"Eyes\" you're familiar with."}, "Yellow")
 						--Fourth
-								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Okay, dead to the Universal Eye, again.", "When it's eye is opened, don't move, how about that?", "Once the eye is closed, there's your chance to proceed.", "Go back, try again. Don't think it'd hurt."}, "Blue")
+								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Okay, dead to the Universal Eye, again.", "When it's eye is opened, don't move, how about that?", "Once the eye is closed, there's your chance to proceed.", "Go back, try again. I, personally don't think it'd hurt."}, "Yellow")
 						-- Onward
-								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Still struggling, I see?","Open is red, Closed is green."}, "Blue")
+								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Still struggling, I see?","Open is red, Closed is green."}, "Yellow")
 						
 								]]
 							end 
