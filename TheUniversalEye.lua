@@ -131,7 +131,7 @@ local functionC = coroutine.create(function()
 						--Nothing
 					else
 						model.Root.Attack:Play()
-						emodel.Root.Attack.PlaybackSpeed = math.random(50,300)/100
+						model.Root.Attack.PlaybackSpeed = math.random(50,300)/100
 					end				
 			else
 				model.Root.Attachment.Attack.Enabled = false
