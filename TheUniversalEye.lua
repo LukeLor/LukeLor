@@ -272,7 +272,7 @@ local functionC = coroutine.create(function()
 				--if char:WaitForChild("Humanoid")
 				if char.Humanoid.MoveDirection.Magnitude > 0 then
 				char.Humanoid.Health -= 0.6122412
-						local hasTool, tool = PlayerHasOut(crucifixion.ItemToSeek, crucifixion.CanBeInBackpack)
+						local hasTool, tool = PlayerHasOut({"Crucifix","Isolated Chain"}, false)
                     if hasTool and tool and not model:GetAttribute("BeingBanished") then
 CrucifixEntity(model, tool)
 						end
