@@ -37,7 +37,7 @@ local GameStats = ReplicatedStorage:WaitForChild("GameStats") :: Folder
 local CurrentRooms = workspace:WaitForChild("CurrentRooms") :: Folder
 
 local Assets = {
-	Repentance = LoadCustomInstance(ROOT.."/Assets/Repentance.rbxm"),
+	Repentance = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderRepentance.rbxm"),
 	Earthquake = LoadCustomInstance(ROOT.."/Assets/Earthquake.rbxm")
 }
 local Modules = {
