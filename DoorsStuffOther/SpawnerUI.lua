@@ -81,4 +81,5 @@ SetupButton("Hardcore Mode", "https://raw.githubusercontent.com/thelostw3r/Mods/
 SetupButton("Impossible Mode", "https://pastefy.app/rcWn8qtU/raw", "Gamemodes") -- Menus: Spawn, Timed, Gamemodes
 SetupButton("Mayhem Mode", "https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Mayhem%20mode%20recreate/Code", "Gamemodes") -- Menus: Spawn, Timed, Gamemodes
 SetupButton("Gleam", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/Gleam.lua", "Spawn") -- Menus: Spawn, Timed
+SetupButton("Ram", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/Ram.lua", "Spawn") -- Menus: Spawn, Timed
 
