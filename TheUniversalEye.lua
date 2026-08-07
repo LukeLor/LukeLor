@@ -148,7 +148,7 @@ local cToggle = coroutine.create(function()
 		open = not open
 		for _, light in model:GetDescendants() do
 if light:IsA("PointLight") then
-game:GetService("TweenService"):Create(light, TweenInfo.new(math.random(5,12)/10), {Brightness = open and light:GetAttribute("Brightness") or 0.5}):Play()
+game:GetService("TweenService"):Create(light, TweenInfo.new(math.random(5,12)/10), {Brightness = open and light:GetAttribute("Brightness") or 0.1}):Play()
 				end
 			end
 	end
