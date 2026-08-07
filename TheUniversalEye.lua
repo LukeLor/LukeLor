@@ -154,7 +154,7 @@ game:GetService("TweenService"):Create(light, TweenInfo.new(math.random(5,12)/10
 			end
 	end
 end)
-task.wait(math.random(1,2))
+--task.wait(math.random(1,2))
 coroutine.resume(cToggle)
 
 
