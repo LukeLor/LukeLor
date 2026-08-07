@@ -898,6 +898,7 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
                 then
                     local hasTool, tool = PlayerHasOut(crucifixion.ItemToSeek, crucifixion.CanBeInBackpack)
                     if hasTool and tool and not model:GetAttribute("BeingBanished") then
+							task.spawn(entity.RunCallback, entity, "OnCrucified", game.Players.LocalPlayer)
                         if typeof(debug.CrucifixionOverwrite) == "function" then
                             -- Use custom crucifixion callback
                             entity:RunCallback("CrucifixionOverwrite")
