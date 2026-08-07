@@ -150,7 +150,22 @@ local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPa
 	task.delay(5, repentance.Destroy, repentance)
 end
 
-				
+				local function PlayerHasOut(itemTable: table, checkBackpack:boolean ): boolean
+	for indNum, item in itemTable do 
+	local tool = Character:FindFirstChild(item)
+	
+	if tool and tool.Name == name then
+		return true, tool
+	end
+	if checkBackpack then
+		local tool = LocalPlayer.Backpack:FindFirstChild(item)
+	       if tool and tool.Name == name then
+		     return true, tool
+	       end
+	end
+	if indNum == #itemTable then return false end
+  end
+end
 
 function VisualizeNodes(room)
   local pfs = game:GetService("PathfindingService")
@@ -257,6 +272,11 @@ local functionC = coroutine.create(function()
 				--if char:WaitForChild("Humanoid")
 				if char.Humanoid.MoveDirection.Magnitude > 0 then
 				char.Humanoid.Health -= 0.6122412
+						local hasTool, tool = PlayerHasOut(crucifixion.ItemToSeek, crucifixion.CanBeInBackpack)
+                    if hasTool and tool and not model:GetAttribute("BeingBanished") then
+CrucifixEntity(model, tool)
+						end
+							
 					if char.Humanoid.Health <= 0 then
 						if firesignal then
 								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"It seems you died to the Universal Eye..", "It's quite a simple game!", "I'm sure you're familiar with it,", "Red Light, Green Light."}, "Yellow")
