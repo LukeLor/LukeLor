@@ -14,7 +14,7 @@ local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPa
 
 	local params = RaycastParams.new()
 	params.FilterType = Enum.RaycastFilterType.Exclude
-	params.FilterDescendantsInstances = {game.Players.LocalPlayer, model}
+	params.FilterDescendantsInstances = {game.Players.LocalPlayer.Character, model}
 	local result = workspace:Raycast(entityPivot.Position, Vector3.new(0, -1000, 0), params)
 	if not result then return end
 
