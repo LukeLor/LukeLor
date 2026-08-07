@@ -10,7 +10,7 @@ CustomAchievements:Grant({
     Identifier = "OutOfOrderCruc_Stomper",
     Title = "Stupid Foot",
     Desc = "Get stomped oooonnnn!",
-    Reason = "Banish Stomper",
+    Reason = "Banish Stomper.",
     Image = "rbxassetid://117242422256656"
 }, {
     CheckOwned = false,
