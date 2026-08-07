@@ -3,6 +3,20 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 local Assets = {
 	Repentance = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderRepentance.rbxm"),
 }
+local function Badge()
+local CustomAchievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Custom-Achievements/main/init.luau"))()
+
+CustomAchievements:Grant({
+    Identifier = "OutOfOrderCruc_TUE",
+    Title = "No Longer Universal",
+    Desc = "Eye had enough.",
+    Reason = "Banish the Universal Eye",
+    Image = "rbxassetid://117242422256656"
+}, {
+    CheckOwned = false,
+    Remember = false
+})
+end
 
 local function CrucifixEntity(entity: model, tool: Tool)
 	local model = entity
