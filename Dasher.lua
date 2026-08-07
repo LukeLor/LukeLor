@@ -44,6 +44,8 @@ local entity = spawner:Create({
 		Amount = 1000
 	},
 	Crucifixion = {
+			ItemToSeek = {"Crucifix"},
+				CanBeInBackpack = false,
 		Enabled = true,
 		Range = 40,
 		Resist = false,
