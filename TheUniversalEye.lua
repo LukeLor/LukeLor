@@ -150,6 +150,8 @@ local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPa
 	task.delay(5, repentance.Destroy, repentance)
 end
 
+				
+
 function VisualizeNodes(room)
   local pfs = game:GetService("PathfindingService")
 local startPosition = room:WaitForChild("RoomEntrance").Position
