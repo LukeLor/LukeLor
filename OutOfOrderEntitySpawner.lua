@@ -126,6 +126,7 @@ local CONST = {
 		},
 		DEBUG = {
 			OnSpawned = function() end,
+			OnCrucified = function() end,
 			OnStartMoving = function() end,
 			OnReachedNode = function() end,
 			OnEnterRoom = function() end,
