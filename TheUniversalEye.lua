@@ -104,7 +104,7 @@ local functionC = coroutine.create(function()
 			if inSight then
 				--if char:WaitForChild("Humanoid")
 				if char.Humanoid.MoveDirection.Magnitude > 0 then
-				char.Humanoid.Health -= 6.122412
+				char.Humanoid.Health -= 0.6122412
 					if char.Humanoid.Health <= 0 then
 						if firesignal then
 								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"It seems you died to the Universal Eye..", "It's quite a simple game!", "I'm sure you're familiar with it,", "Red Light, Green Light."}, "Yellow")
