@@ -64,6 +64,12 @@ entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
 end)
 
+entity:SetCallback("OnCrucified", function(player)
+	if player == game.Players.LocalPlayer then
+--Go forth
+	end
+end)
+
 entity:SetCallback("OnStartMoving", function()
     print("Entity has started moving")
 end)
