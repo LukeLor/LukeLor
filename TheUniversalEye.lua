@@ -125,7 +125,7 @@ coroutine.resume(functionC)
 
 
 local cToggle = coroutine.create(function()
-	while task.wait(math.random(3.5,7)) do
+	while task.wait(math.random(3,7)) do
 		open = not open
 		for _, light in model:GetDescendants() do
 if light:IsA("PointLight") then
@@ -134,7 +134,7 @@ game:GetService("TweenService"):Create(light, TweenInfo.new(math.random(5,12)/10
 			end
 	end
 end)
-task.wait(math.random(2,5)
+task.wait(math.random(1,2))
 coroutine.resume(cToggle)
 
 
