@@ -6,7 +6,7 @@ local Assets = {
 
 local function CrucifixEntity(entity: model, tool: Tool)
 	local model = entity
-
+local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 	local resist = false
 
 	local toolPivot = tool:GetPivot()
