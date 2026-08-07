@@ -27,15 +27,15 @@ local entity = Spawner:Create({
 		Values = {1.5, 30, 0.1, 3} -- Magnitude, Roughness, FadeIn, FadeOut
 	},
 	Movement = {
-		Speed = 225,
+		Speed = 500,
 		Delay = 4,
 		Reversed = false
 	},
 	Rebounding = {
-		Enabled = false,
+		Enabled = true,
 		Type = "Ambush", -- "Blitz"
-		Min = 1,
-		Max = 1,
+		Min = 3,
+		Max = 10,
 		Delay = 2
 	},
 	Damage = {
