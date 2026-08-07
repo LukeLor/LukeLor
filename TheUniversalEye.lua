@@ -25,7 +25,7 @@ local function CrucifixEntity(entity: model, tool: Tool)
 	local crucifix = repentance.Crucifix
 	local pentagram = repentance.Pentagram
 	local entityPart = repentance.Entity
-	local sound = (config.Crucifixion.Resist and crucifix.SoundFail or crucifix.Sound)
+	local sound =  crucifix.Sound
 	local shaker = Modules.Main_Game.camShaker:StartShake(5, 20, 2, Vector3.new())
 
 	local function waitUntil(t: number)
