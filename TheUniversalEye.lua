@@ -11,7 +11,7 @@ CustomAchievements:Grant({
     Title = "No Longer Universal",
     Desc = "Eye had enough.",
     Reason = "Banish the Universal Eye",
-    Image = "rbxassetid://117242422256656"
+    Image = "rbxassetid://140407725428176"
 }, {
     CheckOwned = false,
     Remember = false
