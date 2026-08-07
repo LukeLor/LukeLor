@@ -104,11 +104,11 @@ local functionC = coroutine.create(function()
 			if inSight then
 				--if char:WaitForChild("Humanoid")
 				if char.Humanoid.MoveDirection.Magnitude > 0 then
-				char.Humanoid.Health -= 0.4
+				char.Humanoid.Health -= 6.122412
 					if char.Humanoid.Health <= 0 then
 						if firesignal then
 								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"It seems you died to the Universal Eye..", "It's quite a simple game!", "I'm sure you're familiar with it,", "Red Light, Green Light."}, "Yellow")
-						--[[ Second Death!
+						--[[ Second Death
 								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You've died to the Universal Eye, yet again.", "I thought you would've had it!", "Remember, Red Light, Green Light!"}, "Yellow")
 						--Third
 
@@ -131,6 +131,7 @@ local functionC = coroutine.create(function()
 						--Nothing
 					else
 						model.Root.Attack:Play()
+						emodel.Root.Attack.PlaybackSpeed = math.random(50,300)/100
 					end				
 			else
 				model.Root.Attachment.Attack.Enabled = false
