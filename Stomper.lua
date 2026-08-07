@@ -3,6 +3,20 @@ print("start")
 local Assets = {
 	Repentance = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderRepentance.rbxm"),
 }
+local function Badge()
+local CustomAchievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Custom-Achievements/main/init.luau"))()
+
+CustomAchievements:Grant({
+    Identifier = "OutOfOrderCruc_Stomper",
+    Title = "Stupid Foot",
+    Desc = "Get stomped oooonnnn!",
+    Reason = "Banish Stomper",
+    Image = "rbxassetid://117242422256656"
+}, {
+    CheckOwned = false,
+    Remember = false
+})
+end
 
 local function CrucifixEntity(entity: model, tool: Tool)
 	local model = entity
@@ -138,7 +152,7 @@ local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPa
 	TweenService:Create(repentance.Crucifix, TweenInfo.new(1), { Size = repentance.Crucifix.Size * 3, Transparency = 1 }):Play()
 	TweenService:Create(repentance.Pentagram.Base.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(repentance.Crucifix.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
-
+Badge()
 	if not resist then
 		repentance.Crucifix.ExplodeParticle:Emit(math.random(20, 30))
 		Modules.Main_Game.camShaker:ShakeOnce(7.5, 7.5, 0.25, 1.5)
