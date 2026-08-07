@@ -1,10 +1,10 @@
 ---====== Load spawner ======---
 
-local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
+local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderEntitySpawner.lua"))()
 
 ---====== Create entity ======---
 
-local entity = spawner.Create({
+local entity = spawner:Create({
 	Entity = {
 		Name = "Dasher",
 		Asset = "https://github.com/LukeLor/LukeLor/raw/main/DasherNew.rbxm",
