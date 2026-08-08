@@ -116,13 +116,21 @@ local CONST = {
 				Enabled = true,
 				Range = 40,
 				Resist = false,
-				Break = true
+				Break = true,
+				CrucifixBadge = {
+					Enabled = true,
+					BadgeLink = ""
+				}
 			},
 			Death = {
 				Type = "Guiding", -- "Curious"
 				Hints = {"Death", "Hints", "Go", "Here"},
 				Cause = ""
-			}
+			},
+			EncounterBadge = {
+				Enabled = true,
+				BadgeLink = ""
+			},
 		},
 		DEBUG = {
 			OnSpawned = function() end,
