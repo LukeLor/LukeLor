@@ -18,7 +18,7 @@ CustomAchievements:Grant({
 })
 end
 
-local function CrucifixEntity(entity: model, tool: Tool)
+local function CrucifixEntity(entity, tool)
 	local model = entity
 local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 	local resist = false
@@ -42,7 +42,7 @@ local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPa
 	local sound =  crucifix.Sound
 	local shaker = Modules.Main_Game.camShaker:StartShake(5, 20, 2, Vector3.new())
 
-	local function waitUntil(t: number)
+	local function waitUntil(t)
 		repeat RunService.RenderStepped:Wait() until sound.TimePosition >= t
 	end
 	local function fadeOut()
@@ -164,7 +164,7 @@ Badge()
 	task.delay(5, repentance.Destroy, repentance)
 end
 
-				local function PlayerHasOut(itemTable: table, checkBackpack:boolean ): boolean
+				local function PlayerHasOut(itemTable, checkBackpack )
 	for indNum, item in itemTable do 
 	local tool = Character:FindFirstChild(item)
 	
