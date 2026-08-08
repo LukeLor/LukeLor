@@ -3,7 +3,7 @@ local CustomAchievements = loadstring(game:HttpGet("https://raw.githubuserconten
     Identifier = "OutOfOrderSurvive_Dasher",
     Title = "Dashing Through",
     Desc = "..the Doors...",
-    Reason = "Survive Dasher",
+    Reason = "Survive Dasher.",
     Image = "rbxassetid://118705619437445"
 }, {
     CheckOwned = false,
