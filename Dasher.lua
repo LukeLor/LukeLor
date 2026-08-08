@@ -49,7 +49,11 @@ local entity = spawner:Create({
 		Enabled = true,
 		Range = 40,
 		Resist = false,
-		Break = true
+		Break = true,
+			CrucifixBadge = {
+					Enabled = true,
+					BadgeLink = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Crucifix/Dasher.lua"
+		}
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
@@ -61,13 +65,9 @@ local entity = spawner:Create({
 ---====== Debug entity ======---
 
 entity:SetCallback("OnSpawned", function()
-    print("Entity has spawned")
+    print("Entity Spawned.")
 end)
-
-entity:SetCallback("OnCrucified", function(player)
 	
-end)
-
 entity:SetCallback("OnStartMoving", function()
     print("Entity has started moving")
 end)
