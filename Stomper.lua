@@ -4,18 +4,7 @@ local Assets = {
 	Repentance = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderRepentance.rbxm"),
 }
 local function Badge()
-local CustomAchievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Custom-Achievements/main/init.luau"))()
-
-CustomAchievements:Grant({
-    Identifier = "OutOfOrderCruc_Stomper",
-    Title = "Stupid Foot",
-    Desc = "Get stomped oooonnnn!",
-    Reason = "Banish Stomper.",
-    Image = "rbxassetid://117242422256656"
-}, {
-    CheckOwned = false,
-    Remember = false
-})
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Crucifix/Stomper.lua"))()
 end
 
 local function CrucifixEntity(entity, tool)
@@ -334,7 +323,7 @@ takedmg = false
 	stompermodel:Destroy()
 	print("\"all clean!\"")
 	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Encounters/Stomper.lua"))()
 	end
 end
 --[[while true do
