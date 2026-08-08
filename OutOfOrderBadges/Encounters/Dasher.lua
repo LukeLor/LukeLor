@@ -1,6 +1,6 @@
 local CustomAchievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Custom-Achievements/main/init.luau"))()
  CustomAchievements:Grant({
-    Identifier = "OutOfOrderCruc_Dasher",
+    Identifier = "OutOfOrderSurvive_Dasher",
     Title = "Dashing Through",
     Desc = "The Doors...",
     Reason = "Survive Dasher",
