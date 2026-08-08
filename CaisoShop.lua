@@ -83,7 +83,7 @@ Shop.PrimaryPart.CanCollide = false
 			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("The item won't be picked up considering you dont have the valid currency yet..",true)--thought
    local CustomAchievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Custom-Achievements/main/init.luau"))()
  CustomAchievements:Grant({
-    Identifier = "OutOfOrderCruc_BuyFromCaiso",
+    Identifier = "OutOfOrder_BuyFromCaiso",
     Title = "Fair Trade",
     Desc = "Dust for an item? Seems pretty good to me!",
     Reason = "Buy an item in Caiso's Shop.",
