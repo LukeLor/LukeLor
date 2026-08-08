@@ -118,7 +118,7 @@ local CONST = {
 				Resist = false,
 				Break = true,
 				CrucifixBadge = {
-					Enabled = true,
+					Enabled = false,
 					BadgeLink = ""
 				}
 			},
@@ -126,10 +126,6 @@ local CONST = {
 				Type = "Guiding", -- "Curious"
 				Hints = {"Death", "Hints", "Go", "Here"},
 				Cause = ""
-			},
-			EncounterBadge = {
-				Enabled = true,
-				BadgeLink = ""
 			},
 		},
 		DEBUG = {
@@ -438,6 +434,11 @@ local function CrucifixEntity(entity: any, tool: Tool)
 	TweenService:Create(repentance.Pentagram.Base.LightAttach.LightBright, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 	TweenService:Create(repentance.Crucifix.Light, TweenInfo.new(1), { Brightness = 0, Range = 0 }):Play()
 
+	if entity.Config.Crucifixion.CrucifixBadge.Enabled == true then
+loadstring(game:HttpGet(entity.Config.Crucifixion.CrucifixBadge.BadgeLink))()
+    end
+
+		
 	if not resist then
 		repentance.Crucifix.ExplodeParticle:Emit(math.random(20, 30))
 		Modules.Main_Game.camShaker:ShakeOnce(7.5, 7.5, 0.25, 1.5)
