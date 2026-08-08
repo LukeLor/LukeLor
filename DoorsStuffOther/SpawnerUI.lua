@@ -76,7 +76,7 @@ SetupButton("Rush Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/
 SetupButton("Ripper Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/RipperEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
 SetupButton("Silence Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/SilenceEvery30Main.lua", "Timed") -- Menus: Spawn, Timed
 SetupButton("A-100 Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/A100Every30.lua", "Timed") -- Menus: Spawn, Timed, Gamemodes
-SetupButton("Rebound Every 30 Seconds", "https://pastebin.com/raw/GMrv1hKc", "Timed") -- Menus: Spawn, Timed, Gamemodes
+SetupButton("Rebound Every 30 Seconds", "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsStuffOther/ReboundEvery30NoSpawnInHalt.lua", "Timed") -- Menus: Spawn, Timed, Gamemodes
 SetupButton("Hardcore Mode", "https://raw.githubusercontent.com/thelostw3r/Mods/main/HardcoreMode.lua", "Gamemodes") -- Menus: Spawn, Timed, Gamemodes
 SetupButton("Impossible Mode", "https://pastefy.app/rcWn8qtU/raw", "Gamemodes") -- Menus: Spawn, Timed, Gamemodes
 SetupButton("Mayhem Mode", "https://raw.githubusercontent.com/localplayerr/Doors-stuff/refs/heads/main/Mayhem%20mode%20recreate/Code", "Gamemodes") -- Menus: Spawn, Timed, Gamemodes
