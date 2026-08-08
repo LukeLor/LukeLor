@@ -154,6 +154,7 @@ end)
 
 entity:SetCallback("OnDespawned", function()
     print("Entity has despawned")
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Encounters/Dasher.lua"))()
 end)
 
 entity:SetCallback("OnDamagePlayer", function(newHealth)
