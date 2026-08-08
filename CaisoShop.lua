@@ -80,7 +80,7 @@ Shop.PrimaryPart.CanCollide = false
   local chainPrompt = Shop.Shop.IsolatedChainPurchase.Body.PurchasePrompt
  chainPrompt.Triggered:Connect(function()
 --Haha, just caption that you cant pick up. (For now.)
-			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("The item won't be picked up considering you dont have the valid currency yet..",true)--thought
+			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("The item won't be picked up, but hey, nothing got wasted!",true)--thought
    local CustomAchievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Custom-Achievements/main/init.luau"))()
  CustomAchievements:Grant({
     Identifier = "OutOfOrder_BuyFromCaiso",
