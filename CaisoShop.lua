@@ -80,17 +80,28 @@ Shop.PrimaryPart.CanCollide = false
   local chainPrompt = Shop.Shop.IsolatedChainPurchase.Body.PurchasePrompt
  chainPrompt.Triggered:Connect(function()
 --Haha, just caption that you cant pick up. (For now.)
-			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this item, due to the fact I don't even have the correct currency...",true)--thought
-    end)
+			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("The item won't be picked up considering you dont have the valid currency yet..",true)--thought
+   local CustomAchievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Custom-Achievements/main/init.luau"))()
+ CustomAchievements:Grant({
+    Identifier = "OutOfOrderCruc_BuyFromCaiso",
+    Title = "Fair Trade",
+    Desc = "Dust for an item? Seems pretty good to me!",
+    Reason = "Buy an item in Caiso's Shop.",
+    Image = "rbxassetid://113000083613394"
+}, {
+    CheckOwned = false,
+    Remember = false
+})
+		end)
 	local gumdropPrompt = Shop.Shop.Gumdrop.Root.Outer.PurchasePrompt
 	gumdropPrompt.Parent.Parent.Anchored = true
  gumdropPrompt.Triggered:Connect(function()
 --Haha, just caption that you cant pick up. (For now.)
-			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("I can't purchase this food, supported by the fact I don't even have the correct currency...",true)--thought		
+			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Nothing can be done with this yet...",true)--thought		
 		end)
 	game.Players.LocalPlayer.Character:PivotTo(Shop.PrimaryPart.CFrame)
 	
-	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player Teleported.",true)
+--	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player Teleported.",true)
 
 
 
