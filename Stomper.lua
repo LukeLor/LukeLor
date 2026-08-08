@@ -18,7 +18,7 @@ CustomAchievements:Grant({
 })
 end
 
-local function CrucifixEntity(entity: model, tool: Tool)
+local function CrucifixEntity(entity, tool)
 	local model = entity
 local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 	local resist = false
@@ -42,7 +42,7 @@ local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPa
 	local sound =  crucifix.Sound
 	local shaker = Modules.Main_Game.camShaker:StartShake(5, 20, 2, Vector3.new())
 
-	local function waitUntil(t: number)
+	local function waitUntil(t)
 		repeat RunService.RenderStepped:Wait() until sound.TimePosition >= t
 	end
 	local function fadeOut()
@@ -164,7 +164,7 @@ Badge()
 	task.delay(5, repentance.Destroy, repentance)
 end
 
-				local function PlayerHasOut(itemTable: table, checkBackpack:boolean ): boolean
+				local function PlayerHasOut(itemTable, checkBackpack)
 	for indNum, item in itemTable do 
 	local tool = Character:FindFirstChild(item)
 	
@@ -212,7 +212,7 @@ task.spawn(function()
 task.defer(moduleScripts.Earthquake, moduleScripts.Main_Game, currentRoom)
 end)
 end
-function Stomper(pos:CFrame)
+function Stomper(pos)
 print("Initiate")
 	local newvel = Instance.new("VectorForce")
 	newvel.Force =Vector3.new(0,10000,5000)
@@ -260,7 +260,7 @@ EQ(GetCurrentRoom(false))
                     if hasTool and tool and not stompermodel:GetAttribute("BeingBanished") then
 CrucifixEntity(stompermodel, tool)
 							takedmg = false
-							print("Its actually not..."
+							print("Its actually not...")
 								return
 						end
 						print("ggs")
