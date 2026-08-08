@@ -333,6 +333,9 @@ takedmg = false
 	wait(1)
 	stompermodel:Destroy()
 	print("\"all clean!\"")
+	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
+
+	end
 end
 --[[while true do
 	wait()
