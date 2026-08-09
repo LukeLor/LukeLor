@@ -53,7 +53,9 @@ local DefaultRift = {
 local Module = {}
 
 type RiftConfig = {
-    Identifier: string?
+    Identifier: string?,
+  ItemLink: string?,
+  ItemName: string?
 }
 
 type RiftLog = {
