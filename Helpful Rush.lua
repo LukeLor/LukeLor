@@ -17,10 +17,9 @@
 	
 	local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 local oxygen = char:GetAttribute("Oxygen")
-local MainUI = nil
-if game.Players.LocalPlayer.PlayerGui.MainUI:FindFirstChild("MainFrame") then
-	MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
-end
+local MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
+
+
 
 Caption = function(text)
 	if MainUI and MainUI:FindFirstChild("LiveCaptionRush")then
