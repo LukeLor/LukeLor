@@ -45,7 +45,7 @@ drainBattery = false
     end)
 
 
-while task.wait(1) do 
+while task.wait(0.5) do 
 if drainBattery then
 
 itemModel:SetAttribute("Durability", itemModel:GetAttribute() - 1.5)
