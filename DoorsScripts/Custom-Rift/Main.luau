@@ -225,7 +225,7 @@ if newConfig["ColorRed"] then
   config[identifier]["ColorRed"] = newConfig["ColorRed"]
 end
     if newConfig["ColorGreen"] then
-  config[identifier]["Color"] = newConfig["ColorGreen"]
+  config[identifier]["ColorGreen"] = newConfig["ColorGreen"]
 end
 if newConfig["ColorBlue"] then
   config[identifier]["ColorBlue"] = newConfig["ColorBlue"]
