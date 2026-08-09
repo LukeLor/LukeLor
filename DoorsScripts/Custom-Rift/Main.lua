@@ -130,11 +130,11 @@ local config = DecodeConfig()
   local assembledColorVal = Color3.fromRGB(config[identifier]["ColorRed"],config[identifier]["ColorGreen"],config[identifier]["ColorBlue"])
 local riftColorVal = Color3.fromRGB(config[identifier]["ColorRed"]-50,config[identifier]["ColorGreen"]-50,config[identifier]["ColorBlue"]-50)
 
-rift.Rift.Color3 = riftColorVal
+rift.Rift.Color = riftColorVal
 
-rift.Rift.Attachment.PointLight.Color3 = assembledColorVal
-rift.Rift.ItemHolder.PointLight.Color3 = assembledColorVal
-rift.Rift.ParticlesIn.Core.Color3 = assembledColorVal
+rift.Rift.Attachment.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
+rift.Rift.ItemHolder.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
+rift.Rift.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
 
 
