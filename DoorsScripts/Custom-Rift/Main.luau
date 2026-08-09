@@ -130,7 +130,7 @@ if typeof(position) == "Vector3" then
 
   local assembledColorVal = Color3.fromRGB(config[identifier]["ColorRed"],config[identifier]["ColorGreen"],config[identifier]["ColorBlue"])
 local riftColorVal = Color3.fromRGB(math.clamp(config[identifier]["ColorRed"]-50,0,255),math.clamp(config[identifier]["ColorGreen"]-50,0,255),math.clamp(config[identifier]["ColorBlue"]-50, 0, 255))
-rift.Rift.Color = riftColorVal
+rift.Rift.Color = assembledColorVal
 
 rift.Center.Attachment.PointLight.Color = assembledColorVal
 rift.Center.ItemHolder.PointLight.Color = assembledColorVal
