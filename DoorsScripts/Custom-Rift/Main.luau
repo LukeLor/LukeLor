@@ -166,7 +166,7 @@ end
 
   
 
-end
+
 
 Module.EraseRift = function(self, identifier: string)
     local config = DecodeConfig()
