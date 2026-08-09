@@ -23,9 +23,9 @@ local MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
 
 Caption = function(text)
 	if MainUI and MainUI:FindFirstChild("LiveCaptionRush")then
-		MainUI:FindFirstChild("LiveCaptionRush"):Destroy()
-		--[[require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
-	
+		--MainUI:FindFirstChild("LiveCaptionRush"):Destroy()
+		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
+	--[[
 		MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
         MainUI.LiveCaption.TextStrokeColor3 = Color3.fromRGB(255,255,255)
 		MainUI.LiveCaption.TextStrokeTransparency = 0
@@ -45,18 +45,18 @@ TypeCaption = function(text, typewait)
 	
 	for i = 1, #text, 1 do
 		if MainUI and MainUI:FindFirstChild("LiveCaptionRush") then
-			MainUI:FindFirstChild("LiveCaptionRush"):Destroy()
+			--MainUI:FindFirstChild("LiveCaptionRush"):Destroy()
 			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
-		MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
+		--[[MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
         MainUI.LiveCaption.TextStrokeColor3 = Color3.fromRGB(255,255,255)
 		MainUI.LiveCaption.Name = "LiveCaptionRush"
-	
+	]]
 		else
 			require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(string.sub(text,1,i), true)
-		MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
+		--[[MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
         MainUI.LiveCaption.TextStrokeColor3 = Color3.fromRGB(255,255,255)
 		MainUI.LiveCaption.Name = "LiveCaptionRush"
-	
+	]]
 		end
 			if typewait ~= nil then
 			task.wait(typewait)
