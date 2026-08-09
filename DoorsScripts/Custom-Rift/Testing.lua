@@ -4,3 +4,6 @@ local RiftHandler = loadstring(game:HttpGet("https://raw.githubusercontent.com/L
 RiftHandler:SetupRift({
 Identifier = "TestingRift"
 })
+
+
+local Rift = RiftHandler:SpawnRift("TestingRift")
