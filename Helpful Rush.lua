@@ -28,12 +28,14 @@ Caption = function(text)
 		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
 	MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
         MainUI.LiveCaption.TextStrokeColor3 = Color3.fromRGB(255,255,255)
+		MainUI.LiveCaption.TextStrokeTransparency = 0
 		MainUI.LiveCaption.Name = "LiveCaptionRush"
 	
 	else
 		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
 		MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
         MainUI.LiveCaption.TextStrokeColor3 = Color3.fromRGB(255,255,255)
+		MainUI.LiveCaption.TextStrokeTransparency = 0
 		MainUI.LiveCaption.Name = "LiveCaptionRush"
 	end
 	end
