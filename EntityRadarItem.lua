@@ -21,6 +21,23 @@ local cRoomsFold = workspace.CurrentRooms
 local lastestRoom = cRoomsFold[cRoomVal]
 local cRoom = workspace:WaitForChild(game.Players.LocalPlayer.Name):GetAttribute("CurrentRoom")
 
+game.Workspace.ChildAdded:Connect(function(child)
+	if child.Name == "AmbushMoving" then
+		
+	elseif child.Name == "RushMoving" then
+		
+
+	elseif child.Name == "A60" then
+		
+	elseif child.Name == "A120" then
+		
+	elseif child.Name == "BackdoorRush" then
+		
+	elseif child.Name == "Eyes" or child.Name == "BackdoorLookman" then
+		
+	end
+	end)
+
 
 cRoomsFold.DescendantAdded:Connect(function(child)
 if child == "Battery" then
