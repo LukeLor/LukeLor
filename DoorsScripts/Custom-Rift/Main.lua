@@ -48,7 +48,10 @@ local DefaultRift = {
     Identifier = "CustomRift",
   ItemName = "Random",
     ItemLink = "",
-  ItemIcon = ""
+  ItemIcon = "",
+  ColorRed = 100,
+  ColorBlue = 255,
+  ColorGreen = 100
 }
 
 local Module = {}
@@ -58,6 +61,7 @@ type RiftConfig = {
   ItemLink: string?,
   ItemName: string?,
   ItemIcon: string?
+  ColorRed: number?
 }
 
 type RiftLog = {
