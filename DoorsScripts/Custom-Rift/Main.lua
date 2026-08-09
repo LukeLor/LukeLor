@@ -50,8 +50,8 @@ local DefaultRift = {
     ItemLink = "",
   ItemIcon = "",
   ColorRed = 100,
-  ColorBlue = 255,
-  ColorGreen = 100
+  ColorGreen = 100,
+  ColorBlue = 255
 }
 
 local Module = {}
@@ -60,15 +60,20 @@ type RiftConfig = {
     Identifier: string?,
   ItemLink: string?,
   ItemName: string?,
-  ItemIcon: string?
-  ColorRed: number?
+  ItemIcon: string?,
+  ColorRed: number?,
+  ColorGreen: number?,
+  ColorBlue: number?
 }
 
 type RiftLog = {
     [string]: {
         ItemLink: string,
         ItemName: string,
-    ItemIcon: string
+    ItemIcon: string,
+    ColorRed: number,
+  ColorGreen: number,
+  ColorBlue: number
     }
 }
 
@@ -100,7 +105,7 @@ Module.CheckItemInRift = function(self, identifier: string): string
     end
 end
 
-Module.SpawnRift = function(self, identifier: string, color, position)
+Module.SpawnRift = function(self, identifier: string, position)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
 local rift = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsScripts/Custom-Rift/CustomRift.rbxm?=raw=true")
 rift.Parent = workspace
