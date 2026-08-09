@@ -46,8 +46,9 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 local DefaultRift = {
     Identifier = "CustomRift",
-  ItemName = "Random"
-    ItemLink = ""
+  ItemName = "Random",
+    ItemLink = "",
+  ItemIcon = ""
 }
 
 local Module = {}
@@ -55,13 +56,15 @@ local Module = {}
 type RiftConfig = {
     Identifier: string?,
   ItemLink: string?,
-  ItemName: string?
+  ItemName: string?,
+  ItemIcon: string?
 }
 
 type RiftLog = {
     [string]: {
         ItemLink: string,
-        ItemName: string
+        ItemName: string,
+    ItemIcon: string
     }
 }
 
@@ -113,7 +116,9 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     local identifier = riftConfig.Identifier or DefaultRift.Identifier
     local itemName = riftConfig.ItemName or DefaultRift.ItemName
   local itemLink = riftConfig.ItemLink or DefaultRift.ItemLink
-    if config[identifier] ~= nil then
+    local itemIcon = riftConfig.ItemIcon or DefaultRift.ItemIcon
+    
+  if config[identifier] ~= nil then
         warn("Player already set up rift.")
         return
     end
@@ -121,6 +126,7 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     config[identifier] = {
         ["ItemLink"] = itemLink,
     ["ItemName"] = itemName
+    ["ItemIcon"] = itemIcon
     }
   
     WriteConfig(config)
@@ -139,8 +145,8 @@ Module.UpdateRift = function(self, riftConfig: CurrencyConfig, newConfig)
   
 config[identifier]["ItemLink"] = newConfig["ItemLink"]
 config[identifier]["ItemName"] = newConfig["ItemName"]
+config[identifier]["ItemIcon"] = newConfig["ItemIcon"]
 
-    
     
     WriteConfig(config)
 end
