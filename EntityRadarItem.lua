@@ -4,7 +4,7 @@ if not itemModel then return end
 local MaxDur = 200
 local DurSlots = 4
 local slotDur = MaxDur/DurSlots
-itemModel:SetAttribute("Durability", math.random(150,MaxDur))
+itemModel:SetAttribute("Durability", math.random((MaxDur/4)*3,MaxDur))
 itemModel:SetAttribute("DurabilityMax", MaxDur)
 itemModel:SetAttribute("RechargeProp", "Battery")
 itemModel:SetAttribute("DurabilitySlots", DurSlots)
