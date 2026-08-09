@@ -29,7 +29,7 @@ function LoadPainting(PaintingTable, PaintingModel)
     if PaintingModel:GetAttribute("IsCustom") then return end
     PaintingModel:SetAttribute("IsCustom", true)
     local ImageLabel = PaintingModel.Canvas.SurfaceGui.ImageLabel
-    ImageLabel.Image = PaintingTable.Image
+    ImageLabel.Image = PaintingTable.ImageId
     local Prompt = PaintingModel:FindFirstChildOfClass("ProximityPrompt")
     local NewPrompt = Prompt:Clone()
     NewPrompt.Parent = PaintingModel
