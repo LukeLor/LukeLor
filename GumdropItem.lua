@@ -40,8 +40,8 @@ function HandleUsage(Gumdrop:Tool)
 			InTrans = true
 			xUsed = xUsed - 1
 			Gumdrop:SetAttribute("Stack", xUsed)
-			hum:SetAttribute("SpeedBoost", math.random(7,13))
-			hum.WalkSpeed = hum.WalkSpeed + hum:GetAttribute("SpeedBoost")
+			hum.Parent:SetAttribute("SpeedBoost", math.random(7,13))
+			hum.WalkSpeed = hum.WalkSpeed + hum.Parent:GetAttribute("SpeedBoost")
 			local PassiveHeal = MakeStatus("rbxassetid://127452134994180", "PassiveHeal")    
 			local Energetic = MakeStatus("rbxassetid://108269020278219", "Energetic")
 			PassiveHeal.Visible = true
@@ -59,10 +59,10 @@ function HandleUsage(Gumdrop:Tool)
 			end
 
 			
-			hum.WalkSpeed = hum.WalkSpeed - hum:GetAttribute("SpeedBoost")
+			hum.WalkSpeed = hum.WalkSpeed - hum.Parent:GetAttribute("SpeedBoost")
 			task.wait(0.1) 
 			InTrans = false
-			hum:SetAttribute("SpeedBoost", 0)
+			hum.Parent:SetAttribute("SpeedBoost", 0)
 			PassiveHeal:Destroy()
 			Energetic:Destroy()
 		end
