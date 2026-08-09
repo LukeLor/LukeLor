@@ -93,6 +93,10 @@ Module.CheckItemInRift = function(self, identifier: string): string
     end
 end
 
+Module.SpawnRift = function(self, identifier: string)
+
+end
+
 Module.EraseRift = function(self, identifier: string)
     local config = DecodeConfig()
 
