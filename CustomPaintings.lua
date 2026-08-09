@@ -25,7 +25,7 @@ local Possible_Paintings = {
 
 
 function LoadPainting(PaintingTable, PaintingModel)
-  
+  if PaintingModel.Name ~= PaintingTable.PaintingType then return end
     if PaintingModel:GetAttribute("IsCustom") then return end
     PaintingModel:SetAttribute("IsCustom", true)
     local ImageLabel = PaintingModel.Canvas.SurfaceGui.ImageLabel
