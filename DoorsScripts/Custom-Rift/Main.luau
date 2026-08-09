@@ -133,8 +133,8 @@ local riftColorVal = Color3.fromRGB(config[identifier]["ColorRed"]-50,config[ide
 
 rift.Rift.Color = riftColorVal
 
-rift.Center.Attachment.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
-rift.Center.ItemHolder.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
+rift.Center.Attachment.PointLight.Color = assembledColorVal
+rift.Center.ItemHolder.PointLight.Color = assembledColorVal
 rift.Center.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
   
@@ -142,7 +142,7 @@ rift.Center.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.ne
 for _, pE in rift.Center.ParticlesOut:GetChildren() do
 if pE:IsA("ParticleEmitter") then
           pE.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
-ended 
+end
   end
 rift.Center.RiftPrompt.Triggered:Connect(function()
       loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
