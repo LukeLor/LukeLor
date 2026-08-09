@@ -23,14 +23,14 @@ local cRoom = workspace:WaitForChild(game.Players.LocalPlayer.Name):GetAttribute
 
 game.Workspace.ChildAdded:Connect(function(child)
 	if child.Name == "AmbushMoving" then
-		
+		itemModel.Screen.ScreenUI.Frame.Frame.Entity.Image = "rbxassetid://10722835155"
 	elseif child.Name == "RushMoving" then
-		
+		itemModel.Screen.ScreenUI.Frame.Frame.Entity.Image = "rbxassetid://10803213894"
 
 	elseif child.Name == "A60" then
-		
+		itemModel.Screen.ScreenUI.Frame.Frame.Entity.Image = "rbxassetid://12436811020"
 	elseif child.Name == "A120" then
-		
+		itemModel.Screen.ScreenUI.Frame.Frame.Entity.Image = "rbxassetid://16755073604"
 	elseif child.Name == "BackdoorRush" then
 		
 	elseif child.Name == "Eyes" or child.Name == "BackdoorLookman" then
