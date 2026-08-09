@@ -153,7 +153,11 @@ if pE:IsA("ParticleEmitter") then
       end
       end
     end)
-
+local itemDisplay = coroutine.create(function()
+while task.wait(1) do 
+rift.Center.ItemHolder.Item.TextureId = config[identifier]["ItemIcon"]
+    end
+  end)
 return rift
 end
 
@@ -214,6 +218,7 @@ Module.UpdateRift = function(self, riftConfig: CurrencyConfig, newConfig)
 config[identifier]["ItemLink"] = newConfig["ItemLink"]
 config[identifier]["ItemName"] = newConfig["ItemName"]
 config[identifier]["ItemIcon"] = newConfig["ItemIcon"]
+
 if newConfig["ColorRed"] then
   config[identifier]["ColorRed"] = newConfig["ColorRed"]
 end
