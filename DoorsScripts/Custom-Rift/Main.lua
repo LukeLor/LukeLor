@@ -1,1 +1,28 @@
 --Rewriting
+--[[Directory:
+
+                                      Rift]
+                                  Rift
+                                  Center]
+                            Music
+                            MusicClose
+                            Attachment]
+                      PointLight
+                            ItemHolder] 
+                      PointLight
+                      Item 
+                            ParticlesIn] 
+                      Core
+                      RainbowShards
+                      Triangles
+                      ZoomParticle
+                           ParticlesOut] 
+                      Core
+                      RainbowShards
+                      Explosion
+                      Traingles
+                      RiftLines
+                      RiftLines2  
+                      ZoomParticle
+                                            RiftPrompt
+]]
