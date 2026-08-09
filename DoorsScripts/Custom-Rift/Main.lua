@@ -97,7 +97,8 @@ Module.CheckItemInRift = function(self, identifier: string): string
 end
 
 Module.SpawnRift = function(self, identifier: string)
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
+  LoadCustomInstance(
 end
 
 Module.EraseRift = function(self, identifier: string)
