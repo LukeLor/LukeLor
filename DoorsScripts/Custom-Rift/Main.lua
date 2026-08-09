@@ -106,7 +106,9 @@ Module.CheckItemInRift = function(self, identifier: string): string
 end
 
 Module.SpawnRift = function(self, identifier: string, position)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
+local config = DecodeConfig()
+if not config[identifier] then warn("Cant spawn rift because config for the given identifier doesnt exist.")return end
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
 local rift = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsScripts/Custom-Rift/CustomRift.rbxm?=raw=true")
 rift.Parent = workspace
 rift.Name = "Rift_"..identifier.."_Live"
@@ -125,19 +127,18 @@ if typeof(position) == "Vector3" then
  
   rift:PivotTo(pivotPart.CFrame)
   
-local config = DecodeConfig()
 
   local assembledColorVal = Color3.fromRGB(config[identifier]["ColorRed"],config[identifier]["ColorGreen"],config[identifier]["ColorBlue"])
 local riftColorVal = Color3.fromRGB(config[identifier]["ColorRed"]-50,config[identifier]["ColorGreen"]-50,config[identifier]["ColorBlue"]-50)
 
 rift.Rift.Color = riftColorVal
 
-rift.Rift.Attachment.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
-rift.Rift.ItemHolder.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
-rift.Rift.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
+rift.Center.Attachment.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
+rift.Center.ItemHolder.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
+rift.Center.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
 
-for pE in rift.Rift.ParticlesOut:GetChildren()
+for pE in rift.Center.ParticlesOut:GetChildren()
 if pE:IsA("ParticleEmitter") then
           pE.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
@@ -166,9 +167,9 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     local itemName = riftConfig.ItemName or DefaultRift.ItemName
   local itemLink = riftConfig.ItemLink or DefaultRift.ItemLink
     local itemIcon = riftConfig.ItemIcon or DefaultRift.ItemIcon
-    local colorRed = riftConfig.ig.ItemLink or DefaultRift.ItemLink
-    local colorGreen = riftConfig.ItemLink or DefaultRift.ItemLink
-    local colorBlue = riftConfig.ItemLink or DefaultRift.ItemLink
+    local colorRed = riftConfig.ColorRed or DefaultRift.ColorGreen
+    local colorGreen = riftConfig.ColorGreen or DefaultRift.ColorGreen
+    local colorBlue = riftConfig.ColorBlue or DefaultRift.ColorBlue
     
   if config[identifier] ~= nil then
         warn("Player already set up rift.")
@@ -177,8 +178,11 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
 
     config[identifier] = {
         ["ItemLink"] = itemLink,
-    ["ItemName"] = itemName
-    ["ItemIcon"] = itemIcon
+    ["ItemName"] = itemName,
+    ["ItemIcon"] = itemIcon,
+  ["ColorRed"] = colorRed,
+  ["ColorGreen"] = colorGreen,
+  ["ColorBlue"] = colorBlue
     }
   
     WriteConfig(config)
@@ -198,8 +202,17 @@ Module.UpdateRift = function(self, riftConfig: CurrencyConfig, newConfig)
 config[identifier]["ItemLink"] = newConfig["ItemLink"]
 config[identifier]["ItemName"] = newConfig["ItemName"]
 config[identifier]["ItemIcon"] = newConfig["ItemIcon"]
+if newConfig["ColorRed"] then
+  config[identifier]["ColorRed"] = newConfig["ColorRed"]
+end
+    if newConfig["ColorGreen"] then
+  config[identifier]["Color"] = newConfig["ColorGreen"]
+end
+if newConfig["ColorBlue"] then
+  config[identifier]["ColorBlue"] = newConfig["ColorBlue"]
+end
 
-    
+
     WriteConfig(config)
 end
 
