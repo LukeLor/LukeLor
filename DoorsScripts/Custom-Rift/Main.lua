@@ -46,7 +46,7 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 local DefaultRift = {
     Identifier = "CustomRift",
-  ItemName = "Random",
+  ItemName = "Gumdrop",
     ItemLink = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/GumdropItem.lua",
   ItemIcon = "rbxassetid://112795458705129",
   ColorRed = 120,
