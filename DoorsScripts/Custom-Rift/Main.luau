@@ -139,14 +139,14 @@ rift.Center.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.ne
 
   
 
-for _, pE in rift.Center.ParticlesOut:GetChildren()
+for _, pE in rift.Center.ParticlesOut:GetChildren() do
 if pE:IsA("ParticleEmitter") then
           pE.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
   end
 rift.Center.RiftPrompt.Triggered:Connect(function()
       loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
-for _, pE in rift.Center.ParticlesOut:GetChildren()
+for _, pE in rift.Center.ParticlesOut:GetChildren() do
 if pE:IsA("ParticleEmitter") then
           pE.Enabled = true
       task.wait(0.3)
@@ -185,7 +185,7 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     local itemName = riftConfig.ItemName or DefaultRift.ItemName
   local itemLink = riftConfig.ItemLink or DefaultRift.ItemLink
     local itemIcon = riftConfig.ItemIcon or DefaultRift.ItemIcon
-    local colorRed = riftConfig.ColorRed or DefaultRift.ColorGreen
+    local colorRed = riftConfig.ColorRed or DefaultRift.ColorRed
     local colorGreen = riftConfig.ColorGreen or DefaultRift.ColorGreen
     local colorBlue = riftConfig.ColorBlue or DefaultRift.ColorBlue
     
@@ -206,9 +206,9 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     WriteConfig(config)
 end
 
-Module.UpdateRift = function(self, riftConfig: CurrencyConfig, newConfig)
+Module.UpdateRift = function(self, riftConfig: RiftConfig, newConfig)
     local config = DecodeConfig()
-    local identifier = riftConfig.Identifier or DefaultCurrency.Identifier
+    local identifier = riftConfig.Identifier or DefaultRift.Identifier
     
     if config[identifier] == nil then
         warn("Can't update. No rift has an identifier of: '"..tostring(identifier).."' so try using SetupRift() instead.")  
