@@ -137,7 +137,12 @@ rift.Rift.ItemHolder.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint
 rift.Rift.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
 
+for pE in rift.Rift.ParticlesOut:GetChildren()
+if pE:IsA("ParticleEmitter") then
+          pE.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
+  end
+end
 
 
   
