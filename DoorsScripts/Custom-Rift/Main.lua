@@ -1,5 +1,6 @@
 --Rewriting
 --[[Directory:
+--MINUS 50 ON RIFT COLOR
 
                                       Rift]
                                   Rift
