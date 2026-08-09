@@ -18,7 +18,7 @@
 	local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 local oxygen = char:GetAttribute("Oxygen")
 local MainUI = nil
-if Player.PlayerGui.MainUI:FindFirstChild("MainFrame") then
+if game.Players.LocalPlayer.PlayerGui.MainUI:FindFirstChild("MainFrame") then
 	MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
 end
 
