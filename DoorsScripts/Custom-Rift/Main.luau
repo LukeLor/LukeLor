@@ -142,7 +142,7 @@ rift.Center.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.ne
 for _, pE in rift.Center.ParticlesOut:GetChildren() do
 if pE:IsA("ParticleEmitter") then
           pE.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
-
+ended 
   end
 rift.Center.RiftPrompt.Triggered:Connect(function()
       loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
