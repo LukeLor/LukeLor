@@ -166,6 +166,9 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     local itemName = riftConfig.ItemName or DefaultRift.ItemName
   local itemLink = riftConfig.ItemLink or DefaultRift.ItemLink
     local itemIcon = riftConfig.ItemIcon or DefaultRift.ItemIcon
+    local colorRed = riftConfig.ig.ItemLink or DefaultRift.ItemLink
+    local colorGreen = riftConfig.ItemLink or DefaultRift.ItemLink
+    local colorBlue = riftConfig.ItemLink or DefaultRift.ItemLink
     
   if config[identifier] ~= nil then
         warn("Player already set up rift.")
