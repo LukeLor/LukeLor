@@ -96,13 +96,19 @@ Module.CheckItemInRift = function(self, identifier: string): string
     end
 end
 
-Module.SpawnRift = function(self, identifier: string, position)
+Module.SpawnRift = function(self, identifier: string, color, position)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
 local rift = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsScripts/Custom-Rift/CustomRift.rbxm?=raw=true")
 rift.Parent = workspace
 rift.Name = "Rift_"..identifier.."_Live"
  local pivotPart = Instance.new("Part")
+if typeof(position) == "Vector3" then
   pivotPart.Position = position
+  elseif typeof(position) == "CFrame" then
+    pivotPart.CFrame = position 
+  else
+    pivotPart.Position = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position
+  end
   pivotPart.Anchored = true
   pivotPart.CanCollide = false
   pivotPart.Transparency = 1
