@@ -51,7 +51,8 @@ local DefaultRift = {
   ItemIcon = "rbxassetid://112795458705129",
   ColorRed = 120,
   ColorGreen = 217,
-  ColorBlue = 255
+  ColorBlue = 255,
+MusicId = "rbxassetid://11869807210"
 }
 
 local Module = {}
@@ -63,7 +64,8 @@ type RiftConfig = {
   ItemIcon: string?,
   ColorRed: number?,
   ColorGreen: number?,
-  ColorBlue: number?
+  ColorBlue: number?,
+MusicId: string?
 }
 
 type RiftLog = {
@@ -73,7 +75,8 @@ type RiftLog = {
     ItemIcon: string,
     ColorRed: number,
   ColorGreen: number,
-  ColorBlue: number
+  ColorBlue: number,
+MusicId: string
     }
 }
 
@@ -135,7 +138,8 @@ rift.Rift.Color = assembledColorVal
 rift.Center.Attachment.PointLight.Color = assembledColorVal
 rift.Center.ItemHolder.PointLight.Color = assembledColorVal
 rift.Center.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
-
+rift.Center.Music.SoundId =  config[identifier]["MusicId"]
+rift.Center.MusicClose.SoundId =  config[identifier]["MusicId"]
   
 
 for _, pE in rift.Center.ParticlesOut:GetChildren() do
@@ -187,7 +191,7 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     local colorRed = riftConfig.ColorRed or DefaultRift.ColorRed
     local colorGreen = riftConfig.ColorGreen or DefaultRift.ColorGreen
     local colorBlue = riftConfig.ColorBlue or DefaultRift.ColorBlue
-    
+      local musicId = riftConfig.MusicId or DefaultRift.MusicId
   if config[identifier] ~= nil then
         warn("Player already set up rift.")
         return
@@ -199,7 +203,8 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     ["ItemIcon"] = itemIcon,
   ["ColorRed"] = colorRed,
   ["ColorGreen"] = colorGreen,
-  ["ColorBlue"] = colorBlue
+  ["ColorBlue"] = colorBlue,
+  ["MusicId"] = musicId
     }
   
     WriteConfig(config)
@@ -228,6 +233,9 @@ end
 end
 if newConfig["ColorBlue"] then
   config[identifier]["ColorBlue"] = newConfig["ColorBlue"]
+end
+if newConfig["MusicId"] then
+  config[identifier]["MusicId"] = newConfig["MusicId"]
 end
 
 
