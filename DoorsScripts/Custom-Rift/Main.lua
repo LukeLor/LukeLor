@@ -107,31 +107,36 @@ Module.SetupRift = function(self, riftConfig: RiftConfig)
     local config = DecodeConfig()
     
     local identifier = riftConfig.Identifier or DefaultRift.Identifier
-    local itemName = riftConfig.
+    local itemName = riftConfig.ItemName or DefaultRift.ItemName
+  local itemLink = riftConfig.ItemLink or DefaultRift.ItemLink
     if config[identifier] ~= nil then
         warn("Player already set up rift.")
         return
     end
 
     config[identifier] = {
-        ["ItemLink"] = ,
-    ["ItemName"] = 
+        ["ItemLink"] = itemLink,
+    ["ItemName"] = itemName
     }
   
     WriteConfig(config)
 end
 
-Module.UpdateCurrency = function(self, currencyConfig: CurrencyConfig, addedAmt: number)
+Module.UpdateRift = function(self, riftConfig: CurrencyConfig, newConfig)
     local config = DecodeConfig()
-    local identifier = currencyConfig.Identifier or DefaultCurrency.Identifier
+    local identifier = riftConfig.Identifier or DefaultCurrency.Identifier
     
     if config[identifier] == nil then
-        warn("Can't update. No currency has an identifier of: '"..tostring(identifier).."' so try using SetupCurrency() instead.")  
+        warn("Can't update. No rift has an identifier of: '"..tostring(identifier).."' so try using SetupRift() instead.")  
         return
     end
 
-local toAdd = addedAmt ~= nil and addedAmt or 1
-    config[identifier]["Amount"] = config[identifier]["Amount"] + toAdd 
+
+  
+config[identifier]["ItemLink"] = newConfig["ItemLink"]
+config[identifier]["ItemName"] = newConfig["ItemName"]
+
+    
     
     WriteConfig(config)
 end
