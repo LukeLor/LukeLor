@@ -96,9 +96,20 @@ Module.CheckItemInRift = function(self, identifier: string): string
     end
 end
 
-Module.SpawnRift = function(self, identifier: string)
+Module.SpawnRift = function(self, identifier: string, position)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
-  LoadCustomInstance(
+local rift = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsScripts/Custom-Rift/CustomRift.rbxm?=raw=true")
+rift.Parent = workspace
+rift.Name = "Rift_"..identifier.."_Live"
+ local pivotPart = Instance.new("Part")
+  pivotPart.Position = position
+  pivotPart.Anchored = true
+  pivotPart.CanCollide = false
+  pivotPart.Transparency = 1
+  pivotPart.Parent = workspace
+ 
+  rift:PivotTo(pivotPart.CFrame)
+
 end
 
 Module.EraseRift = function(self, identifier: string)
