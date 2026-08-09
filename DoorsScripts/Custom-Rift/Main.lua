@@ -137,12 +137,24 @@ rift.Center.Attachment.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoi
 rift.Center.ItemHolder.PointLight.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 rift.Center.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
+  
 
 for pE in rift.Center.ParticlesOut:GetChildren()
 if pE:IsA("ParticleEmitter") then
           pE.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
   end
+rift.Center.RiftPrompt.Triggered:Connect(function()
+for pE in rift.Center.ParticlesOut:GetChildren()
+if pE:IsA("ParticleEmitter") then
+          pE.Enabled = true
+      task.wait(0.3)
+     pE.Enabled = false
+      end
+      end
+    end)
+
+return rift
 end
 
 
