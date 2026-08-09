@@ -127,7 +127,21 @@ if typeof(position) == "Vector3" then
   
 local config = DecodeConfig()
 
-  local assembledColorVal = Color3.fromRGB(config[identifier][""],config[identifier][""],config[identifier][""])
+  local assembledColorVal = Color3.fromRGB(config[identifier]["ColorRed"],config[identifier]["ColorGreen"],config[identifier]["ColorBlue"])
+local riftColorVal = Color3.fromRGB(config[identifier]["ColorRed"]-50,config[identifier]["ColorGreen"]-50,config[identifier]["ColorBlue"]-50)
+
+rift.Rift.Color3 = riftColorVal
+
+rift.Rift.Attachment.PointLight.Color3 = assembledColorVal
+rift.Rift.ItemHolder.PointLight.Color3 = assembledColorVal
+rift.Rift.ParticlesIn.Core.Color3 = assembledColorVal
+
+
+
+
+
+  
+
 end
 
 Module.EraseRift = function(self, identifier: string)
