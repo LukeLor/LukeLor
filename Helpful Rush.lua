@@ -19,7 +19,7 @@
 local oxygen = char:GetAttribute("Oxygen")
 local MainUI = nil
 if Player.PlayerGui.MainUI:FindFirstChild("MainFrame") then
-	MainUI = game.PlayersLocalPlayer.PlayerGui.MainUI.MainFrame
+	MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
 end
 
 Caption = function(text)
