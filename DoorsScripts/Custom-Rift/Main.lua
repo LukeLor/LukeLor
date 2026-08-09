@@ -49,8 +49,8 @@ local DefaultRift = {
   ItemName = "Random",
     ItemLink = "",
   ItemIcon = "",
-  ColorRed = 100,
-  ColorGreen = 100,
+  ColorRed = 120,
+  ColorGreen = 217,
   ColorBlue = 255
 }
 
@@ -124,7 +124,10 @@ if typeof(position) == "Vector3" then
   pivotPart.Parent = workspace
  
   rift:PivotTo(pivotPart.CFrame)
+  
+local config = DecodeConfig()
 
+  local assembledColorVal = Color3.fromRGB(config[identifier][""],config[identifier][""],config[identifier][""])
 end
 
 Module.EraseRift = function(self, identifier: string)
