@@ -35,7 +35,7 @@ function LoadPainting(PaintingTable, PaintingModel)
     NewPrompt.Parent = PaintingModel
   local captionText = PaintingTable.CustomMessage ~= nil and PaintingTable.CustomMessage or "This painting is titled \""..PaintingTable.Name..".\""
     NewPrompt.Triggered:Connect(function()
- require(MainUI.Main_Game).caption(captionText, true)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(captionText, true)
     end)
     Prompt:Destroy()
 end
