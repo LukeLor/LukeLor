@@ -145,6 +145,7 @@ if pE:IsA("ParticleEmitter") then
 
   end
 rift.Center.RiftPrompt.Triggered:Connect(function()
+      loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
 for pE in rift.Center.ParticlesOut:GetChildren()
 if pE:IsA("ParticleEmitter") then
           pE.Enabled = true
@@ -158,6 +159,7 @@ while task.wait(1) do
 rift.Center.ItemHolder.Item.TextureId = config[identifier]["ItemIcon"]
     end
   end)
+coroutine.resume(itemDisplay)
 return rift
 end
 
