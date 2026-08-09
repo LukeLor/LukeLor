@@ -139,14 +139,14 @@ rift.Center.ParticlesIn.Core.Color = ColorSequence.new{ ColorSequenceKeypoint.ne
 
   
 
-for pE in rift.Center.ParticlesOut:GetChildren()
+for _, pE in rift.Center.ParticlesOut:GetChildren()
 if pE:IsA("ParticleEmitter") then
           pE.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 
   end
 rift.Center.RiftPrompt.Triggered:Connect(function()
       loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
-for pE in rift.Center.ParticlesOut:GetChildren()
+for _, pE in rift.Center.ParticlesOut:GetChildren()
 if pE:IsA("ParticleEmitter") then
           pE.Enabled = true
       task.wait(0.3)
