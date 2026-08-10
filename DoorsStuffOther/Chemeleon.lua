@@ -205,7 +205,7 @@ end
 local nodes = VisualizeNodes(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value])
 local cnode = nodes[math.random(1,#nodes)]
 
-local model = "MODEL_ID_SOON" -- LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/TUE.rbxm")
+local model = "rbxassetid://11652586296" -- LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/TUE.rbxm")
 
 if not model then return end
 print("Model has loaded!")
@@ -216,4 +216,6 @@ print("PrimaryPart found.")
 model.Parent = game.ReplicatedStorage
 model:PivotTo(cnode.CFrame)
 require(ReplicatedStorage.ModulesClient.Module_Events).flicker(workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], 5)
-task.wait(5)
+task.wait(7)
+model.Parent = workspace 
+game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = pos}):Play()
