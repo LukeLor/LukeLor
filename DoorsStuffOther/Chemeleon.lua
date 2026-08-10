@@ -228,8 +228,8 @@ if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
 canDespawn = true
 			end
 if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character:GetAttribute("Hiding") == true and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
-CrucifixEntity()
+				if game.Players.LocalPlayer.Character.Crucifix:FindFirstChild("Crucifix") then
+CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				else
 					game.Players.LocalPlayer.Character.Humanoid.Health = 0
 				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to a chemeleon","It hides in the corner of the room and flickers the lights","It hates hiding spots","Dont hide!"}, "Blue")
