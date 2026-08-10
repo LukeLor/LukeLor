@@ -1,4 +1,10 @@
 --Will add model later, just doing this on logic!!!
+local ROOT = "https://github.com/RegularVynixu/DOORS-Entity-Spawner-V2/raw/main"
+
+local Assets = {
+	Repentance = LoadCustomInstance(ROOT.."/Assets/Repentance.rbxm")
+
+}
 
 local function CrucifixEntity(entity: any, tool: Tool)
 	local model = entity
@@ -21,7 +27,7 @@ local function CrucifixEntity(entity: any, tool: Tool)
 	local crucifix = repentance.Crucifix
 	local pentagram = repentance.Pentagram
 	local entityPart = repentance.Entity
-	local sound = (config.Crucifixion.Resist and crucifix.SoundFail or crucifix.Sound)
+	local sound = (resist and crucifix.SoundFail or crucifix.Sound)
 	local shaker = Modules.Main_Game.camShaker:StartShake(5, 20, 2, Vector3.new())
 
 	local function waitUntil(t: number)
