@@ -205,4 +205,4 @@ if not model.PrimaryPart then return end
 print("PrimaryPart found.")
 model.Parent = game.ReplicatedStorage
 model:PivotTo(cnode.CFrame)
-require(ReplicatedStorage.ModulesClient.Module_Events).flicker(game.Players.LocalPlayer:GetAttribute("CurrentRoom"), 5)
+require(ReplicatedStorage.ModulesClient.Module_Events).flicker(workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], 5)
