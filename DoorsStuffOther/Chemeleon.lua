@@ -227,10 +227,14 @@ local main = coroutine.create(function()
 if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
 canDespawn = true
 			end
-if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character:GetAttribute("Hiding") == true then
-game.Players.LocalPlayer.Character.Humanoid.Health = 0
+if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character:GetAttribute("Hiding") == true and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
+CrucifixEntity()
+				else
+					game.Players.LocalPlayer.Character.Humanoid.Health = 0
 				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to a chemeleon","It hides in the corner of the room and flickers the lights","It hates hiding spots","Dont hide!"}, "Blue")
-           
+
+				end
 			end			
 			
 		end
