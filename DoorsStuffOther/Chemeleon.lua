@@ -1,4 +1,6 @@
 --Will add model later, just doing this on logic!!!
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))();
+
 local ROOT = "https://github.com/RegularVynixu/DOORS-Entity-Spawner-V2/raw/main"
 
 local Modules = {
