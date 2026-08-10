@@ -222,4 +222,5 @@ while task.wait() do
 	cnode = nodes[math.random(1,#nodes)]
 
 game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = cnode.Position +  Vector3.new(0,math.random(-6,6),0)}):Play()
+task.wait(3.5)
 end
