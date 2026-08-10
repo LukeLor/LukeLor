@@ -217,7 +217,7 @@ if not model.PrimaryPart then return end
 print("PrimaryPart found.")
 model.Parent = game.ReplicatedStorage
 model:PivotTo(cnode.CFrame)
-require(ReplicatedStorage.ModulesClient.Module_Events).flicker(workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], 5)
+require(game.ReplicatedStorage.ModulesClient.Module_Events).flicker(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value], 5)
 task.wait(7)
  nodes = VisualizeNodes(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value])
 cnode = nodes[math.random(1,#nodes)]
