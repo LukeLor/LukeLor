@@ -1,6 +1,11 @@
 --Will add model later, just doing this on logic!!!
 local ROOT = "https://github.com/RegularVynixu/DOORS-Entity-Spawner-V2/raw/main"
 
+local Modules = {
+	Module_Events = require(ReplicatedStorage.ModulesClient.Module_Events :: ModuleScript),
+	Main_Game = require(PlayerGui.MainUI.Initiator.Main_Game :: ModuleScript)
+}
+
 local Assets = {
 	Repentance = LoadCustomInstance(ROOT.."/Assets/Repentance.rbxm")
 
