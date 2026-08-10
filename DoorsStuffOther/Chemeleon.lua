@@ -227,7 +227,9 @@ local main = coroutine.create(function()
 if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
 canDespawn = true
 			end
+if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character:GetAttribute("Hiding") == true then
 
+			end			
 			
 		end
 	end)
