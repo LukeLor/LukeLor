@@ -229,7 +229,7 @@ canDespawn = true
 			end
 if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character:GetAttribute("Hiding") == true then
 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {}, "Blue")
+				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to a chemeleon","It hides in the corner of the room and flickers the lights","It hates hiding spots","Dont hide!"}, "Blue")
            
 			end			
 			
