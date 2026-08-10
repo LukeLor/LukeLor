@@ -207,7 +207,7 @@ end
 local nodes = VisualizeNodes(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value])
 local cnode = nodes[math.random(1,#nodes)]
 
-local model = "rbxassetid://11652586296" -- LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/TUE.rbxm")
+local model = game:GetObjects("rbxassetid://11652586296")[1] -- LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/TUE.rbxm")
 
 if not model then return end
 print("Model has loaded!")
