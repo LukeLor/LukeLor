@@ -1,7 +1,5 @@
 --Will add model later, just doing this on logic!!!
-local Assets = {
-	Repentance = LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderRepentance.rbxm"),
-}
+
 local function CrucifixEntity(entity: any, tool: Tool)
 	local model = entity
 	
