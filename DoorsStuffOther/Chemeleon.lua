@@ -207,7 +207,7 @@ end
 local nodes = VisualizeNodes(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value])
 local cnode = nodes[math.random(1,#nodes)]
 
-local model = game:GetObjects("rbxassetid://11652586296")[1] -- LoadCustomInstance("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/TUE.rbxm")
+local model = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/Chemeleon.rbxm?raw=true")
 
 if not model then return end
 print("Model has loaded!")
@@ -230,7 +230,7 @@ if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
 canDespawn = true
 			end
 if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character:GetAttribute("Hiding") == true and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-				if game.Players.LocalPlayer.Character.Crucifix:FindFirstChild("Crucifix") then
+				if game.Players.LocalPlayer.Character:FindFirstChild("Crucifix") then
 CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				else
 					game.Players.LocalPlayer.Character.Humanoid.Health = 0
