@@ -217,10 +217,26 @@ model.Parent = game.ReplicatedStorage
 model:PivotTo(cnode.CFrame)
 require(ReplicatedStorage.ModulesClient.Module_Events).flicker(workspace.CurrentRooms[game.Players.LocalPlayer:GetAttribute("CurrentRoom")], 5)
 task.wait(7)
+ nodes = VisualizeNodes(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value])
+cnode = nodes[math.random(1,#nodes)]
+local InitRoomNum = game.ReplicatedStorage.GameData.LatestRoom.Value 
 model.Parent = workspace 
-while task.wait() do
+local canDespawn = false
+local main = coroutine.create(function() 
+		while task.wait() do 
+if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
+canDespawn = true
+			end
+
+			
+		end
+	end)
+
+
+
+	while task.wait() do
 	cnode = nodes[math.random(1,#nodes)]
 
 game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = cnode.Position +  Vector3.new(0,math.random(-6,6),0)}):Play()
-task.wait(3.5)
+task.wait(3.5) if canDespawn then break end
 end
