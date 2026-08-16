@@ -1,4 +1,4 @@
---Rewriting
+--A-15_Playz, If you see this commit, I still don't have my phone, and am using my mom's old phone to code, lol
 --[[Directory:
 --MINUS 50 ON RIFT COLOR
 
@@ -148,7 +148,7 @@ if pE:IsA("ParticleEmitter") then
 end
   end
 rift.Center.RiftPrompt.Triggered:Connect(function()
-      loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
+     --  loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
 for _, pE in rift.Center.ParticlesOut:GetChildren() do
 if pE:IsA("ParticleEmitter") then
           pE.Enabled = true
