@@ -55,7 +55,11 @@ Light3.Parent = LightAtt3
 Light3.Shadows = true
 Light3.Brightness =1
 Light3.Color = Color3.fromRGB(115, 255, 152)
- 
+
+Light1.Range = 32 
+Light2.Range = 32 
+Light3.Range = 32
+
 local SpinC = coroutine.create(function()
     while task.wait() do
     Part.Rotation += Vector3.new(math.random(1,4),math.random(10,40),math.random(1,4))           
