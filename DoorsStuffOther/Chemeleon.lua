@@ -247,7 +247,7 @@ CrucifixEntity(model, game.Players.LocalPlayer.Backpack.Crucifix)
 		end
 	end)
 
-
+coroutine.resume(main)
 
 	while task.wait() do
 	cnode = nodes[math.random(1,#nodes)]
