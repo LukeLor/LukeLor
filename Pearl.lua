@@ -10,7 +10,12 @@ Part.Size = Vector3.new(3,3,3)
 Part.Position = Vector3.new(0,0,0)
 Part.Parent = groupingModel 
 Part.Color = Color3.fromRGB(115, 255, 152)
- 
+
+local RootPart = Part:Clone()
+RootPart.Transparency = 1
+
+groupingModel.PrimaryPart = RootPart
+
 local Part2 = Part:Clone()
 Part2.Parent = groupingModel 
 Part2.Color = Color3.fromRGB(158, 215, 255)
