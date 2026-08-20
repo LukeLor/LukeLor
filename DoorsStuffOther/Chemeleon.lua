@@ -229,11 +229,11 @@ local main = coroutine.create(function()
 if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
 canDespawn = true
 			end
-			if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - model.PrimaryPart.Position).Magnitude < 15 then
+		--[[	if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - model.PrimaryPart.Position).Magnitude < 15 then
 if game.Players.LocalPlayer.Character:FindFirstChild("Crucifix") then
 CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				end
-			end
+			end]]
 				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
 CrucifixEntity(model, game.Players.LocalPlayer.Backpack.Crucifix)
