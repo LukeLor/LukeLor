@@ -229,7 +229,7 @@ local main = coroutine.create(function()
 if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
 canDespawn = true
 			end
-if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character:GetAttribute("Hiding") == true and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 				if game.Players.LocalPlayer.Character:FindFirstChild("Crucifix") then
 CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				else
@@ -250,3 +250,4 @@ CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = cnode.Position +  Vector3.new(0,math.random(-6,6),0)}):Play()
 task.wait(3.5) if canDespawn then break end
 end
+model:Destroy()
