@@ -13,6 +13,7 @@ Part.Color = Color3.fromRGB(115, 255, 152)
 
 local RootPart = Part:Clone()
 RootPart.Transparency = 1
+RootPart.Parent = groupingModel
 
 groupingModel.PrimaryPart = RootPart
 
