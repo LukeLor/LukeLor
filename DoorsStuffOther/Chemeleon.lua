@@ -228,6 +228,8 @@ local main = coroutine.create(function()
 		while task.wait() do 
 if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
 canDespawn = true
+				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn Value is true, yayyyyy!!!")
+
 			end
 		--[[	if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - model.PrimaryPart.Position).Magnitude < 15 then
 if game.Players.LocalPlayer.Character:FindFirstChild("Crucifix") then
@@ -236,9 +238,13 @@ CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 			end]]
 				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
+					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!!")
+
 CrucifixEntity(model, game.Players.LocalPlayer.Backpack.Crucifix)
 				else
 					game.Players.LocalPlayer.Character.Humanoid.Health = 0
+					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Alright, you should be dead.")
+
 				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to a chemeleon","It hides in the corner of the room and flickers the lights","It hates hiding spots","Dont hide!"}, "Blue")
 
 				end
@@ -248,11 +254,16 @@ CrucifixEntity(model, game.Players.LocalPlayer.Backpack.Crucifix)
 	end)
 
 coroutine.resume(main)
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Main Running")
 
 	while task.wait() do
 	cnode = nodes[math.random(1,#nodes)]
 
 game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = cnode.Position +  Vector3.new(0,math.random(-6,6),0)}):Play()
-task.wait(3.5) if canDespawn then break end
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Moving")
+
+	task.wait(3.5) if canDespawn then break end
 end
 model:Destroy()
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn")
+
