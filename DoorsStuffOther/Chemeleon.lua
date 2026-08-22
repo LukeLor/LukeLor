@@ -28,17 +28,16 @@ local Assets = {
 }
 
 local function CrucifixEntity(entity, tool)
-	local model = entity.Model
-	local config = entity.Config
+	local model = entity
 
-	local resist = config.Crucifixion.Resist
+	local resist = true
 
     -- \\ Setup
 	local entityPivot = model:GetPivot()
 
 	local params = RaycastParams.new()
 	params.FilterType = Enum.RaycastFilterType.Exclude
-	params.FilterDescendantsInstances = {Character, model}
+	params.FilterDescendantsInstances = {game.Players.LocalPlayer.Character, model}
 	
     local result = workspace:Raycast(entityPivot.Position, Vector3.new(0, -1000, 0), params)
     if not result then return end
