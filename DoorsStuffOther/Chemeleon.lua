@@ -286,6 +286,7 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("
 end
 model.RushNew.Anchored = false
 model.RushNew.CanCollide = false
+game.Debris:AddItem(model, 6)
 
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn")
 
