@@ -3,43 +3,43 @@ local MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
 local PaintingNames = {"Painting_Small", "Painting_Big", "Painting_VeryBig", "Painting_Tall"}
 
 local Possible_Paintings = {
-  Descending = {
+  {
       ImageId = "rbxassetid://135131256657473"
       Name = "Descending",
      PaintingType = "Painting_Big",
     CustomMessage = nil
 },
-  StormySky = {
+  {
       ImageId = "rbxassetid://119903654385404"
       Name = "Stormy Sky",
       PaintingType = "Painting_Tall",
       CustomMessage = nil
 },
-  TheFourOfUs = {
+  {
       ImageId = "rbxassetid://128088934961210"
       Name = "The Four of Us",
       PaintingType = "Painting_VeryBig",
       CustomMessage = nil
 },
-  Moonlight = {
+  {
     ImageId = "rbxassetid://100337614205400",
     Name = "Moonlight",
     PaintingType = "Painting_Small",
     CustomMessage = nil
 },
-  Starlight = {
+  {
     ImageId = "rbxassetid://120325627880675", 
     Name = "Starlight",
     PaintingType = "Painting_Small",
     CustomMessage = nil
 },
-  Asterlight = {
+  {
     ImageId = "rbxassetid://76169242475770",
     Name = "Asterlight",
     PaintingType = "Painting_Small",
     CustomMessage = nil
 },
-   RedLight = { 
+   { 
     ImageId = "rbxassetid://76231278059847",
     Name = "Red Light",
     PaintingType = "Painting_Small",
