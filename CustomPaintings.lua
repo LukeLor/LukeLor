@@ -98,8 +98,7 @@ local paintingModel = roomHasPaintingType(cRoom, randomPainting.PaintingType)
       if roomHasPaintingType(cRoom, randomPainting.PaintingType) ~= nil then
 local paintingModel = roomHasPaintingType(cRoom, randomPainting.PaintingType)
         LoadPainting(randomPainting, paintingModel) loaded = true end
-        until
-      loaded == true or cVal ~= game.ReplicatedStorage.GameData.LatestRoom.Value 
+        until loaded == true or cVal ~= game.ReplicatedStorage.GameData.LatestRoom.Value 
       end
     end
 
