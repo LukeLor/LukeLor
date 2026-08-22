@@ -243,7 +243,7 @@ CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 			
 				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
 				game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(2), {Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position}):Play()
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player found, eek! Going to them!!!")
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player located.")
 pause = true
 	task.wait(1.9) 
 				if not game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
@@ -252,7 +252,7 @@ pause = true
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
 					if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
 			
-					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!")
+					--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!")
 local crucifix = game.Players.LocalPlayer.Backpack.Crucifix
 						pause = true
 	crucifix.Parent = game.Players.LocalPlayer.Character
@@ -274,14 +274,14 @@ canDespawn = true
 end)
 
 coroutine.resume(main)
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Main Running")
+--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Main Running")
 
 	while task.wait() do
 	if pause == false then
 	cnode = nodes[math.random(1,#nodes)]
 
 game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = cnode.Position +  Vector3.new(math.random(-15,15)/10,math.random(-6,6), math.random(-20,20)/10)}):Play()
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Moving")
+--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Moving")
 
 	task.wait(3.5) end
 	if canDespawn then break end
@@ -290,5 +290,5 @@ model.RushNew.Anchored = false
 model.RushNew.CanCollide = false
 game.Debris:AddItem(model, 6)
 
-require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn")
+--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn")
 
