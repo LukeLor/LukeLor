@@ -280,7 +280,7 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("
 	if pause == false then
 	cnode = nodes[math.random(1,#nodes)]
 
-game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = cnode.Position +  Vector3.new(0,math.random(-6,6),0)}):Play()
+game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = cnode.Position +  Vector3.new(math.random(-15,15)/10,math.random(-6,6), math.random(-20,20)/10)}):Play()
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Moving")
 
 	task.wait(3.5) end
