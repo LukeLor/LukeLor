@@ -243,7 +243,7 @@ CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 CrucifixEntity(model, game.Players.LocalPlayer.Backpack.Crucifix)
 				else
 					game.Players.LocalPlayer.Character.Humanoid.Health = 0
-					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Alright, you should be dead.")
+					--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Alright, you should be dead.")
 
 				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to a chemeleon","It hides in the corner of the room and flickers the lights","It hates hiding spots","Dont hide!"}, "Blue")
 
