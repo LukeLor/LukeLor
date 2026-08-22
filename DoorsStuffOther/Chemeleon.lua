@@ -16,7 +16,7 @@ local Assets = {
 
 }
 
-local function CrucifixEntity(entity: any, tool: Tool)
+local function CrucifixEntity(entity, tool)
 	local model = entity
 	
 	local resist = true
