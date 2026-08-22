@@ -45,7 +45,7 @@ local function CrucifixEntity(entity, tool)
     model:SetAttribute("BeingBanished", true)
 
     -- \\ Variables
-    local MainGame = require(PlayerGui.MainUI.Initiator.Main_Game :: ModuleScript)
+    local MainGame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game :: ModuleScript)
     local CamShaker = MainGame.camShaker
 	local TheShake = CamShaker:StartShake(5, 20, 2, Vector3.zero)
 
