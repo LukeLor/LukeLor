@@ -211,7 +211,7 @@ local model = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/D
 
 if not model then return end
 print("Model has loaded!")
-
+local pause = false
 model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
 if not model.PrimaryPart then return end
 print("PrimaryPart found.")
@@ -236,17 +236,27 @@ if game.Players.LocalPlayer.Character:FindFirstChild("Crucifix") then
 CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				end
 			end]]
-				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 6 then
+				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
+				game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(2), {Position = cnode.Position +  Vector3.new(0,math.random(-6,6),0)}):Play()
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player found, eek! Going to them!!!")
+pause = true
+	task.wait(2.5) 
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
-					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!!")
+					if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
+			
+					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!! (Inventory)")
 
 CrucifixEntity(model, game.Players.LocalPlayer.Backpack.Crucifix)
-				else
+					end
+					else
+					if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
+			
 					game.Players.LocalPlayer.Character.Humanoid.Health = 0
 					--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Alright, you should be dead.")
 
 				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to a chemeleon","It hides in the corner of the room and flickers the lights","It hates hiding spots","Dont hide!"}, "Blue")
-
+canDespawn = true
+					end
 				end
 			end			
 			
@@ -257,13 +267,16 @@ coroutine.resume(main)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Main Running")
 
 	while task.wait() do
+	if pause == false then
 	cnode = nodes[math.random(1,#nodes)]
 
 game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(4), {Position = cnode.Position +  Vector3.new(0,math.random(-6,6),0)}):Play()
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Moving")
 
-	task.wait(3.5) if canDespawn then break end
+	task.wait(3.5) end
+	if canDespawn then break end
 end
 model:Destroy()
+coroutine.close(main)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn")
 
