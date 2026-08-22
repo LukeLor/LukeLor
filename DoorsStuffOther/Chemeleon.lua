@@ -240,6 +240,15 @@ if game.Players.LocalPlayer.Character:FindFirstChild("Crucifix") then
 CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				end
 			end]]
+			local inSight = false
+			local CollectionService = game:GetService("CollectionService")
+				local params = RaycastParams.new()
+				params.FilterType = Enum.RaycastFilterType.Exclude
+				params.FilterDescendantsInstances = {game.Players.LocalPlayer.Character, model, CollectionService:GetTagged("HidingSpot")}
+
+				inSight = workspace:Raycast(origin, charOrigin - origin, params) == nil
+
+			if inSight then
 				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
 				game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(2), {Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position}):Play()
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player found, eek! Going to them!!!")
@@ -268,10 +277,10 @@ canDespawn = true
 						break
 					end
 				end
-			end			
-			
-		end
-	end)
+			end
+		end				
+	end
+end)
 
 coroutine.resume(main)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Main Running")
