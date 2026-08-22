@@ -2,7 +2,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))();
 
 local ROOT = "https://github.com/RegularVynixu/DOORS-Entity-Spawner-V2/raw/main"
-
+local pause = false
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 
@@ -158,6 +158,7 @@ local function CrucifixEntity(entity, tool)
 		model:SetAttribute("BeingBanished", false)
 		model:SetAttribute("Paused", false)
 		fadeOut()
+		pause = false
 	end
 	task.delay(5, repentance.Destroy, repentance)
 end
