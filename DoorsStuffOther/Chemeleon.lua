@@ -228,8 +228,7 @@ local main = coroutine.create(function()
 		while task.wait() do 
 if game.ReplicatedStorage.GameData.LatestRoom.Value ~= InitRoomNum then
 canDespawn = true
-				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn Value is true, yayyyyy!!!")
-
+				break
 			end
 		--[[	if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - model.PrimaryPart.Position).Magnitude < 15 then
 if game.Players.LocalPlayer.Character:FindFirstChild("Crucifix") then
@@ -277,6 +276,6 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("
 	if canDespawn then break end
 end
 model:Destroy()
-coroutine.close(main)
+
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn")
 
