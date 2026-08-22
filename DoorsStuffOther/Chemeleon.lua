@@ -251,7 +251,7 @@ pause = true
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
 					if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
 			
-					--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!! (Inventory)")
+					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!! (Inventory)")
 local crucifix = game.Players.LocalPlayer.Backpack.Crucifix
 						pause = true
 	crucifix.Parent = game.Players.LocalPlayer.Character
@@ -261,7 +261,7 @@ CrucifixEntity(model, crucifix)
 					if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
 			
 					game.Players.LocalPlayer.Character.Humanoid.Health = 0
-					--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Alright, you should be dead.")
+					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Alright, you should be dead.")
 
 				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to a chemeleon","It hides in the corner of the room and flickers the lights","It hates hiding spots","Dont hide!"}, "Blue")
 canDespawn = true
