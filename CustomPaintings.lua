@@ -64,6 +64,37 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(c
     Prompt:Destroy()
 end
 
+function roomHasPaintings(room)
+for _, inst in room:GetDescendants() do
+if inst:IsA("Model") and table.find(PaintingNames, inst.Name) then
+return true
+    end
+  end
+  return false
+end
 
+function roomHasPaintingType(room, type)
+for _, inst in room:GetDescendants() do
+if inst:IsA("Model") and inst.Name == type then
+return inst
+    end
+  end
+  return nil
+end
+
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+local cRoom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
+local hasPaintings = roomHasPaintings(cRoom)
+    if hasPaintings then
+local randomPainting = Possible_Paintings[math.random(1,#Possible_Paintings)]
+      if roomHasPaintingType(cRoom, randomPainting.PaintingType) ~= nil then
+local paintingModel = roomHasPaintingType(cRoom, randomPainting.PaintingType)
+        LoadPainting(randomPainting, paintingModel)
+
+      end
+    end
+
+    
+    end)
 
 
