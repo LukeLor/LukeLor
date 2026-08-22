@@ -85,12 +85,20 @@ end
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
 local cRoom = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value]
 local hasPaintings = roomHasPaintings(cRoom)
+    local cVal = game.ReplicatedStorage.GameData.LatestRoom.Value     local loaded = false
     if hasPaintings then
 local randomPainting = Possible_Paintings[math.random(1,#Possible_Paintings)]
       if roomHasPaintingType(cRoom, randomPainting.PaintingType) ~= nil then
 local paintingModel = roomHasPaintingType(cRoom, randomPainting.PaintingType)
         LoadPainting(randomPainting, paintingModel)
-
+        loaded = true
+      else 
+        repeat task.wait() local randomPainting = Possible_Paintings[math.random(1,#Possible_Paintings)]
+      if roomHasPaintingType(cRoom, randomPainting.PaintingType) ~= nil then
+local paintingModel = roomHasPaintingType(cRoom, randomPainting.PaintingType)
+        LoadPainting(randomPainting, paintingModel) loaded = true end
+        until
+      loaded == true or cVal ~= game.ReplicatedStorage.GameData.LatestRoom.Value 
       end
     end
 
