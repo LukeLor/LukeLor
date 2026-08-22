@@ -243,7 +243,7 @@ CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(2), {Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position}):Play()
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player found, eek! Going to them!!!")
 pause = true
-	task.wait(2.5) 
+	task.wait(1.9) 
 				if not game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
 				pause = false
 				end
