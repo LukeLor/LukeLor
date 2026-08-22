@@ -236,7 +236,7 @@ if game.Players.LocalPlayer.Character:FindFirstChild("Crucifix") then
 CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				end
 			end]]
-				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 6 then
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
 					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!!")
 
