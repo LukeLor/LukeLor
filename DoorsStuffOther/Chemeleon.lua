@@ -10,6 +10,8 @@ local Modules = {
 	Main_Game = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game :: ModuleScript)
 }
 
+local RootPart = game.Players.LocalPlayer.Character.PrimaryPart
+
 local Assets = {
 	Repentance = LoadCustomInstance(ROOT.."/Assets/Repentance.rbxm")
 
