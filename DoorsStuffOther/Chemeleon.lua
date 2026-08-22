@@ -291,7 +291,9 @@ local function CrucifixEntity(entity, tool)
 	else
 		model:SetAttribute("BeingBanished", false)
 		model:SetAttribute("Paused", false)
+		pause = false
 		fadeOut()
+		
 	end
 
 	task.delay(5, Repentance.Destroy, Repentance)
