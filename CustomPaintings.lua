@@ -4,19 +4,19 @@ local PaintingNames = {"Painting_Small", "Painting_Big", "Painting_VeryBig", "Pa
 
 local Possible_Paintings = {
   {
-      ImageId = "rbxassetid://135131256657473"
+      ImageId = "rbxassetid://135131256657473",
       Name = "Descending",
      PaintingType = "Painting_Big",
     CustomMessage = nil
 },
   {
-      ImageId = "rbxassetid://119903654385404"
+      ImageId = "rbxassetid://119903654385404",
       Name = "Stormy Sky",
       PaintingType = "Painting_Tall",
       CustomMessage = nil
 },
   {
-      ImageId = "rbxassetid://128088934961210"
+      ImageId = "rbxassetid://128088934961210",
       Name = "The Four of Us",
       PaintingType = "Painting_VeryBig",
       CustomMessage = nil
@@ -93,7 +93,8 @@ local paintingModel = roomHasPaintingType(cRoom, randomPainting.PaintingType)
         LoadPainting(randomPainting, paintingModel)
         loaded = true
       else 
-        repeat task.wait() local randomPainting = Possible_Paintings[math.random(1,#Possible_Paintings)]
+        repeat task.wait() 
+          local randomPainting = Possible_Paintings[math.random(1,#Possible_Paintings)]
       if roomHasPaintingType(cRoom, randomPainting.PaintingType) ~= nil then
 local paintingModel = roomHasPaintingType(cRoom, randomPainting.PaintingType)
         LoadPainting(randomPainting, paintingModel) loaded = true end
