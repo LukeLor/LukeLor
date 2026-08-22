@@ -240,6 +240,9 @@ CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player found, eek! Going to them!!!")
 pause = true
 	task.wait(2.5) 
+				if not game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
+				pause = false
+				end
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
 					if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
 			
