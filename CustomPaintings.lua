@@ -1,4 +1,4 @@
-local MainUI = Player.PlayerGui.MainUI.MainFrame
+local MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
 
 local PaintingNames = {"Painting_Small", "Painting_Big", "Painting_VeryBig", "Painting_Tall"}
 
