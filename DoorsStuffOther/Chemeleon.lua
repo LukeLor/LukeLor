@@ -3,6 +3,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 
 local ROOT = "https://github.com/RegularVynixu/DOORS-Entity-Spawner-V2/raw/main"
 
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+
 local Modules = {
 	Module_Events = require(game.ReplicatedStorage.ModulesClient.Module_Events :: ModuleScript),
 	Main_Game = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game :: ModuleScript)
