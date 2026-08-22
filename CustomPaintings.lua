@@ -20,6 +20,30 @@ local Possible_Paintings = {
       Name = "The Four of Us",
       PaintingType = "Painting_VeryBig",
       CustomMessage = nil
+},
+  Moonlight = {
+    ImageId = "rbxassetid://100337614205400",
+    Name = "Moonlight",
+    PaintingType = "Painting_Small",
+    CustomMessage = nil
+},
+  Starlight = {
+    ImageId = "rbxassetid://120325627880675", 
+    Name = "Starlight",
+    PaintingType = "Painting_Small",
+    CustomMessage = nil
+},
+  Asterlight = {
+    ImageId = "rbxassetid://76169242475770",
+    Name = "Asterlight",
+    PaintingType = "Painting_Small",
+    CustomMessage = nil
+},
+   RedLight = { 
+    ImageId = "rbxassetid://76231278059847",
+    Name = "Red Light",
+    PaintingType = "Painting_Small",
+    CustomMessage = "This painting doesn't have a title, yet it looks familiar..."
   }
 }
 
