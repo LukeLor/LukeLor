@@ -264,6 +264,7 @@ CrucifixEntity(model, crucifix)
 
 				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to a chemeleon","It hides in the corner of the room and flickers the lights","It hates hiding spots","Dont hide!"}, "Blue")
 canDespawn = true
+						break
 					end
 				end
 			end			
