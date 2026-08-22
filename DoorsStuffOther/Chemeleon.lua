@@ -4,6 +4,7 @@ local ROOT = "https://github.com/RegularVynixu/DOORS-Entity-Spawner-V2/raw/main"
 local pause = false
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
+local Character = game.Players.LocalPlayer.Character
 
 local Modules = {
 	Module_Events = require(game.ReplicatedStorage.ModulesClient.Module_Events :: ModuleScript),
