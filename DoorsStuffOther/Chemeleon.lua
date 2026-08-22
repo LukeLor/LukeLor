@@ -249,9 +249,10 @@ pause = true
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Crucifix") then
 					if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
 			
-					require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!! (Inventory)")
-
-CrucifixEntity(model, game.Players.LocalPlayer.Backpack.Crucifix)
+					--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!! (Inventory)")
+local crucifix = game.Players.LocalPlayer.Backpack.Crucifix
+	crucifix.Parent = game.Players.LocalPlayer.Character
+CrucifixEntity(model, crucifix)
 					end
 					else
 					if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
