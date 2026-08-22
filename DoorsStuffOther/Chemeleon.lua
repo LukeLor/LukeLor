@@ -215,7 +215,7 @@ local model = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/D
 
 if not model then return end
 print("Model has loaded!")
-local pause = false
+
 model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
 if not model.PrimaryPart then return end
 print("PrimaryPart found.")
@@ -240,7 +240,7 @@ CrucifixEntity(model, game.Players.LocalPlayer.Character.Crucifix)
 				end
 			end]]
 				if game.Players.LocalPlayer.Character:GetAttribute("Hiding") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and (model.PrimaryPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
-				game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(2), {Position = cnode.Position +  Vector3.new(0,math.random(-6,6),0)}):Play()
+				game:GetService("TweenService"):Create(model.RushNew, TweenInfo.new(2), {Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position}):Play()
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Player found, eek! Going to them!!!")
 pause = true
 	task.wait(2.5) 
@@ -252,6 +252,7 @@ pause = true
 			
 					--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Crucifix!!! (Inventory)")
 local crucifix = game.Players.LocalPlayer.Backpack.Crucifix
+						pause = true
 	crucifix.Parent = game.Players.LocalPlayer.Character
 CrucifixEntity(model, crucifix)
 					end
@@ -283,7 +284,8 @@ require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("
 	task.wait(3.5) end
 	if canDespawn then break end
 end
-model:Destroy()
+model.RushNew.Anchored = false
+model.RushNew.CanCollide = false
 
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Despawn")
 
