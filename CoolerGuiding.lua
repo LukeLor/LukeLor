@@ -73,7 +73,7 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 			end
 		print(Hint)
 		--Caption(Hint)
-		if Skipped then
+		if not Skipped then
 			Caption(Hint)	
 			HelpfulDialogue.Visible = false
 
