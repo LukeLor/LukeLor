@@ -5,7 +5,7 @@ local PaintingNames = {"Painting_Small", "Painting_Big", "Painting_VeryBig", "Pa
 local Possible_Paintings = {
   {
       ImageId = "rbxassetid://135131256657473",
-      Name = "Descending",
+      Name = "The Fall",
      PaintingType = "Painting_Big",
     CustomMessage = nil
 },
