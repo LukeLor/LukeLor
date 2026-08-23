@@ -1,6 +1,6 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))();
 
-local ROOT = "https://github.com/RegularVynixu/DOORS-Entity-Spawner-V2/raw/main"
+local ROOT = "https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/"
 local pause = false
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
@@ -24,7 +24,7 @@ local Storage = {
 local RootPart = game.Players.LocalPlayer.Character.PrimaryPart
 
 local Assets = {
-	Repentance = LoadCustomInstance(ROOT.."/Assets/Repentance.rbxm")
+	Repentance = LoadCustomInstance(ROOT.."RepentanceNew.rbxm")
 
 }
 
