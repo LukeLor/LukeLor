@@ -39,6 +39,7 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 		 Death = MainUI:WaitForChild("Death")
 	HelpfulDialogue = Death:WaitForChild("HelpfulDialogue")
 		Ended = false
+		MainGame = require(MainGame)
 	
 	HelpfulDialogue.Visible = false
 		--MainGame.fovtarget = 70
