@@ -24,7 +24,7 @@ local Storage = {
 local RootPart = game.Players.LocalPlayer.Character.PrimaryPart
 
 local Assets = {
-	Repentance = LoadCustomInstance(ROOT.."RepentanceNew.rbxm")
+	Repentance = LoadCustomInstance(ROOT.."RepentanceNew.rbxm?raw=true")
 
 }
 
