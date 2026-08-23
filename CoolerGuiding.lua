@@ -159,8 +159,8 @@ local Main = Child:WaitForChild("MainPart")
 	CharAttBelow.Orientation =  Vector3.new(0, 0, 0)
 
 
-local d_anim = "rbxassetid://107897966884951"
-Child.CharAnim.AnimationId = d_anim
+--local d_anim = "rbxassetid://107897966884951"
+--Child.CharAnim.AnimationId = d_anim
     local Lights = Child:WaitForChild("Lights")
     local Fog = Child:WaitForChild("FogAndSmaller")
     local Water = Child:WaitForChild("Water")
