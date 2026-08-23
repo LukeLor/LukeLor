@@ -69,7 +69,7 @@ remotesfolder.DeathHint.OnClientEvent:Connect(function(DeathHints)
 		HelpfulDialogue.Visible = false
 		HelpfulDialogue.Interactable = false
 			 if MainGame.fovtarget then
-			MainGame.fovtarget = 75
+			MainGame.fovtarget = 70
 			end
 		print(Hint)
 		--Caption(Hint)
