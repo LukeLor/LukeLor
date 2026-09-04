@@ -264,8 +264,9 @@ parttofix:Destroy()
 	{"The ground is being kept.","Groundskeeper's out!"},
 	{"Surge is descending!", "Keep your head up.", "Surge is near.","We're going to get fried if you don't hide!","The sky's yellow..."},
 {"Scribbles is on it's way!", "You know, things are getting shaken up. Maybe Scribbles is near?", "I see paper all over. I think you know what that means.", "Limitless Paper..."}
-, {"Drones incoming!", "Hide, HIde, HIDE!!!", "Get out of their way!", "Drones on break.", "Drones passing through!"}
-
+, {"Drones incoming!", "Hide, HIde, HIDE!!!", "Get out of their way!", "Drones on break.", "Drones passing through!"},
+	{"Okay, okay, don't look, alright?", "Alma's here...", "Don't- look, Alma...}
+,
 }
 
 	local deathmsgs = {{"Sorry I failed you..."},{"..."},{"Are you there!?"}, {"Please, respond!"}, {"What... happened?"},{"I'll do better, I promise..."}}
@@ -405,6 +406,23 @@ local text = entitytablelines[14][math.random(1,3)]
 		end
 		SpeakerIconHide()
 		end
+			if inst.Name == "Alma" then
+				local text = entitytablelines[19][math.random(1,3)]
+		print(text)
+		SpeakerIconShow("99087926706059")
+		for i = 1, #text do
+
+
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+
+			Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+		SpeakerIconHide()
+			end
 		if inst.Name == "Scribbles" then
 			local text = entitytablelines[17][math.random(1,4)]
 		print(text)
