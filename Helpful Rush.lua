@@ -263,8 +263,10 @@ parttofix:Destroy()
 	{"Mandrake soon?","Mandrake expected.","Don't let your guard down, there's a Mandrake lurking..."},
 	{"The ground is being kept.","Groundskeeper's out!"},
 	{"Surge is descending!", "Keep your head up.", "Surge is near.","We're going to get fried if you don't hide!","The sky's yellow..."},
+{"Scribbles is on it's way!", "You know, things are getting shaken up. Maybe Scribbles is near?", "I see paper all over. I think you know what that means.", "Limitless Paper..."}
+,
 
-	}
+}
 
 	local deathmsgs = {{"Sorry I failed you..."},{"..."},{"Are you there!?"}, {"Please, respond!"}, {"What... happened?"},{"I'll do better, I promise..."}}
 
@@ -388,6 +390,23 @@ local text = entitytablelines[13][math.random(1,3)]
 		end
 			if inst.Name == "MandrakeLive" then
 local text = entitytablelines[14][math.random(1,3)]
+		print(text)
+		SpeakerIconShow("99087926706059")
+		for i = 1, #text do
+
+
+			wait(0.002)
+			rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+			rushhelper.Main.Talk:Play()
+			print(string.sub(text, 1, i))
+
+			Caption(string.sub(text, 1, i))
+			wait(0.002)
+		end
+		SpeakerIconHide()
+		end
+		if inst.Name == "Scribbles" then
+			local text = entitytablelines[17][math.random(1,4)]
 		print(text)
 		SpeakerIconShow("99087926706059")
 		for i = 1, #text do
