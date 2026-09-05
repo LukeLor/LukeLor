@@ -7,6 +7,7 @@ facePart.CanCollide = false
 local Root = facePart:Clone()
 Root.Transparency = 0.5
 Root.Name = "Root"
+Root.Parent = workspace
 
 local model = Instance.new("Model")
 
