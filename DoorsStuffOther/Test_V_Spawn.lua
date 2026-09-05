@@ -60,3 +60,4 @@ local tool = Instance.new("Tool")
 
 model:PivotTo(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
 print(Root.Position)
+print(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
