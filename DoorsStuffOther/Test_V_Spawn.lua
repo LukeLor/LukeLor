@@ -20,6 +20,7 @@ pickUp.Parent = Root
 pickUp.Enabled = true
 pickUp.RequiresLineOfSight = false
 pickUp.MaxActivationDistance = 10
+pickUp.Style = Enum.ProximityPromptStyle.Custom
 
 local face = Instance.new("Part")
 face.Parent = model
