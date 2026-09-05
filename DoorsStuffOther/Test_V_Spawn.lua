@@ -14,3 +14,9 @@ Root.Parent = model
 model.PrimaryPart = Root
 facePart.Parent = model
 facePart.Color3 = Color3.fromRGB(250, 221, 90)
+
+local pickUp = Instance.new("ProximityPrompt")
+pickUp.Parent = Root
+pickUp.Enabled = true
+pickUp.RequiresLineOfSight = false
+pickUp.MaxActivationDistance = 10
