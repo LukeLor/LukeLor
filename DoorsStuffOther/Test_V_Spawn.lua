@@ -48,6 +48,7 @@ local tool = Instance.new("Tool")
                part.Anchored = false
       end
     end
-        contents.Root.Anchored = true
+        contents.Root.Anchored = false
+        contents.Root.Name = "Handle"
   end)
 
