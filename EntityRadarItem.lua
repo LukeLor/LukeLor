@@ -34,7 +34,11 @@ game.Workspace.ChildAdded:Connect(function(child)
 	elseif child.Name == "BackdoorRush" then
 		
 	itemModel.Screen.ScreenUI.Frame.Frame.Entity.Image = "rbxassetid://16755073604"
-	end
+	elseif child.Name == "Scribbles" then
+		
+	itemModel.Screen.ScreenUI.Frame.Frame.Entity.Image = "rbxassetid://102966315280987"
+	
+		end
 	end)
 
 
