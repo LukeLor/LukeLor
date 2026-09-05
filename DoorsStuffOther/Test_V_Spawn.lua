@@ -29,6 +29,7 @@ face.Size = Vector3.new(2,2,2)
 face.CanCollide = false
 face.Anchored = true
 face.Rotation = facePart.Rotation
+face.Position = facePart.Position
 
 
 local decal = Instance.new("Decal")
