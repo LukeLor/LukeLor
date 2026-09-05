@@ -14,7 +14,7 @@ model.Parent = workspace
 Root.Parent = model
 model.PrimaryPart = Root
 facePart.Parent = model
-facePart.TextureID = "rbxassetid://156956368"
+facePart.Color = Color3.fromRGB(250, 221, 90)
 
 local pickUp = Instance.new("ProximityPrompt")
 pickUp.Parent = Root
