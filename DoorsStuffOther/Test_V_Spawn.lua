@@ -30,4 +30,4 @@ face.Anchored = true
 
 local decal = Instance.new("Decal")
 decal.Parent = face
-decal.TextureId = "rbxassetid://0"
+decal.ColorMapContent = "rbxassetid://0"
