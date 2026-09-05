@@ -33,7 +33,7 @@ face.Rotation = facePart.Rotation
 
 local decal = Instance.new("Decal")
 decal.Parent = face
-decal.ColorMapContent = "rbxassetid://85160359837223" --Talking: 113838091420033, Idle: 85160359837223
+decal.ColorMapContent = Content.fromUri("rbxassetid://85160359837223") --Talking: 113838091420033, Idle: 85160359837223
 
 pickUp.Triggered:Connect(function()
 local tool = Instance.new("Tool")
