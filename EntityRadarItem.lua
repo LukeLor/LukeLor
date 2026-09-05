@@ -72,17 +72,17 @@ while task.wait(0.5) do
 if drainBattery then
 
 itemModel:SetAttribute("Durability", itemModel:GetAttribute() - 1.5)
-        if itemModel:GetAttribute("Durability") < slotDur*3 then
+        if itemModel:GetAttribute("Durability") <= slotDur*3 then
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery.Visible = false
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = true
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery2.Visible = true
             itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery3.Visible = true
-        elseif itemModel:GetAttribute("Durability") < slotDur*2 then
+        elseif itemModel:GetAttribute("Durability") <= slotDur*2 then
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = false
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery.Visible = false
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery2.Visible = true
             itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery3.Visible = true
-        elseif itemModel:GetAttribute("Durability") < slotDur*1 then
+        elseif itemModel:GetAttribute("Durability") <= slotDur*1 then
             itemModel.Screen.ScreenUI.Frame.Frame.Battery2.Battery.Visible = false
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery3.Visible = false
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = false
