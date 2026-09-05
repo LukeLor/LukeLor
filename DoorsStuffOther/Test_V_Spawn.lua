@@ -1,4 +1,4 @@
-local facePart = game:GetObjects("rbxassetid://1877579717")
+local facePart = game:GetObjects("rbxassetid://1877579717")[1]
 
 facePart.Parent = workspace
 facePart.Anchored = false
