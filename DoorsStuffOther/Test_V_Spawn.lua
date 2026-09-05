@@ -6,6 +6,7 @@ facePart.CanCollide = false
 
 local Root = facePart:Clone()
 Root.Transparency = 0.5
+Root.Name = "Root"
 
 local model = Instance.new("Model")
 
@@ -40,9 +41,13 @@ local tool = Instance.new("Tool")
     local contents = model:Clone()
    contents.Parent = tool
     for _, part in contents:GetDescendants() do 
-    if part:IsA("BasePart") then 
-
+    if part:IsA("BasePart") and part.Name ~= "Root" then 
+                local weld = Instance.new("WeldConstraint")
+               weld.Part0 = contents.Root 
+               weld.Part1 = part
+               part.Anchored = false
       end
     end
+        contents.Root.Anchored = true
   end)
 
