@@ -47,6 +47,7 @@ local tool = Instance.new("Tool")
                weld.Part0 = contents.Root 
                weld.Part1 = part
                part.Anchored = false
+                    weld.Parent = contents
       end
     end
         contents.Root.Anchored = false
