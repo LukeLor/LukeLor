@@ -3,6 +3,7 @@ local facePart = game:GetObjects("rbxassetid://1877579717")[1]
 facePart.Parent = workspace
 facePart.Anchored = false
 facePart.CanCollide = false
+facePart.Size = Vector3.new(2,2,2)
 
 local Root = facePart:Clone()
 Root.Transparency = 0.5
