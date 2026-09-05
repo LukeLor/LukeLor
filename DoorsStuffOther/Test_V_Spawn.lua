@@ -26,8 +26,10 @@ face.Parent = model
 face.Size = Vector3.new(2,2,2)
 face.CanCollide = false
 face.Anchored = true
+face.Rotation = facePart.Rotation
 
 
 local decal = Instance.new("Decal")
 decal.Parent = face
-decal.ColorMapContent = "rbxassetid://0"
+decal.ColorMapContent = "rbxassetid://85160359837223" --Talking: 113838091420033, Idle: 85160359837223
+
