@@ -34,3 +34,15 @@ local decal = Instance.new("Decal")
 decal.Parent = face
 decal.ColorMapContent = "rbxassetid://85160359837223" --Talking: 113838091420033, Idle: 85160359837223
 
+pickUp.Triggered:Connect(function()
+local tool = Instance.new("Tool")
+    tool.Parent = game.Players.LocalPlayer.Backpack
+    local contents = model:Clone()
+   contents.Parent = tool
+    for _, part in contents:GetDescendants() do 
+    if part:IsA("BasePart") then 
+
+      end
+    end
+  end)
+
