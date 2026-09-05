@@ -1,4 +1,3 @@
---A-15_Playz, If you see this commit, I still don't have my phone, and am using my mom's old phone to code, lol
 --[[Directory:
 --MINUS 50 ON RIFT COLOR
 
