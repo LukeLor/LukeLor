@@ -12,4 +12,4 @@ local model = Instance.new("Model")
 model.Parent = workspace
 Root.Parent = model
 facePart.Parent = model
-facePart.Color3 = Color3.fromRGB()
+facePart.Color3 = Color3.fromRGB(250, 221, 90)
