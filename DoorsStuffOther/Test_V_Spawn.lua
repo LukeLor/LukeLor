@@ -20,3 +20,14 @@ pickUp.Parent = Root
 pickUp.Enabled = true
 pickUp.RequiresLineOfSight = false
 pickUp.MaxActivationDistance = 10
+
+local face = Instance.new("Part")
+face.Parent = model
+face.Size = Vector3.new(2,2,2)
+face.CanCollide = false
+face.Anchored = true
+
+
+local decal = Instance.new("Decal")
+decal.Parent = face
+decal.TextureId = "rbxassetid://0"
