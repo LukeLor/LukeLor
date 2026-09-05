@@ -37,6 +37,7 @@ decal.ColorMapContent = "rbxassetid://85160359837223" --Talking: 113838091420033
 
 pickUp.Triggered:Connect(function()
 local tool = Instance.new("Tool")
+     tool.Name = "Verity"
     tool.Parent = game.Players.LocalPlayer.Backpack
     local contents = model:Clone()
    contents.Parent = tool
@@ -50,5 +51,6 @@ local tool = Instance.new("Tool")
     end
         contents.Root.Anchored = false
         contents.Root.Name = "Handle"
+        
   end)
 
