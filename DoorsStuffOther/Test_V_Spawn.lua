@@ -11,5 +11,6 @@ local model = Instance.new("Model")
 
 model.Parent = workspace
 Root.Parent = model
+model.PrimaryPart = Root
 facePart.Parent = model
 facePart.Color3 = Color3.fromRGB(250, 221, 90)
