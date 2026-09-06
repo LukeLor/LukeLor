@@ -10,6 +10,8 @@ game.Players.LocalPlayer.Character:SetAttribute("Hiding",true)
       end
     end
   end)
+
+coroutine.resume(protectTest)
 -- \\ Services // --
 
 local TweenService = game:GetService("TweenService")
