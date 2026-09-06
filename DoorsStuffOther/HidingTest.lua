@@ -1,1 +1,5 @@
-game.Players.LocalPlayer.Character:SetAttribute("Hiding", true)
+workspace.DescendantAdded:Connect(function(child)
+if child.Name == "RushMoving" then
+child:Destroy()
+    end
+  end)
