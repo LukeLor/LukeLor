@@ -76,7 +76,7 @@ Caption = function(text)
 	if MainUI and MainUI.Parent.CaptionHolder:FindFirstChild("LiveCaptionRush")then
 		MainUI.Parent.CaptionHolder.LiveCaptionRush.Text = text
 		captionTime = #text*0.2
-		refresh = true
+		
 repeat task.wait(0.2) captionTime = captionTime - 0.2 if refresh then earlyExit = true break end until captionTime <= 0
 		if not earlyExit then
 		game:GetService("TweenService"):Create(captionText, TweenInfo.new(4), {TextTransparency = 1}):Play()
