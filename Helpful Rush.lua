@@ -394,9 +394,10 @@ parttofix:Destroy()
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function(newVal)
 if GetBackdoorTime(true) ~= "I actually don't know, sorry..." then
 			SpeakerIconShow("99087926706059")
-			local timeBasedLines = {}
-			local lineNum = 0
-Caption("We've got about... "..GetBackdoorTime(true).." on the clock.")
+			local rawLines = {"We've got about... %s on the clock.", "%s left!", "%s.", "Uhh, keep moving forward. %s"}
+			local lineNum = math.random(1,#rawLines)
+			local formattedLine = string.format(rawLines[lineNum], GetBackdoorTime(true))
+Caption(formattedLine)
 			task.wait(3)
 			SpeakerIconHide()
 		end
