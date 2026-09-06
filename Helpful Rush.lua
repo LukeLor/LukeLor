@@ -391,7 +391,7 @@ parttofix:Destroy()
 	end)
 	print("Initiate mechanic")
 
-game.ReplicatedStorage.GameData.LatestRoom.Value.Changed:Connect(function()
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function(newVal)
 if GetBackdoorTime(true) ~= "I actually don't know, sorry..." then
 			SpeakerIconShow("99087926706059")
 			local timeBasedLines = {}
