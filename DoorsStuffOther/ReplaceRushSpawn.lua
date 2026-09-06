@@ -54,11 +54,8 @@ local entity = Spawner:Create({
 		Break = true
 	},
 	Death = {
-		Type = "Guiding", -- "Curious"
-		Hints = {"You died to Rush",
-"This ones different",
-"It spawns every 30 seconds",
-"Try to stay near closets"},
+		Type = "Curious", -- "Curious"
+		Hints = {"How'd you die?", "This \"Rush\" of yours shouldn't damage you..."},
 		Cause = "Rush"
 	}
 })
