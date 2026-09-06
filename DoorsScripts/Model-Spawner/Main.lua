@@ -33,34 +33,7 @@ local selfModules = {
 
 --[[ Misc Functions ]]--
 
-function convertToModel(tool)
-    tool = tool:Clone();
-    local model = Instance.new("Model");
-    local handle = tool.Handle;
-    local descendants = tool:GetDescendants();
 
-    for i = 1, #descendants do
-        local desc = descendants[i];
-        if desc:IsA("BasePart") and desc.Name ~= "Handle" then
-            desc.Anchored = false;
-            desc.CanCollide = false;
-            local weld = Instance.new("WeldConstraint");
-            weld.Part0 = handle;
-            weld.Part1 = desc;
-            weld.Parent = handle;
-        end
-        if desc.Parent == tool then
-            desc.Parent = model;
-        end
-    end
-
-    model.Name = tool.Name;
-    handle.Name = "Root";
-    handle.CanCollide = false;
-    model.PrimaryPart = handle;
-    
-    return model;
-end;
 
 function spawnItemInRoom(item, room)
     local locations = {};
