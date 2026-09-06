@@ -60,9 +60,13 @@ return text.Text
 			
 end
 	
+local captionTextTemp = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption:Clone()
+captionTextTemp.Parent = game.Players.LocalPlayer.PlayerGui.MainUI
+
 
 Caption = function(text)
 	if MainUI and MainUI:FindFirstChild("LiveCaptionRush")then
+		local captionText = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption:Clone()
 		--MainUI:FindFirstChild("LiveCaptionRush"):Destroy()
 		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
 	--[[
