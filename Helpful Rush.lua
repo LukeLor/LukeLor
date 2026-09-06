@@ -61,14 +61,34 @@ return text.Text
 end
 	
 local captionTextTemp = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption:Clone()
-captionTextTemp.Parent = game.Players.LocalPlayer.PlayerGui.MainUI
+captionTextTemp.Parent = game.Players.LocalPlayer.PlayerGui.MainUI.CaptionHolder
+captionTextTemp.TextColor3 = Color3.fromRGB(17,17,17)
+captionTextTemp.TextStrokeColor3 = Color3.fromRGB(255,255,255)
+captionTextTemp.TextStrokeTransparency = 0
+captionTextTemp.Name = "LiveCaptionRushTemplate"
+captionTextTemp.Visible = false
 
+local captionTimer = 0
+local refresh = false
+local earlyExit = false 
 
 Caption = function(text)
-	if MainUI and MainUI:FindFirstChild("LiveCaptionRush")then
-		local captionText = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption:Clone()
+	if MainUI and MainUI.Parent.CaptionHolder:FindFirstChild("LiveCaptionRush")then
+		MainUI.Parent.CaptionHolder.LiveCaptionRush.Text = text
+		captionTime = #text*0.2
+		refresh = true
+repeat task.wait(0.2) captionTime = captionTime - 0.2 if refresh then earlyExit = true break end until captionTime <= 0
+		if not earlyExit then
+		game:GetService("TweenService"):Create(captionText, TweenInfo.new(4), {TextTransparency = 1}):Play()
+		else
+		earlyExit = false	
+		end
+		refresh = false
+		
+		
+		--game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Caption:Clone()
 		--MainUI:FindFirstChild("LiveCaptionRush"):Destroy()
-		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
+		--require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
 	--[[
 		MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
         MainUI.LiveCaption.TextStrokeColor3 = Color3.fromRGB(255,255,255)
@@ -76,13 +96,28 @@ Caption = function(text)
 		MainUI.LiveCaption.Name = "LiveCaptionRush"
 	]]
 	else
-		require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
-		--[[MainUI.LiveCaption.TextColor3 = Color3.fromRGB(17,17,17)
-        MainUI.LiveCaption.TextStrokeColor3 = Color3.fromRGB(255,255,255)
-		MainUI.LiveCaption.TextStrokeTransparency = 0
-		MainUI.LiveCaption.Name = "LiveCaptionRush"
-]]	end
+
+		local captionText = captionTextTemp:Clone() 
+		captionText.Parent = game.Players.LocalPlayer.PlayerGui.MainUI.CaptionHolder
+		captionText.Visible = true
+		captionText.Name = "LiveCaptionRush"
+captionText.Text = text
+		captionTime = #text*0.2
+		
+repeat task.wait(0.2) captionTime = captionTime - 0.2 if refresh then earlyExit = true break end until captionTime <= 0
+		if not earlyExit then
+		game:GetService("TweenService"):Create(captionText, TweenInfo.new(4), {TextTransparency = 1}):Play()
+		else
+		earlyExit = false	
+		end
+		refresh = false
+	--	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption(text, true)
+				
+		
+		--[[MainUI.LiveCaption.Name = "LiveCaptionRush"
+]]
 	end
+end
 
 
 TypeCaption = function(text, typewait) 
