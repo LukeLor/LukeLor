@@ -111,7 +111,7 @@ Module.SpawnRift = function(self, identifier: string, position)
 local config = DecodeConfig()
 if not config[identifier] then warn("Cant spawn rift because config for the given identifier doesnt exist.")return end
   loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
-local rift = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsScripts/Custom-Rift/CustomRift.rbxm?=raw=true")
+local rift = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsScripts/Custom-Rift/CustomRift.rbxm?raw=true")
 rift.Parent = workspace
 rift.Name = "Rift_"..identifier.."_Live"
  local pivotPart = Instance.new("Part")
