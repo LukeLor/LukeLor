@@ -119,7 +119,7 @@ end;
 
 --[[ Functions ]]--
 
-spawner.createItem = function(config)
+spawner.createModel = function(config)
     for i, v in next, defaultConfig do
         if config[i] == nil then
             config[i] = defaultConfig[i];
@@ -180,7 +180,7 @@ model.PrimaryPart = model:FindFirstChildOfClass("BasePart")
     end
 end;
 
-spawner.spawnItem = function(item)
+spawner.spawnModel = function(item)
     local rooms = workspace.CurrentRooms:GetChildren();
 
     for i = 1, #rooms do
