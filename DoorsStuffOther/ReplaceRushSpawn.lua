@@ -1,7 +1,14 @@
 workspace.DescendantAdded:Connect(function(child)
 if child.Name == "RushMoving" then
 child:Destroy()
-            ---====== Load spawner ======---
+			local protectTest = coroutine.create(function()
+					while task.wait(0.1)
+game.Players.LocalPlayer.Character:SetAttribute("Hiding", true)
+				end
+			end)			
+		
+		coroutine.resume(protectTest)
+		---====== Load spawner ======---
 
 local Spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner-V2/main/init.luau"))()
 
