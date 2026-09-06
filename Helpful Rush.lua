@@ -338,7 +338,7 @@ coroutine.resume(sayDeath)
 
 
 local droneWarn = coroutine.create(function()
-		while task.wait(0.5) do 
+		while task.wait(1) do 
 			if GetArchivesTime(true) ~= "I actually don't know, sorry..." then
 		SpeakerIconShow("82511368550076")
 				local rawArrival1 = {"Uh-oh, Drones in 30.", "Drones in about... 30 seconds?", "Drone inbound! 30 seconds."}
