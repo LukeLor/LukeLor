@@ -156,7 +156,19 @@ spawner.createItem = function(config)
 
     local tool = LoadCustomInstance(config.Url);
     if tool then
+
+
+        
         local model = tool;
+
+
+for _, parts in model:GetDescendants() do
+if parts:IsA("BasePart") then
+parts.CanCollide  = false
+                parts.Anchored = true
+            end
+        end
+        
         local prompt = Instance.new("ProximityPrompt");
         prompt.Name = "ModulePrompt";
         prompt.Style = Enum.ProximityPromptStyle.Custom;
