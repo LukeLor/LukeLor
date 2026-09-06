@@ -19,7 +19,7 @@
 local oxygen = char:GetAttribute("Oxygen")
 local MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
 
-local GetBackdoorTime = function(rawString:boolean)
+local GetBackdoorTime = function(rawString)
 for _, obj in workspace:GetDescendants() do
 if obj.Name == "DisplayTimer" then
 local text = obj:FindFirstChildOfClass("TextLabel")
