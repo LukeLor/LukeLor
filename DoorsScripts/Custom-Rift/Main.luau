@@ -147,7 +147,8 @@ if pE:IsA("ParticleEmitter") then
 end
   end
 rift.Center.RiftPrompt.Triggered:Connect(function()
-     --  loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
+     loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
+if config[identifier]["ItemLink"] ~= nil then
 for _, pE in rift.Center.ParticlesOut:GetChildren() do
 if pE:IsA("ParticleEmitter") then
           pE.Enabled = true
@@ -155,6 +156,9 @@ if pE:IsA("ParticleEmitter") then
      pE.Enabled = false
       end
       end
+end
+config[identifier]["ItemLink"] = nil
+config[identifier]["ItemIcon"] = ""
     end)
 local itemDisplay = coroutine.create(function()
 while task.wait(1) do 
