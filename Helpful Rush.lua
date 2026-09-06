@@ -21,7 +21,7 @@ local MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
 
 local GetBackdoorTime = function()
 for _, obj in workspace:GetDescendants() do
-if obj.Name == "TimeDisplay" or obj.Name == "TimerDisplay" then
+if obj.Name == "DisplayTimer" then
 local text = obj:FindFirstChildOfClass("TextLabel")
 
 			if text then
