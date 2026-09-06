@@ -14,7 +14,9 @@
 	["AmbushMoving"] = "Ambush"
 ]] 
 
-	
+	local Floor = game.ReplicatedStorage:WaitForChild("GameData"):WaitForChild("Floor")
+
+local isHotel = Floor.Value == "Hotel"
 	local char = workspace:WaitForChild(game.Players.LocalPlayer.Name)
 local oxygen = char:GetAttribute("Oxygen")
 local MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
@@ -1102,7 +1104,7 @@ roomnumdupe = game.ReplicatedStorage.GameData.LatestRoom.Value
 		end 
 			SpeakerIconHide()
 	end
-	if game.ReplicatedStorage.GameData.LatestRoom.Value  == 50 then
+	if game.ReplicatedStorage.GameData.LatestRoom.Value  == 50 and isHotel then
 		SpeakerIconShow("99087926706059")
 		local text = entitytablelines[5][math.random(1,3)]
 		print(text)
