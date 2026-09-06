@@ -7,7 +7,8 @@ local pattern = "Blitz"
 local start_index, end_index = string.find(s, pattern)
       if start_index and end_index then
        table.insert(registered, #registered+1, text.Name)
-print(text:GetFullName())   end
+        print("Text Found!!")
+print(text.Name, text.Parent.Name, text.Parent.Parent.Name, text.Parent.Parent.Name)   end
     end
   end
   
