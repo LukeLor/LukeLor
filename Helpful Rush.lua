@@ -19,7 +19,21 @@
 local oxygen = char:GetAttribute("Oxygen")
 local MainUI = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame
 
+local GetBackdoorTime = function()
+for _, obj in workspace:GetDescendants() do
+if obj.Name == "TimeDisplay" or obj.Name == "TimerDisplay" then
+local text = obj:FindFirstChildOfClass("TextLabel")
 
+			if text then
+return text.Text
+
+			end
+		end
+	end
+	return "I actually don't know, sorry..."
+			
+end
+	
 
 Caption = function(text)
 	if MainUI and MainUI:FindFirstChild("LiveCaptionRush")then
