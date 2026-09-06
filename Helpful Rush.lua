@@ -38,6 +38,25 @@ return text.Text
 	return "I actually don't know, sorry..."
 			
 end
+local GetArchivesTime = function(rawString)
+for _, obj in workspace:GetDescendants() do
+if obj.Name == "Time" then
+local text = obj:FindFirstChildOfClass("TextLabel")
+
+			if text then
+				if rawString then
+return text.Text
+				else
+					local minutes, seconds = text.Text:match("(%d+):(%d+)")
+					local totalSeconds = (tonumber(minutes) * 60) + tonumber(seconds)
+					return totalSeconds
+				end
+			end
+		end
+	end
+	return "I actually don't know, sorry..."
+			
+end
 	
 
 Caption = function(text)
@@ -307,14 +326,44 @@ parttofix:Destroy()
 		Caption(string.sub(text, 1, i))
 		wait(0.002)
 	end
+				
 		
 	
 		SpeakerIconHide()
 				end
 	end
 end)
+
 coroutine.resume(sayDeath)
 
+
+local droneWarn = coroutine.create(function()
+		while task.wait(0.5) do 
+			if GetArchivesTime(true) ~= "I actually don't know, sorry..." then
+		SpeakerIconShow("82511368550076")
+				local rawArrival1 = {"Uh-oh, Drones in 30.", "Drones in about... 30 seconds?", "Drone inbound! 30 seconds."}
+				local rawArrival2 = {"Find a nice hiding spot. 10 seconds.", "10 seconds remain...", "Hide, or get out of their sight! We've got 10 seconds."}
+			local text = GetArchivesTime(true) == "8:30" and rawArrival1[math.random(1,#rawArrival)] or GetArchivesTime(true) == "8:50" and rawArrival2[math.random(1,#rawArrival2)] or GetArchivesTime(true) == "4:30" and rawArrival1[math.random(1,#rawArrival1)] or GetArchivesTime(true) == "4:50" and rawArrival2[math.random(1,#rawArrival2)] 
+	for i = 1, #text do
+
+
+		wait(0.002)
+		rushhelper.Humanoid:LoadAnimation(rushhelper.Talk):Play()
+		rushhelper.Main.Talk:Play()
+		print(string.sub(text, 1, i))
+
+		Caption(string.sub(text, 1, i))
+		wait(0.002)
+	end
+				
+		
+	
+		SpeakerIconHide()
+				end
+	end
+end)
+
+coroutine.resume(droneWarn)
 	print("Initiate mechanic")
 
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function(newVal)
