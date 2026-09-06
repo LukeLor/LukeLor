@@ -201,7 +201,7 @@ spawner.spawnModel = function(item)
             local chance = math.random(1, 100);
             if chance <= item.Config.Spawning.Chance then
                 roomAdded:Disconnect();
-                task.delay(3, spawnItemInRoom, item, room);
+                task.delay(3, spawnModelInRoom, item, room);
             end
         end
     end);
