@@ -35,7 +35,7 @@ local selfModules = {
 
 
 
-function spawnItemInRoom(item, room)
+function spawModelInRoom(item, room)
     local locations = {};
     local descendants = room:GetDescendants();
     for i = 1, #descendants do
