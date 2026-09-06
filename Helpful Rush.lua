@@ -391,6 +391,15 @@ parttofix:Destroy()
 	end)
 	print("Initiate mechanic")
 
+game.ReplicatedStorage.GameData.LatestRoom.Value.Changed:Connect(function()
+if GetBackdoorTime(true) ~= "I actually don't know, sorry..." then
+			SpeakerIconShow("99087926706059")
+Caption("We've got about... "..GetBackdoorTime(true).." on the clock.")
+			task.wait(3)
+			SpeakerIconHide()
+		end
+end)
+	
 workspace.DescendantAdded:Connect(function(inst)
 if inst.Name == "SallyMoving" then
 local text = entitytablelines[13][math.random(1,3)]
