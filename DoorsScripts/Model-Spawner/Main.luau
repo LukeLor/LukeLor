@@ -35,7 +35,7 @@ local selfModules = {
 
 
 
-function spawModelInRoom(item, room)
+function spawnModelInRoom(item, room)
     local locations = {};
     local descendants = room:GetDescendants();
     for i = 1, #descendants do
@@ -189,7 +189,7 @@ spawner.spawnModel = function(item)
         if index >= item.Config.Spawning.MinRoom and index <= item.Config.Spawning.MaxRoom then
             local chance = math.random(1, 100);
             if chance <= item.Config.Spawning.Chance then
-                spawnItemInRoom(item, room);
+                spawnModelInRoom(item, room);
                 return;
             end
         end
