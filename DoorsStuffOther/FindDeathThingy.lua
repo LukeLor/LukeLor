@@ -1,15 +1,15 @@
 while task.wait() do
 local registered = {}
   for _, text in game.Players.LocalPlayer.PlayerGui.MainUI:GetDescendants() do
-if text:IsA("TextLabel") and table.find(registered, text.Name) then
+if text:IsA("TextLabel") then
 local s = text.Text
 local pattern = "Blitz"
 local start_index, end_index = string.find(s, pattern)
       if start_index and end_index then
-       table.insert(registered, #registered+1, text.Name)
         print("Text Found!!")
-print(text.Name, text.Parent.Name, text.Parent.Parent.Name, text.Parent.Parent.Name)   end
-    end
+print(text:GetFullName())
+      end
   end
   
+end
 end
