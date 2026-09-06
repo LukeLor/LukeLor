@@ -332,6 +332,7 @@ parttofix:Destroy()
 		
 	
 		SpeakerIconHide()
+				repeat task.wait(2) until game.Players.LocalPlayer.Character.Humanoid.Health < 0
 				end
 	end
 end)
