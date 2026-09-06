@@ -25,15 +25,15 @@ local model = spawner.createModel({
 });
 
 ---====== Debug ======---
-item.Debug.OnSpawned = function()
+model.Debug.OnSpawned = function()
     print("Model spawned:", model);
 end;
 
-item.Debug.OnPickedUp = function()
+model.Debug.OnPickedUp = function()
     print("Model interacted:", model);
 end;
 
-item.Debug.OnEnteredItemRoom = function(room)
+model.Debug.OnEnteredItemRoom = function(room)
     print("Entered room:", room, "of model:", model);
 end;
 
