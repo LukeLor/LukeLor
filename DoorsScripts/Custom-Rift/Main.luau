@@ -45,9 +45,9 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 local DefaultRift = {
     Identifier = "CustomRift",
-  ItemName = "Gumdrop",
-    ItemLink = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/GumdropItem.lua",
-  ItemIcon = "rbxassetid://112795458705129",
+  ItemName = "Crucifix",
+    ItemLink = "https://raw.githubusercontent.com/RegularVynixu/DOORS-Crucifix-Everything/refs/heads/main/init.luau",
+  ItemIcon = "rbxassetid://12771127370",
   ColorRed = 120,
   ColorGreen = 217,
   ColorBlue = 255,
