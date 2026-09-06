@@ -156,14 +156,17 @@ spawner.createItem = function(config)
 
     local tool = LoadCustomInstance(config.Url);
     if tool then
-        local model = convertToModel(tool);
+        local model = tool;
         local prompt = Instance.new("ProximityPrompt");
         prompt.Name = "ModulePrompt";
         prompt.Style = Enum.ProximityPromptStyle.Custom;
         prompt.RequiresLineOfSight = false;
         prompt.HoldDuration = config.Prompt.Duration;
         prompt.MaxActivationDistance = config.Prompt.Range;
-        prompt.Parent = model.PrimaryPart;
+        if not model.PrimaryPart then
+model.PrimaryPart = model:FindFirstChildOfClass("BasePart")
+        end
+            prompt.Parent = model.PrimaryPart;
 
         local data = {
             Tool = tool;
@@ -173,9 +176,7 @@ spawner.createItem = function(config)
             Debug = {
                 OnSpawned = function() end;
                 OnPickedUp = function() end;
-                OnEquipped = function() end;
-                OnActivated = function() end;
-                OnUnequipped = function() end;
+                
                 OnEnteredItemRoom = function() end;
             };
         };
@@ -183,20 +184,11 @@ spawner.createItem = function(config)
         --[[ on pickup ]]--
         local interact; interact = prompt.Triggered:Connect(function()
             interact:Disconnect();
-            model:Destroy();
-            tool.Parent = localPlayer:WaitForChild("Backpack");
-            task.defer(data.Debug.OnPickedUp);
+            tool:Destroy();
+                task.defer(data.Debug.OnPickedUp);
         end);
 
-        --[[ on equipped ]]--
-        tool.Equipped:Connect(function() task.defer(data.Debug.OnEquipped); end);
-
-        --[[ on activated ]]--
-        tool.Activated:Connect(function() task.defer(data.Debug.OnActivated); end);
-
-        --[[ on unequipped ]]--
-        tool.Unequipped:Connect(function() task.defer(data.Debug.OnUnequipped); end);
-
+        
         return data;
     else
         warn("Failed to load custom item");
