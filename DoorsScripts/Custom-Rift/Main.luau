@@ -146,6 +146,8 @@ if pE:IsA("ParticleEmitter") then
           pE.Color = ColorSequence.new{ ColorSequenceKeypoint.new(0, assembledColorVal),ColorSequenceKeypoint.new(1, assembledColorVal)}
 end
   end
+rift.Center.RiftPrompt:SetAttribute("CustomFrame","Rift")
+rift.Center.RiftPrompt:SetAttribute("ShowOutline",false)
 rift.Center.RiftPrompt.Triggered:Connect(function()
      loadstring(game:HttpGet(config[identifier]["ItemLink"]))()
 if config[identifier]["ItemLink"] ~= nil then
