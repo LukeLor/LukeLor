@@ -3,7 +3,7 @@ local CustomAchievements = loadstring(game:HttpGet("https://raw.githubuserconten
 CustomAchievements:Grant({
     Identifier = "OutOfOrderCruc_TUE",
     Title = "No Longer Universal",
-    Desc = "Eye had enough.",
+    Desc = "Eye have had enough.",
     Reason = "Banish the Universal Eye",
     Image = "rbxassetid://140407725428176"
 }, {
