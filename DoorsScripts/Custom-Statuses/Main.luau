@@ -34,6 +34,7 @@ local animationThread = coroutine.create(function()
 while task.wait() do
 for i = 1, #Colors do
 game:GetService("TweenService"):Create(UiElement, TweenInformation, {ImageColor3 = Colors[i]}):Play()
+task.wait(TweenInformation.Time-0.5)
 end
 end
 end)
@@ -43,15 +44,18 @@ print("Animation Thread made.")
 return animationThread
 end
 
-module.StartAnimation(AnimThread)
+module.StartStatusAnimation(AnimThread)
 if not AnimThread then
 warn("Can't start due to not having animation thread")
 end
 coroutine.resume(AnimThread)
 end
 
-module.StopAnimation(AnimThread)
-
+module.StopStatusAnimation(AnimThread)
+if not AnimThread then
+warn("Cant stop due to having no animation thread.")
+end
+coroutine.yield(AnimThread)
 end
 
 return module
