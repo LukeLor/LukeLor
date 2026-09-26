@@ -22,9 +22,9 @@ if not Colors then
 warn("Can't animate Colors, because no Colors provided. Returning.")
 return
 end
-if not string.lower(type(Colors)) == "table" then
+--[[if not string.lower(typeof(Colors)) == "table" then
 warn("Colors isnt a table, returning..")
-end
+end]]
 
 if not TweenInformation then
 TweenInformation == TweenInfo.new(3, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut)
