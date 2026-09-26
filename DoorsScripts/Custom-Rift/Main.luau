@@ -51,7 +51,8 @@ local DefaultRift = {
   ColorRed = 120,
   ColorGreen = 217,
   ColorBlue = 255,
-MusicId = "rbxassetid://11869807210"
+MusicId = "rbxassetid://11869807210",
+RemoveItem = false
 }
 
 local Module = {}
@@ -64,7 +65,8 @@ type RiftConfig = {
   ColorRed: number?,
   ColorGreen: number?,
   ColorBlue: number?,
-MusicId: string?
+MusicId: string?,
+RemoveItem:boolean?
 }
 
 type RiftLog = {
@@ -75,7 +77,8 @@ type RiftLog = {
     ColorRed: number,
   ColorGreen: number,
   ColorBlue: number,
-MusicId: string
+MusicId: string,
+RemoveItem: boolean
     }
 }
 
@@ -159,8 +162,10 @@ if pE:IsA("ParticleEmitter") then
       end
       end
 end
+if config[identifier]["RemoveItem"] == true then
 config[identifier]["ItemLink"] = nil
 config[identifier]["ItemIcon"] = ""
+end
     end)
 local itemDisplay = coroutine.create(function()
 while task.wait(1) do 
