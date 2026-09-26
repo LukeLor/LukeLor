@@ -9,7 +9,7 @@ template.ImageColor3 = Color3.fromRGB(255,255,255)
 return template
 end
 
-module.CreateAnimation(UiElement, TweenInformation, Colors)
+module.CreateStatusAnimationColor(UiElement, TweenInformation, Colors)
 if not UiElement then
 warn("Ui Element not provided... returning.")
 return
