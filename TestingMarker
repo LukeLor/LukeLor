@@ -1,0 +1,15 @@
+local totalBadges = 11
+local logicalMarkerCount = math.round(totalBadges/10)
+local markerFrame = game.Players.LocalPlayer.PlayerGui.MainUI.Achievements.ProgressBarFrame.MarkerTotal
+for _, eMarker in markerFrame:GetChildren() do
+	if eMarker.Name == "MarkerZoneLive" then
+		eMarker:Destroy()
+	end
+end
+for i = 1, logicalMarkerCount do
+	local clonedMarker = markerFrame.MarkerZoneTemp:Clone()
+	clonedMarker.Parent = markerFrame
+	clonedMarker.Visible = true
+	clonedMarker.Name = "MarkerZoneLive"
+end
+
