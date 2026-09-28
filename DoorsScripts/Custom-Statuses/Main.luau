@@ -34,7 +34,7 @@ local animationThread = coroutine.create(function()
 while task.wait() do
 for i = 1, #Colors do
 game:GetService("TweenService"):Create(UiElement, TweenInformation, {ImageColor3 = Colors[i]}):Play()
-task.wait(math.clamp(TweenInformation.Time-0.5,0,9999))
+task.wait(math.clamp(TweenInformation.Time-TweenInformation.Time/10,0,9999))
 end
 end
 end)
