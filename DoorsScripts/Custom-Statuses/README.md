@@ -27,7 +27,7 @@ IF YOU WANT TO ANIMATE:
 
 Define the animation:
 ```lua
-local ColorAnimatoin = StatusMaker.CreateStatusAnimationColor(STATUS_UI_NAME, TweenInfo.new(3), {Color.fromRGB(255,255,255), Color.fromRGB(255,125,125)})
+local ColorAnimation = StatusMaker.CreateStatusAnimationColor(STATUS_UI_NAME, TweenInfo.new(3), {Color.fromRGB(255,255,255), Color.fromRGB(255,125,125)})
 ```
 
 to play the animation: 
