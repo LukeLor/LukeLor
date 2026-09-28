@@ -80,7 +80,7 @@ end
 local SizeAnimThread = coroutine.create(function()
 game:GetService("TweenService"):Create(UiElement, TweenInformation, {Size = destSize}):Play()
 end)
-print("Size Anim Thread made."
+print("Size Anim Thread made.")
 return SizeAnimThread
 end
 
