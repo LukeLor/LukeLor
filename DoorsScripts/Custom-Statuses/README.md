@@ -21,3 +21,9 @@ STATUS_UI_NAME:Destroy()
 ```
 
 then the status effect UI should disappear!
+
+
+IF YOU WANT TO ANIMATE: 
+
+```lua
+StatusMaker.CreateAnimationColor(
