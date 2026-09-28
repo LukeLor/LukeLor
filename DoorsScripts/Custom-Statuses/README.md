@@ -42,7 +42,11 @@ then to stop it:
 StatusMaker.StopStatusAnimation(ColorAnimation)
 ```
 
-SIZE
+
+
+
+
+SIZE:
 
 Define the animation:
 ```lua
