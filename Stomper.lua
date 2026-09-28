@@ -112,7 +112,7 @@ local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPa
 	-- Actions
 	if resist == false then
 		waitUntil(2)
-		TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = repentance.Entity.CFrame - Vector3.new(0, 25, 0) }):Play()
+		TweenService:Create(entityPart, TweenInfo.new(3, Enum.EasingStyle.Back, Enum.EasingDirection.In), { CFrame = repentance.Entity.CFrame - Vector3.new(0, 75, 0) }):Play()
 		
         for _, v in next, model:GetDescendants() do
 			if
