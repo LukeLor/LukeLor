@@ -1,7 +1,5 @@
 (THIS ONLY CREATES THE UI STATUS EFFECT!)
 
-UPDATING README SOON, BECAUSE MAIN FILE HAS SOME VERY COOL UPDATES!!!
-
 Here's how to use it:
 
 You'd first: 
@@ -49,16 +47,23 @@ SIZE
 Define the animation:
 ```lua
 local SizeAnimation = StatusMaker.CreateStatusAnimationSize(STATUS_UI_NAME, TweenInfo.new(0.5),"Big")
+
+local SizeAnimation2 = StatusMaker.CreateStatusAnimationSize(STATUS_UI_NAME, TweenInfo.new(0.5),"Normal")
 ```
 
-to play the animation: 
+TYPES OF SIZES:
+"Normal"
+"Big"
+"Small"
+
+
+to play the animations: 
 
 ```lua
 StatusMaker.PlayStatusAnimation(SizeAnimation)
+task.wait(0.4)
+StatusMaker.PlayStatusAnimation(SizeAnimation2)
 ```
 
-then to stop it:
+and that should make it big, then normal size!
 
-```lua
-StatusMaker.StopStatusAnimation(SizeAnimation)
-```
