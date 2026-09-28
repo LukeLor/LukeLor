@@ -25,6 +25,8 @@ then the status effect UI should disappear!
 
 IF YOU WANT TO ANIMATE: 
 
+COLOR:
+
 Define the animation:
 ```lua
 local ColorAnimation = StatusMaker.CreateStatusAnimationColor(STATUS_UI_NAME, TweenInfo.new(3), {Color3.fromRGB(255,255,255), Color3.fromRGB(255,125,125)})
@@ -40,4 +42,23 @@ then to stop it:
 
 ```lua
 StatusMaker.StopStatusAnimation(ColorAnimation)
+```
+
+SIZE
+
+Define the animation:
+```lua
+local SizeAnimation = StatusMaker.CreateStatusAnimationSize(STATUS_UI_NAME, TweenInfo.new(0.5),"Big")
+```
+
+to play the animation: 
+
+```lua
+StatusMaker.PlayStatusAnimation(SizeAnimation)
+```
+
+then to stop it:
+
+```lua
+StatusMaker.StopStatusAnimation(SizeAnimation)
 ```
