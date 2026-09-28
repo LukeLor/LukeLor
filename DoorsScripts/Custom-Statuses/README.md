@@ -20,7 +20,10 @@ STATUS_UI_NAME:Destroy()
 
 then the status effect UI should disappear!
 
-
+(If its still hidden, run this)
+```lua
+STATUS_UI_NAME.Visible = true
+```
 IF YOU WANT TO ANIMATE: 
 
 COLOR:
