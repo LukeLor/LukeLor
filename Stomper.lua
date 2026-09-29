@@ -45,7 +45,11 @@ local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPa
 	local entityPart = repentance.Entity
 	local sound =  crucifix.Sound
 	local shaker = Modules.Main_Game.camShaker:StartShake(5, 20, 2, Vector3.new())
-
+for _, c in next, pentagram:GetChildren() do
+			if c.Name == "BeamFlat" then
+			c.LightEmission = 1
+		end
+	end
 	local function waitUntil(t)
 		repeat RunService.RenderStepped:Wait() until sound.TimePosition >= t
 	end
