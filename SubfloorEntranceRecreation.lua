@@ -2,16 +2,33 @@
 
 
 
+
+
 local environmentModel = workspace.SubfloorEntrySetup
 local camFold = environmentModel.SubfloorEntryCam
 
+
+
 local Cam = workspace.CurrentCamera
+local oldCamType = Cam.CameraType
 local Pos1 = camFold.FarCam
 local Pos2 = camFold.MidCam
 local Pos3 = camFold.CloseCam
 local TS = game:GetService("TweenService")
 local Gavity = workspace.Gravity
+local hasDoorFrame = true
+local lightColor = Color3.fromRGB(97, 192, 255)
+local voidColor = Color3.fromRGB(96, 154, 198)
 
+if hasDoorFrame ~= true then
+	environmentModel.Environment.DoorFrame:Destroy()
+end
+for _, light in environmentModel.Environment:GetDescendants() do
+	if light:IsA("PointLight") or light:IsA("SpotLight") or light:IsA("SurfaceLight")  then
+		light.Color = lightColor
+	end
+end
+environmentModel.Environment.Void.Color = voidColor
 Cam.CameraType = Enum.CameraType.Scriptable
 Cam.CameraSubject = Pos1
 Cam.CFrame = Pos1.CFrame
@@ -50,5 +67,5 @@ shake:ShakeOnce(20,1,0,3)
 Tween2:Play()
 
 task.wait(3)
-Cam.CameraType = Enum.CameraType.Custom
+Cam.CameraType = oldCamType
 workspace.Gravity = Gavity
