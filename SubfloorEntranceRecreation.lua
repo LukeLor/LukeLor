@@ -1,9 +1,14 @@
 --CURRENTLY STUDIO-BOUND, WILL EDIT TO MAKE WORK IN REAL GAME.
 
+
+
+local environmentModel = workspace.SubfloorEntrySetup
+local camFold = environmentModel.SubfloorEntryCam
+
 local Cam = workspace.CurrentCamera
-local Pos1 = workspace.FarCam
-local Pos2 = workspace.MidCam
-local Pos3 = workspace.CloseCam
+local Pos1 = camFold.FarCam
+local Pos2 = camFold.MidCam
+local Pos3 = camFold.CloseCam
 local TS = game:GetService("TweenService")
 local Gavity = workspace.Gravity
 
@@ -14,7 +19,13 @@ local camModule = require(game.ReplicatedStorage.CameraShaker)
 workspace.Gravity = 25
 local DoorModel = game.ServerStorage.DoorTest:Clone()
 DoorModel.Parent = workspace
-DoorModel.Script.Enabled = true
+if DoorModel.PrimaryPart == nil then
+	warn("Can't Pivot Door. Make sure to set PrimaryPart, or cutscene will not work.")
+	return
+end
+DoorModel:PivotTo(environmentModel.Environment.Pivot.CFrame)
+
+
 local shake = camModule.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
 	Cam.CFrame = Cam.CFrame * shakeCf
 end)
@@ -27,6 +38,9 @@ task.wait(2.5)
 for _, part in DoorModel:GetDescendants() do
 	if part:IsA("BasePart") then
 		part.Anchored = false
+		part.AssemblyLinearVelocity = Vector3.new(0,math.random(-25,0),0)
+		part.AssemblyAngularVelocity = Vector3.new(math.random(-12,12),math.random(-1,1),math.random(-12,12))
+
 	end
 end
 shake:ShakeOnce(1,1,0,0.1)
