@@ -17,8 +17,8 @@ local Pos3 = camFold.CloseCam
 local TS = game:GetService("TweenService")
 local Gavity = workspace.Gravity
 local hasDoorFrame = true
-local lightColor = Color3.fromRGB(97, 192, 255)
-local voidColor = Color3.fromRGB(96, 154, 198)
+local lightColor = Color3.fromRGB(255, 190, 61)
+local voidColor = Color3.fromRGB(218, 138, 85)
 
 if hasDoorFrame ~= true then
 	environmentModel.Environment.DoorFrame:Destroy()
