@@ -1,10 +1,7 @@
---CURRENTLY STUDIO-BOUND, WILL EDIT TO MAKE WORK IN REAL GAME.
+local environmentModel = game.ReplicatedStorage.SubfloorEntrySetup:Clone()
+environmentModel.Parent = workspace
+environmentModel:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,100,0))
 
-
-
-
-
-local environmentModel = workspace.SubfloorEntrySetup
 local camFold = environmentModel.SubfloorEntryCam
 
 
@@ -88,7 +85,11 @@ shake:ShakeOnce(20,1,0,3)
 Tween2:Play()
 
 task.wait(3)
+shake:ShakeOnce(2,1,0,3)
+DoorModel:Destroy()
 Cam.CameraType = oldCamType
 workspace.Gravity = Gavity
 Cam.CameraSubject = oldSubject
 lockCam = "done"
+task.wait(1)
+environmentModel:Destroy()
