@@ -27,7 +27,7 @@ warn("Colors isnt a table, returning..")
 end]]
 
 if not TweenInformation then
-TweenInformation == TweenInfo.new(3, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut)
+TweenInformation = TweenInfo.new(3, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut)
 end
 
 local animationThread = coroutine.create(function()
@@ -54,7 +54,7 @@ warn("UiElement isn't an ImageLabel, returning..")
 end 
 
 if not TweenInformation then
-TweenInformation == TweenInfo.new(0.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut)
+TweenInformation = TweenInfo.new(0.5, Enum.EasingStyle.Circular, Enum.EasingDirection.InOut)
 end
 local reference = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Effects.Crouching
 
