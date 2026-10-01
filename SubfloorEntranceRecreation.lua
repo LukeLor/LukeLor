@@ -49,7 +49,8 @@ Cam.CameraSubject = Pos1
 Cam.CFrame = Pos1.CFrame
 local camModule = require(game.ReplicatedStorage.CameraShaker)
 workspace.Gravity = 25
-local DoorModel = game.ReplicatedStorage.Door:Clone()
+local DoorModel = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/BackdoorsDoorNoFrame.rbxm?raw=true")
+
 DoorModel.Parent = workspace
 if DoorModel.PrimaryPart == nil then
 	warn("Can't Pivot Door. Make sure to set PrimaryPart, or cutscene will not work.")
