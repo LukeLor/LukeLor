@@ -36,7 +36,7 @@ local ColorAnimation = StatusMaker.CreateStatusAnimationColor(STATUS_UI_NAME, Tw
 to play the animation: 
 
 ```lua
-StatusMaker.PlayStatusAnimation(ColorAnimation)
+StatusMaker.StartStatusAnimation(ColorAnimation)
 ```
 
 then to stop it:
