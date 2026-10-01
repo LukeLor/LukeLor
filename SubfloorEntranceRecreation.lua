@@ -57,7 +57,8 @@ if DoorModel.PrimaryPart == nil then
 end
 DoorModel:PivotTo(environmentModel.Environment.Pivot.CFrame)
 
-
+local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+maingame.stopcam = true
 local shake = camModule.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
 	Cam.CFrame = Cam.CFrame * shakeCf
 end)
@@ -95,3 +96,4 @@ Cam.CameraSubject = oldSubject
 lockCam = "done"
 task.wait(1)
 environmentModel:Destroy()
+maingame.stopcam = false
