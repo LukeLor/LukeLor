@@ -2,7 +2,7 @@ local StatusMaker = loadstring(game:HttpGet("https://raw.githubusercontent.com/L
 
 local NoEnergyStatus = StatusMaker.MakeStatus("rbxassetid//:126374173893352", "NoEnergy")
 local ColorAnimation = StatusMaker.CreateStatusAnimationColor(NoEnergyStatus, TweenInfo.new(0.75), {Color3.fromRGB(255,255,255), Color3.fromRGB(255,125,125)})
-StatusMaker.PlayStatusAnimation(ColorAnimation)
+StatusMaker.StartStatusAnimation(ColorAnimation)
 NoEnergyStatus.Visible = true
 
 task.wait(5)
