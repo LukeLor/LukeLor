@@ -47,7 +47,7 @@ environmentModel.Environment.Void.Color = voidColor
 Cam.CameraType = Enum.CameraType.Scriptable
 Cam.CameraSubject = Pos1
 Cam.CFrame = Pos1.CFrame
-local camModule = require(game.ReplicatedStorage.CameraShaker)
+--local camModule = require(game.ReplicatedStorage.CameraShaker)
 workspace.Gravity = 25
 local DoorModel = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/BackdoorsDoorNoFrame.rbxm?raw=true")
 
