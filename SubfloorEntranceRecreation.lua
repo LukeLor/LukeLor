@@ -59,9 +59,7 @@ DoorModel:PivotTo(environmentModel.Environment.Pivot.CFrame)
 
 local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
 maingame.stopcam = true
-local shake = camModule.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
-	Cam.CFrame = Cam.CFrame * shakeCf
-end)
+local shake = maingame.camShaker
 lockCam = true
 shake:Start()
 local Tween1 = TS:Create(environmentModel.SubfloorEntryCam.LockOn, TweenInfo.new(4, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {CFrame = Pos2.CFrame})
