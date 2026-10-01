@@ -93,6 +93,7 @@ Cam.CameraType = oldCamType
 workspace.Gravity = Gavity
 Cam.CameraSubject = oldSubject
 lockCam = "done"
+maingame.stopcam = false
 task.wait(1)
 environmentModel:Destroy()
-maingame.stopcam = false
+
