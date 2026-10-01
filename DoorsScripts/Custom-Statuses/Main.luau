@@ -59,9 +59,9 @@ module.CreateStatusAnimationSize = function(UiElement, TweenInformation, SizeTyp
 	end
 	local reference = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Effects.Crouching
 
-	local smallSize = reference.Size/2
+	local smallSize =UDim2.new(reference.Size.X.Scale/2,reference.Size.X.Offset/2,reference.Size.Y.Scale/2,reference.Size.Y.Offset/2) 
 
-	local bigSize = reference.Size*2
+	local bigSize = UDim2.new(reference.Size.X.Scale*2,reference.Size.X.Offset*2,reference.Size.Y.Scale*2,reference.Size.Y.Offset*2)
 
 	local normalSize = reference.Size
 
