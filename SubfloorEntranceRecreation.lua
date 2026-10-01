@@ -2,14 +2,14 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utiliti
 
 local environmentModel = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/SubfloorEntranceRemake.rbxm?raw=true")
 environmentModel.Parent = workspace
-environmentModel:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,100,0))
+environmentModel:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,300,0))
 
 local camFold = environmentModel.SubfloorEntryCam
 
 
 
 local Cam = workspace.CurrentCamera
-local oldSubject = Cam.CameraSubject
+local oldSubject = ( Cam.CameraSubject.Name ~= "LockOn" and Cam.CameraSubject) or ( Cam.CameraSubject.Name == "LockOn" and game.Players.LocalPlayer.Character:WaitForChild("Humanoid"))
 local oldCamType = Cam.CameraType
 local Pos1 = camFold.FarCam
 local Pos2 = camFold.MidCam
@@ -47,7 +47,7 @@ environmentModel.Environment.Void.Color = voidColor
 Cam.CameraType = Enum.CameraType.Scriptable
 Cam.CameraSubject = Pos1
 Cam.CFrame = Pos1.CFrame
---local camModule = require(game.ReplicatedStorage.CameraShaker)
+
 workspace.Gravity = 25
 local DoorModel = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/BackdoorsDoorNoFrame.rbxm?raw=true")
 
