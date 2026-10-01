@@ -62,7 +62,6 @@ local maingame = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Mai
 maingame.stopcam = true
 local shake = maingame.camShaker
 lockCam = true
-shake:Start()
 local Tween1 = TS:Create(environmentModel.SubfloorEntryCam.LockOn, TweenInfo.new(4, Enum.EasingStyle.Cubic, Enum.EasingDirection.Out), {CFrame = Pos2.CFrame})
 Tween1:Play()
 shake:ShakeOnce(15,1,0,4)
