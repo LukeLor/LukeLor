@@ -1,0 +1,1 @@
+--Title: Consulted, Desc: Nice meeting up with you and doing business!, Reason: Survive Isolated Light after going to his room.
