@@ -18,7 +18,7 @@ CustomAchievements:Grant({
 })
 end
 
-local function CrucifixEntity(entity, tool)
+--[[local function CrucifixEntity(entity, tool)
 	local model = entity
 local RootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 	local resist = false
@@ -162,7 +162,7 @@ Badge()
 		fadeOut()
 	end
 	task.delay(5, repentance.Destroy, repentance)
-end
+end]]
 
 				local function PlayerHasOut(itemTable, checkBackpack )
 	for indNum, item in itemTable do 
@@ -256,7 +256,10 @@ end
 local functionC = coroutine.create(function()
 	while task.wait() do
 		--print(cDist)
-		cDist = (model.PrimaryPart.Position - char:WaitForChild("HumanoidRootPart").Position).Magnitude
+			if workspace:FindFirstChild("RushMoving") or workspace:FindFirstChild("AmbushMoving") or workspace:FindFirstChild("BackdoorRush") or workspace:FindFirstChild("BashMoving") or workspace:FindFirstChild("Scribbles") then
+open = false
+			end
+				cDist = (model.PrimaryPart.Position - char:WaitForChild("HumanoidRootPart").Position).Magnitude
 		if open == true then
 			model.Root.Attachment.Close.Enabled = false
 			model.Root.Attachment.Open.Enabled = true
@@ -298,12 +301,16 @@ CrucifixEntity(model, tool)
 								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You've died to the Universal Eye, yet again.", "I thought you would've had it!", "Remember, Red Light, Green Light!"}, "Yellow")
 						--Third
 
-							firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Third times a charm, huh?", "Look at it's eye, that'll help you.", "It's not like the \"Eyes\" you're familiar with."}, "Yellow")
+							firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Third times a charm, huh?", "Look at its eye, that'll help you.", "It's not like the \"Eyes\" you're familiar with."}, "Yellow")
 						--Fourth
 								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Okay, dead to the Universal Eye, again.", "When it's eye is opened, don't move, how about that?", "Once the eye is closed, there's your chance to proceed.", "Go back, try again. I, personally don't think it'd hurt."}, "Yellow")
-						-- Onward
-								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Still struggling, I see?","Open is red, Closed is green."}, "Yellow")
-						
+						-- Fifth
+								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Still struggling, I see?","Open is red, Closed is green.", "Though, you should already know."}, "Yellow")
+						--Sixth
+								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You... don't understand yet, do you?","Try not moving when its eye is visibly open.", "You can look at it though.", "So try using that part to your advantage."}, "Yellow")
+
+						--Onward
+								firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"Alright,", "Take your time with the Universal Eye.", "It's not like Haste where you're put on a time constraint.", "If you need time to navigate,", "Don't worry!", "You'll be fine.", "I have faith in you.", "Show me what you've got!"},"Yellow")
 								]]
 							end 
 							game.ReplicatedStorage:WaitForChild("GameStats")["Player_"..game.Players.LocalPlayer.Name].Total.DeathCause.Value = "The Universal Eye"
@@ -343,4 +350,27 @@ end)
 --task.wait(math.random(1,2))
 coroutine.resume(cToggle)
 
+
+local startNum = game.ReplicatedStorage.GameData.LatestRoom.Value 
+while task.wait() do
+    if game.ReplicatedStorage.GameData.LatestRoom.Value ~= startNum then
+coroutine.close(cToggle)
+coroutine.close(functionC)
+		open = false
+		   for _, inst in model:GetDescendants() do
+if inst:IsA("PointLight") then
+game:GetService("TweenService"):Create(inst, TweenInfo.new(3), {Brightness = 0}):Play()
+			end
+			if inst:IsA("ParticleEmitter") then
+inst.Enabled = false
+			end
+			if inst:IsA("Sound") then
+				game:GetService("TweenService"):Create(inst, TweenInfo.new(3), {Volume = 0}):Play()
+			end				
+		end
+		task.wait(5)
+		model:Destroy()
+		break
+    end
+end
 
