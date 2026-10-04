@@ -1,0 +1,1 @@
+--Title: Isolation, Desc: They were right, alone time for you is needed! Reason: Attempt to banish Isolated Light.
