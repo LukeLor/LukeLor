@@ -293,7 +293,7 @@ open = false
                     if hasTool and tool and not model:GetAttribute("BeingBanished") then
 --CrucifixEntity(model, tool)
 	open = false
-						--require(game.Players.LocalPlayer.PlayerGui.MainUi.Initiator.Main_Game).caption("Seems like it can't stand what I have. It's not being banished as it should though... maybe something's faulty.","thought")
+						require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Seems like it can't stand what I have. It's not being banished as it should though... maybe something's faulty.","thought")
 						end
 							
 					if char.Humanoid.Health <= 0 then
