@@ -1,1 +1,1 @@
---Title: Ignorant, Desc: You still disregard what I say..., Reason: Don't enter Isolated Light's room.
+--Title: Ignorant, Desc: You still disregard what I say..., Reason: Survive Isolated Light without entering his room.
