@@ -71,7 +71,9 @@ obj.Anchored = false
            local backpackFixer = coroutine.create(function()
                 while task.wait() do
 if tool.Parent == game.Players.LocalPlayer.Backpack then
-                      tool:SetAttribute("Custom", false)
+                      if tool:GetAttribute("Custom") == true then
+                        tool:SetAttribute("Custom", false)
+                      end
                   end
                 end)
                 coroutine.resume(backpackFixer)                end
