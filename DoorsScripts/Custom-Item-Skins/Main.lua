@@ -36,7 +36,7 @@ local tool, hastool = hasToolOut(game.Players.LocalPlayer.Character)
 local match = toolMatch(tool, itemName)
       if match then
         --Make sure that it hasn't been changed already
-        if tool:GetAttribute("Custom") and tool:GetAttribute("Custom") ~= true then
+        if tool:GetAttribute("Custom") ~= true then
       --Destroy existing content, import skin into workspace
        skin.Parent = workspace
           local objTable = {}
