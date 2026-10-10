@@ -2,7 +2,7 @@ local subfloorCutscene = {}
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
-subfloorCutscene.MakeCutscene = function(doorModel, VoidColor, LightColor)
+subfloorCutscene.MakeCutscene = function(doorModel, LightColor, VoidColor)
 local environmentModel = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/SubfloorEntranceRemake.rbxm?raw=true")
 environmentModel.Parent = workspace
 environmentModel:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,300,0))
