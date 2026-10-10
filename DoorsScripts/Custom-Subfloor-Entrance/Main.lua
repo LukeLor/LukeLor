@@ -2,7 +2,7 @@ local subfloorCutscene = {}
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
-subfloorCutscene.MakeCutscene = function(doorModel)
+subfloorCutscene.MakeCutscene = function(doorModel, VoidColor, LightColor)
 local environmentModel = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/SubfloorEntranceRemake.rbxm?raw=true")
 environmentModel.Parent = workspace
 environmentModel:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,300,0))
@@ -20,8 +20,8 @@ local Pos3 = camFold.CloseCam
 local TS = game:GetService("TweenService")
 local Gavity = workspace.Gravity
 local hasDoorFrame = true
-local lightColor = Color3.fromRGB(255, 190, 61)
-local voidColor = Color3.fromRGB(218, 138, 85)
+local lightColor = (LightColor ~= nil and LightColor) or Color3.fromRGB(255, 190, 61)
+local voidColor = (VoidColor ~= nil and VoidColor) or Color3.fromRGB(218, 138, 85)
 
 if hasDoorFrame ~= true then
 	environmentModel.Environment.DoorFrame:Destroy()
