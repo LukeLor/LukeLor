@@ -25,6 +25,7 @@ warn("Can't run because no replacement skin was given...")
 warn("Can't run because no itemName was given to search for...")
     return
   end
+  local performingTool
   local c = coroutine.create(function()
   --Main
   while task.wait() do 
@@ -68,13 +69,16 @@ obj.Anchored = false
               skin:Destroy()
               print("Finished Set-up!!!")
               tool:SetAttribute("Custom",true)
-           
-tool.Unequipped:Connect(function()
+           performingTool = tool
+
+               local event = nil
+             event=  tool.Unequipped:Connect(function()
                   if tool:GetAttribute("Custom") == true then
                         tool:SetAttribute("Custom", false)
+                  else 
+                    event:Disconnect()
                       end
                 end)
-                
           end
     end
     end
