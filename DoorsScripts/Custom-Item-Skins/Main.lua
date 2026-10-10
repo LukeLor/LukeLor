@@ -75,7 +75,7 @@ obj.Anchored = false
              event=  tool.Unequipped:Connect(function()
                   if tool:GetAttribute("Custom") == true then
                         tool:SetAttribute("Custom", false)
-                  else 
+                
                     event:Disconnect()
                       end
                 end)
