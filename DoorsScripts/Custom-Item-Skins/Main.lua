@@ -28,7 +28,7 @@ warn("Can't run because no itemName was given to search for...")
   local performingTool
   local c = coroutine.create(function()
   --Main
-  while task.wait() do 
+  char.ChildAdded:Connect(function()
     --find a tool
 local tool, hastool = hasToolOut(game.Players.LocalPlayer.Character)
   if hastool == true then
@@ -83,7 +83,7 @@ obj.Anchored = false
           end
     end
     end
-  end
+  end)
     end)
   coroutine.resume(c)
   return c
