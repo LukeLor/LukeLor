@@ -1,5 +1,8 @@
+local subfloorCutscene = {}
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
 
+subfloorCutscene.MakeCutscene = function(doorModel)
 local environmentModel = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/SubfloorEntranceRemake.rbxm?raw=true")
 environmentModel.Parent = workspace
 environmentModel:PivotTo(workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,300,0))
@@ -49,9 +52,12 @@ Cam.CameraSubject = Pos1
 Cam.CFrame = Pos1.CFrame
 
 workspace.Gravity = 25
+	
 local DoorModel = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/BackdoorsDoorNoFrame.rbxm?raw=true")
-
-DoorModel.Parent = workspace
+	if  doorModel then
+		DoorModel = doorModel
+	end
+		DoorModel.Parent = workspace
 if DoorModel.PrimaryPart == nil then
 	warn("Can't Pivot Door. Make sure to set PrimaryPart, or cutscene will not work.")
 	return
@@ -95,3 +101,6 @@ lockCam = "done"
 maingame.stopcam = false
 task.wait(1)
 environmentModel:Destroy()
+end
+	
+return subfloorCutscene
