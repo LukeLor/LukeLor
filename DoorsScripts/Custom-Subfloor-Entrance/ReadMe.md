@@ -1,5 +1,5 @@
 If you want to intiate the cutscene, 
-(REPLACE "DoorModel" "LightColor" and "VoidColor" WITH THEIR CORRESPONDING THINGS. DoorModel to Model, LightColor to Color3, and VoidColor to Color3. MAKE SURE DOOR HAS A PrimaryPart!!)
+REPLACE "DoorModel" "LightColor" and "VoidColor" WITH THEIR CORRESPONDING THINGS. DoorModel to Model, LightColor to Color3, and VoidColor to Color3. MAKE SURE DOOR HAS A PrimaryPart!!
 ```lua
 local subfloorEntanceHandler = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/DoorsScripts/Custom-Subfloor-Entrance/Main.luau"))()
 subfloorEntranceHandler.MakeCutscene(DoorModel, LightColor, VoidColor)
