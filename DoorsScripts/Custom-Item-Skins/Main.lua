@@ -56,7 +56,7 @@ local match = toolMatch(tool, itemName)
           end
         end
         --Import
-          for _, obj in tool:GetChildren() do
+          for _, obj in skin:GetChildren() do
 obj.Parent = tool.Handle
 if obj:IsA("BasePart") then
 obj.Anchored = false
