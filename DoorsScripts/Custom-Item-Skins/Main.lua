@@ -76,8 +76,9 @@ obj.Anchored = false
                   if tool:GetAttribute("Custom") == true then
                         tool:SetAttribute("Custom", false)
                 
-                    event:Disconnect()
+                    
                       end
+                  event:Disconnect()
                 end)
           end
     end
