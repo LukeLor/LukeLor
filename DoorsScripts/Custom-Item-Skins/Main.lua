@@ -15,7 +15,7 @@ if tool.Name == name then
   end
 end
 
-module.Run = function(itemName, skin)
+module.Run = function(itemName, Skin)
   --Make sure everything's there.
 if not skin then
 warn("Can't run because no replacement skin was given...")
@@ -25,6 +25,7 @@ warn("Can't run because no replacement skin was given...")
 warn("Can't run because no itemName was given to search for...")
     return
   end
+  local skin = Skin:Clone()
   local performingTool
   local c = coroutine.create(function()
   --Main
