@@ -68,15 +68,14 @@ obj.Anchored = false
               skin:Destroy()
               print("Finished Set-up!!!")
               tool:SetAttribute("Custom",true)
-           local backpackFixer = coroutine.create(function()
-                while task.wait() do
-if tool.Parent == game.Players.LocalPlayer.Backpack then
-                      if tool:GetAttribute("Custom") == true then
+           
+tool.Unequipped:Connect(function()
+                  if tool:GetAttribute("Custom") == true then
                         tool:SetAttribute("Custom", false)
                       end
-                  end
                 end)
-                coroutine.resume(backpackFixer)                end
+                
+          end
     end
     end
   end
