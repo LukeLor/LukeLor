@@ -15,7 +15,7 @@ if tool.Name == name then
   end
 end
 
-module.Run = function(itemName, Skin)
+module.Run = function(itemName, Skin, char)
   --Make sure everything's there.
 if not skin then
 warn("Can't run because no replacement skin was given...")
@@ -39,14 +39,18 @@ local match = toolMatch(tool, itemName)
         --Make sure that it hasn't been changed already
         if tool:GetAttribute("Custom") ~= true then
       --Destroy existing content, import skin into workspace
-       skin.Parent = workspace
+       skin.Parent = game.Players:WaitForChild(char.Name)
           local objTable = {}
           for _, inst in skin:GetDescendants() do
             table.insert(objTable, inst.Name)
             if inst:IsA("BasePart") then
-             inst.Anchored = true
+           --  inst.Anchored = true
             end
           end
+                task. wait()
+                skin.Parent = char
+                task.wait()
+                       
           --Handle main item
             for _, contents in tool:GetChildren() do
           if contents:IsA("Folder") or contents.Name == "Handle" or contents.Name == "Animation" or table.find(objTable, contents.Name) then
