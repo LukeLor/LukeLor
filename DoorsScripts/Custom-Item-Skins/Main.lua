@@ -17,7 +17,7 @@ end
 
 module.Run = function(itemName, Skin, char)
   --Make sure everything's there.
-if not skin then
+if not Skin then
 warn("Can't run because no replacement skin was given...")
     return
   end
