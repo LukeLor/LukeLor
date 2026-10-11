@@ -31,7 +31,7 @@ warn("Can't run because no itemName was given to search for...")
   --Main
   char.ChildAdded:Connect(function()
     --find a tool
-local tool, hastool = hasToolOut(game.Players.LocalPlayer.Character)
+local tool, hastool = hasToolOut(char)
   if hastool == true then
       --tool has same name
 local match = toolMatch(tool, itemName)
@@ -39,7 +39,7 @@ local match = toolMatch(tool, itemName)
         --Make sure that it hasn't been changed already
         if tool:GetAttribute("Custom") ~= true then
       --Destroy existing content, import skin into workspace
-       skin.Parent = game.Players:WaitForChild(char.Name)
+       skin.Parent = game.Players:WaitForChild(char.Name).Backpack
           local objTable = {}
           for _, inst in skin:GetDescendants() do
             table.insert(objTable, inst.Name)
