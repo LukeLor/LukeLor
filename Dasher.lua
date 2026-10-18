@@ -7,7 +7,7 @@ local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeL
 local entity = spawner:Create({
 	Entity = {
 		Name = "Dasher",
-		Asset = "https://github.com/LukeLor/LukeLor/raw/main/DasherNew.rbxm",
+		Asset = "https://github.com/LukeLor/LukeLor/raw/main/DasherMostRecent.rbxm",
 		HeightOffset = 0
 	},
 	Lights = {
