@@ -281,7 +281,7 @@ local function FixRoomLights(room: Model)
     end
 end
 
-local function PlayerHasOut(itemTable: table, checkBackpack:boolean ): boolean
+local function PlayerHasOut(itemTable, checkBackpack)
 	for indNum, item in itemTable do 
 	local tool = Character:FindFirstChild(item)
 	
