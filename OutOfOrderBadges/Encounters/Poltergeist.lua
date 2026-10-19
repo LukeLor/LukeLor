@@ -4,7 +4,7 @@ local CustomAchievements = loadstring(game:HttpGet("https://raw.githubuserconten
     Title = "Spooky Scary",
     Desc = "...ghosts. Not skeletons.",
     Reason = "Survive Poltergeist.",
-    Image = "rbxassetid://108478012147289"
+    Image = "rbxassetid://113000083613394"
 }, {
     CheckOwned = false,
     Remember = false
