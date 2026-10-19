@@ -51,7 +51,7 @@ local entity = spawner:Create({
 		Resist = false,
 		Break = true,
 			CrucifixBadge = {
-					Enabled = true,
+					Enabled = false,
 					BadgeLink = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Crucifix/Dasher.lua"
 		}
 	},
