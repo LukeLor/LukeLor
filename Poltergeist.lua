@@ -51,14 +51,14 @@ local entity = spawner:Create({
 		Resist = false,
 		Break = true,
 			CrucifixBadge = {
-					Enabled = false,
-					BadgeLink = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Crucifix/Dasher.lua"
+					Enabled = true,
+					BadgeLink = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Crucifix/Poltergeist.lua"
 		}
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
 		Hints = {"You died to Poltergeist...", "It's quite a tricky one.", "Slower than you're used to.", "It should be familiar with the direction it comes from...","\"Scribbles,\" correct?","I'm sure you'll get the hang of it!","I have faith in you."},
-		Cause = ""
+		Cause = "Poltergeist"
 	}
 })
 
@@ -134,7 +134,7 @@ end)
 
 entity:SetCallback("OnDespawned", function()
     print("Entity has despawned")
-		--loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Encounters/Dasher.lua"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Encounters/Poltergeist.lua"))()
 end)
 
 entity:SetCallback("OnDamagePlayer", function(newHealth)
