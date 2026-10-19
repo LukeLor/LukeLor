@@ -1,6 +1,6 @@
 ---====== Load spawner ======---
 
-local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderEntitySpawner.lua"))()
+local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/DOORS-Entity-Spawner/refs/heads/main/init.luau"))()
 
 ---====== Create entity ======---
 
@@ -44,16 +44,16 @@ local entity = spawner:Create({
 		Amount = 40
 	},
 	Crucifixion = {
-			ItemToSeek = {"Crucifix"},
-				CanBeInBackpack = false,
+			--ItemToSeek = {"Crucifix"},
+			--	CanBeInBackpack = false,
 		Enabled = true,
 		Range = 40,
 		Resist = false,
 		Break = true,
-			CrucifixBadge = {
+		--[[	CrucifixBadge = {
 					Enabled = false,
 					BadgeLink = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Crucifix/Dasher.lua"
-		}
+		}]]
 	},
 	Death = {
 		Type = "Guiding", -- "Curious"
