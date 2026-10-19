@@ -7,7 +7,7 @@ local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Regul
 local entity = spawner:Create({
 	Entity = {
 		Name = "Poltergeist",
-		Asset = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Poltergeist.lua?raw=true",
+		Asset = "https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/Poltergeist?raw=true",
 		HeightOffset = 0
 	},
 	Lights = {
