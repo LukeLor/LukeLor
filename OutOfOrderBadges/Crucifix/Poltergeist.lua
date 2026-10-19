@@ -4,7 +4,7 @@ local CustomAchievements = loadstring(game:HttpGet("https://raw.githubuserconten
     Title = "Busted",
     Desc = "Seems like you got caught in the act, strange ghost!",
     Reason = "Banish Poltergeist.",
-    Image = "rbxassetid://108478012147289"
+    Image = "rbxassetid://113000083613394"
 }, {
     CheckOwned = false,
     Remember = false
