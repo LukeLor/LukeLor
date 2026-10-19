@@ -285,12 +285,12 @@ local function PlayerHasOut(itemTable, checkBackpack)
 	for indNum, item in itemTable do 
 	local tool = Character:FindFirstChild(item)
 	
-	if tool and tool.Name == name then
+	if tool then
 		return true, tool
 	end
 	if checkBackpack then
 		local tool = LocalPlayer.Backpack:FindFirstChild(item)
-	       if tool and tool.Name == name then
+	       if tool then
 		     return true, tool
 	       end
 	end
