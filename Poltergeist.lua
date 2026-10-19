@@ -134,8 +134,10 @@ end)
 
 entity:SetCallback("OnDespawned", function()
     print("Entity has despawned")
+		if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/OutOfOrderBadges/Encounters/Poltergeist.lua"))()
-end)
+		end
+		end)
 
 entity:SetCallback("OnDamagePlayer", function(newHealth)
 	if newHealth == 0 then
