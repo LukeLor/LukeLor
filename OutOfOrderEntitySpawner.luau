@@ -84,7 +84,8 @@ local CONST = {
 				Enabled = true,
 				Range = 40,
 				Amount = 125,
-                IgnoreHiding = false
+                IgnoreHiding = false,
+                IgnoreStarShield = false
 			},
 			Rebounding = {
 				Enabled = true,
