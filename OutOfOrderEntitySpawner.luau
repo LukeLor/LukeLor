@@ -298,7 +298,7 @@ local function PlayerHasOut(itemTable, checkBackpack)
   end
 end
 
-local function CrucifixEntity(entity: any, tool: Tool)
+local function CrucifixEntity(entity: any, tool: Tool, breakCruc)
 	local model = entity.Model
 	local config = entity.Config
 
@@ -344,6 +344,10 @@ local function CrucifixEntity(entity: any, tool: Tool)
     crucifix.BodyPosition.Position = (RootPart.CFrame * CFrame.new(0.5, 3, -6)).Position
 	repentance.Parent = workspace
 	sound:Play()
+
+if breakCruc then
+tool:Destroy()
+end
 
 	task.spawn(function()
 		while model.Parent and repentance.Parent do
@@ -913,12 +917,11 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
                             entity:RunCallback("CrucifixionOverwrite")
                         else
                             model:SetAttribute("Paused", true)
-                            CrucifixEntity(entity, tool)
+
+                            CrucifixEntity(entity, tool, crucifixion.Break)
                         end
 
-							if crucifixion.Break then
-tool:Destroy()
-							end
+							
 							
                         usedCrucifix = true
                     end
