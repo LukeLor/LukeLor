@@ -73,7 +73,7 @@ Shop.PrimaryPart.CanCollide = false
 	door:Destroy()
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Spawned Shop.",true)
 --Yay, Caiso content!
-  --  local idleK = Shop.Caiso.RawAnimations.Idle
+  --  local idleK = Shop.Caiso.RawAnimations.Idle -- CaisoHello, Purchase
    -- local idlePlay = LoadAnim(Shop.Caiso, idleK)
  --  PlayAnim(idlePlay)
   --Test Item Purchase
