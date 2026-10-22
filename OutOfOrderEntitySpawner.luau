@@ -87,6 +87,7 @@ local CONST = {
                 IgnoreHiding = false,
                 IgnoreStarShield = false,
                 StarShieldDamage = 125
+                IgnoreGodMode = false
 			},
 			Rebounding = {
 				Enabled = true,
@@ -465,6 +466,11 @@ local function DamagePlayer(entity: any)
 	local starShield = 100 --Replace w/ actual value!
     local config = entity.Config
 	local newHealth = Humanoid.Health
+local godModeIcon = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Effects.Invincibility
+    
+if config.Damage.IgnoreGodMode == false and godModeIcon.Visible == true then
+return 
+end
 	if starShield and starShield > 0 then
 		 starShield = starShield - config.Damage.StarShieldDamage
 if starShield <= 0 then
