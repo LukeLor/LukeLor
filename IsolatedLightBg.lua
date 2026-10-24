@@ -93,7 +93,11 @@ bridge:PivotTo(Fog.CFrame)
     end
 
     HelpfulDialogue.TextColor3 = Color3.fromRGB(150,255,150)
-
---CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
+local LightOST = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathLoopNew.mp3?raw=true", 1, "Isolated")
+local LightOSTEnd = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathEnd.mp3?raw=true", 1, "End")
+LightOSTEnd.Parent = LightOST
+		Music.Blue.SoundId = LightOST.SoundId
+		Music.Blue.End.SoundId = LightOSTEnd.SoundId
+		--CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
 
 end)
