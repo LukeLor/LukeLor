@@ -1,0 +1,99 @@
+local Players = game:GetService("Players")
+local SoundService = game:GetService("SoundService")
+local Camera = workspace.CurrentCamera
+local DeathName = "DeathBackgroundBlue"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+local remotesfolder = ReplicatedStorage:WaitForChild("RemotesFolder")
+local backgroundColor = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(150, 255, 150)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(150, 150, 255))
+})
+
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+local MainUI = PlayerGui:WaitForChild("MainUI")
+local Death = MainUI:WaitForChild("Death")
+local HelpfulDialogue = Death:WaitForChild("HelpfulDialogue")
+local MainGame = MainUI:WaitForChild("Initiator"):WaitForChild("Main_Game")
+local Health = MainGame:WaitForChild("Health")
+local Music = Health:WaitForChild("Music")
+
+function GetGitSound(GithubSnd, SoundName)
+    local url = GithubSnd
+    if not isfile(SoundName..".mp3") then
+	    writefile(SoundName..".mp3", game:HttpGet(url))
+	end
+	return (getcustomasset or getsynasset)(SoundName..".mp3")
+end
+
+function CustomSound(soundLink, vol, sndName)
+    local sound = Instance.new("Sound")
+    sound.SoundId = GetGitSound(soundLink, sndName)
+    sound.Parent = Music
+    sound.Name = "DeathHint_Sound"
+    sound.Volume = vol or 0.5
+    sound:Play()
+end
+
+
+Camera.ChildAdded:Connect(function(Child)
+    if Child.Name ~= DeathName then return end
+    
+  --[[  for _, Asset in Music:GetChildren() do
+        if Asset:IsA("Sound") then
+            Asset:Destroy()
+        end
+    end]]
+local Main = Child:WaitForChild("MainPart")
+local CharAtt = Main:WaitForChild("CharAttach")
+local CharAttBelow = Main:WaitForChild("CharAttachBelow")
+local CamAtt = Main:WaitForChild("CamAttach")
+CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
+CamAtt.Position = CharAtt.Orientation - Vector3.new(14.522, 40.234 ,0)
+CamAtt.Position = CharAtt.Position + Vector3.new(13.938, -5.928, 0.628)
+wait(0.1)
+CharAttBelow.Position = CharAtt.Position
+
+
+--local d_anim = "rbxassetid://107897966884951"
+--Child.CharAnim.AnimationId = d_anim
+    local Lights = Child:WaitForChild("Lights")
+    local Fog = Child:WaitForChild("FogAndSmaller")
+    local Water = Child:WaitForChild("Water")
+
+bridge.Parent = Child
+bridge:PivotTo(Fog.CFrame)
+
+    for _, Light in Lights:GetDescendants() do
+        if Light:IsA("SpotLight") then
+            Light.Color = Color3.fromRGB(150, 255, 150)
+        end
+        if Light:IsA("ParticleEmitter") then
+            Light.Color = backgroundColor
+        end
+    end
+
+    for _, FogL in Fog:GetChildren() do
+        FogL.Color = backgroundColor
+    end
+
+    for _, WaterL in Water:GetChildren() do
+        WaterL.Color = backgroundColor
+    end
+
+    local BigLight = Lights:FindFirstChild("BigLight")
+    if BigLight then
+        local Attachment = BigLight:FindFirstChild("Attachment")
+        if Attachment then
+            local Moon = Attachment:FindFirstChild("Moon")
+            if Moon then
+                Moon.Texture = "rbxassetid://123535107502536"
+            end
+        end
+    end
+
+    HelpfulDialogue.TextColor3 = Color3.fromRGB(150,255,150)
+
+--CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
+
+end)
