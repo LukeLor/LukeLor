@@ -48,11 +48,12 @@ local Main = Child:WaitForChild("MainPart")
 local CharAtt = Main:WaitForChild("CharAttach")
 local CharAttBelow = Main:WaitForChild("CharAttachBelow")
 local CamAtt = Main:WaitForChild("CamAttach")
-	CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
-	CamAtt.Orientation = CamAtt.Orientation - Vector3.new(14.522, 40.234 ,0)
-	CamAtt.Position = CamAtt.Position - Vector3.new(13.938, -5.928, 0.628)
-wait(0.1)
-CharAttBelow.Position = CharAtt.Position
+CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
+	CamAtt.Orientation = CamAtt.Orientation - Vector3.new(0, 40.234,0) -- X is 14.522
+	CamAtt.Position = CamAtt.Position - Vector3.new(13.938, -1.928, 0.628)
+	--CamAtt.CFrame = CFrame.new(CamAtt.Position, Child.Lights.BigLight.Position).Rotation
+	wait(0.1)
+	CharAttBelow.Position = CharAtt.Position
 
 
 --local d_anim = "rbxassetid://107897966884951"
@@ -87,16 +88,33 @@ bridge:PivotTo(Fog.CFrame)
         if Attachment then
             local Moon = Attachment:FindFirstChild("Moon")
             if Moon then
-                Moon.Texture = "rbxassetid://123535107502536"
+               	Moon.Texture = "rbxassetid://108114349730544"
+				Moon.LightEmission = 0.5
+				Moon.Brightness = 0.5
+				Moon.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(1,1,1)),ColorSequenceKeypoint.new(1, Color3.new(1,1,1))})
+			
             end
         end
     end
 
-    HelpfulDialogue.TextColor3 = Color3.fromRGB(150,255,150)
+   local gradient = Instance.new("UIGradient")
+	gradient.Color = ColorSequence.new({
+		ColorSequenceKeypoint.new(0,Color3.fromHex("69ff69")),
+		ColorSequenceKeypoint.new(0.402,Color3.fromHex("85ffb8")),
+		ColorSequenceKeypoint.new(0.696,Color3.fromHex("4cb7ff")),
+		ColorSequenceKeypoint.new(1,Color3.fromHex("63d5ff"))}
+)
+
+	HelpfulDialogue.TextColor3 = Color3.fromRGB(255, 255, 255)
+	
+	
+	gradient.Parent = HelpfulDialogue
+	gradient.Rotation = 45
 local LightOST = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathLoopNew.mp3?raw=true", 1, "Isolated")
 local LightOSTEnd = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathEnd.mp3?raw=true", 1, "End")
 LightOSTEnd.Parent = LightOST
 		Music.Blue.SoundId = LightOST.SoundId
+		
 		Music.Blue.End.SoundId = LightOSTEnd.SoundId
 		--CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
 
