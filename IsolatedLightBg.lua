@@ -62,8 +62,6 @@ CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
     local Fog = Child:WaitForChild("FogAndSmaller")
     local Water = Child:WaitForChild("Water")
 
-bridge.Parent = Child
-bridge:PivotTo(Fog.CFrame)
 
     for _, Light in Lights:GetDescendants() do
         if Light:IsA("SpotLight") then
