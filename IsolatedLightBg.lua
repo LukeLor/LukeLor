@@ -48,9 +48,9 @@ local Main = Child:WaitForChild("MainPart")
 local CharAtt = Main:WaitForChild("CharAttach")
 local CharAttBelow = Main:WaitForChild("CharAttachBelow")
 local CamAtt = Main:WaitForChild("CamAttach")
-CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
-CamAtt.Position = CharAtt.Orientation - Vector3.new(14.522, 40.234 ,0)
-CamAtt.Position = CharAtt.Position + Vector3.new(13.938, -5.928, 0.628)
+	CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
+	CamAtt.Orientation = CamAtt.Orientation - Vector3.new(14.522, 40.234 ,0)
+	CamAtt.Position = CamAtt.Position - Vector3.new(13.938, -5.928, 0.628)
 wait(0.1)
 CharAttBelow.Position = CharAtt.Position
 
