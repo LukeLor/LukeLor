@@ -108,6 +108,7 @@ CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
 	
 	gradient.Parent = HelpfulDialogue
 	gradient.Rotation = 45
+		HelpfulDialogue.RichText = true
 local LightOST = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathLoopNew.mp3?raw=true", 1, "Isolated")
 local LightOSTEnd = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathEnd.mp3?raw=true", 1, "End")
 LightOSTEnd.Parent = LightOST
