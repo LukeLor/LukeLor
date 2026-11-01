@@ -1,4 +1,6 @@
 wait(2)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
+
 print("go entity")
 
 function VisualizeNodes(room)
@@ -51,7 +53,8 @@ local room = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.V
 local nodes = VisualizeNodes(room)
 local cnode = nodes[math.random(1,#nodes)]
 
-local model = game.ReplicatedStorage["A-150"]:Clone()
+local model =  LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150.rbxm?raw=true")
+  -- game.ReplicatedStorage["A-150"]:Clone()
 
 if not model then return end
 print("Model has loaded!")
