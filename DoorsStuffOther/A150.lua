@@ -58,7 +58,7 @@ local model =  LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/
 
 if not model then return end
 print("Model has loaded!")
-
+model.Entity.CanCollide = false
 model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
 if not model.PrimaryPart then return end
 print("PrimaryPart found.")
