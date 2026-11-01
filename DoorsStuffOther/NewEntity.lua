@@ -22,7 +22,7 @@ function VisualizeNodes(room)
 	epart.Parent = room
 	epart.Anchored = true
 	epart.CanCollide = false
-	epart.Transparency = 0
+	epart.Transparency = 1
 	generatednodes[2] = epart
 	--epart.Position = startPosition - Vector3.new(0,6,0)
 	if #path:GetWaypoints() > 0 then
@@ -33,8 +33,8 @@ function VisualizeNodes(room)
 			part.Parent = room
 			part.Anchored = true
 			part.CanCollide = false
-			part.Transparency = 0
-			
+			part.Transparency = 1
+
 			generatednodes[#generatednodes +1] = part
 		end
 	else
@@ -64,6 +64,8 @@ model:PivotTo(cnode.CFrame)
 
 task.wait(2)
 game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = model.Entity.Position + Vector3.new(0,15,0)}):Play()
+game:GetService("TweenService"):Create(model.Root["a-150 =]"], TweenInfo.new(2), {Transparency = 1, Color3 = Color3.new(0.592157, 0.964706, 1)}):Play()
+
 task.wait(2.3)
 local startPos = model.Entity.Position
 local hidingSpotsCheck = {"Wardrobe", "Locker_Large","Toolshed","Rooms_Locker","Rooms_LockerKitchen","Backdoor_Wardrobe","ArchivesLocker","Bed","Double_Bed"}
@@ -72,7 +74,7 @@ for _, inst in room:GetDescendants() do
 	if table.find(hidingSpotsCheck, inst.Name) then
 		table.insert(existingHidingSpots, inst)
 	end
-	
+
 end
 local closetNodes = Instance.new("Folder")
 closetNodes.Parent = room
@@ -84,25 +86,25 @@ for i = 1, #existingHidingSpots do
 	local mainPart = hidingSpot:FindFirstChild("Main")
 	local sound = nil
 	if mainPart then
-		 sound = hidingSpot:FindFirstChild("Main").SoundEnter
+		sound = hidingSpot:FindFirstChild("Main").SoundEnter
 	end
 	local startPosition = model.Entity.Position
 	local goalPosition = hidingSpot.PrimaryPart.Position
 	local path = game:GetService("PathfindingService"):CreatePath()
 	path:ComputeAsync(startPosition, goalPosition)
-	
+
 	if #path:GetWaypoints() > 0 then
 		print("more than 0 wpts")
 		for _, wpt in path:GetWaypoints() do
 			local part = Instance.new("Part")
-			part.Position = wpt.Position
+			part.Position = wpt.Position+ Vector3.new(0,6,0)
 			part.Size= Vector3.new(1,1,1)
-			part.Parent = room
+			part.Parent = closetNodes
 			part.Anchored = true
 			part.CanCollide = false
-			part.Transparency = 0
+			part.Transparency = 1
 			game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2/#path:GetWaypoints()), {Position = part.Position}):Play()
-task.wait(2/#path:GetWaypoints())
+			task.wait(2/#path:GetWaypoints())
 		end
 	else
 		warn("no wpts")
@@ -121,7 +123,7 @@ task.wait(2/#path:GetWaypoints())
 		if char ~= nil then
 			char:WaitForChild("Humanoid").Health = 0
 		end
-		
+
 	end
 end
 
@@ -133,12 +135,12 @@ if #path:GetWaypoints() > 0 then
 	print("more than 0 wpts")
 	for _, wpt in path:GetWaypoints() do
 		local part = Instance.new("Part")
-		part.Position = wpt.Position
+		part.Position = wpt.Position + Vector3.new(0,6,0)
 		part.Size= Vector3.new(1,1,1)
-		part.Parent = room
+		part.Parent = closetNodes
 		part.Anchored = true
 		part.CanCollide = false
-		part.Transparency = 0
+		part.Transparency = 1
 		game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2/#path:GetWaypoints()), {Position = part.Position}):Play()
 		task.wait(2/#path:GetWaypoints())
 	end
@@ -147,6 +149,10 @@ else
 end
 game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position =startPos}):Play()
 task.wait(2)
+game:GetService("TweenService"):Create(model.Root["a-150 =]"], TweenInfo.new(2), {Transparency = 0, Color3 = Color3.new(0, 0, 0)}):Play()
+
 game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = startPos-Vector3.new(0,15,0)}):Play()
-task.wait(5)
+task.wait(2)
+game:GetService("TweenService"):Create(model.Root, TweenInfo.new(1), {Size = Vector3.new(0,0,0)}):Play()
+task.wait(3)
 model:Destroy()
