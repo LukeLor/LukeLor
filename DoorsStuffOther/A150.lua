@@ -71,7 +71,7 @@ game:GetService("TweenService"):Create(model.Root["a-150 =]"], TweenInfo.new(2),
 
 task.wait(2.3)
 local startPos = model.Entity.Position
-local hidingSpotsCheck = {"Wardrobe", "Locker_Large","Toolshed","Rooms_Locker","Rooms_LockerKitchen","Backdoor_Wardrobe","ArchivesLocker","Bed","Double_Bed"}
+local hidingSpotsCheck = {"Wardrobe", "Locker_Large","Toolshed","Rooms_Locker","Rooms_LockerKitchen","Backdoor_Wardrobe","ArchivesLocker"}
 local existingHidingSpots ={}
 for _, inst in room:GetDescendants() do
 	if table.find(hidingSpotsCheck, inst.Name) then
