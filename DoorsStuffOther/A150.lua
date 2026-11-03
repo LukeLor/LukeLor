@@ -79,6 +79,24 @@ local canSeeC = coroutine.create(function()
 			end
 			end
 		end)
+function GetGitSound(GithubSnd, SoundName)
+    local url = GithubSnd
+    if not isfile(SoundName..".mp3") then
+	    writefile(SoundName..".mp3", game:HttpGet(url))
+	end
+	return (getcustomasset or getsynasset)(SoundName..".mp3")
+end
+
+function CustomSound(soundLink, vol, sndName)
+    local sound = Instance.new("Sound")
+    sound.SoundId = GetGitSound(soundLink, sndName)
+    sound.Parent = Music
+    sound.Name = "DeathHint_Sound"
+    sound.Volume = vol or 0.5
+    sound:Play()
+end
+local Audio = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150Loop.mp3.mpeg.mp3?raw=true", 1, "EntitySound")--NewIsolatedLightDeath
+
 	if not model then return end
 print("Model has loaded!")
 model.Entity.CanCollide = false
@@ -88,6 +106,9 @@ print("PrimaryPart found.")
 model.Parent = workspace
 model:PivotTo(cnode.CFrame)
 local sound = model.Entity:WaitForChild("PlaySound")
+sound.Looped = true
+sound.SoundId = Audio.SoundId
+sound:Play()
 task.wait(2)
 game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = model.Entity.Position + Vector3.new(0,15,0)}):Play()
 game:GetService("TweenService"):Create(model.Root["a-150 =]"], TweenInfo.new(2), {Transparency = 1, Color3 = Color3.new(0.592157, 0.964706, 1)}):Play()
