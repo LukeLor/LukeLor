@@ -90,10 +90,11 @@ end
 function CustomSound(soundLink, vol, sndName)
     local sound = Instance.new("Sound")
     sound.SoundId = GetGitSound(soundLink, sndName)
-    sound.Parent = Music
-    sound.Name = "DeathHint_Sound"
+    sound.Parent = model:WaitForChild("Entity")
+    sound.Name = "EntityNoise"
     sound.Volume = vol or 0.5
     sound:Play()
+	sound.Looped = true
 end
 local Audio = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150Loop.mp3.mpeg.mp3?raw=true", 1, "EntitySound")--NewIsolatedLightDeath
 
@@ -105,10 +106,10 @@ if not model.PrimaryPart then return end
 print("PrimaryPart found.")
 model.Parent = workspace
 model:PivotTo(cnode.CFrame)
-local sound = model.Entity:WaitForChild("PlaySound")
-sound.Looped = true
-sound.SoundId = Audio.SoundId
-sound:Play()
+--local sound = model.Entity:WaitForChild("PlaySound")
+--sound.Looped = true
+--sound.SoundId = Audio.SoundId
+--sound:Play()
 task.wait(2)
 game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = model.Entity.Position + Vector3.new(0,15,0)}):Play()
 game:GetService("TweenService"):Create(model.Root["a-150 =]"], TweenInfo.new(2), {Transparency = 1, Color3 = Color3.new(0.592157, 0.964706, 1)}):Play()
