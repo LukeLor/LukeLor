@@ -76,7 +76,7 @@ local canSeeC = coroutine.create(function()
 			local canSee = CanSeeTarget(game.Players.LocalPlayer.Character)
 			if canSee == true then
 				game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
-				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to who you call A-150","It usually checks lockers, but the Hotel doesent have lockers so it checks closets instead...","Maybe... stay a room or 2 behind next time.","I'll see you again, won't I?"}, "Yellow")
+				firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to who you call A-150","It usually checks lockers, but the Hotel doesent have lockers so it checks closets instead...","Maybe... stay a room or 2 behind next time.","Go give surviving it another shot.","See you once you come back, alright?"}, "Yellow")
 break
 			end
 			end
