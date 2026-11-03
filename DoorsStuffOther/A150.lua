@@ -95,9 +95,12 @@ function CustomSound(soundLink, vol, sndName)
     sound.Volume = vol or 0.5
     sound:Play()
 	sound.Looped = true
+	return sound
 end
 local Audio = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150Loop.mp3.mpeg.mp3?raw=true", 1, "EntitySound")--NewIsolatedLightDeath
-
+--https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150_Spawn.mp3.mpeg.mp3
+local Spawn = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150_Spawn.mp3.mpeg.mp3?raw=true", 1, "EntitySound")--NewIsolatedLightDeath
+Spawn:Stop()
 	if not model then return end
 print("Model has loaded!")
 model.Entity.CanCollide = false
@@ -113,7 +116,8 @@ model:PivotTo(cnode.CFrame)
 task.wait(2)
 game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = model.Entity.Position + Vector3.new(0,15,0)}):Play()
 game:GetService("TweenService"):Create(model.Root["a-150 =]"], TweenInfo.new(2), {Transparency = 1, Color3 = Color3.new(0.592157, 0.964706, 1)}):Play()
-
+Spawn.Looped = false
+Spawn:Play()
 task.wait(2.3)
 local startPos = model.Entity.Position
 local hidingSpotsCheck = {"Wardrobe", "Locker_Large","Toolshed","Rooms_Locker","Rooms_LockerKitchen","Backdoor_Wardrobe","ArchivesLocker"}
@@ -207,6 +211,7 @@ game:GetService("TweenService"):Create(model.Root["a-150 =]"], TweenInfo.new(2),
 
 game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = startPos-Vector3.new(0,15,0)}):Play()
 task.wait(2)
+Spawn:Play()
 game:GetService("TweenService"):Create(model.Root, TweenInfo.new(1), {Size = Vector3.new(0,0,0)}):Play()
 task.wait(3)
 model:Destroy()
