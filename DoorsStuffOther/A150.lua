@@ -55,7 +55,7 @@ local cnode = nodes[math.random(1,#nodes)]
 
 local model = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150.rbxm?raw=true")
 -- game.ReplicatedStorage["A-150"]:Clone()
---[[local function CanSeeTarget(target)
+local function CanSeeTarget(target)
 	local origin = model.Entity.Position
 	local direction = (target.HumanoidRootPart.Position - origin).Unit * 30
 	local ray = Ray.new(origin, direction)
@@ -70,8 +70,16 @@ local model = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/D
 	else
 		return false
 	end
-end]]
-if not model then return end
+end
+local canSeeC = coroutine.create(function()
+		while task.wait() do
+			local canSee = CanSeeTarget(game.Players.LocalPlayer.Character)
+			if canSee == true then
+				game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+			end
+			end
+		end)
+	if not model then return end
 print("Model has loaded!")
 model.Entity.CanCollide = false
 --model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
@@ -97,6 +105,7 @@ end
 local closetNodes = Instance.new("Folder")
 closetNodes.Parent = room
 closetNodes.Name = "EntityCloseNodes"
+coroutine.resume(canSeeC)
 for i = 1, #existingHidingSpots do
 	local hidingSpot = existingHidingSpots[i]
 	--game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = hidingSpot.PrimaryPart.Position}):Play()
@@ -179,3 +188,4 @@ task.wait(2)
 game:GetService("TweenService"):Create(model.Root, TweenInfo.new(1), {Size = Vector3.new(0,0,0)}):Play()
 task.wait(3)
 model:Destroy()
+coroutine.close(canSeeC)
