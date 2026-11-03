@@ -113,8 +113,14 @@ local LightOST = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/Isola
 local LightOSTEnd = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathEnd.mp3?raw=true", 1, "End")
 LightOSTEnd.Parent = LightOST
 		Music.Blue.SoundId = LightOST.SoundId
-		
+		Music.Blue.Looped = true
 		Music.Blue.End.SoundId = LightOSTEnd.SoundId
-		--CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
+		while task.wait() do
+			if Music.Blue.Playing == false and Music.Blue.End.Playing == true then
+Music.Blue.End.TimePosition = 0
+				break
+			end
+			end
+			--CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
 
 end)
