@@ -11,15 +11,15 @@ function VisualizeNodes(room)
 	path:ComputeAsync(startPosition, goalPosition)
 	local generatednodes= {}
 	local spart = Instance.new("Part")
-	spart.Position = startPosition - Vector3.new(0,15.5,0)
+	spart.Position = startPosition - Vector3.new(0,3,0)
 	spart.Size= Vector3.new(1,1,1)
 	spart.Parent = room
 	spart.Anchored = true
 	spart.CanCollide = false
-	spart.Transparency = 0
+	spart.Transparency = 1
 	generatednodes[1] = spart
 	local epart = Instance.new("Part")
-	epart.Position = goalPosition- Vector3.new(0,15.5,0)
+	epart.Position = goalPosition- Vector3.new(0,3,0)
 	epart.Size= Vector3.new(1,1,1)
 	epart.Parent = room
 	epart.Anchored = true
@@ -30,7 +30,7 @@ function VisualizeNodes(room)
 	if #path:GetWaypoints() > 0 then
 		for _, wpt in path:GetWaypoints() do
 			local part = Instance.new("Part")
-			part.Position = wpt.Position - Vector3.new(0,15.5,0)
+			part.Position = wpt.Position -- Vector3.new(0,15.5,0)
 			part.Size= Vector3.new(1,1,1)
 			part.Parent = room
 			part.Anchored = true
@@ -53,13 +53,13 @@ local room = workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.V
 local nodes = VisualizeNodes(room)
 local cnode = nodes[math.random(1,#nodes)]
 
-local model =  LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150.rbxm?raw=true")
-  -- game.ReplicatedStorage["A-150"]:Clone()
+local model = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150.rbxm?raw=true")
+-- game.ReplicatedStorage["A-150"]:Clone()
 
 if not model then return end
 print("Model has loaded!")
 model.Entity.CanCollide = false
-model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
+--model.PrimaryPart = model:FindFirstChildWhichIsA("BasePart")
 if not model.PrimaryPart then return end
 print("PrimaryPart found.")
 model.Parent = workspace
@@ -86,6 +86,9 @@ for i = 1, #existingHidingSpots do
 	local hidingSpot = existingHidingSpots[i]
 	--game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = hidingSpot.PrimaryPart.Position}):Play()
 	local openAnim = hidingSpot:FindFirstChild("Anim_EnterModel")
+	if openAnim then
+		--openAnim.AnimationId = "rbxassetid://76173236442856"
+	end
 	local mainPart = hidingSpot:FindFirstChild("Main")
 	local sound = nil
 	if mainPart then
@@ -106,15 +109,17 @@ for i = 1, #existingHidingSpots do
 			part.Anchored = true
 			part.CanCollide = false
 			part.Transparency = 1
-			game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2/#path:GetWaypoints()), {Position = part.Position}):Play()
-			task.wait(2/#path:GetWaypoints())
+			game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2/#path:GetWaypoints()), {Position = part.Position-Vector3.new(0,3.5,0)}):Play()
+			task.wait(2/#path:GetWaypoints()-(2/#path:GetWaypoints())/5)
 		end
 	else
 		warn("no wpts")
 	end
+	if  (model.Entity.Position - goalPosition).Magnitude > 6 then
 	game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = hidingSpot.PrimaryPart.Position}):Play()
-
-	task.wait(2)
+		task.wait(2)		
+	end
+	
 	if sound ~= nil then
 		sound:Play()
 	end
@@ -144,8 +149,8 @@ if #path:GetWaypoints() > 0 then
 		part.Anchored = true
 		part.CanCollide = false
 		part.Transparency = 1
-		game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2/#path:GetWaypoints()), {Position = part.Position}):Play()
-		task.wait(2/#path:GetWaypoints())
+		game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2/#path:GetWaypoints()), {Position = part.Position-Vector3.new(0,3.5,0)}):Play()
+		task.wait(2/#path:GetWaypoints()-(2/#path:GetWaypoints())/5)
 	end
 else
 	warn("no wpts")
