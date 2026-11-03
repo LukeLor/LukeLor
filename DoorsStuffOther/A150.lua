@@ -55,7 +55,22 @@ local cnode = nodes[math.random(1,#nodes)]
 
 local model = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/DoorsStuffOther/A-150.rbxm?raw=true")
 -- game.ReplicatedStorage["A-150"]:Clone()
+--[[local function CanSeeTarget(target)
+	local origin = model.Entity.Position
+	local direction = (target.HumanoidRootPart.Position - origin).Unit * 30
+	local ray = Ray.new(origin, direction)
 
+	local hit, pos = workspace:FindPartOnRay(ray, model)
+
+
+	if hit then
+		if hit:IsDescendantOf(target) then
+			return true
+		end
+	else
+		return false
+	end
+end]]
 if not model then return end
 print("Model has loaded!")
 model.Entity.CanCollide = false
