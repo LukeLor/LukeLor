@@ -64,7 +64,7 @@ if not model.PrimaryPart then return end
 print("PrimaryPart found.")
 model.Parent = workspace
 model:PivotTo(cnode.CFrame)
-
+local sound = model.Entity:WaitForChild("PlaySound")
 task.wait(2)
 game:GetService("TweenService"):Create(model.Entity, TweenInfo.new(2), {Position = model.Entity.Position + Vector3.new(0,15,0)}):Play()
 game:GetService("TweenService"):Create(model.Root["a-150 =]"], TweenInfo.new(2), {Transparency = 1, Color3 = Color3.new(0.592157, 0.964706, 1)}):Play()
