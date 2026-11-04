@@ -32,7 +32,8 @@ function CustomSound(soundLink, vol, sndName)
     sound.Parent = Music
     sound.Name = "DeathHint_Sound"
     sound.Volume = vol or 0.5
-    sound:Play()
+    --sound:Play()
+	return sound
 end
 
 
