@@ -1,10 +1,12 @@
---loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
 wait(4)
-local Rift = script.RiftVFX:Clone()
+local Rift =LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/TPOT-Rift.rbxm?raw=true")
+
 Rift.Parent = workspace
 Rift:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,13,0))
 
-local entity = script.IdkWhatToNameIt:Clone()
+local entity = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/NewEntity.rbxm?raw=true")
+
 entity.Parent = workspace
 entity:PivotTo(Rift.PrimaryPart.CFrame)
 local folder = Instance.new("Folder")
@@ -62,7 +64,7 @@ local funMech = coroutine.create(function()
 			
 		
 	if (entity.HumanoidRootPart.Position - game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude <= 4 then
-				script.Hb:FireServer(3, true)
+				
 				print("YAY, Game!!!")
 				break
 		end
