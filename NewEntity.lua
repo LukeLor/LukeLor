@@ -41,7 +41,7 @@ local function Move(node:Part)
 					rp.CanCollide = false
 
 					rp.Color = Color3.new(1, 0, 0)
-
+rp.Transparency = 1
 				end
 				repeat task.wait()
 					if node.Position ~= oldnodepos  then
@@ -64,8 +64,8 @@ local funMech = coroutine.create(function()
 			
 		
 	if (entity.HumanoidRootPart.Position - game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude <= 4 then
-				
-				print("YAY, Game!!!")
+				game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+				print("YAY, Game!!! — when done...")
 				break
 		end
 		end
@@ -75,6 +75,7 @@ local timer = coroutine.create(function()
 	task.wait(math.random(10,15))
 	Despawn = true
 	coroutine.close(funMech)
+		
 end)
 coroutine.resume(funMech)
 coroutine.resume(timer)
