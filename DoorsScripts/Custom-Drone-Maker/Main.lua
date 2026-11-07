@@ -1,6 +1,6 @@
 local module = {}
 
-module.CreateDrone = function(SpritesheetId, FlipbookLayout, FlipbookMode, FlipbookSizeX, FlipbookSizeY, Squash)
+module.CreateDrone = function(SpritesheetId, FlipbookLayout, FlipbookMode, FlipbookSizeX, FlipbookSizeY, Squash, DName)
 if SpritesheetId == nil then warn("No Spritesheet was given, can't create Drone. Returning...") return end
 if FlipbookSizeX == nil then FlipbookSizeX = 1 warn("FlipbookSizeX wasn't given, defaulting to 1") end
 if FlipbookSizeY == nil then FlipbookSizeY = 1 warn("FlipbookSizeY wasn't given, defaulting to 1") end
@@ -9,6 +9,8 @@ if FlipbookMode == nil then FlipbookMode = Enum.ParticleFlipbookMode.Random warn
 if Squash == nil or typeof(Squash) ~= "NumberSequence" then Squash = NumberSequence.new(NumberSequenceKeypoint.new(0,0), NumberSequenceKeypoint.new(1,0)) warn("Squash wasn't given, or type was incorrect... setting Squash to 0..") end
   
 local DroneModel = game:GetObjects("rbxassetid://132790332494353")[1]
+if DName ~= nil then DroneModel.Name == DroneModel.Name..DName end
+  
 local mainParticle
   for _, particle in DroneModel:GetDescendants() do
     if particle:IsA("ParticleEmitter") then
@@ -50,7 +52,20 @@ DroneModel.Hitbox.Position = Location.Position
   end
 end
 
+module.ClearAllDrones = function()
+  if not workspace:FindFirstChild("CustomDrones") then warn("No folder to hold all drones were found. Try spawning some, then run this.") return end
+workspace:WaitForChild("CustomDrones"):ClearAllChildren()
+end
 
+module.ClearDronesWithName = function(DName)
+  if not workspace:FindFirstChild("CustomDrones") then warn("No folder to hold all drones were found. Try spawning some, then run this.") return end
+
+for _, drone in workspace:WaitForChild("CustomDrones"):GetChildren() do
+if drone.Name == "Drone"..DName then
+      drone:Destroy()
+    end
+  end
+end
 
 return module
 --------Filler to continue typing and fix some typos whenever they're made...
