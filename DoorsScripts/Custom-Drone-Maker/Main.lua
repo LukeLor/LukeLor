@@ -6,7 +6,7 @@ if FlipbookSizeX == nil then FlipbookSizeX = 1 warn("FlipbookSizeX wasn't given,
 if FlipbookSizeY == nil then FlipbookSizeY = 1 warn("FlipbookSizeY wasn't given, defaulting to 1") end
 if FlipbookLayout == nil then FlipbookLayout = Enum.ParticleFlipbookLayout.Custom warn("FlipbookLayout wasn't provided, defaulting to \"Custom\"") end
 if FlipbookMode == nil then FlipbookMode = Enum.ParticleFlipbookMode.Random warn("FlipbookMode wasn't provided, defaulting to \"Random\"") end
-if Squash == nil then Squash = 0 end
+if Squash == nil or typeof(Squash) ~= "NumberSequence" then Squash = NumberSequence.new(NumberSequenceKeypoint.new(0,0), NumberSequenceKeypoint.new(1,0)) warn("Squash wasn't given, or type was incorrect... setting Squash to 0..") end
   
 local DroneModel = game:GetObjects("rbxassetid://132790332494353")[1]
 local mainParticle
@@ -17,7 +17,8 @@ mainParticle = particle
   end
 if mainParticle == nil then warn("Particle holder wasn't found for Drone. Returning...") return end
 mainParticle.Texture = SpritesheetId
-  
+mainParticle.Squash = Squash
+
 
 end
 
