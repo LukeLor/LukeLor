@@ -50,6 +50,9 @@ DroneModel.PrimaryPart = DroneModel.Hitbox
   if typeof(Location) == "BasePart" then
 DroneModel.Hitbox.Position = Location.Position
   end
+  if Location == nil then
+  --Random Room Spawn
+  end
 end
 
 module.ClearAllDrones = function()
