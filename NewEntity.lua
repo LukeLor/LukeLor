@@ -1,5 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
-wait(4)
+wait(1)
 local Rift =LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/TPOT-Rift.rbxm?raw=true")
 
 Rift.Parent = workspace
