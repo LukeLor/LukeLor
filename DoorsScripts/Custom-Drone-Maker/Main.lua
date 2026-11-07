@@ -18,8 +18,12 @@ mainParticle = particle
 if mainParticle == nil then warn("Particle holder wasn't found for Drone. Returning...") return end
 mainParticle.Texture = SpritesheetId
 mainParticle.Squash = Squash
-
-
+mainParticle.FlipbookSizeX = FlipbookSizeX
+mainParticle.FlipbookSizeY = FlipbookSizeY
+mainParticle.FlipbookMode = FlipbookMode
+mainParticle.FlipbookLayout = FlipbookLayout
+print("Drone Created!")
+return DroneModel
 end
 
 
