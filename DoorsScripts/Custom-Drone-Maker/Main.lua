@@ -2,8 +2,9 @@ local module = {}
 
 module.CreateDrone = function(SpritesheetId, FlipbookLayout, FlipbookMode, FlipbookSizeX, FlipbookSizeY)
 if SpritesheetId == nil then warn("No Spritesheet was given, can't create Drone. Returning...") return end
-if FlipbookSizeX == nil then FlipbookSizeX = 1 end
-if FlipbookSizeY == nil then FlipbookSizeY = 1 end
+if FlipbookSizeX == nil then FlipbookSizeX = 1 warn("FlipbookSizeX wasn't given, defaulting to 1") end
+if FlipbookSizeY == nil then FlipbookSizeY = 1 warn("FlipbookSizeY wasn't given, defaulting to 1") end
+if FlipbookLayout == nil then 
 
 local DroneModel = game:GetObjects("rbxassetid://132790332494353")[1]
 local mainParticle
