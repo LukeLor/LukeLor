@@ -26,6 +26,30 @@ print("Drone Created!")
 return DroneModel
 end
 
+module.SpawnDrone = function(DroneModel, Location) 
+if DroneModel == nil then warn("No DroneModel given to spawn... returning...") return end
+  
+  if not workspace:FindFirstChild("CustomDrones") then
+    local folder = Instance.new("Folder")
+    folder.Parent = workspace
+    folder.Name = "CustomDrones"
+  end
+  
+  DroneModel.Parent = workspace:WaitForChild("CustomDrones")
+  if typeof(Location) == "CFrame" then
+    if DroneModel.PrimaryPart == nil then
+DroneModel.PrimaryPart = DroneModel.Hitbox
+    end
+    DroneModel:PivotTo(Location)
+  end
+  if typeof(Location) == "Vector3" then
+   DroneModel.Hitbox.Position = Location
+  end
+  if typeof(Location) == "BasePart" then
+DroneModel.Hitbox.Position = Location.Position
+  end
+end
+
 
 
 return module
