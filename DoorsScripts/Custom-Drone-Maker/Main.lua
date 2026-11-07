@@ -10,7 +10,7 @@ if Squash == nil or typeof(Squash) ~= "NumberSequence" then Squash = NumberSeque
   
 local DroneModel = game:GetObjects("rbxassetid://132790332494353")[1]
 if DName ~= nil then DroneModel.Name = DroneModel.Name..DName end
-  
+  DroneModel.Hitbox.CanCollide = false
 local mainParticle
   for _, particle in DroneModel:GetDescendants() do
     if particle:IsA("ParticleEmitter") then
@@ -25,6 +25,7 @@ mainParticle.FlipbookSizeY = FlipbookSizeY
 mainParticle.FlipbookMode = FlipbookMode
 mainParticle.FlipbookLayout = FlipbookLayout
 print("Drone Created!")
+
 return DroneModel
 end
 
