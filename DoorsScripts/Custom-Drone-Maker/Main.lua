@@ -1,6 +1,6 @@
 local module = {}
 
-module.CreateDrone = function(SpritesheetId, Flip)
+module.CreateDrone = function(SpritesheetId, FlipbookLayout, FlipbookMode)
 
 end
 
