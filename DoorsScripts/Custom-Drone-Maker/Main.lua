@@ -5,7 +5,7 @@ if SpritesheetId == nil then warn("No Spritesheet was given, can't create Drone.
 if FlipbookSizeX == nil then FlipbookSizeX = 1 warn("FlipbookSizeX wasn't given, defaulting to 1") end
 if FlipbookSizeY == nil then FlipbookSizeY = 1 warn("FlipbookSizeY wasn't given, defaulting to 1") end
 if FlipbookLayout == nil then FlipbookLayout = Enum.ParticleFlipbookLayout.Custom warn("FlipbookLayout wasn't provided, defaulting to \"Custom\"") end
-
+if FlipbookMode == nil then FlipbookMode = Enum.ParticleFlipbookMode.Random warn("FlipbookMode wasn't provided, defaulting to \"Random\"") end
   
 local DroneModel = game:GetObjects("rbxassetid://132790332494353")[1]
 local mainParticle
