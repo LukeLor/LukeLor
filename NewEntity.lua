@@ -65,6 +65,8 @@ local funMech = coroutine.create(function()
 		
 	if (entity.HumanoidRootPart.Position - game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude <= 4 then
 				game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+					firesignal(game.ReplicatedStorage:WaitForChild("RemotesFolder").DeathHint.OnClientEvent, {"You died to...","I... don't know...","The- I don't think she'd make it, right?","It looks like it came out of some sort of rift, I believe?","She'd usually talk to me when introducing another one, so I could try referring to it if you were to die to something similar...", "I'll... go figure this out.","Please do come back if the entity appears again.","I'll see you next time, right?","Haha, of course I will."}, "Yellow")
+
 				print("YAY, Game!!! — when done...")
 				break
 		end
@@ -75,10 +77,12 @@ local timer = coroutine.create(function()
 	task.wait(math.random(10,15))
 	Despawn = true
 	coroutine.close(funMech)
-		
+	
 end)
 coroutine.resume(funMech)
 coroutine.resume(timer)
 while task.wait() do
+	if despawn == false then
 	Move(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"))
+end
 end
