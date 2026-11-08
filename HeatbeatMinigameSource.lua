@@ -307,5 +307,3 @@ end;
 wait(1)
 minigame(6,nil)
 print("can work After")
-wait(5)
-u1.dead = true
