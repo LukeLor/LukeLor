@@ -1,5 +1,5 @@
 -- Decompiled with the Synapse X Luau decompiler.
-
+-- in maingame
 local v1 = script:FindFirstAncestor("MainUI");
 local v2 = require(game.Players.LocalPlayer:WaitForChild("PlayerScripts"):WaitForChild("PlayerModule")):GetControls();
 local v3 = game["Run Service"];
