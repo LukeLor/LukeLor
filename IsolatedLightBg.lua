@@ -116,12 +116,18 @@ LightOSTEnd.Parent = LightOST
 		Music.Blue.SoundId = LightOST.SoundId
 		Music.Blue.Looped = true
 		Music.Blue.End.SoundId = LightOSTEnd.SoundId
-		while task.wait() do
-			if Music.Blue.Playing == false and Music.Blue.End.Playing == true then
-Music.Blue.End.TimePosition = 0
-				break
-			end
-			end
+	while task.wait() do
+		if Music.Blue.Playing == false then
+			Music.Blue.End.TimePosition = 0
+			Music.Blue.End.Volume= 1
+			Music.Blue.End:Play()
+			print("Music Ended")
+			--task.wait(5)
+			game:GetService("TweenService"):Create(Music.Blue.End, TweenInfo.new(7), {Volume = 0}):Play()
+			print("tween")
+			break
+		end
+	end
 			--CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/LLMuffledNew.mp3", 1, "Little_DeathHint")
 
 end)
