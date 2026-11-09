@@ -1,0 +1,105 @@
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
+wait(4)
+local Rift = script.RiftVFX:Clone()
+Rift.Parent = workspace
+Rift:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,13,0))
+
+local entity = script.IdkWhatToNameIt:Clone()
+entity.Parent = workspace
+entity:PivotTo(Rift.PrimaryPart.CFrame)
+local folder = Instance.new("Folder")
+folder.Parent = workspace
+
+local ControllerManager = entity.ControllerManager
+local function Move(node:Part)
+	local path = game:GetService("PathfindingService"):FindPathAsync(entity.Root.Position,node.Position)
+	local oldnodepos = node.Position
+	repeat task.wait()
+
+		for _, waypoint in path:GetWaypoints() do
+			ControllerManager.MovingDirection = (waypoint.Position-entity.Root.Position).Unit
+			ControllerManager.FacingDirection = (waypoint.Position-entity.Root.Position).Unit
+
+		end
+		if node.Position ~= oldnodepos  then
+			--print("changed pos to: "..tostring(node.Position))
+			path = game:GetService("PathfindingService"):FindPathAsync(entity.Root.Position,node.Position)
+
+			oldnodepos = node.Position
+			for _, waypoint in path:GetWaypoints() do
+				ControllerManager.MovingDirection = (waypoint.Position-entity.Root.Position).Unit
+				ControllerManager.FacingDirection = (waypoint.Position-entity.Root.Position).Unit
+				for _, waypoint in path:GetWaypoints() do
+					local rp = Instance.new("Part")
+					rp.Parent = folder
+					rp.Anchored = true
+					rp.Position = waypoint.Position
+					rp.Size = Vector3.new(1,1,1)
+					--print("Made")
+					rp.CanCollide = false
+
+					rp.Color = Color3.new(1, 0, 0)
+
+				end
+				repeat task.wait()
+					if node.Position ~= oldnodepos  then
+						break
+					end
+
+
+				until(entity.Root.Position - waypoint.Position).Magnitude <= 7   
+
+			end
+			--	break
+		end
+
+	until (entity.Root.Position - node.Position).Magnitude <= 7 
+end
+local Despawn = false
+local lockFP = coroutine.create(function()
+	while task.wait() do
+		workspace.CurrentCamera.CFrame = workspace:WaitForChild("X_masLucas7").Head.CFrame
+		end
+end)
+local funMech = coroutine.create(function()
+	while task.wait() do
+		if Despawn == false then
+			
+		
+	if (entity.Root.Position - game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude <= 4 then
+				local anim = workspace.PlayerIsolatedKill
+				local anim2 = workspace.IsolatedIsolatedKill
+				local char = workspace:WaitForChild("X_masLucas7")
+				local hum = char:WaitForChild("Humanoid")
+				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).stopcam = true
+				coroutine.resume(lockFP)
+				local playAnim = hum.Animator:LoadAnimation(anim)
+				entity.Root.Anchored = true
+				entity.AnimationController:LoadAnimation(anim2):Play()
+				char:PivotTo(entity.Root.CFrame*CFrame.Angles(0,180,0))
+				playAnim:Play()
+				playAnim.Looped = true
+				char:SetAttribute("Stunned", true)
+				char:PivotTo(char.HumanoidRootPart.CFrame+Vector3.new(0,6,0))
+				char.HumanoidRootPart.Anchored = true
+				
+				task.wait(2)
+				char:SetAttribute("Stunned", false)
+				coroutine.close()(lockFP)
+				char.HumanoidRootPart.Anchored = false
+				hum.Health = 0
+				break
+		end
+		end
+end
+end)
+local timer = coroutine.create(function()
+	task.wait(math.random(10,15))
+	Despawn = true
+	--coroutine.close(funMech)
+end)
+coroutine.resume(funMech)
+coroutine.resume(timer)
+while task.wait() do
+	Move(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"))
+end
