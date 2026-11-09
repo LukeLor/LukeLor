@@ -1,10 +1,10 @@
---loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
 wait(4)
 local Rift = script.RiftVFX:Clone()
 Rift.Parent = workspace
 Rift:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,13,0))
 
-local entity = script.IdkWhatToNameIt:Clone()
+local entity = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/IsolatedMoveNew.rbxm?raw=true")
 entity.Parent = workspace
 entity:PivotTo(Rift.PrimaryPart.CFrame)
 local folder = Instance.new("Folder")
