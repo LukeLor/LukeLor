@@ -71,5 +71,29 @@ if drone.Name == "Drone"..DName then
   end
 end
 
+module.PlayAnimPush = function(DroneModel,SpritesheetId, FlipbookLayout, FlipbookMode, FlipbookSizeX, FlipbookSizeY, Squash, DName)
+if SpritesheetId == nil then warn("No Spritesheet was given, can't create Drone. Returning...") return end
+if FlipbookSizeX == nil then FlipbookSizeX = 1 warn("FlipbookSizeX wasn't given, defaulting to 1") end
+if FlipbookSizeY == nil then FlipbookSizeY = 1 warn("FlipbookSizeY wasn't given, defaulting to 1") end
+if FlipbookLayout == nil then FlipbookLayout = Enum.ParticleFlipbookLayout.Custom warn("FlipbookLayout wasn't provided, defaulting to \"Custom\"") end
+if FlipbookMode == nil then FlipbookMode = Enum.ParticleFlipbookMode.Oneshot warn("FlipbookMode wasn't provided, defaulting to \"Oneshot\"") end
+if Squash == nil or typeof(Squash) ~= "NumberSequence" then Squash = NumberSequence.new(0) warn("Squash wasn't given, or type was incorrect... setting Squash to 0..") end
+local mainParticle
+  for _, particle in DroneModel:GetDescendants() do
+    if particle:IsA("ParticleEmitter") then
+mainParticle = particle
+    end
+  end
+  if mainParticle == nil then warn("Particle holder wasn't found for Drone. Returning...") return end
+mainParticle.Texture = SpritesheetId
+mainParticle.Squash = Squash
+mainParticle.FlipbookSizeX = FlipbookSizeX
+mainParticle.FlipbookSizeY = FlipbookSizeY
+mainParticle.FlipbookMode = FlipbookMode
+mainParticle.FlipbookLayout = FlipbookLayout
+print("all set with preload")
+  
+end
+
 return module
 --------Filler to continue typing and fix some typos whenever they're made...
