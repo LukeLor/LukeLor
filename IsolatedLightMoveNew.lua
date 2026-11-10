@@ -1,6 +1,6 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/refs/heads/main/Functions.lua"))()
-wait(4)
-local Rift = script.RiftVFX:Clone()
+wait(2)
+local Rift = LoadCustomInstance("https://github.com/LukeLor/LukeLor/blob/main/TPOT-Rift.rbxm?raw=true")
 Rift.Parent = workspace
 Rift:PivotTo(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame + Vector3.new(0,13,0))
 
@@ -39,7 +39,7 @@ local function Move(node:Part)
 					rp.CanCollide = false
 
 					rp.Color = Color3.new(1, 0, 0)
-
+pe.Transparency = 1
 				end
 				repeat task.wait()
 					if node.Position ~= oldnodepos  then
@@ -67,9 +67,9 @@ local funMech = coroutine.create(function()
 			
 		
 	if (entity.Root.Position - game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude <= 4 then
-				local anim = workspace.PlayerIsolatedKill
-				local anim2 = workspace.IsolatedIsolatedKill
-				local char = workspace:WaitForChild("X_masLucas7")
+				--local anim = workspace.PlayerIsolatedKill
+				--local anim2 = workspace.IsolatedIsolatedKill
+				local char = game.Players.LocalPlayer.Character
 				local hum = char:WaitForChild("Humanoid")
 				require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).stopcam = true
 				game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.ToggleInventory:Fire(false)
