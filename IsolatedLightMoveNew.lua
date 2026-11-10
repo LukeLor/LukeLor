@@ -66,7 +66,7 @@ local funMech = coroutine.create(function()
 		if Despawn == false then
 			
 		
-	if (entity.Root.Position - game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude <= 4 then
+	if (entity.Root.Position - game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude <= 6 then
 				--local anim = workspace.PlayerIsolatedKill
 				--local anim2 = workspace.IsolatedIsolatedKill
 				local char = game.Players.LocalPlayer.Character
@@ -109,6 +109,7 @@ local funMech = coroutine.create(function()
 					l_script_FirstAncestor_0.Jumpscare.Jumpscare_Seek.BackgroundColor3 = Color3.new(0, 0, 0);
 					task.wait(1);
 					l_script_FirstAncestor_0.Jumpscare.Jumpscare_Seek.Visible = false;
+				folder:Destroy()
 				
 			
 				break
