@@ -53,7 +53,10 @@ Module.CheckBalance = function(self, identifier: string): number
         return 0
     end
 end
-
+Module.Display(self, identifier)
+local cloneLabel = game.Players.LocalPlayer.PlayerGui.TopbarUI.Topbar.Boosts:Clone()
+--Imma fill this another time
+end
 Module.ResetCurrency = function(self, identifier: string)
     local config = DecodeConfig()
 
