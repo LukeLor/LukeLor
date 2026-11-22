@@ -76,7 +76,7 @@ entity:SetCallback("OnEnterRoom", function(room, firstTime)
     if firstTime == true then
 			local entityModel = entity.Model
 for i = 0, math.random(4,8), 1 do -- go from 0 to 100 in steps of 2
-    print(i.."th plant pot thrown.") -- print the number
+    print(i,"th/st plant pot thrown.") -- print the number
 local potholder = Instance.new("Part")
 potholder.Position = entitymodel.PrimaryPart.Position
 local pot = game:GetObjects("rbxassetid://121218933252054")[1]
