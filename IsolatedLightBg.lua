@@ -1,3 +1,4 @@
+print("Bg time!!!")
 local Players = game:GetService("Players")
 local SoundService = game:GetService("SoundService")
 local Camera = workspace.CurrentCamera
@@ -36,7 +37,7 @@ function CustomSound(soundLink, vol, sndName)
 	return sound
 end
 
-
+print("Waiting for plr to die")
 Camera.ChildAdded:Connect(function(Child)
     if Child.Name ~= DeathName then return end
     
