@@ -31,7 +31,7 @@ function CustomSound(soundLink, vol, sndName)
     local sound = Instance.new("Sound")
     sound.SoundId = GetGitSound(soundLink, sndName)
     sound.Parent = Music
-    sound.Name = "DeathHint_Sound"
+    sound.Name = "Isolated"
     sound.Volume = vol or 0.5
     --sound:Play()
 	return sound
@@ -46,6 +46,7 @@ Camera.ChildAdded:Connect(function(Child)
             Asset:Destroy()
         end
     end]]
+		print("go, Go, GO!! (Death)")
 local Main = Child:WaitForChild("MainPart")
 local CharAtt = Main:WaitForChild("CharAttach")
 local CharAttBelow = Main:WaitForChild("CharAttachBelow")
@@ -114,6 +115,8 @@ CharAtt.Position = CharAtt.Position + Vector3.new(0.521, 5.681, 2.420)
 local LightOST = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathLoopNew.mp3?raw=true", 1, "Isolated")--NewIsolatedLightDeath
 local LightOSTEnd = CustomSound("https://github.com/LukeLor/LukeLor/blob/main/IsolatedLightDeathEnd.mp3?raw=true", 1, "End")
 LightOSTEnd.Parent = LightOST
+		Music.Blue.PlaybackSpeed = 0.8
+		Music.Blue.End.PlaybackSpeed = 0.8
 		Music.Blue.SoundId = LightOST.SoundId
 		Music.Blue.Looped = true
 		Music.Blue.End.SoundId = LightOSTEnd.SoundId
