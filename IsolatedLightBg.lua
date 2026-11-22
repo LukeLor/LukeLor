@@ -36,11 +36,11 @@ function CustomSound(soundLink, vol, sndName)
     --sound:Play()
 	return sound
 end
-
+local shouldDetect = true
 print("Waiting for plr to die")
 Camera.ChildAdded:Connect(function(Child)
     if Child.Name ~= DeathName then return end
-    
+    if shouldDetect==false then return end
   --[[  for _, Asset in Music:GetChildren() do
         if Asset:IsA("Sound") then
             Asset:Destroy()
@@ -129,6 +129,7 @@ LightOSTEnd.Parent = LightOST
 			--task.wait(5)
 			game:GetService("TweenService"):Create(Music.Blue.End, TweenInfo.new(7), {Volume = 0}):Play()
 			print("tween")
+			shouldDetect = false
 			break
 		end
 	end
