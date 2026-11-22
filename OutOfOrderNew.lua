@@ -18,3 +18,5 @@ local LoopM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/ref
 local EndM = CustomSound("https://raw.githubusercontent.com/LukeLor/LukeLor/refs/heads/main/IsolatedLightDeathEnd.mp3", 1, "IsolatedLightDeathEnd")
 
 local ILChaseHappened = false
+
+require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Something feels off about this floor...", "thought")
