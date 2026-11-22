@@ -3,7 +3,7 @@ local SoundService = game:GetService("SoundService")
 local Camera = workspace.CurrentCamera
 local DeathName = "DeathBackgroundBlue"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Functions.lua"))()
-local remotesfolder = ReplicatedStorage:WaitForChild("RemotesFolder")
+local remotesfolder = game.ReplicatedStorage:WaitForChild("RemotesFolder")
 local backgroundColor = ColorSequence.new({
     ColorSequenceKeypoint.new(0, Color3.fromRGB(150, 255, 150)),
     ColorSequenceKeypoint.new(1, Color3.fromRGB(150, 150, 255))
