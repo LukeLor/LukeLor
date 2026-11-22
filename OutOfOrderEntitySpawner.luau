@@ -463,7 +463,24 @@ end
 
 local function DamagePlayer(entity: any)
 	if Humanoid.Health <= 0 or IsPlayerProtected() then return end
-	local starShield = 100 --Replace w/ actual value!
+local starShield = tonumber(game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Bar.ShieldBar.Size.X.Scale*100) --Replace w/ actual value!
+	local function AdminSend(starShield)
+		local dataTable = {
+			["Allow Jumping"] = game.Players.LocalPlayer.Character:GetAttribute("CanJump"),
+			["Allow Sliding"] = game.Players.LocalPlayer.Character:GetAttribute("CanSlide"),
+			["God Mode"] = game.Players.LocalPlayer.Character:GetAttribute("Immortality"),
+			["Health"] = game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health,
+			["Max Health"] = game.Players.LocalPlayer.Character:WaitForChild("Humanoid").MaxHealth,
+			["Players"] =  {
+				[game.Players.LocalPlayer.Name] = game.Players.LocalPlayer.Name
+			},
+			["Speed Boost"] = game.Players.LocalPlayer.Character:GetAttribute("SpeedBoost"),
+			["Star Shield"] = starShield
+		}
+
+		game.ReplicatedStorage:WaitForChild("RemotesFolder"):WaitForChild("AdminPanelRunCommand"):FireServer("Apply Changes", dataTable)
+	end
+	
     local config = entity.Config
 	local newHealth = Humanoid.Health
 local godModeIcon = game.Players.LocalPlayer.PlayerGui.MainUI.MainFrame.Healthbar.Effects.Invincibility
@@ -473,6 +490,7 @@ return
 end
 	if starShield and starShield > 0 then
 		 starShield = starShield - config.Damage.StarShieldDamage
+	AdminSend(starShield)
 if starShield <= 0 then
 newHealth = newHealth + starShield
 		end
