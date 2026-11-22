@@ -86,7 +86,7 @@ local CONST = {
 				Amount = 125,
                 IgnoreHiding = false,
                 IgnoreStarShield = false,
-                StarShieldDamage = 125
+                StarShieldDamage = 125,
                 IgnoreGodMode = false
 			},
 			Rebounding = {
