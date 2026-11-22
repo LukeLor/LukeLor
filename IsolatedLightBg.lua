@@ -47,6 +47,32 @@ Camera.ChildAdded:Connect(function(Child)
         end
     end]]
 		print("go, Go, GO!! (Death)")
+		MainGame = require(MainGame)
+		--FOV Stuff
+		if MainGame.fovtarget then
+			local ogFov = MainGame.fovtarget
+			task.wait(0.1)
+		MainGame.fovtarget = MainGame.fovtarget + 30
+			local value = Instance.new("NumberValue")
+value.Parent = workspace
+			value.Value= fovtarget
+		game:GetService("TweenService"):Create(value, TweenInfo.new(5),{Value=ogFov}):Play()
+			local c = coroutine.create(function()
+					while task.wait() do
+					MainGame.fovtarget = value.Value
+					end
+				end)
+			local cRun = coroutine.create(function()
+					
+			coroutine.resume(c)
+					task.wait(5)
+					coroutine.close(c)
+					task.wait(1)
+					value:Destroy()
+				end)
+			coroutine.resume(cRun)
+			end
+		print("Main stuff, settle on FOV")
 local Main = Child:WaitForChild("MainPart")
 local CharAtt = Main:WaitForChild("CharAttach")
 local CharAttBelow = Main:WaitForChild("CharAttachBelow")
