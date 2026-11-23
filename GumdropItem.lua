@@ -41,7 +41,7 @@ function HandleUsage(Gumdrop:Tool)
 			xUsed = xUsed - 1
 			Gumdrop:SetAttribute("Stack", xUsed)
 			hum.Parent:SetAttribute("SpeedBoost", math.random(7,13))
-			hum.WalkSpeed = hum.WalkSpeed + hum.Parent:GetAttribute("SpeedBoost")
+		--	hum.WalkSpeed = hum.WalkSpeed + hum.Parent:GetAttribute("SpeedBoost")
 			local PassiveHeal = MakeStatus("rbxassetid://127452134994180", "PassiveHeal")    
 			local Energetic = MakeStatus("rbxassetid://108269020278219", "Energetic")
 			PassiveHeal.Visible = true
