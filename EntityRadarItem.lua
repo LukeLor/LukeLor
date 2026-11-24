@@ -68,10 +68,10 @@ drainBattery = false
     end)
 
 
-while task.wait(0.5) do 
+while task.wait(5) do 
 if drainBattery then
 
-itemModel:SetAttribute("Durability", itemModel:GetAttribute() - 1.5)
+itemModel:SetAttribute("Durability", itemModel:GetAttribute("Durability") - 1.25)
         if itemModel:GetAttribute("Durability") <= slotDur*3 then
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery.Visible = false
 itemModel.Screen.ScreenUI.Frame.Frame.Battery.Battery1.Visible = true
