@@ -63,17 +63,183 @@ local entity = spawner:Create({
 })
 
 ---====== Debug entity ======---
-
+local plantFolder = Instance.new("Folder")
+plantFolder.Parent = workspace
+plantFolder.Name = "PlantsDasher"
+local run = true
 entity:SetCallback("OnSpawned", function()
     print("Entity Spawned.")
 end)
 	
 entity:SetCallback("OnStartMoving", function()
-    print("Entity has started moving")
+    function Plant()
+		local entityModel = entity.Model
+		for i = 0, math.random(4,20), 1 do -- go from 0 to 100 in steps of 2
+			print(i,"th/st plant pot thrown.") -- print the number
+			local potholder = Instance.new("Part")
+			potholder.Position = entityModel.PrimaryPart.Position
+			local pot =script.Potted_Plant:Clone()
+			potholder.Parent = plantFolder
+			pot.Parent = plantFolder
+			potholder.Size = pot.PrimaryPart.Size
+			pot:PivotTo(potholder.CFrame)
+			for _, parts in pairs(pot:GetDescendants()) do
+				if parts:IsA("Part") or parts:IsA("MeshPart") or parts:IsA("BasePart") then
+					parts.Anchored = false
+					local weld = Instance.new("WeldConstraint")
+					weld.Part0 = potholder
+					weld.Part1 = parts
+					weld.Parent = potholder
+				end
+				if parts:IsA("WeldConstraint") or parts:IsA("Weld")then
+					parts:Destroy()
+				end
+			end
+
+			potholder.CanCollide = true
+			potholder.Transparency = 1
+
+
+
+			local initialHeight = 0 -- the initial height of the part
+			local velocitySpread = 10 -- the amount of spread for the initial velocity
+			local upwardForce = 40 -- the upward force to apply to the part
+
+			-- generate a random initial velocity for the part
+			local velocity = Vector3.new(
+				math.random(-velocitySpread, velocitySpread),
+				upwardForce,
+				math.random(-velocitySpread, velocitySpread)
+			)
+
+			-- apply the initial velocity to the part
+			local bodyVelocity = Instance.new("BodyVelocity")
+			bodyVelocity.Velocity = velocity
+			bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge) -- set max force to allow full control of velocity
+			bodyVelocity.P = 5000 -- set P to control how fast the part reaches the desired velocity
+			bodyVelocity.Parent = potholder
+
+			-- add a wait to allow the part to gain some height before disabling the BodyVelocity
+			wait(0.1)
+
+			-- disable the BodyVelocity to let gravity take over
+			bodyVelocity:Destroy()
+			local vanish = coroutine.create(function()
+				task.wait(6)
+				for _, inst in pot:GetDescendants() do
+					inst.CanCollide = false
+					if inst:IsA("BasePart") then
+						game:GetService("TweenService"):Create(inst, TweenInfo.new(4), {Transparency = 1}):Play()
+					end
+				end
+				task.wait(4)
+				potholder:Destroy()
+				pot:Destroy()
+			end)
+			coroutine.resume(vanish)
+		end
+	end
+	function Plant()
+		local entityModel = entity.Model
+		for i = 0, math.random(4,20), 1 do -- go from 0 to 100 in steps of 2
+			print(i,"th/st plant pot thrown.") -- print the number
+			local potholder = Instance.new("Part")
+			potholder.Position = entityModel.PrimaryPart.Position
+			local pot =script.Potted_Plant:Clone()
+			potholder.Parent = plantFolder
+			pot.Parent = plantFolder
+			potholder.Size = pot.PrimaryPart.Size
+			pot:PivotTo(potholder.CFrame)
+			for _, parts in pairs(pot:GetDescendants()) do
+				if parts:IsA("Part") or parts:IsA("MeshPart") or parts:IsA("BasePart") then
+					parts.Anchored = false
+					local weld = Instance.new("WeldConstraint")
+					weld.Part0 = potholder
+					weld.Part1 = parts
+					weld.Parent = potholder
+				end
+				if parts:IsA("WeldConstraint") or parts:IsA("Weld")then
+					parts:Destroy()
+				end
+			end
+
+			potholder.CanCollide = true
+			potholder.Transparency = 1
+
+
+
+			local initialHeight = 0 -- the initial height of the part
+			local velocitySpread = 10 -- the amount of spread for the initial velocity
+			local upwardForce = 40 -- the upward force to apply to the part
+
+			-- generate a random initial velocity for the part
+			local velocity = Vector3.new(
+				math.random(-velocitySpread, velocitySpread),
+				upwardForce,
+				math.random(-velocitySpread, velocitySpread)
+			)
+
+			-- apply the initial velocity to the part
+			local bodyVelocity = Instance.new("BodyVelocity")
+			bodyVelocity.Velocity = velocity
+			bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge) -- set max force to allow full control of velocity
+			bodyVelocity.P = 5000 -- set P to control how fast the part reaches the desired velocity
+			bodyVelocity.Parent = potholder
+
+			-- add a wait to allow the part to gain some height before disabling the BodyVelocity
+			wait(0.1)
+
+			-- disable the BodyVelocity to let gravity take over
+			bodyVelocity:Destroy()
+			local vanish = coroutine.create(function()
+				task.wait(6)
+				for _, inst in pot:GetDescendants() do
+					inst.CanCollide = false
+					if inst:IsA("BasePart") then
+						game:GetService("TweenService"):Create(inst, TweenInfo.new(4), {Transparency = 1}):Play()
+					end
+				end
+				task.wait(4)
+				potholder:Destroy()
+				pot:Destroy()
+			end)
+			coroutine.resume(vanish)
+		end
+	end
+	while task.wait() do
+		if run == false then return end
+		local hitTable = workspace:GetPartsInPart(entity.Model.PrimaryPart)
+		for _, hitInst in hitTable do
+			--print(hitInst.Name)
+			if hitInst.Name == "Door" or hitInst.Name == "DoorHitbox" then
+				print("OMG, OMG")
+				local room = hitInst.Parent
+				--	task.spawn(Plant)
+				if hitInst.Parent.Parent == workspace.CurrentRooms then
+					room = hitInst.Parent.Parent
+				elseif hitInst.Parent.Parent.Parent == workspace.CurrentRooms then
+					room = hitInst.Parent.Parent.Parent
+				elseif hitInst.Parent.Parent.Parent.Parent == workspace.CurrentRooms then
+					room = hitInst.Parent.Parent.Parent.Parent
+				elseif hitInst.Parent.Parent.Parent.Parent.Parent == workspace.CurrentRooms then
+					room = hitInst.Parent.Parent.Parent.Parent.Parent
+				elseif hitInst.Parent.Parent.Parent.Parent.Parent.Parent == workspace.CurrentRooms then
+					room = hitInst.Parent.Parent.Parent.Parent.Parent.Parent
+				
+				end
+				for _, decor in room:GetDescendants() do
+					if decor.Name == "Potted_Plant" then
+						task.spawn(Plant)	
+					end
+				end
+			end
+		end
+
+	end
 end)
 
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
-    if firstTime == true then
+    --[[if firstTime == true then
 			local entityModel = entity.Model
 for i = 0, math.random(4,8), 1 do -- go from 0 to 100 in steps of 2
     print(i,"th/st plant pot thrown.") -- print the number
@@ -129,7 +295,7 @@ end
         print("Entity has entered room: ".. room.Name.. " for the first time")
     else
         print("Entity has entered room: ".. room.Name.. " again")
-    end
+    end]]
 end)
 
 entity:SetCallback("OnLookAt", function(lineOfSight)
