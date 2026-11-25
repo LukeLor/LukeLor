@@ -82,7 +82,7 @@ entity:SetCallback("OnStartMoving", function()
 			print(i,"th/st plant pot thrown.") -- print the number
 			local potholder = Instance.new("Part")
 			potholder.Position = entityModel.PrimaryPart.Position
-			local pot =script.Potted_Plant:Clone()
+			local pot =game:GetObjects("rbxassetid://121218933252054")[1]
 			potholder.Parent = plantFolder
 			pot.Parent = plantFolder
 			potholder.Size = pot.PrimaryPart.Size
